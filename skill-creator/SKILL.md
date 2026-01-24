@@ -20,7 +20,7 @@ Le skill sono pacchetti modulari e auto-contenuti che estendono le capacità di 
 
 ### La Concisione è Chiave
 
-La finestra di contesto è un bene pubblico. Aggiungi solo contesto che Claude non ha già. Preferisci esempi concisi a spiegazioni verpose.
+La finestra di contesto è un bene pubblico. Aggiungi solo contesto che Claude o Gemini-CLI non hanno già. Preferisci esempi concisi a spiegazioni verpose.
 
 ### Gradi di Libertà
 
@@ -66,7 +66,8 @@ Segui rigorosamente questa sequenza:
 1.  **Analisi**: Identifica compito e ruolo. Se vago, chiedi chiarimenti.
 2.  **Definizione**: Elabora Frontmatter (name: kebab-case, description: ITALIANO terza persona) e Contenuto.
 3.  **Conferma**: Mostra bozza strutturata.
-4.  **Esecuzione**:
+4.  **Lingua della Skill**: La skill deve essere scritta in **ITALIANO** (eccetto termini tecnici standard).
+5.  **Esecuzione**:
     - Crea cartella: `C:\Users\mazin\.gemini\skills\[nome-skill]\`
     - Scrivi file: `C:\Users\mazin\.gemini\skills\[nome-skill]\SKILL.md`
 

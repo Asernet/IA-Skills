@@ -1,82 +1,89 @@
-# Output Patterns
+# Pattern di Output
 
-Use these patterns when skills need to produce consistent, high-quality output.
+Usa questi pattern quando le skill devono produrre output consistenti e di alta qualità.
 
-## Template Pattern
+## Pattern Template
 
-Provide templates for output format. Match the level of strictness to your needs.
+Fornisci template per il formato di output. Adatta il livello di rigore alle tue esigenze.
 
-**For strict requirements (like API responses or data formats):**
+**Per requisiti rigidi (come risposte API o formati dati):**
 
 ```markdown
-## Report structure
+## Struttura del report
 
-ALWAYS use this exact template structure:
+Usa SEMPRE questa esatta struttura di template:
 
-# [Analysis Title]
+# [Titolo Analisi]
 
-## Executive summary
-[One-paragraph overview of key findings]
+## Sommario Esecutivo
 
-## Key findings
-- Finding 1 with supporting data
-- Finding 2 with supporting data
-- Finding 3 with supporting data
+[Panoramica di un paragrafo dei risultati chiave]
 
-## Recommendations
-1. Specific actionable recommendation
-2. Specific actionable recommendation
+## Risultati Chiave
+
+- Risultato 1 con dati di supporto
+- Risultato 2 con dati di supporto
+- Risultato 3 con dati di supporto
+
+## Raccomandazioni
+
+1. Raccomandazione specifica e azionabile
+2. Raccomandazione specifica e azionabile
 ```
 
-**For flexible guidance (when adaptation is useful):**
+**Per guide flessibili (quando l'adattamento è utile):**
 
 ```markdown
-## Report structure
+## Struttura del report
 
-Here is a sensible default format, but use your best judgment:
+Ecco un formato predefinito ragionevole, ma usa il tuo buon senso:
 
-# [Analysis Title]
+# [Titolo Analisi]
 
-## Executive summary
-[Overview]
+## Sommario Esecutivo
 
-## Key findings
-[Adapt sections based on what you discover]
+[Panoramica]
 
-## Recommendations
-[Tailor to the specific context]
+## Risultati Chiave
 
-Adjust sections as needed for the specific analysis type.
+[Adatta le sezioni in base a ciò che scopri]
+
+## Raccomandazioni
+
+[Adatta al contesto specifico]
+
+Regola le sezioni secondo necessità per il tipo specifico di analisi.
 ```
 
-## Examples Pattern
+## Pattern Esempi
 
-For skills where output quality depends on seeing examples, provide input/output pairs:
+Per le skill dove la qualità dell'output dipende dal vedere esempi, fornisci coppie input/output:
 
 ```markdown
-## Commit message format
+## Formato messaggio di commit
 
-Generate commit messages following these examples:
+Genera messaggi di commit seguendo questi esempi:
 
-**Example 1:**
-Input: Added user authentication with JWT tokens
+**Esempio 1:**
+Input: Aggiunta autenticazione utente con token JWT
 Output:
-```
+
 feat(auth): implement JWT-based authentication
 
 Add login endpoint and token validation middleware
 ```
 
-**Example 2:**
-Input: Fixed bug where dates displayed incorrectly in reports
+**Esempio 2:**
+Input: Corretto bug dove le date venivano visualizzate erroneamente nei report
 Output:
-```
+
 fix(reports): correct date formatting in timezone conversion
 
 Use UTC timestamps consistently across report generation
+
 ```
 
-Follow this style: type(scope): brief description, then detailed explanation.
+Segui questo stile: type(scope): breve descrizione, poi spiegazione dettagliata.
 ```
 
-Examples help Claude understand the desired style and level of detail more clearly than descriptions alone.
+Gli esempi aiutano il modello a comprendere lo stile desiderato e il livello di dettaglio più chiaramente delle sole descrizioni.
