@@ -1,35 +1,36 @@
-# Component Patterns
+# Pattern Componenti
 
-Modern React component architecture for the application emphasizing type safety, lazy loading, and Suspense boundaries.
+Architettura componenti React moderna per l'applicazione con enfasi su type safety, lazy loading e Suspense boundary.
 
 ---
 
-## React.FC Pattern (PREFERRED)
+## Pattern React.FC (PREFERITO)
 
-### Why React.FC
+### Perché React.FC
 
-All components use the `React.FC<Props>` pattern for:
-- Explicit type safety for props
-- Consistent component signatures
-- Clear prop interface documentation
-- Better IDE autocomplete
+Tutti i componenti usano il pattern `React.FC<Props>` per:
 
-### Basic Pattern
+- Type safety esplicita per le props
+- Firme componenti consistenti
+- Documentazione interfaccia props chiara
+- Migliore autocomplete IDE
+
+### Pattern Base
 
 ```typescript
 import React from 'react';
 
 interface MyComponentProps {
-    /** User ID to display */
+    /** ID utente da visualizzare */
     userId: number;
-    /** Optional callback when action occurs */
+    /** Callback opzionale quando avviene un'azione */
     onAction?: () => void;
 }
 
 export const MyComponent: React.FC<MyComponentProps> = ({ userId, onAction }) => {
     return (
         <div>
-            User: {userId}
+            Utente: {userId}
         </div>
     );
 };
@@ -37,52 +38,52 @@ export const MyComponent: React.FC<MyComponentProps> = ({ userId, onAction }) =>
 export default MyComponent;
 ```
 
-**Key Points:**
-- Props interface defined separately with JSDoc comments
-- `React.FC<Props>` provides type safety
-- Destructure props in parameters
-- Default export at bottom
+**Punti Chiave:**
+
+- Interfaccia props definita separatamente con commenti JSDoc
+- `React.FC<Props>` fornisce type safety
+- Destruttura props nei parametri
+- Export default in fondo
 
 ---
 
-## Lazy Loading Pattern
+## Pattern Lazy Loading
 
-### When to Lazy Load
+### Quando Fare Lazy Load
 
-Lazy load components that are:
-- Heavy (DataGrid, charts, rich text editors)
-- Route-level components
-- Modal/dialog content (not shown initially)
-- Below-the-fold content
+Lazy load componenti che sono:
 
-### How to Lazy Load
+- Pesanti (DataGrid, chart, editor rich text)
+- Componenti a livello route
+- Contenuti modal/dialog (non mostrati inizialmente)
+- Contenuti below-the-fold
+
+### Come Fare Lazy Load
 
 ```typescript
-import React from 'react';
+import React from "react";
 
-// Lazy load heavy component
-const PostDataGrid = React.lazy(() =>
-    import('./grids/PostDataGrid')
-);
+// Lazy load componente pesante
+const PostDataGrid = React.lazy(() => import("./grids/PostDataGrid"));
 
-// For named exports
+// Per export con nome
 const MyComponent = React.lazy(() =>
-    import('./MyComponent').then(module => ({
-        default: module.MyComponent
-    }))
+  import("./MyComponent").then((module) => ({
+    default: module.MyComponent,
+  })),
 );
 ```
 
-**Example from PostTable.tsx:**
+**Esempio da PostTable.tsx:**
 
 ```typescript
 /**
- * Main post table container component
+ * Componente container principale tabella post
  */
 import React, { useState, useCallback } from 'react';
 import { Box, Paper } from '@mui/material';
 
-// Lazy load PostDataGrid to optimize bundle size
+// Lazy load PostDataGrid per ottimizzare bundle size
 const PostDataGrid = React.lazy(() => import('./grids/PostDataGrid'));
 
 import { SuspenseLoader } from '~components/SuspenseLoader';
@@ -102,33 +103,37 @@ export default PostTable;
 
 ---
 
-## Suspense Boundaries
+## Suspense Boundary
 
-### SuspenseLoader Component
+### Componente SuspenseLoader
 
 **Import:**
+
 ```typescript
-import { SuspenseLoader } from '~components/SuspenseLoader';
-// Or
-import { SuspenseLoader } from '@/components/SuspenseLoader';
+import { SuspenseLoader } from "~components/SuspenseLoader";
+// Oppure
+import { SuspenseLoader } from "@/components/SuspenseLoader";
 ```
 
-**Usage:**
+**Utilizzo:**
+
 ```typescript
 <SuspenseLoader>
     <LazyLoadedComponent />
 </SuspenseLoader>
 ```
 
-**What it does:**
-- Shows loading indicator while lazy component loads
-- Smooth fade-in animation
-- Consistent loading experience
-- Prevents layout shift
+**Cosa fa:**
 
-### Where to Place Suspense Boundaries
+- Mostra indicatore loading mentre il componente lazy si carica
+- Animazione fade-in fluida
+- Esperienza loading consistente
+- Previene layout shift
 
-**Route Level:**
+### Dove Posizionare i Suspense Boundary
+
+**Livello Route:**
+
 ```typescript
 // routes/my-route/index.tsx
 const MyPage = lazy(() => import('@/features/my-feature/components/MyPage'));
@@ -142,7 +147,8 @@ function Route() {
 }
 ```
 
-**Component Level:**
+**Livello Componente:**
+
 ```typescript
 function ParentComponent() {
     return (
@@ -156,7 +162,8 @@ function ParentComponent() {
 }
 ```
 
-**Multiple Boundaries:**
+**Boundary Multipli:**
+
 ```typescript
 function Page() {
     return (
@@ -177,46 +184,46 @@ function Page() {
 }
 ```
 
-Each section loads independently, better UX.
+Ogni sezione si carica indipendentemente, UX migliore.
 
 ---
 
-## Component Structure Template
+## Template Struttura Componente
 
-### Recommended Order
+### Ordine Raccomandato
 
 ```typescript
 /**
- * Component description
- * What it does, when to use it
+ * Descrizione componente
+ * Cosa fa, quando usarlo
  */
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { Box, Paper, Button } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
-// Feature imports
+// Import feature
 import { myFeatureApi } from '../api/myFeatureApi';
 import type { MyData } from '~types/myData';
 
-// Component imports
+// Import componenti
 import { SuspenseLoader } from '~components/SuspenseLoader';
 
-// Hooks
+// Hook
 import { useAuth } from '@/hooks/useAuth';
 import { useMuiSnackbar } from '@/hooks/useMuiSnackbar';
 
-// 1. PROPS INTERFACE (with JSDoc)
+// 1. INTERFACCIA PROPS (con JSDoc)
 interface MyComponentProps {
-    /** The ID of the entity to display */
+    /** ID dell'entità da visualizzare */
     entityId: number;
-    /** Optional callback when action completes */
+    /** Callback opzionale quando l'azione completa */
     onComplete?: () => void;
-    /** Display mode */
+    /** Modalità visualizzazione */
     mode?: 'view' | 'edit';
 }
 
-// 2. STYLES (if inline and <100 lines)
+// 2. STILI (se inline e <100 righe)
 const componentStyles: Record<string, SxProps<Theme>> = {
     container: {
         p: 2,
@@ -230,14 +237,14 @@ const componentStyles: Record<string, SxProps<Theme>> = {
     },
 };
 
-// 3. COMPONENT DEFINITION
+// 3. DEFINIZIONE COMPONENTE
 export const MyComponent: React.FC<MyComponentProps> = ({
     entityId,
     onComplete,
     mode = 'view',
 }) => {
-    // 4. HOOKS (in this order)
-    // - Context hooks first
+    // 4. HOOK (in questo ordine)
+    // - Hook context prima
     const { user } = useAuth();
     const { showSuccess, showError } = useMuiSnackbar();
 
@@ -247,16 +254,16 @@ export const MyComponent: React.FC<MyComponentProps> = ({
         queryFn: () => myFeatureApi.getEntity(entityId),
     });
 
-    // - Local state
+    // - Stato locale
     const [selectedItem, setSelectedItem] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState(mode === 'edit');
 
-    // - Memoized values
+    // - Valori memoizzati
     const filteredData = useMemo(() => {
         return data.filter(item => item.active);
     }, [data]);
 
-    // - Effects
+    // - Effect
     useEffect(() => {
         // Setup
         return () => {
@@ -264,7 +271,7 @@ export const MyComponent: React.FC<MyComponentProps> = ({
         };
     }, []);
 
-    // 5. EVENT HANDLERS (with useCallback)
+    // 5. EVENT HANDLER (con useCallback)
     const handleItemSelect = useCallback((itemId: string) => {
         setSelectedItem(itemId);
     }, []);
@@ -272,10 +279,10 @@ export const MyComponent: React.FC<MyComponentProps> = ({
     const handleSave = useCallback(async () => {
         try {
             await myFeatureApi.updateEntity(entityId, { /* data */ });
-            showSuccess('Entity updated successfully');
+            showSuccess('Entità aggiornata con successo');
             onComplete?.();
         } catch (error) {
-            showError('Failed to update entity');
+            showError('Aggiornamento entità fallito');
         }
     }, [entityId, onComplete, showSuccess, showError]);
 
@@ -283,8 +290,8 @@ export const MyComponent: React.FC<MyComponentProps> = ({
     return (
         <Box sx={componentStyles.container}>
             <Box sx={componentStyles.header}>
-                <h2>My Component</h2>
-                <Button onClick={handleSave}>Save</Button>
+                <h2>Il Mio Componente</h2>
+                <Button onClick={handleSave}>Salva</Button>
             </Box>
 
             <Paper sx={{ p: 2 }}>
@@ -296,35 +303,36 @@ export const MyComponent: React.FC<MyComponentProps> = ({
     );
 };
 
-// 7. EXPORT (default export at bottom)
+// 7. EXPORT (default export in fondo)
 export default MyComponent;
 ```
 
 ---
 
-## Component Separation
+## Separazione Componenti
 
-### When to Split Components
+### Quando Dividere i Componenti
 
-**Split into multiple components when:**
-- Component exceeds 300 lines
-- Multiple distinct responsibilities
-- Reusable sections
-- Complex nested JSX
+**Dividi in componenti multipli quando:**
 
-**Example:**
+- Componente supera 300 righe
+- Responsabilità distinte multiple
+- Sezioni riutilizzabili
+- JSX annidato complesso
+
+**Esempio:**
 
 ```typescript
-// ❌ AVOID - Monolithic
+// ❌ EVITA - Monolitico
 function MassiveComponent() {
-    // 500+ lines
-    // Search logic
-    // Filter logic
-    // Grid logic
-    // Action panel logic
+    // 500+ righe
+    // Logica ricerca
+    // Logica filtro
+    // Logica grid
+    // Logica pannello azioni
 }
 
-// ✅ PREFERRED - Modular
+// ✅ PREFERITO - Modulare
 function ParentContainer() {
     return (
         <Box>
@@ -336,48 +344,50 @@ function ParentContainer() {
 }
 ```
 
-### When to Keep Together
+### Quando Tenere Insieme
 
-**Keep in same file when:**
-- Component < 200 lines
-- Tightly coupled logic
-- Not reusable elsewhere
-- Simple presentation component
+**Tieni nello stesso file quando:**
+
+- Componente < 200 righe
+- Logica strettamente accoppiata
+- Non riutilizzabile altrove
+- Componente presentazione semplice
 
 ---
 
-## Export Patterns
+## Pattern Export
 
-### Named Const + Default Export (PREFERRED)
+### Named Const + Default Export (PREFERITO)
 
 ```typescript
 export const MyComponent: React.FC<Props> = ({ ... }) => {
-    // Component logic
+    // Logica componente
 };
 
 export default MyComponent;
 ```
 
-**Why:**
-- Named export for testing/refactoring
-- Default export for lazy loading convenience
-- Both options available to consumers
+**Perché:**
 
-### Lazy Loading Named Exports
+- Named export per testing/refactoring
+- Default export per comodità lazy loading
+- Entrambe le opzioni disponibili ai consumatori
+
+### Lazy Loading Named Export
 
 ```typescript
 const MyComponent = React.lazy(() =>
-    import('./MyComponent').then(module => ({
-        default: module.MyComponent
-    }))
+  import("./MyComponent").then((module) => ({
+    default: module.MyComponent,
+  })),
 );
 ```
 
 ---
 
-## Component Communication
+## Comunicazione Componenti
 
-### Props Down, Events Up
+### Props Giù, Eventi Su
 
 ```typescript
 // Parent
@@ -386,8 +396,8 @@ function Parent() {
 
     return (
         <Child
-            data={data}                    // Props down
-            onSelect={setSelectedId}       // Events up
+            data={data}                    // Props giù
+            onSelect={setSelectedId}       // Eventi su
         />
     );
 }
@@ -401,28 +411,29 @@ interface ChildProps {
 export const Child: React.FC<ChildProps> = ({ data, onSelect }) => {
     return (
         <div onClick={() => onSelect(data[0].id)}>
-            {/* Content */}
+            {/* Contenuto */}
         </div>
     );
 };
 ```
 
-### Avoid Prop Drilling
+### Evita Prop Drilling
 
-**Use context for deep nesting:**
+**Usa context per nesting profondo:**
+
 ```typescript
-// ❌ AVOID - Prop drilling 5+ levels
+// ❌ EVITA - Prop drilling 5+ livelli
 <A prop={x}>
   <B prop={x}>
     <C prop={x}>
       <D prop={x}>
-        <E prop={x} />  // Finally uses it here
+        <E prop={x} />  // Finalmente lo usa qui
       </D>
     </C>
   </B>
 </A>
 
-// ✅ PREFERRED - Context or TanStack Query
+// ✅ PREFERITO - Context o TanStack Query
 const MyContext = createContext<MyData | null>(null);
 
 function Provider({ children }) {
@@ -432,13 +443,13 @@ function Provider({ children }) {
 
 function DeepChild() {
     const data = useContext(MyContext);
-    // Use data directly
+    // Usa data direttamente
 }
 ```
 
 ---
 
-## Advanced Patterns
+## Pattern Avanzati
 
 ### Compound Components
 
@@ -456,15 +467,15 @@ Card.Header = CardHeader;
 Card.Body = CardBody;
 Card.Footer = CardFooter;
 
-// Usage
+// Utilizzo
 <Card>
-    <Card.Header>Title</Card.Header>
-    <Card.Body>Content</Card.Body>
-    <Card.Footer>Actions</Card.Footer>
+    <Card.Header>Titolo</Card.Header>
+    <Card.Body>Contenuto</Card.Body>
+    <Card.Footer>Azioni</Card.Footer>
 </Card>
 ```
 
-### Render Props (Rare, but useful)
+### Render Props (Raro, ma utile)
 
 ```typescript
 interface DataProviderProps {
@@ -476,7 +487,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     return <>{children(data)}</>;
 };
 
-// Usage
+// Utilizzo
 <DataProvider>
     {(data) => <Display data={data} />}
 </DataProvider>
@@ -484,19 +495,21 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
 
 ---
 
-## Summary
+## Riepilogo
 
-**Modern Component Recipe:**
-1. `React.FC<Props>` with TypeScript
-2. Lazy load if heavy: `React.lazy(() => import())`
-3. Wrap in `<SuspenseLoader>` for loading
-4. Use `useSuspenseQuery` for data
-5. Import aliases (@/, ~types, ~components)
-6. Event handlers with `useCallback`
-7. Default export at bottom
-8. No early returns for loading states
+**Ricetta Componente Moderno:**
 
-**See Also:**
-- [data-fetching.md](data-fetching.md) - useSuspenseQuery details
-- [loading-and-error-states.md](loading-and-error-states.md) - Suspense best practices
-- [complete-examples.md](complete-examples.md) - Full working examples
+1. `React.FC<Props>` con TypeScript
+2. Lazy load se pesante: `React.lazy(() => import())`
+3. Wrappa in `<SuspenseLoader>` per loading
+4. Usa `useSuspenseQuery` per dati
+5. Alias import (@/, ~types, ~components)
+6. Event handler con `useCallback`
+7. Default export in fondo
+8. Nessun early return per stati loading
+
+**Vedi Anche:**
+
+- [data-fetching.md](data-fetching.md) - Dettagli useSuspenseQuery
+- [loading-and-error-states.md](loading-and-error-states.md) - Best practice Suspense
+- [complete-examples.md](complete-examples.md) - Esempi completi funzionanti

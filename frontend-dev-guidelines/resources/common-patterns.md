@@ -1,12 +1,12 @@
-# Common Patterns
+# Pattern Comuni
 
-Frequently used patterns for forms, authentication, DataGrid, dialogs, and other common UI elements.
+Pattern usati frequentemente per form, autenticazione, DataGrid, dialog e altri elementi UI comuni.
 
 ---
 
-## Authentication with useAuth
+## Autenticazione con useAuth
 
-### Getting Current User
+### Ottenere l'Utente Corrente
 
 ```typescript
 import { useAuth } from '@/hooks/useAuth';
@@ -14,7 +14,7 @@ import { useAuth } from '@/hooks/useAuth';
 export const MyComponent: React.FC = () => {
     const { user } = useAuth();
 
-    // Available properties:
+    // Proprietà disponibili:
     // - user.id: string
     // - user.email: string
     // - user.username: string
@@ -22,21 +22,21 @@ export const MyComponent: React.FC = () => {
 
     return (
         <div>
-            <p>Logged in as: {user.email}</p>
+            <p>Loggato come: {user.email}</p>
             <p>Username: {user.username}</p>
-            <p>Roles: {user.roles.join(', ')}</p>
+            <p>Ruoli: {user.roles.join(', ')}</p>
         </div>
     );
 };
 ```
 
-**NEVER make direct API calls for auth** - always use `useAuth` hook.
+**MAI fare chiamate API dirette per auth** - usa sempre l'hook `useAuth`.
 
 ---
 
-## Forms with React Hook Form
+## Form con React Hook Form
 
-### Basic Form
+### Form Base
 
 ```typescript
 import { useForm } from 'react-hook-form';
@@ -45,11 +45,11 @@ import { z } from 'zod';
 import { TextField, Button } from '@mui/material';
 import { useMuiSnackbar } from '@/hooks/useMuiSnackbar';
 
-// Zod schema for validation
+// Schema Zod per validazione
 const formSchema = z.object({
-    username: z.string().min(3, 'Username must be at least 3 characters'),
-    email: z.string().email('Invalid email address'),
-    age: z.number().min(18, 'Must be 18 or older'),
+    username: z.string().min(3, 'Username deve avere almeno 3 caratteri'),
+    email: z.string().email('Indirizzo email non valido'),
+    age: z.number().min(18, 'Devi avere almeno 18 anni'),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -69,9 +69,9 @@ export const MyForm: React.FC = () => {
     const onSubmit = async (data: FormData) => {
         try {
             await api.submitForm(data);
-            showSuccess('Form submitted successfully');
+            showSuccess('Form inviato con successo');
         } catch (error) {
-            showError('Failed to submit form');
+            showError('Invio form fallito');
         }
     };
 
@@ -94,14 +94,14 @@ export const MyForm: React.FC = () => {
 
             <TextField
                 {...register('age', { valueAsNumber: true })}
-                label='Age'
+                label='Età'
                 error={!!errors.age}
                 helperText={errors.age?.message}
                 type='number'
             />
 
             <Button type='submit' variant='contained'>
-                Submit
+                Invia
             </Button>
         </form>
     );
@@ -110,14 +110,15 @@ export const MyForm: React.FC = () => {
 
 ---
 
-## Dialog Component Pattern
+## Pattern Componente Dialog
 
-### Standard Dialog Structure
+### Struttura Dialog Standard
 
-From BEST_PRACTICES.md - All dialogs should have:
-- Icon in title
-- Close button (X)
-- Action buttons at bottom
+Da BEST_PRACTICES.md - Tutti i dialog devono avere:
+
+- Icona nel titolo
+- Pulsante chiusura (X)
+- Pulsanti azione in basso
 
 ```typescript
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, IconButton } from '@mui/material';
@@ -136,7 +137,7 @@ export const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, onConfirm }) 
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                         <Info color='primary' />
-                        Dialog Title
+                        Titolo Dialog
                     </Box>
                     <IconButton onClick={onClose} size='small'>
                         <Close />
@@ -145,13 +146,13 @@ export const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, onConfirm }) 
             </DialogTitle>
 
             <DialogContent>
-                {/* Content here */}
+                {/* Contenuto qui */}
             </DialogContent>
 
             <DialogActions>
-                <Button onClick={onClose}>Cancel</Button>
+                <Button onClick={onClose}>Annulla</Button>
                 <Button onClick={onConfirm} variant='contained'>
-                    Confirm
+                    Conferma
                 </Button>
             </DialogActions>
         </Dialog>
@@ -161,21 +162,23 @@ export const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, onConfirm }) 
 
 ---
 
-## DataGrid Wrapper Pattern
+## Pattern Wrapper DataGrid
 
-### Wrapper Component Contract
+### Contratto Componente Wrapper
 
-From BEST_PRACTICES.md - DataGrid wrappers should accept:
+Da BEST_PRACTICES.md - I wrapper DataGrid devono accettare:
 
-**Required Props:**
-- `rows`: Data array
-- `columns`: Column definitions
-- Loading/error states
+**Props Obbligatorie:**
 
-**Optional Props:**
-- Toolbar components
-- Custom actions
-- Initial state
+- `rows`: Array dati
+- `columns`: Definizioni colonne
+- Stati loading/errore
+
+**Props Opzionali:**
+
+- Componenti toolbar
+- Azioni custom
+- Stato iniziale
 
 ```typescript
 import { DataGridPro } from '@mui/x-data-grid-pro';
@@ -203,7 +206,7 @@ export const DataGridWrapper: React.FC<DataGridWrapperProps> = ({
             loading={loading}
             slots={{ toolbar: toolbar ? () => toolbar : undefined }}
             onRowClick={(params) => onRowClick?.(params.row)}
-            // Standard configuration
+            // Configurazione standard
             pagination
             pageSizeOptions={[25, 50, 100]}
             initialState={{
@@ -216,116 +219,121 @@ export const DataGridWrapper: React.FC<DataGridWrapperProps> = ({
 
 ---
 
-## Mutation Patterns
+## Pattern Mutation
 
-### Update with Cache Invalidation
+### Aggiornamento con Invalidazione Cache
 
 ```typescript
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useMuiSnackbar } from '@/hooks/useMuiSnackbar';
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMuiSnackbar } from "@/hooks/useMuiSnackbar";
 
 export const useUpdateEntity = () => {
-    const queryClient = useQueryClient();
-    const { showSuccess, showError } = useMuiSnackbar();
+  const queryClient = useQueryClient();
+  const { showSuccess, showError } = useMuiSnackbar();
 
-    return useMutation({
-        mutationFn: ({ id, data }: { id: number; data: any }) =>
-            api.updateEntity(id, data),
+  return useMutation({
+    mutationFn: ({ id, data }: { id: number; data: any }) =>
+      api.updateEntity(id, data),
 
-        onSuccess: (result, variables) => {
-            // Invalidate affected queries
-            queryClient.invalidateQueries({ queryKey: ['entity', variables.id] });
-            queryClient.invalidateQueries({ queryKey: ['entities'] });
+    onSuccess: (result, variables) => {
+      // Invalida query interessate
+      queryClient.invalidateQueries({ queryKey: ["entity", variables.id] });
+      queryClient.invalidateQueries({ queryKey: ["entities"] });
 
-            showSuccess('Entity updated');
-        },
+      showSuccess("Entità aggiornata");
+    },
 
-        onError: () => {
-            showError('Failed to update entity');
-        },
-    });
+    onError: () => {
+      showError("Aggiornamento entità fallito");
+    },
+  });
 };
 
-// Usage
+// Utilizzo
 const updateEntity = useUpdateEntity();
 
 const handleSave = () => {
-    updateEntity.mutate({ id: 123, data: { name: 'New Name' } });
+  updateEntity.mutate({ id: 123, data: { name: "Nuovo Nome" } });
 };
 ```
 
 ---
 
-## State Management Patterns
+## Pattern Gestione Stato
 
-### TanStack Query for Server State (PRIMARY)
+### TanStack Query per Stato Server (PRIMARIO)
 
-Use TanStack Query for **all server data**:
+Usa TanStack Query per **tutti i dati server**:
+
 - Fetching: useSuspenseQuery
-- Mutations: useMutation
-- Caching: Automatic
-- Synchronization: Built-in
+- Mutation: useMutation
+- Caching: Automatico
+- Sincronizzazione: Built-in
 
 ```typescript
-// ✅ CORRECT - TanStack Query for server data
+// ✅ CORRETTO - TanStack Query per dati server
 const { data: users } = useSuspenseQuery({
-    queryKey: ['users'],
-    queryFn: () => userApi.getUsers(),
+  queryKey: ["users"],
+  queryFn: () => userApi.getUsers(),
 });
 ```
 
-### useState for UI State
+### useState per Stato UI
 
-Use `useState` for **local UI state only**:
-- Form inputs (uncontrolled)
-- Modal open/closed
-- Selected tab
-- Temporary UI flags
+Usa `useState` per **solo stato UI locale**:
+
+- Input form (non controllati)
+- Modal aperto/chiuso
+- Tab selezionata
+- Flag UI temporanei
 
 ```typescript
-// ✅ CORRECT - useState for UI state
+// ✅ CORRETTO - useState per stato UI
 const [modalOpen, setModalOpen] = useState(false);
 const [selectedTab, setSelectedTab] = useState(0);
 ```
 
-### Zustand for Global Client State (Minimal)
+### Zustand per Stato Client Globale (Minimale)
 
-Use Zustand only for **global client state**:
-- Theme preference
-- Sidebar collapsed state
-- User preferences (not from server)
+Usa Zustand solo per **stato client globale**:
+
+- Preferenza tema
+- Stato sidebar collassata
+- Preferenze utente (non da server)
 
 ```typescript
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface AppState {
-    sidebarOpen: boolean;
-    toggleSidebar: () => void;
+  sidebarOpen: boolean;
+  toggleSidebar: () => void;
 }
 
 export const useAppState = create<AppState>((set) => ({
-    sidebarOpen: true,
-    toggleSidebar: () => set((state) => ({ sidebarOpen: !state.sidebarOpen })),
+  sidebarOpen: true,
+  toggleSidebar: () => set((state) => ({ sidebarOpen: !state.sidebarOpen })),
 }));
 ```
 
-**Avoid prop drilling** - use context or Zustand instead.
+**Evita prop drilling** - usa context o Zustand invece.
 
 ---
 
-## Summary
+## Riepilogo
 
-**Common Patterns:**
-- ✅ useAuth hook for current user (id, email, roles, username)
-- ✅ React Hook Form + Zod for forms
-- ✅ Dialog with icon + close button
-- ✅ DataGrid wrapper contracts
-- ✅ Mutations with cache invalidation
-- ✅ TanStack Query for server state
-- ✅ useState for UI state
-- ✅ Zustand for global client state (minimal)
+**Pattern Comuni:**
 
-**See Also:**
-- [data-fetching.md](data-fetching.md) - TanStack Query patterns
-- [component-patterns.md](component-patterns.md) - Component structure
-- [loading-and-error-states.md](loading-and-error-states.md) - Error handling
+- ✅ Hook useAuth per utente corrente (id, email, roles, username)
+- ✅ React Hook Form + Zod per form
+- ✅ Dialog con icona + pulsante chiusura
+- ✅ Contratti wrapper DataGrid
+- ✅ Mutation con invalidazione cache
+- ✅ TanStack Query per stato server
+- ✅ useState per stato UI
+- ✅ Zustand per stato client globale (minimale)
+
+**Vedi Anche:**
+
+- [data-fetching.md](data-fetching.md) - Pattern TanStack Query
+- [component-patterns.md](component-patterns.md) - Struttura componenti
+- [loading-and-error-states.md](loading-and-error-states.md) - Gestione errori
