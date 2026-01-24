@@ -24,7 +24,9 @@ Quando l'utente chiede di "aggiornare la libreria skill", "validare le skill", o
    - Se OK: **Indicizzazione** e **Aggiornamento Vademecum** in Obsidian
    - Se KO: Creazione file **⚠️ Skills Alert.md** in Obsidian con errori
 
-3. Comunica all'utente il risultato finale.
+3. Se tutti i passaggi precedenti di controllo sono ok, quindi non ci sono stati errori fail il push delle skill su github.
+
+4. Comunica all'utente il risultato finale.
 
 ## Vincoli
 
