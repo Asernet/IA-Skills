@@ -1,3 +1,8 @@
+---
+name: prompt-claude-generator
+description: Genera prompt ottimizzati per i modelli Claude (Anthropic), sfruttando tag XML, Chain of Thought e separazione dei contesti.
+---
+
 # Prompt Claude Generator
 
 ## Descrizione
@@ -164,7 +169,7 @@ Prima di generare, verifica presenza di:
 
 **Prompt RICE generato:**
 
-````markdown
+`````markdown
 ## ROLE
 
 Senior Python Developer specializzato in clean code, performance optimization e maintainability. Esperto in PEP8, type system Python 3.10+, e design patterns.
@@ -264,6 +269,7 @@ def calculate_operation(
     return operations[operation](first_operand, second_operand)
 ```
 ````
+`````
 
 ## Modifiche Applicate
 
@@ -278,4 +284,7 @@ def calculate_operation(
 ```
 
 ```
-````
+
+```
+
+```

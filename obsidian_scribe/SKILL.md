@@ -1,3 +1,8 @@
+---
+name: obsidian-scribe
+description: Gestisce le note Obsidian, supportando Frontmatter YAML, tag e formattazione. Usa questa skill quando l'utente vuole salvare o strutturare informazioni in Obsidian.
+---
+
 # Obsidian Scribe
 
 ## Descrizione

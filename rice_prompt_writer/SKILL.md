@@ -1,3 +1,8 @@
+---
+name: rice-prompt-writer
+description: Riformula le richieste utente in prompt strutturati secondo il framework RICE (Role, Instructions, Context, Examples) per massimizzare la qualità dell'output degli LLM.
+---
+
 # Rice Prompt Writer
 
 ## Descrizione
