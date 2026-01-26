@@ -2,7 +2,7 @@
 
 Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 
-## Indice Skills (70)
+## Indice Skills (71)
 
 | Skill | Descrizione |
 | :--- | :--- |
@@ -31,6 +31,7 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[free-tool-strategy]]** | Skill per pianificare, valutare o costruire tool gratuiti a scopo marketing — lead generation, valore SEO o brand awareness. Utilizza quando l'utente menziona engineering as marketing, tool gratuito, calcolatore, generatore o strumento interattivo. |
 | **[[frontend-design]]** | Crea interfacce frontend di alta qualità e design distintivo. Genera codice per componenti web, landing page o dashboard con estetica curata. |
 | **[[frontend-dev-guidelines]]** | Linee guida sviluppo frontend per applicazioni React/TypeScript. Pattern moderni inclusi Suspense, lazy loading, useSuspenseQuery, organizzazione file con directory features, styling MUI v7, TanStack Router e ottimizzazione performance. |
+| **[[gemini_gem_creator]]** | Skill per generare istruzioni ottimizzate per i Gemini Gems seguendo la guida ufficiale di Google. |
 | **[[hosted-agents]]** | Usa questa skill per creare agenti in background, ambienti sandboxed o infrastrutture multi-agente persistenti. |
 | **[[internal-comms]]** | Risorse per scrivere comunicazioni interne aziendali (status report, newsletter, aggiornamenti) nei formati standard. |
 | **[[json-canvas]]** | Crea e modifica file JSON Canvas (.canvas) con nodi e connessioni. Utile per mind map o diagrammi in Obsidian. |
@@ -78,4 +79,4 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-26 21:49_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-26 22:18_
