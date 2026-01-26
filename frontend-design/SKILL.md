@@ -18,7 +18,7 @@ Prima di codificare, capisci il contesto e impegnati in una direzione estetica A
 
 **CRITICO**: Scegli una direzione concettuale chiara ed eseguila con precisione. Massimalismo audace e minimalismo raffinato funzionano entrambi - la chiave è l'intenzionalità, non l'intensità.
 
-Poi implementa codice funzionante (HTML/CSS/JS, React, Vue, ecc.) che è:
+Poi implementa codice funzionante (HTML/CSS/JS, React, Vue, ecc.) compatibile con host cpanel base php-mysql che è:
 
 - Di grado produzione e funzionale
 - Visivamente sorprendente e memorabile
@@ -39,6 +39,16 @@ MAI usare estetiche generiche generate da AI come famiglie di font sovrausate (I
 
 Interpreta creativamente e fai scelte inaspettate che sembrano genuinamente progettate per il contesto. Nessun design dovrebbe essere lo stesso. Varia tra temi chiari e scuri, font diversi, estetiche diverse. MAI convergere su scelte comuni (Space Grotesk, per esempio) attraverso generazioni.
 
-**IMPORTANTE**: Combacia la complessità dell'implementazione alla visione estetica. I design massimalisti necessitano codice elaborato con animazioni ed effetti estesi. Design minimalisti o raffinati necessitano moderazione, precisione e attenta attenzione a spaziatura, tipografia e dettagli sottili. L'eleganza viene dall'eseguire bene la visione.
+## STEP FINALE
 
-Ricorda: Claude è capace di lavoro creativo straordinario. Non trattenerti, mostra cosa può essere veramente creato pensando fuori dagli schemi e impegnandosi pienamente in una visione distintiva.
+Quando hai finito la preparazione:
+
+- **FAI IL BUILS**: Esegui il build del progetto, e prepara tutto per essere uploadato sul server.
+- **SEGNALA COSE MANCANTI**: Segnala se manca qualcosa che va inserita manualmente o scelta dall'utente (immagini, loghi, favincon, colori ecc.)
+- **DESCRIVI I PASSAGI DI PUBBLICAZIONE**: Scrivi nel Walkthrough cosa deve essere caricato sul server per pubblicare il lavoro.
+
+**IMPORTANTE**: 
+	- Combacia la complessità dell'implementazione alla visione estetica. I design massimalisti necessitano codice elaborato con animazioni ed effetti estesi. Design minimalisti o raffinati necessitano moderazione, precisione e attenta attenzione a spaziatura, tipografia e dettagli sottili. L'eleganza viene dall'eseguire bene la visione.
+	- Il lavoro deve essere completo e **NON RICHIEDERE** l'utilizzo di server node o altro, **DEVE ESSERE** semplice html che posso caricare su un host senza compilare o aggiungere software
+
+Ricorda: Claude/Gemini sono capaci di lavoro creativo straordinario. Non trattenerti, mostra cosa può essere veramente creato pensando fuori dagli schemi e impegnandosi pienamente in una visione distintiva.
