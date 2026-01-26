@@ -44,6 +44,21 @@ Usa `google_web_search` con query precise.
   - `site:linkedin.com/in "Mario Rossi" Milano`
   - `"mario.rossi@techcorp.it"`
   - `TechCorp Italia fatturato dipendenti settore`
+  
+### 3a. DEEP DIVE - The Harvester (Opzionale)
+Se mancano email o sottodomini, attiva lo script `theHarvester` incluso nella skill.
+
+**Comando:**
+`python scripts/harvest.py -d <dominio> -b <source> -l <limit>`
+
+**Parametri:**
+- `-d`: Il dominio target (es. `apple.com`).
+- `-b`: La fonte dati. Consigliati: `google`, `bing`, `duckduckgo`, `urlscan`, `crtsh`. Usa `all` con cautela (lento).
+- `-l`: Limite risultati (default 500, usa 20-50 per test veloci).
+
+**Esempio:**
+`python scripts/harvest.py -d openai.com -b google -l 20`
+
 
 ### 4. SINTESI - Output Strutturato
 
