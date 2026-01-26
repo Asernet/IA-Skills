@@ -22,7 +22,7 @@ from datetime import datetime
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 SCRIPTS_DIR = os.path.join(BASE_DIR, "scripts")
 SKILLS_DIR = os.path.join(BASE_DIR, "skills")
-OBSIDIAN_ALERT_PATH = r"C:\Users\mazin\ObsidianWork\Gemini\⚠️ Skills Alert.md"
+
 
 def validate_skills():
     """Valida tutte le skill e restituisce (success, errors)"""
@@ -67,12 +67,6 @@ def generate_index():
     script_path = os.path.join(SCRIPTS_DIR, "generate_index.py")
     subprocess.run([sys.executable, script_path], check=True)
 
-def update_vademecum():
-    """Esegue update_vademecum.py"""
-    print("\n📝 Aggiornamento Vademecum Obsidian...")
-    import subprocess
-    script_path = os.path.join(SCRIPTS_DIR, "update_vademecum.py")
-    subprocess.run([sys.executable, script_path], check=True)
 
 def create_alert_file(errors):
     """Crea file di alert in Obsidian con gli errori"""

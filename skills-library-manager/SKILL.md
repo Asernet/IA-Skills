@@ -16,12 +16,11 @@ Quando l'utente chiede di "aggiornare la libreria skill", "validare le skill", o
 1. Esegui lo script:
 
    ```bash
-   python "C:\Users\mazin\.gemini\skills\skills-library-manager\scripts\manage_library.py"
+   python "/skills/skills-library-manager/scripts/manage_library.py"
    ```
 
 2. Lo script esegue automaticamente:
    - **Validazione** di tutte le skill (struttura SKILL.md)
-   - Se OK: **Indicizzazione** e **Aggiornamento Vademecum** in Obsidian
    - Se KO: Creazione file **⚠️ Skills Alert.md** in Obsidian con errori
 
 3. Se tutti i passaggi precedenti di controllo sono ok, quindi non ci sono stati errori fail il push delle skill su github.
