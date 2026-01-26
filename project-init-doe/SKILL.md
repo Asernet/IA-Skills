@@ -16,7 +16,7 @@ Questa skill automatizza la creazione della struttura standard per i progetti Vi
 
 1. Fornisci il percorso assoluto della cartella del progetto.
 2. Analizza il file INSTRUCTIION.md che contiene le direttive indissolubili da seguire
-3 Richiama lo script di inizializzazione e verifica se è conforme alle istruzioni fornite.
+3. Richiama lo script di inizializzazione e verifica se è conforme alle istruzioni fornite.
 
 ## Parametri
 
@@ -25,5 +25,5 @@ Questa skill automatizza la creazione della struttura standard per i progetti Vi
 ## Workflow
 
 1. L'agente verifica l'esistenza della cartella.
-2. Esegue `python C:\Users\mazin\.gemini\skills\project-init-doe\scripts\init_project.py --path <project_path>`.
+2. Esegue `python C:\Users\mazin\.gemini\skills\project-init-doe\scripts\init_project.py --path <project_path>`, e mantiene le logiche e le direttive di INSTRUCTION.md
 3. Informa l'utente del completamento.
