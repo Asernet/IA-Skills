@@ -28,7 +28,22 @@ Il processo è sequenziale e richiede la tua approvazione tra le fasi.
 ### 1️⃣ FASE 1: Strategia & Analisi
 Agente: brand-architect Obiettivo: Creare il "Brand Identity Blueprint".
 
-Input: Fornisci all'agente le note grezze, il sito web o la trascrizione della call col cliente.
+Come fornire l'Input:
+Hai due modalità per avviare questa fase. Scegli quella più adatta:
+
+OPZIONE A: Brief Esistente Se il cliente ha già fornito documentazione, scrivi:
+
+"Attiva @brand-architect. Ecco il documento di brief del cliente [Nome]..."
+
+OPZIONE B: Intervista Strategica (Consigliata) Se devi costruire il brand da zero, raccogli le risposte a queste 4 domande chiave e passale all'agente:
+
+1. Identità e Purpose (Visione Interna) Perché la vostra azienda esiste oltre al fare profitto? Se domani chiudeste, cosa mancherebbe al mondo? Cosa fate concretamente ogni giorno per raggiungere questo ideale (Mission)?
+
+2. Personalità (Party Metaphor) Se il brand entrasse in una stanza per una festa, come si comporterebbe? Sarebbe al centro dell'attenzione a raccontare barzellette (Intrattenitore), in un angolo ad ascoltare (Saggio/Empatico), o organizzerebbe i drink per tutti (Leader/Curatore)?
+
+3. Analisi Mercato & PODs Perché un cliente dovrebbe scegliere voi e NON il vostro concorrente più forte? C'è qualcosa che i vostri competitor fanno e che voi vi rifiutate categoricamente di fare?
+
+4. Sintesi Strategica Qual è il singolo problema principale che risolvete e come si sente il cliente DOPO aver usato il vostro prodotto?
 
 "Attiva @brand-architect per il cliente [Nome]. Ecco le info..."
 
