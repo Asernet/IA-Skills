@@ -78,4 +78,4 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-28 21:05_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-28 21:29_
