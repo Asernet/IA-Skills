@@ -1,0 +1,370 @@
+{
+  "generated_at": "2026-01-28T17:45:33.448838",
+  "skills": [
+    {
+      "name": "advanced-evaluation",
+      "description": "Usa questa skill per implementare 'LLM-as-judge', confrontare output di modelli, creare rubriche di valutazione, mitigare bias di valutazione, o per scoring diretto e pipeline di quality assessment.",
+      "folder": "advanced-evaluation"
+    },
+    {
+      "name": "algorithmic-art",
+      "description": "Creazione di arte algoritmica con p5.js. Usa questa skill per generare arte tramite codice, flow fields o sistemi particellari. Crea design originali evitando violazioni di copyright.",
+      "folder": "algorithmic-art"
+    },
+    {
+      "name": "analytics-tracking",
+      "description": "Imposta, migliora e verifica il tracciamento analytics e la misurazione dei dati. Utilizzare quando l'utente menziona \"configurare tracking\", \"GA4\", \"Google Analytics\", \"tracciamento conversioni\", \"tracciamento eventi\", \"parametri UTM\", \"tag manager\", \"GTM\", \"implementazione analytics\" o \"piano di tracciamento\".",
+      "folder": "analytics-tracking"
+    },
+    {
+      "name": "analytics-tracking-analyzer",
+      "description": "Analizza siti web per tracciamenti esterni e suggerisce configurazioni GTM. Usa quando l'utente vuole audit SEO/Analytics o configurare GTM.",
+      "folder": "analytics-tracking-analyzer"
+    },
+    {
+      "name": "bdi-mental-states",
+      "description": "Usa questa skill per modellare stati mentali di agenti, architetture BDI (Belief-Desire-Intention), o integrazione AI neuro-simbolica.",
+      "folder": "bdi-mental-states"
+    },
+    {
+      "name": "brainstorming",
+      "description": "OBBLIGATORIO prima di qualsiasi lavoro creativo o implementativo. Esplora l'intento dell'utente, i requisiti e il design prima di iniziare a scrivere codice.",
+      "folder": "brainstorming"
+    },
+    {
+      "name": "brand-forge",
+      "description": "Suite completa per la creazione di Brand Identity, dall'analisi strategica di mercato (Blueprint) alla generazione di visual identity (Logo e Concept Defense).",
+      "folder": "brand-forge"
+    },
+    {
+      "name": "brand-guidelines",
+      "description": "Gestisce dinamicamente l'identità del brand. Verifica l'esistenza di dati di brand (Colori, Font) e, se mancanti, interroga l'utente per crearli.",
+      "folder": "brand-guidelines"
+    },
+    {
+      "name": "canvas-design",
+      "description": "Crea arte visiva in .png e .pdf. Usa per poster, design statici o arte, creando opere originali.",
+      "folder": "canvas-design"
+    },
+    {
+      "name": "context-compression",
+      "description": "Usa questa skill per comprimere il contesto, riassumere la cronologia, ridurre l'uso di token o gestire sessioni lunghe.",
+      "folder": "context-compression"
+    },
+    {
+      "name": "context-degradation",
+      "description": "Usa questa skill per diagnosticare problemi di contesto, 'lost-in-middle', o degradazione delle performance dell'agente.",
+      "folder": "context-degradation"
+    },
+    {
+      "name": "context-fundamentals",
+      "description": "Usa questa skill per comprendere e spiegare finestre di contesto, architetture di agenti e meccanismi di attenzione.",
+      "folder": "context-fundamentals"
+    },
+    {
+      "name": "context-optimization",
+      "description": "Usa questa skill per ottimizzare l'uso del contesto, ridurre i costi dei token e migliorare l'efficienza.",
+      "folder": "context-optimization"
+    },
+    {
+      "name": "copy-editing",
+      "description": "Skill per la revisione, modifica e miglioramento di copy marketing esistenti. Utilizza quando l'utente chiede di editare, rivedere o migliorare copy, o menziona feedback sul copy, proofreading, o revisione sistematica.",
+      "folder": "copy-editing"
+    },
+    {
+      "name": "copywriting",
+      "description": "Skill per scrivere, riscrivere o migliorare copy marketing per qualsiasi pagina — homepage, landing page, pagine pricing, feature, about o prodotto. Utilizza quando l'utente chiede di scrivere copy, migliorare testi, headline o CTA.",
+      "folder": "copywriting"
+    },
+    {
+      "name": "data-enricher",
+      "description": "Investigatore digitale OSINT specializzato in business intelligence. Raccoglie, verifica e sintetizza informazioni pubbliche per costruire profili professionali completi e verificati.",
+      "folder": "data-enricher"
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "description": "Usa quando hai 2+ task indipendenti che possono essere eseguiti senza stato condiviso o dipendenze sequenziali.",
+      "folder": "dispatching-parallel-agents"
+    },
+    {
+      "name": "doc-coauthoring",
+      "description": "Workflow strutturato per co-autore documentazione, proposte o specifiche tecniche. Aiuta a trasferire contesto e raffinare i contenuti.",
+      "folder": "doc-coauthoring"
+    },
+    {
+      "name": "docker-expert",
+      "description": "Esperto di containerizzazione Docker con conoscenza approfondita di build multi-stage, ottimizzazione immagini, sicurezza container, orchestrazione Docker Compose e pattern di deployment in produzione.",
+      "folder": "docker-expert"
+    },
+    {
+      "name": "docx",
+      "description": "Creazione, modifica e analisi di documenti .docx con supporto per revisioni, commenti e formattazione.",
+      "folder": "docx"
+    },
+    {
+      "name": "evaluation",
+      "description": "Usa questa skill per valutare le performance dell'agente, creare framework di test o metriche di qualità.",
+      "folder": "evaluation"
+    },
+    {
+      "name": "executing-plans",
+      "description": "Usa quando hai un piano di implementazione scritto da eseguire in una sessione separata con checkpoint di revisione.",
+      "folder": "executing-plans"
+    },
+    {
+      "name": "filesystem-context",
+      "description": "Usa questa skill per offloadare il contesto su file, usare il filesystem come memoria o persistenza output.",
+      "folder": "filesystem-context"
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "description": "Usa quando l'implementazione è completa e i test passano, per decidere come integrare il lavoro (merge, PR, cleanup).",
+      "folder": "finishing-a-development-branch"
+    },
+    {
+      "name": "free-tool-strategy",
+      "description": "Skill per pianificare, valutare o costruire tool gratuiti a scopo marketing — lead generation, valore SEO o brand awareness. Utilizza quando l'utente menziona engineering as marketing, tool gratuito, calcolatore, generatore o strumento interattivo.",
+      "folder": "free-tool-strategy"
+    },
+    {
+      "name": "frontend-design",
+      "description": "Crea interfacce frontend di alta qualità e design distintivo. Genera codice per componenti web, landing page o dashboard con estetica curata.",
+      "folder": "frontend-design"
+    },
+    {
+      "name": "frontend-dev-guidelines",
+      "description": "Linee guida sviluppo frontend per applicazioni React/TypeScript. Pattern moderni inclusi Suspense, lazy loading, useSuspenseQuery, organizzazione file con directory features, styling MUI v7, TanStack Router e ottimizzazione performance.",
+      "folder": "frontend-dev-guidelines"
+    },
+    {
+      "name": "gemini_gem_creator",
+      "description": "Skill per generare istruzioni ottimizzate per i Gemini Gems seguendo la guida ufficiale di Google.",
+      "folder": "gemini_gem_creator"
+    },
+    {
+      "name": "hosted-agents",
+      "description": "Usa questa skill per creare agenti in background, ambienti sandboxed o infrastrutture multi-agente persistenti.",
+      "folder": "hosted-agents"
+    },
+    {
+      "name": "internal-comms",
+      "description": "Risorse per scrivere comunicazioni interne aziendali (status report, newsletter, aggiornamenti) nei formati standard.",
+      "folder": "internal-comms"
+    },
+    {
+      "name": "json-canvas",
+      "description": "Crea e modifica file JSON Canvas (.canvas) con nodi e connessioni. Utile per mind map o diagrammi in Obsidian.",
+      "folder": "json-canvas"
+    },
+    {
+      "name": "mcp-builder",
+      "description": "Guida per creare server MCP (Model Context Protocol) di alta qualità per integrare servizi esterni con LLM.",
+      "folder": "mcp-builder"
+    },
+    {
+      "name": "memory-systems",
+      "description": "Usa questa skill per implementare memoria per agenti, persistenza tra sessioni o knowledge graph.",
+      "folder": "memory-systems"
+    },
+    {
+      "name": "multi-agent-patterns",
+      "description": "Usa questa skill per progettare sistemi multi-agente, pattern supervisore, swarm o coordinamento tra agenti.",
+      "folder": "multi-agent-patterns"
+    },
+    {
+      "name": "n8n-flow-generator",
+      "description": "Agente specialista n8n che analizza richieste utente per creare o ottimizzare flussi n8n, producendo prompt tecnici dettagliati per l'automazione.",
+      "folder": "n8n-flow-generator"
+    },
+    {
+      "name": "notebooklm",
+      "description": "Interroga roadmap e notebook di Google NotebookLM per risposte basate su fonti e citazioni verificate.",
+      "folder": "notebooklm"
+    },
+    {
+      "name": "obsidian-bases",
+      "description": "Crea e modifica Obsidian Bases (.base) per viste database, filtri e formule nelle note.",
+      "folder": "obsidian-bases"
+    },
+    {
+      "name": "obsidian-manager",
+      "description": "Gestisce il Vault Obsidian (creazione note formattate) e fornisce riferimento per sintassi Markdown avanzata.",
+      "folder": "obsidian-manager"
+    },
+    {
+      "name": "pdf",
+      "description": "Toolkit completo per manipolazione PDF: estrazione testo/tabelle, creazione, unione/divisione e gestione moduli.",
+      "folder": "pdf"
+    },
+    {
+      "name": "planning-with-files",
+      "description": "Implementa pianificazione basata su file (stile Manus) per task complessi. Crea task_plan.md, findings.md e progress.md.",
+      "folder": "planning-with-files"
+    },
+    {
+      "name": "pptx",
+      "description": "Creazione, modifica e analisi di presentazioni .pptx, inclusi layout e note del relatore.",
+      "folder": "pptx"
+    },
+    {
+      "name": "project-development",
+      "description": "Usa questa skill per avviare progetti LLM, pipeline batch, o strutturare architetture di progetti basati su agenti.",
+      "folder": "project-development"
+    },
+    {
+      "name": "project-init-doe",
+      "description": "Inizializza un nuovo progetto seguendo l'architettura a 3 livelli (DOE) definita in GEMINI.md.",
+      "folder": "project-init-doe"
+    },
+    {
+      "name": "prompt-claude-generator",
+      "description": "Genera prompt ottimizzati per i modelli Claude (Anthropic), sfruttando tag XML, Chain of Thought e separazione dei contesti.",
+      "folder": "prompt-claude-generator"
+    },
+    {
+      "name": "prompt-engineer",
+      "description": "Esperto nella progettazione di prompt efficaci per applicazioni LLM. Padroneggia struttura prompt, gestione contesto, formattazione output e valutazione prompt. Utilizza per prompt engineering, system prompt, few-shot, chain of thought, design prompt.",
+      "folder": "prompt-engineer"
+    },
+    {
+      "name": "prompt-engineering",
+      "description": "Guida esperta su pattern prompt engineering, best practice e tecniche di ottimizzazione. Utilizza quando l'utente vuole migliorare prompt, imparare strategie di prompting o debuggare comportamento agente.",
+      "folder": "prompt-engineering"
+    },
+    {
+      "name": "prompt-library",
+      "description": "Collezione curata di prompt di alta qualità per vari casi d'uso. Include prompt basati su ruoli, template task-specifici e tecniche di raffinamento prompt. Utilizza quando servono template prompt, prompt role-play o esempi pronti all'uso.",
+      "folder": "prompt-library"
+    },
+    {
+      "name": "rag-engineer",
+      "description": "Esperto nella costruzione di sistemi Retrieval-Augmented Generation. Padroneggia modelli embedding, database vettoriali, strategie chunking e ottimizzazione retrieval per applicazioni LLM. Utilizza per RAG, ricerca vettoriale, embedding, ricerca semantica.",
+      "folder": "rag-engineer"
+    },
+    {
+      "name": "rag-implementation",
+      "description": "Pattern Retrieval-Augmented Generation inclusi chunking, embedding, vector store e ottimizzazione retrieval. Utilizza per RAG, retrieval augmented, ricerca vettoriale, embedding, ricerca semantica.",
+      "folder": "rag-implementation"
+    },
+    {
+      "name": "receiving-code-review",
+      "description": "Usa quando ricevi feedback di code review, per verificare rigorosamente i suggerimenti prima di implementarli.",
+      "folder": "receiving-code-review"
+    },
+    {
+      "name": "requesting-code-review",
+      "description": "Usa prima di completare task o merge, per verificare che il lavoro soddisfi i requisiti.",
+      "folder": "requesting-code-review"
+    },
+    {
+      "name": "rice-prompt-writer",
+      "description": "Riformula le richieste utente in prompt strutturati secondo il framework RICE (Role, Instructions, Context, Examples) per massimizzare la qualità dell'output degli LLM.",
+      "folder": "rice-prompt-writer"
+    },
+    {
+      "name": "seo-audit",
+      "description": "Skill per audit, revisione o diagnosi problemi SEO su un sito. Utilizza quando l'utente menziona audit SEO, SEO tecnico, perché non mi posiziono, problemi SEO, on-page SEO, review meta tag o health check SEO.",
+      "folder": "seo-audit"
+    },
+    {
+      "name": "seo-fundamentals",
+      "description": "Fondamentali SEO, E-E-A-T, Core Web Vitals e principi algoritmo Google. Skill di riferimento per best practice SEO di base.",
+      "folder": "seo-fundamentals"
+    },
+    {
+      "name": "skill-creator",
+      "description": "Guida completa alla progettazione di skill ed agente generatore per creare nuove skill nell'ambiente Gemini CLI.",
+      "folder": "skill-creator"
+    },
+    {
+      "name": "skills-library-manager",
+      "description": "Gestisce la libreria delle skill eseguendo validazione, indicizzazione e aggiornamento del Vademecum in Obsidian.",
+      "folder": "skills-library-manager"
+    },
+    {
+      "name": "slack-gif-creator",
+      "description": "Crea GIF animate ottimizzate per Slack partendo da richieste dell'utente.",
+      "folder": "slack-gif-creator"
+    },
+    {
+      "name": "social-content",
+      "description": "Skill per creare, schedulare o ottimizzare contenuti social media per LinkedIn, Twitter/X, Instagram, TikTok, Facebook o altre piattaforme. Utilizza per post LinkedIn, thread Twitter, calendar contenuti, scheduling, engagement o contenuti virali.",
+      "folder": "social-content"
+    },
+    {
+      "name": "subagent-driven-development",
+      "description": "Usa per eseguire piani di implementazione con task indipendenti nella sessione corrente tramite sub-agenti.",
+      "folder": "subagent-driven-development"
+    },
+    {
+      "name": "systematic-debugging",
+      "description": "Usa quando incontri bug o fallimenti di test, per un approccio sistematico alla risoluzione prima di proporre fix.",
+      "folder": "systematic-debugging"
+    },
+    {
+      "name": "test-driven-development",
+      "description": "Usa durante l'implementazione di feature o fix, scrivendo i test prima del codice.",
+      "folder": "test-driven-development"
+    },
+    {
+      "name": "theme-factory",
+      "description": "Crea temi per stilizzare artefatti (slide, doc, html). Usa preset o genera nuovi temi on-the-fly.",
+      "folder": "theme-factory"
+    },
+    {
+      "name": "tool-design",
+      "description": "Usa questa skill per progettare tool per agenti, definire interfacce o consolidare strumenti esistenti.",
+      "folder": "tool-design"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "description": "Intelligenza di design UI/UX avanzata. Genera palette, font pairing e codice per interfacce moderne e accessibili.",
+      "folder": "ui-ux-pro-max"
+    },
+    {
+      "name": "using-git-worktrees",
+      "description": "Usa per iniziare lavori su feature che richiedono isolamento, creando worktree git separati.",
+      "folder": "using-git-worktrees"
+    },
+    {
+      "name": "using-superpowers",
+      "description": "Usa all'inizio di ogni conversazione per stabilire come trovare e invocare le skill.",
+      "folder": "using-superpowers"
+    },
+    {
+      "name": "verification-before-completion",
+      "description": "Usa prima di dichiarare un lavoro finito. Richiede esecuzione di comandi di verifica e conferma output.",
+      "folder": "verification-before-completion"
+    },
+    {
+      "name": "web-artifacts-builder",
+      "description": "Crea artefatti HTML complessi multi-componente (React, Tailwind, shadcn/ui) per applicazioni web.",
+      "folder": "web-artifacts-builder"
+    },
+    {
+      "name": "web-design-guidelines",
+      "description": "Rivedi codice UI per conformità alle Web Interface Guidelines. Utilizza quando l'utente chiede di revisionare la UI, controllare accessibilità, audit design, review UX o controllare il sito rispetto alle best practice.",
+      "folder": "web-design-guidelines"
+    },
+    {
+      "name": "webapp-testing",
+      "description": "Toolkit per testare applicazioni web locali con Playwright: verifica UI, screenshot e debug.",
+      "folder": "webapp-testing"
+    },
+    {
+      "name": "writing-plans",
+      "description": "Usa quando hai specifiche per un task multi-step, per creare un piano dettagliato prima di scrivere codice.",
+      "folder": "writing-plans"
+    },
+    {
+      "name": "writing-skills",
+      "description": "Usa per creare, modificare o verificare skill (Compatibile Gemini & Claude).",
+      "folder": "writing-skills"
+    },
+    {
+      "name": "xlsx",
+      "description": "Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione.",
+      "folder": "xlsx"
+    }
+  ]
+}
