@@ -28,7 +28,7 @@ Quando analizzi un URL (`<URL>`):
 
 ### 2. Generazione Output Pack
 Al termine dell'analisi, DEVI creare una cartella sul Desktop dell'utente:
-`C:\Users\M.Macelloni\Desktop\[dominio-sito]\` (es. `Desktop\asernet.it\`).
+`C:\Users\M.Macelloni\Desktop\Progetti\[dominio-sito]\GDPR-compliance` (es. `Desktop\Progetti\asernet.it\GDPR-compliance`).
 
 All'interno di questa cartella, genera i seguenti 4 file:
 
@@ -69,7 +69,7 @@ Una guida passo-passo per gli sviluppatori su come bonificare il codice sorgente
 1.  **Test Pre-Click**: Rilevato `_ga` (Google Analytics) -> **VIOLAZIONE**.
 2.  **Test Post-Click**: Rilevato Meta Pixel.
 
-Genero il pacchetto su `Desktop\asernet.it\`...
+Genero il pacchetto su `Desktop\Progetti\asernet.it\GDPR-compliance`...
 -   [x] `ANALISI_GDPR.md` (Criticità: GA4 parte senza consenso)
 -   [x] `gtm_config.json` (Configurazione corretta con trigger 'Initialization')
 -   [x] `README_GTM.md`
