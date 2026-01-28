@@ -67,7 +67,7 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[test-driven-development]]** | Usa durante l'implementazione di feature o fix, scrivendo i test prima del codice. |
 | **[[theme-factory]]** | Crea temi per stilizzare artefatti (slide, doc, html). Usa preset o genera nuovi temi on-the-fly. |
 | **[[tool-design]]** | Usa questa skill per progettare tool per agenti, definire interfacce o consolidare strumenti esistenti. |
-| **[[ui-ux-pro-max]]** | Intelligenza di design UI/UX avanzata. Genera palette, font pairing e codice per interfacce moderne e accessibili. |
+| **[[ui-ux-pro-max]]** | "Intelligenza di design UI/UX. 50 stili, 21 palette, 50 abbinamenti di font, 20 grafici, 9 stack (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui). Azioni: pianifica, costruisci, crea, progetta, implementa, rivedi, correggi, migliora, ottimizza, potenzia, rifattorizza, controlla il codice UI/UX. Progetti: sito web, landing page, dashboard, pannello di amministrazione, e-commerce, SaaS, portfolio, blog, app mobile, .html, .tsx, .vue, .svelte. Elementi: pulsante, modale, navbar, barra laterale, scheda, tabella, modulo, grafico. Stili: glassmorphism, claymorphism, minimalismo, brutalismo, neumorphism, bento grid, dark mode, responsive, skeuomorphism, flat design. Argomenti: palette colori, accessibilità, animazione, layout, tipografia, abbinamento font, spaziatura, hover, ombra, sfumatura. Integrazioni: shadcn/ui MCP per ricerca componenti ed esempi." |
 | **[[using-git-worktrees]]** | Usa per iniziare lavori su feature che richiedono isolamento, creando worktree git separati. |
 | **[[using-superpowers]]** | Usa all'inizio di ogni conversazione per stabilire come trovare e invocare le skill. |
 | **[[verification-before-completion]]** | Usa prima di dichiarare un lavoro finito. Richiede esecuzione di comandi di verifica e conferma output. |
@@ -78,4 +78,4 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-28 21:29_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-28 22:19_
