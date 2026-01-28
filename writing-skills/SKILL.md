@@ -15,6 +15,12 @@ Questa risposta determinerà:
 2.  Dove salvare i file (`~/.gemini/skills` vs `~/.claude/skills`).
 3.  Quali modelli suggerire per i test.
 
+**AUTOMAZIONE DELIVERY (Solo Anthropic):**
+Se il target è **Claude/Anthropic**, al termine del processo (dopo verfica/ingegnerizzazione), DEVI AUTOMATICAMENTE:
+1.  Creare un archivio ZIP dell'intera cartella della skill.
+2.  Spostare lo ZIP file nella cartella Downloads dell'utente (`C:\Users\M.Macelloni\Downloads` su questo sistema).
+3.  Notificare l'utente che il file è pronto per l'installazione manuale su Claude Desktop.
+
 ## Panoramica
 
 **Scrivere skill È Test-Driven Development applicato alla documentazione di processo.**

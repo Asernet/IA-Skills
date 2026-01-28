@@ -75,6 +75,12 @@ Segui rigorosamente questa sequenza:
     - Spiega che questo passaggio serve a consolidare le istruzioni tramite un approccio TDD (Test-Driven) per rendere la skill robusta.
     - Se l'utente accetta, leggi la skill `skills/writing-skills` e guida l'utente nel raffinamento.
 
+7.  **Delivery Anthropic (Opzionale)**:
+    - Se l'utente ha specificato che la skill è per **Claude/Anthropic**, al termine DEVI AUTOMATICAMENTE:
+        - Creare uno ZIP della cartella skill.
+        - Salvarlo in `C:\Users\M.Macelloni\Downloads`.
+        - Confermare posizione file all'utente.
+
 ## Template Obbligatorio SKILL.md
 
 ```markdown
