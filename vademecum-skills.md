@@ -2,7 +2,7 @@
 
 Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 
-## Indice Skills (73)
+## Indice Skills (70)
 
 | Skill | Descrizione |
 | :--- | :--- |
@@ -19,7 +19,6 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[context-degradation]]** | Usa questa skill per diagnosticare problemi di contesto, 'lost-in-middle', o degradazione delle performance dell'agente. |
 | **[[context-fundamentals]]** | Usa questa skill per comprendere e spiegare finestre di contesto, architetture di agenti e meccanismi di attenzione. |
 | **[[context-optimization]]** | Usa questa skill per ottimizzare l'uso del contesto, ridurre i costi dei token e migliorare l'efficienza. |
-| **[[copy-editing]]** | Skill per la revisione, modifica e miglioramento di copy marketing esistenti. Utilizza quando l'utente chiede di editare, rivedere o migliorare copy, o menziona feedback sul copy, proofreading, o revisione sistematica. |
 | **[[copywriting]]** | Skill per scrivere, riscrivere o migliorare copy marketing per qualsiasi pagina — homepage, landing page, pagine pricing, feature, about o prodotto. Utilizza quando l'utente chiede di scrivere copy, migliorare testi, headline o CTA. |
 | **[[data-enricher]]** | Investigatore digitale OSINT specializzato in business intelligence. Raccoglie, verifica e sintetizza informazioni pubbliche per costruire profili professionali completi e verificati. |
 | **[[dispatching-parallel-agents]]** | Usa quando hai 2+ task indipendenti che possono essere eseguiti senza stato condiviso o dipendenze sequenziali. |
@@ -27,7 +26,6 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[docker-expert]]** | Esperto di containerizzazione Docker con conoscenza approfondita di build multi-stage, ottimizzazione immagini, sicurezza container, orchestrazione Docker Compose e pattern di deployment in produzione. |
 | **[[docx]]** | Creazione, modifica e analisi di documenti .docx con supporto per revisioni, commenti e formattazione. |
 | **[[evaluation]]** | Usa questa skill per valutare le performance dell'agente, creare framework di test o metriche di qualità. |
-| **[[executing-plans]]** | Usa quando hai un piano di implementazione scritto da eseguire in una sessione separata con checkpoint di revisione. |
 | **[[filesystem-context]]** | Usa questa skill per offloadare il contesto su file, usare il filesystem come memoria o persistenza output. |
 | **[[finishing-a-development-branch]]** | Usa quando l'implementazione è completa e i test passano, per decidere come integrare il lavoro (merge, PR, cleanup). |
 | **[[free-tool-strategy]]** | Skill per pianificare, valutare o costruire tool gratuiti a scopo marketing — lead generation, valore SEO o brand awareness. Utilizza quando l'utente menziona engineering as marketing, tool gratuito, calcolatore, generatore o strumento interattivo. |
@@ -76,9 +74,8 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[web-artifacts-builder]]** | Crea artefatti HTML complessi multi-componente (React, Tailwind, shadcn/ui) per applicazioni web. |
 | **[[web-design-guidelines]]** | Rivedi codice UI per conformità alle Web Interface Guidelines. Utilizza quando l'utente chiede di revisionare la UI, controllare accessibilità, audit design, review UX o controllare il sito rispetto alle best practice. |
 | **[[webapp-testing]]** | Toolkit per testare applicazioni web locali con Playwright: verifica UI, screenshot e debug. |
-| **[[writing-plans]]** | Usa quando hai specifiche per un task multi-step, per creare un piano dettagliato prima di scrivere codice. |
 | **[[writing-skills]]** | Usa per creare, modificare o verificare skill (Compatibile Gemini & Claude). |
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-28 20:29_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-28 21:05_
