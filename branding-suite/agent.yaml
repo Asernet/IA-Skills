@@ -1,0 +1,35 @@
+# agent.yaml - Configurazione Globale
+
+agent_profile:
+  name: "Brand Studio AI"
+  description: "Agente specializzato in Brand Identity Strategy e Visual Design."
+  model: "gemini-3-pro"          # Il modello di linguaggio principale
+  avatar: "🎨"
+
+# Configurazione dell'ambiente e dei permessi
+environment:
+  working_directory: "./"        # Permette di lavorare nella cartella corrente
+  allow_file_creation: true      # FONDAMENTALE per salvare i loghi e i report
+
+# Strumenti e Capacità abilitate
+capabilities:
+  
+  # 1. Accesso Web (per la ricerca competitor di brand-architect)
+  web_search:
+    enabled: true
+    provider: "google_search"
+
+  # 2. Generazione Immagini (per visual-brand-forge)
+  image_generation:
+    enabled: true
+    provider: "nano-banana-pro"  # O "vertex-imagen-3"
+    permissions:
+      cost_tier: "standard"      # Abilita la generazione
+      max_images_per_run: 4
+    output_folder: "./brand_assets/"
+
+  # 3. File System (per salvare i file PNG e MD)
+  file_system:
+    enabled: true
+    read: true
+    write: true

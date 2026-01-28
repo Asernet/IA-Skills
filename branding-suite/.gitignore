@@ -16,7 +16,6 @@ brand_assets/*
 
 # --- 2. Configurazione & Sicurezza ---
 # IMPORTANTISSIMO: Non caricare mai la tua configurazione (potrebbe avere API Keys)
-agent.yaml
 # File di variabili d'ambiente (se usi Python/Langchain)
 .env
 .env.local
