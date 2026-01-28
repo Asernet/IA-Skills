@@ -70,6 +70,10 @@ Segui rigorosamente questa sequenza:
 5.  **Esecuzione**:
     - Crea cartella: `C:\Users\mazin\.gemini\skills\[nome-skill]\`
     - Scrivi file: `C:\Users\mazin\.gemini\skills\[nome-skill]\SKILL.md`
+6.  **Ingegnerizzazione (Opzionale)**:
+    - Dopo la creazione, CHIEDI esplicitamente: *"Vuoi procedere a ingegnerizzare il prompt e le azioni di questa skill usando la metodologia `writing-skills`?"*
+    - Spiega che questo passaggio serve a consolidare le istruzioni tramite un approccio TDD (Test-Driven) per rendere la skill robusta.
+    - Se l'utente accetta, leggi la skill `skills/writing-skills` e guida l'utente nel raffinamento.
 
 ## Template Obbligatorio SKILL.md
 

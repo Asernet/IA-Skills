@@ -1,15 +1,28 @@
 ---
 name: writing-skills
-description: Usa per creare, modificare o verificare skill.
+description: Usa per creare, modificare o verificare skill (Compatibile Gemini & Claude).
 ---
 
-# Scrivere Skill
+# Scrivere Skill (Gemini & Claude)
+
+## Protocollo di Avvio
+
+**Appena attivi questa skill, DEVI chiedere all'utente:**
+> "Per quale AI stai scrivendo questa skill? (Gemini o Claude)"
+
+Questa risposta determinerà:
+1.  Quale guida alle best practices consultare (`gemini-best-practices.md` vs `anthropic-best-practices.md`).
+2.  Dove salvare i file (`~/.gemini/skills` vs `~/.claude/skills`).
+3.  Quali modelli suggerire per i test.
 
 ## Panoramica
 
 **Scrivere skill È Test-Driven Development applicato alla documentazione di processo.**
 
-**Le skill personali vivono in directory specifiche per agente (`~/.claude/skills` per Claude Code, `~/.codex/skills` per Codex)**
+**Le skill personali vivono in directory specifiche per agente:**
+- **Gemini**: `~/.gemini/skills` (o `C:\Users\Utente\.gemini\skills` su Windows)
+- **Claude Code**: `~/.claude/skills`
+- **Codex**: `~/.codex/skills`
 
 Scrivi casi test (scenari pressione con subagenti), guardali fallire (comportamento baseline), scrivi la skill (documentazione), guarda i test passare (agenti si conformano), e rifattorizza (chiudi scappatoie).
 
@@ -17,11 +30,13 @@ Scrivi casi test (scenari pressione con subagenti), guardali fallire (comportame
 
 **BACKGROUND RICHIESTO:** DEVI capire superpowers:test-driven-development prima di usare questa skill. Quella skill definisce il ciclo fondamentale RED-GREEN-REFACTOR. Questa skill adatta TDD alla documentazione.
 
-**Guida ufficiale:** Per le best practice ufficiali di authoring skill di Anthropic, vedi anthropic-best-practices.md.
+**Guide ufficiali:**
+- **Per Gemini**: vedi [gemini-best-practices.md](gemini-best-practices.md)
+- **Per Anthropic**: vedi [anthropic-best-practices.md](anthropic-best-practices.md)
 
 ## Cos'è una Skill?
 
-Una **skill** è una guida di riferimento per tecniche provate, pattern o tool. Le skill aiutano future istanze Claude a trovare e applicare approcci efficaci.
+Una **skill** è una guida di riferimento per tecniche provate, pattern o tool. Le skill aiutano future istanze (Gemini o Claude) a trovare e applicare approcci efficaci.
 
 **Le skill sono:** Tecniche riutilizzabili, pattern, tool, guide riferimento
 
@@ -29,18 +44,18 @@ Una **skill** è una guida di riferimento per tecniche provate, pattern o tool. 
 
 ## Mappatura TDD per Skill
 
-| Concetto TDD            | Creazione Skill                                        |
-| ----------------------- | ------------------------------------------------------ |
-| **Caso Test**           | Scenario pressione con subagente                       |
-| **Codice Produzione**   | Documento skill (SKILL.md)                             |
-| **Test fallisce (RED)** | Agente viola regola senza skill (baseline)             |
-| **Test passa (GREEN)**  | Agente si conforma con skill presente                  |
-| **Refactor**            | Chiudi scappatoie mantenendo conformità                |
-| **Scrivi test prima**   | Esegui scenario baseline PRIMA di scrivere skill       |
-| **Guardalo fallire**    | Documenta esatte razionalizzazioni che agente usa      |
-| **Codice minimo**       | Scrivi skill indirizzando quelle specifiche violazioni |
-| **Guardalo passare**    | Verifica agente ora si conforma                        |
-| **Ciclo Refactor**      | Trova nuove razionalizzazioni → tappa → ri-verifica    |
+| Concetto TDD | Creazione Skill |
+| :--- | :--- |
+| **Caso Test** | Scenario pressione con subagente |
+| **Codice Produzione** | Documento skill (SKILL.md) |
+| **Test fallisce (RED)** | Agente viola regola senza skill (baseline) |
+| **Test passa (GREEN)** | Agente si conforma con skill presente |
+| **Refactor** | Chiudi scappatoie mantenendo conformità |
+| **Scrivi test prima** | Esegui scenario baseline PRIMA di scrivere skill |
+| **Guardalo fallire** | Documenta esatte razionalizzazioni che agente usa |
+| **Codice minimo** | Scrivi skill indirizzando quelle specifiche violazioni |
+| **Guardalo passare** | Verifica agente ora si conforma |
+| **Ciclo Refactor** | Trova nuove razionalizzazioni → tappa → ri-verifica |
 
 L'intero processo creazione skill segue RED-GREEN-REFACTOR.
 
@@ -57,7 +72,7 @@ L'intero processo creazione skill segue RED-GREEN-REFACTOR.
 
 - Soluzioni one-off
 - Pratiche standard ben documentate altrove
-- Convenzioni specifiche progetto (metti in CLAUDE.md)
+- Convenzioni specifiche progetto (metti in `GEMINI.md` o `CLAUDE.md`)
 - Vincoli meccanici (se è applicabile con regex/validazione, automatizzalo—salva documentazione per chiamate di giudizio)
 
 ## Struttura SKILL.md
@@ -73,13 +88,13 @@ L'intero processo creazione skill segue RED-GREEN-REFACTOR.
   - **MAI riassumere il processo o workflow della skill**
   - Mantieni sotto 500 caratteri se possibile
 
-## Ottimizzazione Ricerca Claude (CSO)
+## Ottimizzazione Ricerca Skill (ASO - Agent Search Optimization)
 
-**Critico per scoperta:** Il futuro Claude deve TROVARE la tua skill
+**Critico per scoperta:** Il futuro agente (Gemini/Claude) deve TROVARE la tua skill
 
 ### 1. Campo Descrizione Ricco
 
-**Scopo:** Claude legge descrizione per decidere quali skill caricare per un dato task. Fai che risponda: "Dovrei leggere questa skill proprio ora?"
+**Scopo:** L'agente legge descrizione per decidere quali skill caricare per un dato task. Fai che risponda: "Dovrei leggere questa skill proprio ora?"
 
 **Formato:** Inizia con "Use when..." per focalizzare su condizioni innesco
 
@@ -89,7 +104,7 @@ La descrizione dovrebbe SOLO descrivere condizioni innesco. NON riassumere il pr
 
 ### 2. Copertura Keyword
 
-Usa parole che Claude cercherebbe:
+Usa parole che l'agente cercherebbe:
 
 - Messaggi errore: "Hook timed out", "ENOTEMPTY", "race condition"
 - Sintomi: "flaky", "hanging", "zombie", "pollution"
@@ -196,7 +211,7 @@ Edita skill senza testare? Stessa violazione.
 
 ## Testare Tutti i Tipi Skill
 
-Tipi skill diversi necessitano approcci test diversi:
+Tipi skill diversi necessitano approcci test diversi. Testa con i modelli che intendi supportare (es. Gemini Flash, Pro, Ultra).
 
 ### Skill Rinforzo-Disciplina (regole/requisiti)
 
