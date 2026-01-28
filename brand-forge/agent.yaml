@@ -1,0 +1,36 @@
+# agent.yaml - Configurazione Globale per Brand Forge
+
+agent_profile:
+  name: "Brand Forge Expert"
+  description: "Suite completa per la creazione di Brand Identity, dall'analisi strategica di mercato alla generazione di visual identity."
+  model: "gemini-3-pro"
+  avatar: "🔥"
+
+# Configurazione dell'ambiente e dei permessi
+environment:
+  working_directory: "./"
+  allow_file_creation: true
+  output_folder: "$HOME/Documents/brand_assets"
+
+# Strumenti e Capacità abilitate
+capabilities:
+  
+  # Accesso Web (per Market Scanning e Ricerca Competitor)
+  web_search:
+    enabled: true
+    provider: "google_search"
+
+  # Generazione Immagini (per i Loghi)
+  image_generation:
+    enabled: true
+    provider: "imagen-3"
+    permissions:
+      cost_tier: "standard"
+      max_images_per_run: 5
+    default_output: "$HOME/Documents/brand_assets/"
+
+  # File System (per salvare Blueprint, Concept Defense e Loghi)
+  file_system:
+    enabled: true
+    read: true
+    write: true
