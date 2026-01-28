@@ -47,7 +47,7 @@ In questa fase, l'obiettivo è definire lo "spazio mentale" del brand e creare u
     *   **Posizionamento**: Punti di Parità (POP) e Punti di Differenza (POD).
     *   **Target Persona**: Insight e Pain Points.
     *   **Identità**: Archetipo, Tone of Voice e Strategia Cromatica.
-4.  **Output**: Salva il documento come `[USER_HOME]/Documents/brand_assets/blueprint_[NOME_BRAND].md`.
+4.  **Output**: Salva il documento come `[USER_HOME]/Desktop/Progetti/[NOME_BRAND]/brand_assets/blueprint_[NOME_BRAND].md`.
 
 ### Fase 1.5: Approvazione Utente (Punto di Controllo)
 Questa fase è fondamentale per garantire che la visione strategica sia allineata con le aspettative del cliente prima di investire risorse nel design.
@@ -66,16 +66,16 @@ Utilizza il Blueprint per forgiare l'identità visiva tangibile.
 2.  **Visual Engineering**: Crea prompt ottimizzati per la generazione di loghi (es: `vector graphic, flat design, white background`).
 3.  **Esecuzione Visual**:
     *   Genera 4 varianti di logo utilizzando i tool di generazione immagine.
-    *   **Salvataggio Asset**: Devi copiare e salvare esplicitamente i file immagine generati nella cartella `[USER_HOME]/Documents/brand_assets/` per garantirne la persistenza.
+    *   **Salvataggio Asset**: Devi copiare e salvare esplicitamente i file immagine generati nella cartella `[USER_HOME]/Desktop/Progetti/[NOME_BRAND]/brand_assets/` per garantirne la persistenza.
 4.  **Concept Defense**:
-    *   Crea un file `[USER_HOME]/Documents/brand_assets/concept_defense_[NOME_BRAND].md`.
+    *   Crea un file `[USER_HOME]/Desktop/Progetti/[NOME_BRAND]/brand_assets/concept_defense_[NOME_BRAND].md`.
     *   Spiega come Archetipo, Valori e POD hanno guidato le scelte di design (forme, colori, font).
     *   Includi i Payoff e suggerimenti tecnici (Hex codes, Font).
 
 ## Vincoli e Standard
 
 - **Lingua**: Tutta la documentazione deve essere prodotta in **ITALIANO**.
-- **Directory**: Salva tutti gli output nella cartella `Documents/brand_assets/` dell'utente corrente.
+- **Directory**: Salva tutti gli output nella cartella `Desktop/Progetti/[NOME_BRAND]/brand_assets/` dell'utente corrente.
 - **Strategia**: Non generare immagini prima di aver definito e validato strategicamente il Blueprint.
 - **Differenziazione**: Il design deve esplicitamente rompere i cliché rilevati nella fase di Market Scanning per garantire memorabilità.
 

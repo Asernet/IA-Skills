@@ -10,7 +10,7 @@ Il workflow di Brand Forge è un percorso lineare ma iterativo che trasforma un 
 Prima di ogni operazione, la skill verifica l'integrità dell'ambiente di lavoro:
 - Presenza del file `agent.yaml`.
 - Abilitazione delle procedure di ricerca (`web_search`), generazione immagini (`image_generation`) e gestione file (`file_system`).
-- Creazione (se mancante) della cartella `Documents/brand_assets/` dove verranno salvati tutti gli output.
+- Creazione (se mancante) della cartella `/Desktop/Progetti/[NOME_BRAND]/brand_assets/` dove verranno salvati tutti gli output.
 
 ### 2. Fase 1: Brand Architecture (Strategia)
 Questa è la fase analitica in cui viene definito lo "spazio mentale" del brand.
@@ -38,7 +38,7 @@ In questa cartella (`references/`) sono presenti documenti di supporto utilizzat
 ## Standard di Consegna
 
 Tutti i file generati vengono salvati in un'unica posizione centralizzata per facilitare la consultazione:
-`[USER_HOME]/Documents/brand_assets/`
+`[USER_HOME]/Desktop/Progetti/[NOME_BRAND]/brand_assets/`
 
 **File tipici generati:**
 - `blueprint_[brand].md`

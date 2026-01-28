@@ -10,7 +10,7 @@ agent_profile:
 environment:
   working_directory: "./"
   allow_file_creation: true
-  output_folder: "$HOME/Documents/brand_assets"
+  output_folder: "$HOME/Desktop/Progetti/[NOME_BRAND]/brand_assets"
 
 # Strumenti e Capacità abilitate
 capabilities:
@@ -27,7 +27,7 @@ capabilities:
     permissions:
       cost_tier: "standard"
       max_images_per_run: 5
-    default_output: "$HOME/Documents/brand_assets/"
+    default_output: "$HOME/Desktop/Progetti/[NOME_BRAND]/brand_assets/"
 
   # File System (per salvare Blueprint, Concept Defense e Loghi)
   file_system:

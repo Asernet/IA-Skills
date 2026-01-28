@@ -1,72 +1,70 @@
 ---
 name: brand-guidelines
-description: Applica i colori e la tipografia del brand Anthropic agli artefatti. Usa quando sono richiesti standard di design aziendali.
+description: Gestisce dinamicamente l'identità del brand. Verifica l'esistenza di dati di brand (Colori, Font) e, se mancanti, interroga l'utente per crearli.
 ---
 
-# Stile del Brand Anthropic
+# Brand Guidelines Manager
 
-## Panoramica
+## Scopo
+Questa skill garantisce che ogni artefatto prodotto (siti, PDF, presentazioni) rispetti l'identità visiva del progetto corrente.
 
-Per calcolare l'identità ufficiale del brand Anthropic e le risorse di stile, usa questa skill.
+## Procedura "Man in the Middle"
+Ogni volta che devi applicare uno stile o design:
 
-**Parole chiave**: branding, corporate identity, visual identity, post-processing, styling, brand colors, typography, Anthropic brand, visual formatting, visual design
+### 1. Ricerca Identità
+Cerca il file `concept_defense_*.md` nelle seguenti posizioni (in ordine):
+1.  Cartella `Desktop\Progetti\[dominio-sito]\brand_assets\`
+2.  Root del Workspace attivo.
+3.  Cartella `.gemini` o `.docs`.
+4.  Cartella `artefacts` o `brain`.
 
-## Linee Guida del Brand
+### 2. Logica Condizionale
 
-### Colori
+#### CASO A: Il file ESISTE
+1.  **Leggi** il file.
+2.  **Applica** rigorosamente i valori trovati (Colori Primari, Secondari, Font).
+3.  *Non chiedere nulla all'utente.*
 
-**Colori Principali:**
+#### CASO B: Il file NON ESISTE (Missing Data)
+⚠️ **STOP**. Non inventare colori o font.
+1.  Usa lo strumento `notify_user`.
+2.  Chiedi esplicitamente all'utente di definire lo stile del progetto.
+3.  **Prompt Suggerito**:
+    *"Non trovo le linee guida del brand per questo progetto. Per procedere, indicami:*
+    *   *Colore Primario (Hex)*
+    *   *Colore Secondario/Accento (Hex)*
+    *   *Font Intestazioni (es. Inter, Poppins)*
+    *   *Font Corpo (es. Roboto, Open Sans)"*
+4.  Attendi la risposta.
 
-- Dark: `#141413` - Testo primario e sfondi scuri
-- Light: `#faf9f5` - Sfondi chiari e testo su scuro
-- Mid Gray: `#b0aea5` - Elementi secondari
-- Light Gray: `#e8e6dc` - Sfondi sottili
+### 3. Persistenza (Dopo la risposta)
+Con i dati forniti dall'utente:
+1.  Crea un file `BRAND_IDENTITY.md` nella root del progetto **Desktop\Progetti\[dominio-sito]\brand_assets\**.
+2.  Usa questo formato standard:
 
-**Colori Accento:**
+```markdown
+# Brand Identity: [Nome Progetto]
 
-- Orange: `#d97757` - Accento primario
-- Blue: `#6a9bcc` - Accento secondario
-- Green: `#788c5d` - Accento terziario
+## Palette Colori
+- **Primary**: `[Hex]`
+- **Secondary**: `[Hex]`
+- **Background**: `[Hex]`
+- **Text**: `[Hex]`
 
-### Tipografia
+## Tipografia
+- **Headers**: [Font Family]
+- **Body**: [Font Family]
 
-- **Intestazioni**: Poppins (con fallback Arial)
-- **Testo Corpo**: Lora (con fallback Georgia)
-- **Nota**: I font dovrebbero essere pre-installati nel tuo ambiente per i migliori risultati
+## Tono di Voce
+[Descrizione breve se fornita]
+```
 
-## Funzionalità
+3.  Riprendi il task originale usando i nuovi dati salvati.
 
-### Applicazione Font Intelligente
-
-- Applica font Poppins alle intestazioni (24pt e più grandi)
-- Applica font Lora al testo del corpo
-- Fallback automatico a Arial/Georgia se font personalizzati non disponibili
-- Preserva la leggibilità attraverso tutti i sistemi
-
-### Styling Testo
-
-- Intestazioni (24pt+): Font Poppins
-- Testo corpo: Font Lora
-- Selezione colore intelligente basata sullo sfondo
-- Preserva gerarchia testo e formattazione
-
-### Forme e Colori Accento
-
-- Le forme non testuali usano colori accento
-- Cicla attraverso accenti arancione, blu e verde
-- Mantiene interesse visivo rimanendo on-brand
-
-## Dettagli Tecnici
-
-### Gestione Font
-
-- Usa font Poppins e Lora installati nel sistema quando disponibili
-- Fornisce fallback automatico ad Arial (intestazioni) e Georgia (corpo)
-- Nessuna installazione font richiesta - funziona con font di sistema esistenti
-- Per risultati migliori, pre-installa font Poppins e Lora nel tuo ambiente
-
-### Applicazione Colore
-
-- Usa valori colore RGB per corrispondenza brand precisa
-- Applicato via classe RGBColor di python-pptx
-- Mantiene fedeltà colore attraverso sistemi diversi
+## Esempio di Applicazione
+Se l'utente chiede "Fai un sito per una pizzeria":
+1.  Cerca `concept_defense_*.md` -> Non c'è.
+2.  Chiama `notify_user`: *"Che colori e font usa la pizzeria?"*
+3.  Utente: *"Rosso pomodoro (#FF6347) e font rustici"*
+4.  Crea `concept_defense_*.md` con Primary: #FF6347.
+5.  Genera il CSS usando `--primary-color: #FF6347`.
