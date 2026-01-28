@@ -1,8 +1,3 @@
----
-name: writing-plans
-description: Usa quando hai specifiche per un task multi-step, per creare un piano dettagliato prima di scrivere codice.
----
-
 # Scrivere Piani
 
 ## Panoramica
@@ -11,7 +6,7 @@ Scrivi piani di implementazione completi assumendo che l'ingegnere non abbia alc
 
 Assumi che siano sviluppatori abili, ma sappiano quasi nulla del nostro toolset o dominio problema. Assumi che non conoscano molto bene il buon design dei test.
 
-**Annuncia all'avvio:** "Sto usando la skill writing-plans per creare il piano di implementazione."
+**Annuncia all'avvio:** "Sto usando la guida interna di brainstorming per creare il piano di implementazione."
 
 **Contesto:** Questo dovrebbe essere eseguito in un worktree dedicato (creato dalla skill brainstorming).
 
@@ -117,5 +112,6 @@ Dopo aver salvato il piano, offri scelta esecuzione:
 
 **Se scelto Sessione Parallela:**
 - Guidali ad aprire nuova sessione nel worktree
-- **REQUIRED SUB-SKILL:** Nuova sessione usa superpowers:executing-plans
+- Indica di caricare e seguire la guida in `assets/executing-plans-guide.md`
+
 ```

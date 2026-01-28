@@ -1,8 +1,3 @@
----
-name: executing-plans
-description: Usa quando hai un piano di implementazione scritto da eseguire in una sessione separata con checkpoint di revisione.
----
-
 # Esecuzione Piani
 
 ## Panoramica
@@ -11,7 +6,7 @@ Carica piano, revisiona criticamente, esegui task in batch, riporta per revision
 
 **Principio base:** Esecuzione in batch con checkpoint per revisione architetto.
 
-**Annuncia all'inizio:** "Sto usando la skill executing-plans per implementare questo piano."
+**Annuncia all'inizio:** "Sto usando la guida interna di brainstorming (ex executing-plans) per implementare questo piano."
 
 ## Il Processo
 

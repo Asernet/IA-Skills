@@ -2,16 +2,18 @@
 
 Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 
-## Indice Skills (71)
+## Indice Skills (73)
 
 | Skill | Descrizione |
 | :--- | :--- |
 | **[[advanced-evaluation]]** | Usa questa skill per implementare 'LLM-as-judge', confrontare output di modelli, creare rubriche di valutazione, mitigare bias di valutazione, o per scoring diretto e pipeline di quality assessment. |
 | **[[algorithmic-art]]** | Creazione di arte algoritmica con p5.js. Usa questa skill per generare arte tramite codice, flow fields o sistemi particellari. Crea design originali evitando violazioni di copyright. |
 | **[[analytics-tracking]]** | Imposta, migliora e verifica il tracciamento analytics e la misurazione dei dati. Utilizzare quando l'utente menziona "configurare tracking", "GA4", "Google Analytics", "tracciamento conversioni", "tracciamento eventi", "parametri UTM", "tag manager", "GTM", "implementazione analytics" o "piano di tracciamento". |
+| **[[analytics-tracking-analyzer]]** | Analizza siti web per tracciamenti esterni e suggerisce configurazioni GTM. Usa quando l'utente vuole audit SEO/Analytics o configurare GTM. |
 | **[[bdi-mental-states]]** | Usa questa skill per modellare stati mentali di agenti, architetture BDI (Belief-Desire-Intention), o integrazione AI neuro-simbolica. |
 | **[[brainstorming]]** | OBBLIGATORIO prima di qualsiasi lavoro creativo o implementativo. Esplora l'intento dell'utente, i requisiti e il design prima di iniziare a scrivere codice. |
-| **[[brand-guidelines]]** | Applica i colori e la tipografia del brand Anthropic agli artefatti. Usa quando sono richiesti standard di design aziendali. |
+| **[[brand-forge]]** | Suite completa per la creazione di Brand Identity, dall'analisi strategica di mercato (Blueprint) alla generazione di visual identity (Logo e Concept Defense). |
+| **[[brand-guidelines]]** | Gestisce dinamicamente l'identità del brand. Verifica l'esistenza di dati di brand (Colori, Font) e, se mancanti, interroga l'utente per crearli. |
 | **[[canvas-design]]** | Crea arte visiva in .png e .pdf. Usa per poster, design statici o arte, creando opere originali. |
 | **[[context-compression]]** | Usa questa skill per comprimere il contesto, riassumere la cronologia, ridurre l'uso di token o gestire sessioni lunghe. |
 | **[[context-degradation]]** | Usa questa skill per diagnosticare problemi di contesto, 'lost-in-middle', o degradazione delle performance dell'agente. |
@@ -75,8 +77,8 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[web-design-guidelines]]** | Rivedi codice UI per conformità alle Web Interface Guidelines. Utilizza quando l'utente chiede di revisionare la UI, controllare accessibilità, audit design, review UX o controllare il sito rispetto alle best practice. |
 | **[[webapp-testing]]** | Toolkit per testare applicazioni web locali con Playwright: verifica UI, screenshot e debug. |
 | **[[writing-plans]]** | Usa quando hai specifiche per un task multi-step, per creare un piano dettagliato prima di scrivere codice. |
-| **[[writing-skills]]** | Usa per creare, modificare o verificare skill. |
+| **[[writing-skills]]** | Usa per creare, modificare o verificare skill (Compatibile Gemini & Claude). |
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-26 22:18_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-28 20:29_

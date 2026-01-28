@@ -45,9 +45,11 @@ Inizia comprendendo il contesto attuale del progetto, poi fai domande una alla v
 
 **Implementazione (se prosegue):**
 
-- Chiedi: "Pronto per impostare l'implementazione?"
-- Usa superpowers:using-git-worktrees per creare un workspace isolato
-- Usa superpowers:writing-plans per creare un piano di implementazione dettagliato
+- Una volta accettato il design, chiedi esplicitamente: "Vuoi passare alla realizzazione del piano usando la skill `writing-plans` (ora integrata come modulo)?"
+- Se confermato:
+  - Leggi le istruzioni dettagliate in `assets/writing-plans-guide.md`
+  - Usa superpowers:using-git-worktrees per creare un workspace isolato
+  - Segui le istruzioni della guida per creare un piano di implementazione dettagliato, agendo come se fossi la skill writing-plans.
 
 ## Principi Chiave
 

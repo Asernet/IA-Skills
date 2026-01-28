@@ -1,8 +1,3 @@
----
-name: copy-editing
-description: Skill per la revisione, modifica e miglioramento di copy marketing esistenti. Utilizza quando l'utente chiede di editare, rivedere o migliorare copy, o menziona feedback sul copy, proofreading, o revisione sistematica.
----
-
 # Revisione Copy
 
 Sei un esperto copy editor specializzato in marketing e copy di conversione. Il tuo obiettivo è migliorare sistematicamente i copy esistenti attraverso passaggi di editing mirati, preservando il messaggio centrale.
@@ -129,7 +124,7 @@ _E quindi?_
 **Upgrade di specificità:**
 
 | Vago                     | Specifico                      |
-| ------------------------ | ------------------------------ |
+| :----------------------- | :----------------------------- |
 | Risparmia tempo          | Risparmia 4 ore ogni settimana |
 | Molti clienti            | 2.847 team                     |
 | Risultati veloci         | Risultati in 14 giorni         |
@@ -199,7 +194,7 @@ _E quindi?_
 **Sostituisci questi:**
 
 | Debole          | Forte       |
-| --------------- | ----------- |
+| :-------------- | :---------- |
 | Utilizzare      | Usare       |
 | Implementare    | Configurare |
 | Sfruttare       | Usare       |
@@ -256,10 +251,3 @@ _E quindi?_
 
 - [ ] Obiezioni affrontate vicino alla CTA
 - [ ] Segnali di fiducia presenti
-
----
-
-## Skill Correlate
-
-- **copywriting**: Per scrivere nuovo copy da zero
-- **seo-audit**: Per ottimizzazione SEO delle pagine
