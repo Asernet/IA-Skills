@@ -1,6 +1,6 @@
 ---
 name: analytics-tracking-analyzer
-description: Analizza siti web per tracciamenti esterni e suggerisce configurazioni GTM. Usa quando l'utente vuole audit SEO/Analytics o configurare GTM.
+description: Usare quando l'utente richiede un'analisi di compliance GDPR, un audit dei tracciamenti (Analytics/GTM), o la creazione di una configurazione GTM sicura.
 ---
 
 # Analytics Tracking Analyzer
@@ -55,6 +55,20 @@ Spiega come importare il file JSON in GTM, quali variabili aggiornare (ID) e com
 
 #### D. Guida Compliance (`GUIDA_COMPLIANCE.md`)
 Una guida passo-passo per gli sviluppatori su come bonificare il codice sorgente (es. "Rimuovere script inline di Facebook alla riga 45 header.php").
+
+### 3. Assistente Integrazione GTM (Feature "Asset")
+Una volta generati i file, **CHIEDI all'utente**:
+> "Vuoi controllare il tuo attuale export GTM per vedere se posso generare una guida passo-passo all'integrazione (invece di sovrascrivere tutto)?"
+
+1.  **Se l'utente accetta e fornisce il path del suo JSON**:
+    *   Esegui lo script: `python "C:\Users\M.Macelloni\.gemini\skills\analytics-tracking-analyzer\scripts\gtm_merge_guide.py" "[Path_gtm_config.json_generato]" --current "[Path_JSON_Utente]"`
+    *   Questo genererà `GUIDA_INTEGRAZIONE_GTM.md` nella cartella di output.
+    *   Avvisa l'utente che il file è pronto.
+
+2.  **Se l'utente non ha il file o rifiuta**:
+    *   Esegui lo script senza `--current`: `python "C:\Users\M.Macelloni\.gemini\skills\analytics-tracking-analyzer\scripts\gtm_merge_guide.py" "[Path_gtm_config.json_generato]"`
+    *   Questo genererà una guida generica basata sulla nuova configurazione.
+
 
 ## Vincoli
 -   **Privacy**: Se il sito è illegale (traccia subito), il Report DEVE scriverlo a caratteri cubitali.

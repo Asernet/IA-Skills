@@ -1,6 +1,6 @@
 ---
 name: brand-forge
-description: Suite completa per la creazione di Brand Identity, dall'analisi strategica di mercato (Blueprint) alla generazione di visual identity (Logo e Concept Defense).
+description: Usare quando l'utente richiede la creazione di una Brand Identity completa, lo sviluppo di loghi, l'analisi strategica di un marchio, o la definizione di naming, payoff e visual identity.
 ---
 
 # Brand Forge

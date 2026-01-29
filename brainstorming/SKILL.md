@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: OBBLIGATORIO prima di qualsiasi lavoro creativo o implementativo. Esplora l'intento dell'utente, i requisiti e il design prima di iniziare a scrivere codice.
+description: Usare PRIMA di scrivere codice quando le specifiche sono vaghe, l'intento non è chiaro, o si necessita di raffinare un'idea grezza in un design architetturale completo e validato.
 ---
 
 # Brainstorming da Idee a Design

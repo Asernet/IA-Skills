@@ -1,6 +1,6 @@
 ---
 name: analytics-tracking
-description: Imposta, migliora e verifica il tracciamento analytics e la misurazione dei dati. Utilizzare quando l'utente menziona "configurare tracking", "GA4", "Google Analytics", "tracciamento conversioni", "tracciamento eventi", "parametri UTM", "tag manager", "GTM", "implementazione analytics" o "piano di tracciamento".
+description: Usare quando l'utente richiede la configurazione o l'implementazione di sistemi di analytics (GA4, GTM), piani di tracciamento dati, parametri UTM, o audit delle misurazioni di marketing.
 ---
 
 # Analytics Tracking
