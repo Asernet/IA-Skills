@@ -35,6 +35,15 @@ Inizia comprendendo il contesto attuale del progetto, poi fai domande una alla v
 - Copri: architettura, componenti, flusso dati, gestione errori, testing
 - Sii pronto a tornare indietro e chiarire se qualcosa non ha senso
 
+## Validazione Epistemologica (Obbligatoria)
+
+**CRITICO:** Prima di considerare il design "finito" e passare alla documentazione o implementazione, DEVI sottoporlo a validazione.
+
+1.  **Invoca Cognitos:** Usa la skill `cognitos` per analizzare il design proposto.
+    *   Prompt interno: "Agisci come Cognitos e analizza questo design per trovare bias, assunzioni non verificate o fallacie logiche."
+2.  **Presenta il Verdetto:** Mostra all'utente l'analisi critica.
+3.  **Ottieni Consenso:** Solo se l'utente accetta il rischio o corregge il design, procedi allo step successivo.
+
 ## Dopo il Design
 
 **Documentazione:**
