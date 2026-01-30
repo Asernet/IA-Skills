@@ -2,19 +2,20 @@
 
 Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 
-## Indice Skills (70)
+## Indice Skills (73)
 
 | Skill | Descrizione |
 | :--- | :--- |
 | **[[advanced-evaluation]]** | Usa questa skill per implementare 'LLM-as-judge', confrontare output di modelli, creare rubriche di valutazione, mitigare bias di valutazione, o per scoring diretto e pipeline di quality assessment. |
 | **[[algorithmic-art]]** | Creazione di arte algoritmica con p5.js. Usa questa skill per generare arte tramite codice, flow fields o sistemi particellari. Crea design originali evitando violazioni di copyright. |
-| **[[analytics-tracking]]** | Imposta, migliora e verifica il tracciamento analytics e la misurazione dei dati. Utilizzare quando l'utente menziona "configurare tracking", "GA4", "Google Analytics", "tracciamento conversioni", "tracciamento eventi", "parametri UTM", "tag manager", "GTM", "implementazione analytics" o "piano di tracciamento". |
-| **[[analytics-tracking-analyzer]]** | Analizza siti web per tracciamenti esterni e suggerisce configurazioni GTM. Usa quando l'utente vuole audit SEO/Analytics o configurare GTM. |
+| **[[analytics-tracking]]** | Usare quando l'utente richiede la configurazione o l'implementazione di sistemi di analytics (GA4, GTM), piani di tracciamento dati, parametri UTM, o audit delle misurazioni di marketing. |
+| **[[analytics-tracking-analyzer]]** | Usare quando l'utente richiede un'analisi di compliance GDPR, un audit dei tracciamenti (Analytics/GTM), o la creazione di una configurazione GTM sicura. |
 | **[[bdi-mental-states]]** | Usa questa skill per modellare stati mentali di agenti, architetture BDI (Belief-Desire-Intention), o integrazione AI neuro-simbolica. |
-| **[[brainstorming]]** | OBBLIGATORIO prima di qualsiasi lavoro creativo o implementativo. Esplora l'intento dell'utente, i requisiti e il design prima di iniziare a scrivere codice. |
-| **[[brand-forge]]** | Suite completa per la creazione di Brand Identity, dall'analisi strategica di mercato (Blueprint) alla generazione di visual identity (Logo e Concept Defense). |
+| **[[brainstorming]]** | Usare PRIMA di scrivere codice quando le specifiche sono vaghe, l'intento non è chiaro, o si necessita di raffinare un'idea grezza in un design architetturale completo e validato. |
+| **[[brand-forge]]** | Usare quando l'utente richiede la creazione di una Brand Identity completa, lo sviluppo di loghi, l'analisi strategica di un marchio, o la definizione di naming, payoff e visual identity. |
 | **[[brand-guidelines]]** | Gestisce dinamicamente l'identità del brand. Verifica l'esistenza di dati di brand (Colori, Font) e, se mancanti, interroga l'utente per crearli. |
 | **[[canvas-design]]** | Crea arte visiva in .png e .pdf. Usa per poster, design statici o arte, creando opere originali. |
+| **[[cognitos]]** | Usa quando devi analizzare rigorosamente un'idea, verificare bias logici, condurre un'analisi epistemologica profonda o sottoporre un ragionamento a stress-test (Red Team). |
 | **[[context-compression]]** | Usa questa skill per comprimere il contesto, riassumere la cronologia, ridurre l'uso di token o gestire sessioni lunghe. |
 | **[[context-degradation]]** | Usa questa skill per diagnosticare problemi di contesto, 'lost-in-middle', o degradazione delle performance dell'agente. |
 | **[[context-fundamentals]]** | Usa questa skill per comprendere e spiegare finestre di contesto, architetture di agenti e meccanismi di attenzione. |
@@ -68,9 +69,11 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[theme-factory]]** | Crea temi per stilizzare artefatti (slide, doc, html). Usa preset o genera nuovi temi on-the-fly. |
 | **[[tool-design]]** | Usa questa skill per progettare tool per agenti, definire interfacce o consolidare strumenti esistenti. |
 | **[[ui-ux-pro-max]]** | "Intelligenza di design UI/UX. 50 stili, 21 palette, 50 abbinamenti di font, 20 grafici, 9 stack (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui). Azioni: pianifica, costruisci, crea, progetta, implementa, rivedi, correggi, migliora, ottimizza, potenzia, rifattorizza, controlla il codice UI/UX. Progetti: sito web, landing page, dashboard, pannello di amministrazione, e-commerce, SaaS, portfolio, blog, app mobile, .html, .tsx, .vue, .svelte. Elementi: pulsante, modale, navbar, barra laterale, scheda, tabella, modulo, grafico. Stili: glassmorphism, claymorphism, minimalismo, brutalismo, neumorphism, bento grid, dark mode, responsive, skeuomorphism, flat design. Argomenti: palette colori, accessibilità, animazione, layout, tipografia, abbinamento font, spaziatura, hover, ombra, sfumatura. Integrazioni: shadcn/ui MCP per ricerca componenti ed esempi." |
+| **[[ultrathink]]** | Usa quando l'utente scrive ultrathink o quando hai bisogno di un'analisi di architettura di sistema di alto livello, qualità del codice senza compromessi o valutazione profonda dei trade-off tecnici tramite il protocollo ULTRATHINK. |
 | **[[using-git-worktrees]]** | Usa per iniziare lavori su feature che richiedono isolamento, creando worktree git separati. |
 | **[[using-superpowers]]** | Usa all'inizio di ogni conversazione per stabilire come trovare e invocare le skill. |
 | **[[verification-before-completion]]** | Usa prima di dichiarare un lavoro finito. Richiede esecuzione di comandi di verifica e conferma output. |
+| **[[video-content-creator]]** | Trasforma paper scientifici e articoli blog in video informativi ottimizzati per YouTube, gestendo script, storyboard e prompt per AI video/image generators. |
 | **[[web-artifacts-builder]]** | Crea artefatti HTML complessi multi-componente (React, Tailwind, shadcn/ui) per applicazioni web. |
 | **[[web-design-guidelines]]** | Rivedi codice UI per conformità alle Web Interface Guidelines. Utilizza quando l'utente chiede di revisionare la UI, controllare accessibilità, audit design, review UX o controllare il sito rispetto alle best practice. |
 | **[[webapp-testing]]** | Toolkit per testare applicazioni web locali con Playwright: verifica UI, screenshot e debug. |
@@ -78,4 +81,4 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-28 22:19_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-30 19:49_
