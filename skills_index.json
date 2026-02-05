@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-03T16:26:42.048164",
+  "generated_at": "2026-02-05T13:20:10.674195",
   "skills": [
     {
       "name": "advanced-evaluation",
@@ -200,16 +200,58 @@
       "category": "🧩 Altre Skill"
     },
     {
+      "name": "n8n-code-javascript",
+      "description": "Scrittura di codice JavaScript nei nodi n8n Code. Consigliato per trasformazioni complesse, accessi $input/$json/$node, ed elaborazione dati avanzata.",
+      "folder": "n8n-code-javascript",
+      "category": "🛠️ DevOps & System"
+    },
+    {
+      "name": "n8n-code-python",
+      "description": "Scrittura di codice Python nei nodi n8n Code. Da usare per trasformazioni specifiche o libreria standard Python, con consapevolezza dei limiti in n8n.",
+      "folder": "n8n-code-python",
+      "category": "🛠️ DevOps & System"
+    },
+    {
+      "name": "n8n-expression-syntax",
+      "description": "Ottimizzazione e fixing della sintassi delle espressioni n8n ({{ }}). Include pattern per l'accesso ai dati webhook e variabili di sistema.",
+      "folder": "n8n-expression-syntax",
+      "category": "🌐 Web & Frontend"
+    },
+    {
       "name": "n8n-flow-generator",
       "description": "Agente specialista n8n che analizza richieste utente per creare o ottimizzare flussi n8n, producendo prompt tecnici dettagliati per l'automazione.",
       "folder": "n8n-flow-generator",
       "category": "🧠 AI & Prompts"
     },
     {
-      "name": "notebooklm",
-      "description": "Interroga roadmap e notebook di Google NotebookLM per risposte basate su fonti e citazioni verificate.",
-      "folder": "notebooklm",
-      "category": "🧩 Altre Skill"
+      "name": "n8n-mcp-tools-expert",
+      "description": "Guida esperta all'uso dei tool MCP per n8n. Include formati nodeType, profili di validazione e pattern di creazione workflow.",
+      "folder": "n8n-mcp-tools-expert",
+      "category": "🌐 Web & Frontend"
+    },
+    {
+      "name": "n8n-node-configuration",
+      "description": "Guida alla configurazione dei nodi n8n basata sull'operazione. Gestione dipendenze proprietà e campi obbligatori.",
+      "folder": "n8n-node-configuration",
+      "category": "🌐 Web & Frontend"
+    },
+    {
+      "name": "n8n-validation-expert",
+      "description": "Interpetazione e risoluzione degli errori di validazione n8n. Gestione dei profili di validazione (runtime/ai-friendly) e loop di fixing.",
+      "folder": "n8n-validation-expert",
+      "category": "🛠️ DevOps & System"
+    },
+    {
+      "name": "n8n-workflow-patterns",
+      "description": "Pattern architetturali comprovati per n8n: webhook processing, HTTP API, database, AI agent e task schedulati.",
+      "folder": "n8n-workflow-patterns",
+      "category": "🌐 Web & Frontend"
+    },
+    {
+      "name": "notebooklm-connector",
+      "description": "Interagisce con il server locale NotebookLM MCP via REST API per caricare file, fare query e scaricare audio.",
+      "folder": "notebooklm-connector",
+      "category": "🛠️ DevOps & System"
     },
     {
       "name": "obsidian-bases",
