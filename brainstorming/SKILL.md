@@ -3,6 +3,11 @@ name: brainstorming
 description: Usare PRIMA di scrivere codice quando le specifiche sono vaghe, l'intento non è chiaro, o si necessita di raffinare un'idea grezza in un design architetturale completo e validato.
 ---
 
+<MANDATORY-NEXT-STEPS>
+1. **Caricamento Protocollo**: Appena questa skill viene attivata, DEVI leggere e copiare il contenuto di `assets/task_template.md` nel file `task.md` della sessione corrente.
+2. **Sincronizzazione**: Ogni aggiornamento al Task View deve riflettere esattamente le fasi del template.
+</MANDATORY-NEXT-STEPS>
+
 # Brainstorming da Idee a Design
 
 ## Panoramica

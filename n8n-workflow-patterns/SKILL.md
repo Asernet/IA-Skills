@@ -1,7 +1,8 @@
 ---
-name: n8n-workflow-patterns
-description: Pattern architetturali comprovati per n8n: webhook processing, HTTP API, database, AI agent e task schedulati.
----
+
+<MANDATORY-NEXT-STEPS>
+**CLUSTER ALERT**: Questa skill fa parte del cluster **n8n-expert**. Per un workflow di qualità superiore, DEVI attivare anche `n8n-expert` per caricare il generatore, i tool MCP e le validazioni.
+</MANDATORY-NEXT-STEPS>
 
 # n8n Workflow Patterns
 

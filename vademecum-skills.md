@@ -39,7 +39,12 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[mcp-builder]]** | Guida per creare server MCP (Model Context Protocol) di alta qualità per integrare servizi esterni con LLM. |
 | **[[memory-systems]]** | Usa questa skill per implementare memoria per agenti, persistenza tra sessioni o knowledge graph. |
 | **[[multi-agent-patterns]]** | Usa questa skill per progettare sistemi multi-agente, pattern supervisore, swarm o coordinamento tra agenti. |
-| **[[n8n-flow-generator]]** | Agente specialista n8n che analizza richieste utente per creare o ottimizzare flussi n8n, producendo prompt tecnici dettagliati per l'automazione. |
+| **[[n8n-expert]]** | **SKILL MASTER / CLUSTER**: Coordina l'intera suite n8n. Carica questa skill per qualsiasi task complesso su n8n per attivare automaticamente flow-generator, patterns, mcp-tools, validation e node-configuration. |
+| **[[n8n-flow-generator]]** | (Cluster n8n) Agente specialista n8n che analizza richieste utente per creare o ottimizzare flussi n8n. |
+| **[[n8n-workflow-patterns]]** | (Cluster n8n) Pattern architetturali comprovati per n8n. |
+| **[[n8n-mcp-tools-expert]]** | (Cluster n8n) Guida esperta all'uso dei tool MCP per n8n. |
+| **[[n8n-validation-expert]]** | (Cluster n8n) Validazione e identificazione errori in workflow n8n. |
+| **[[n8n-node-configuration]]** | (Cluster n8n) Configurazione specifica delle proprietà dei nodi n8n. |
 | **[[notebooklm]]** | Interroga roadmap e notebook di Google NotebookLM per risposte basate su fonti e citazioni verificate. |
 | **[[obsidian-bases]]** | Crea e modifica Obsidian Bases (.base) per viste database, filtri e formule nelle note. |
 | **[[obsidian-manager]]** | Gestisce il Vault Obsidian (creazione note formattate) e fornisce riferimento per sintassi Markdown avanzata. |

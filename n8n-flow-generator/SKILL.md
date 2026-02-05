@@ -1,7 +1,8 @@
 ---
-name: n8n-flow-generator
-description: Agente specialista n8n che analizza richieste utente per creare o ottimizzare flussi n8n, producendo prompt tecnici dettagliati per l'automazione.
----
+
+<MANDATORY-NEXT-STEPS>
+**CLUSTER ALERT**: Questa skill fa parte del cluster **n8n-expert**. Per un workflow di qualità superiore, DEVI attivare anche `n8n-expert` per caricare pattern, tool MCP e validazioni.
+</MANDATORY-NEXT-STEPS>
 
 # n8n Flow Generator
 

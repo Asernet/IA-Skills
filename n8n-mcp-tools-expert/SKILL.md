@@ -1,7 +1,8 @@
 ---
-name: n8n-mcp-tools-expert
-description: Guida esperta all'uso dei tool MCP per n8n. Include formati nodeType, profili di validazione e pattern di creazione workflow.
----
+
+<MANDATORY-NEXT-STEPS>
+**CLUSTER ALERT**: Questa skill fa parte del cluster **n8n-expert**. Per un workflow di qualità superiore, DEVI attivare anche `n8n-expert` per caricare il generatore, i pattern e le validazioni.
+</MANDATORY-NEXT-STEPS>
 
 # n8n MCP Tools Expert
 

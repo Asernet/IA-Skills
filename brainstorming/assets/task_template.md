@@ -1,0 +1,28 @@
+# Task: Brainstorming [Argomento]
+
+- [/] Fase 1: Comprensione dell'Idea
+    - [/] Analisi del contesto iniziale
+    - [ ] Domande di raffinamento (una alla volta)
+    - [ ] Definizione scopo e vincoli
+- [ ] Fase 2: Esplorazione Approcci
+    - [ ] Proposta di 2-3 approcci con trade-off
+    - [ ] Selezione approccio raccomandato
+- [ ] Fase 3: Presentazione del Design
+    - [ ] Presentazione incrementale (sezioni 200-300 parole)
+    - [ ] Verifica feedback utente per ogni sezione
+- [ ] Fase 4: Validazione Epistemologica (OBBLIGATORIA)
+    - [ ] **Invoca Cognitos** per analisi bias e fallacie
+    - [ ] Presentazione verdetto critico
+    - [ ] Consenso finale dell'utente
+- [ ] Fase 5: Documentazione
+    - [ ] Scrittura design validato in `docs/plans/`
+    - [ ] Commit su git
+- [ ] Fase 6: Pianificazione dell'Implementazione
+    - [ ] **Invoca Writing Plan**: Segui la guida `assets/writing-plans-guide.md`
+    - [ ] Creazione del piano dettagliato in `docs/plans/`
+    - [ ] **Verifica e Analisi**: Verifica la correttezza di tutti gli step eseguiti ed effettua un'analisi critica del risultato prima di procedere.
+    - [ ] Definizione granularità task (2-5 min)
+- [ ] Fase 7: Esecuzione del Piano
+    - [ ] **Invoca Executing Plan**: Segui la guida `assets/executing-plans-guide.md`
+    - [ ] Esecuzione batch con checkpoint
+    - [ ] Verifica finale con `finishing-a-development-branch`
