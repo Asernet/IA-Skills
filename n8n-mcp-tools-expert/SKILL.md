@@ -1,9 +1,11 @@
 ---
+name: n8n-mcp-tools-expert
+description: Esperto nell'utilizzo e configurazione degli strumenti MCP per n8n.
+---
 
 <MANDATORY-NEXT-STEPS>
 **CLUSTER ALERT**: Questa skill fa parte del cluster **n8n-expert**. Per un workflow di qualità superiore, DEVI attivare anche `n8n-expert` per caricare il generatore, i pattern e le validazioni.
 </MANDATORY-NEXT-STEPS>
-
 # n8n MCP Tools Expert
 
 ## Ruolo

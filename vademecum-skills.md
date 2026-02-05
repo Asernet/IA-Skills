@@ -2,7 +2,7 @@
 
 Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 
-## Indice Skills (73)
+## Indice Skills (80)
 
 | Skill | Descrizione |
 | :--- | :--- |
@@ -39,13 +39,15 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[mcp-builder]]** | Guida per creare server MCP (Model Context Protocol) di alta qualità per integrare servizi esterni con LLM. |
 | **[[memory-systems]]** | Usa questa skill per implementare memoria per agenti, persistenza tra sessioni o knowledge graph. |
 | **[[multi-agent-patterns]]** | Usa questa skill per progettare sistemi multi-agente, pattern supervisore, swarm o coordinamento tra agenti. |
-| **[[n8n-expert]]** | **SKILL MASTER / CLUSTER**: Coordina l'intera suite n8n. Carica questa skill per qualsiasi task complesso su n8n per attivare automaticamente flow-generator, patterns, mcp-tools, validation e node-configuration. |
-| **[[n8n-flow-generator]]** | (Cluster n8n) Agente specialista n8n che analizza richieste utente per creare o ottimizzare flussi n8n. |
-| **[[n8n-workflow-patterns]]** | (Cluster n8n) Pattern architetturali comprovati per n8n. |
-| **[[n8n-mcp-tools-expert]]** | (Cluster n8n) Guida esperta all'uso dei tool MCP per n8n. |
-| **[[n8n-validation-expert]]** | (Cluster n8n) Validazione e identificazione errori in workflow n8n. |
-| **[[n8n-node-configuration]]** | (Cluster n8n) Configurazione specifica delle proprietà dei nodi n8n. |
-| **[[notebooklm]]** | Interroga roadmap e notebook di Google NotebookLM per risposte basate su fonti e citazioni verificate. |
+| **[[n8n-code-javascript]]** | Scrittura di codice JavaScript nei nodi n8n Code. Consigliato per trasformazioni complesse, accessi $input/$json/$node, ed elaborazione dati avanzata. |
+| **[[n8n-code-python]]** | Scrittura di codice Python nei nodi n8n Code. Da usare per trasformazioni specifiche o libreria standard Python, con consapevolezza dei limiti in n8n. |
+| **[[n8n-expert]]** | Skill Master che coordina l'intera suite n8n (flow-generator, workflow-patterns, mcp-tools-expert). Carica questa skill per qualsiasi task complesso su n8n. |
+| **[[n8n-expression-syntax]]** | Ottimizzazione e fixing della sintassi delle espressioni n8n ({{ }}). Include pattern per l'accesso ai dati webhook e variabili di sistema. |
+| **[[n8n-flow-generator]]** | Generatore di workflow n8n a partire da requisiti di business. |
+| **[[n8n-mcp-tools-expert]]** | Esperto nell'utilizzo e configurazione degli strumenti MCP per n8n. |
+| **[[n8n-node-configuration]]** | Guida alla configurazione dei nodi n8n basata sull'operazione. Gestione dipendenze proprietà e campi obbligatori. |
+| **[[n8n-validation-expert]]** | Interpetazione e risoluzione degli errori di validazione n8n. Gestione dei profili di validazione (runtime/ai-friendly) e loop di fixing. |
+| **[[n8n-workflow-patterns]]** | Pattern e best practice per la progettazione di workflow n8n scalabili. |
 | **[[obsidian-bases]]** | Crea e modifica Obsidian Bases (.base) per viste database, filtri e formule nelle note. |
 | **[[obsidian-manager]]** | Gestisce il Vault Obsidian (creazione note formattate) e fornisce riferimento per sintassi Markdown avanzata. |
 | **[[pdf]]** | Toolkit completo per manipolazione PDF: estrazione testo/tabelle, creazione, unione/divisione e gestione moduli. |
@@ -86,4 +88,4 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-30 19:49_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-02-05 20:15_

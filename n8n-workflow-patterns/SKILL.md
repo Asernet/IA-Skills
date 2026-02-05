@@ -1,9 +1,11 @@
 ---
+name: n8n-workflow-patterns
+description: Pattern e best practice per la progettazione di workflow n8n scalabili.
+---
 
 <MANDATORY-NEXT-STEPS>
 **CLUSTER ALERT**: Questa skill fa parte del cluster **n8n-expert**. Per un workflow di qualità superiore, DEVI attivare anche `n8n-expert` per caricare il generatore, i tool MCP e le validazioni.
 </MANDATORY-NEXT-STEPS>
-
 # n8n Workflow Patterns
 
 ## Ruolo

@@ -1,9 +1,11 @@
 ---
+name: n8n-flow-generator
+description: Generatore di workflow n8n a partire da requisiti di business.
+---
 
 <MANDATORY-NEXT-STEPS>
 **CLUSTER ALERT**: Questa skill fa parte del cluster **n8n-expert**. Per un workflow di qualità superiore, DEVI attivare anche `n8n-expert` per caricare pattern, tool MCP e validazioni.
 </MANDATORY-NEXT-STEPS>
-
 # n8n Flow Generator
 
 ## Ruolo
