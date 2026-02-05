@@ -1,0 +1,514 @@
+{
+  "name": "TelegramVoice Asisstant",
+  "nodes": [
+    {
+      "parameters": {
+        "model": "gpt-5.1",
+        "options": {}
+      },
+      "id": "46511f47-1687-4cbe-ae41-ceb205ed1f11",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        1520,
+        784
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "64fe44db-af19-43eb-9ff1-de0a72a9e645",
+      "name": "Listen for incoming events",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "position": [
+        816,
+        576
+      ],
+      "webhookId": "322dce18-f93e-4f86-b9b1-3305519b7834",
+      "typeVersion": 1,
+      "credentials": {
+        "telegramApi": {
+          "id": "zaYQt76SUJMqubeF",
+          "name": "TelegramBitAngy"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Listen for incoming events').first().json.message.from.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "e35c04ff-a050-4564-8c1b-5b22b556872f",
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        1936,
+        592
+      ],
+      "webhookId": "e699405e-8e52-4d38-a06b-1fa8edf050bd",
+      "typeVersion": 1.1,
+      "credentials": {
+        "telegramApi": {
+          "id": "zaYQt76SUJMqubeF",
+          "name": "TelegramBitAngy"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a0bf9719-4272-46f6-ab3b-eda6f7b44fd8",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.message.text }}",
+              "rightValue": ""
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e791d4f8-2c19-4c14-a71e-39a04f22e944",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1152,
+        576
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "5bd1788a-3d08-4eb3-8e03-3ce82f44d2a7",
+      "name": "Speech to Text",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        1440,
+        496
+      ],
+      "typeVersion": 1.3,
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "text",
+              "stringValue": "={{ $json?.message?.text || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b67a2a93-517b-469e-aaa4-32c422710743",
+      "name": "Voice or Text",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        992,
+        576
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $('Listen for incoming events').item.json.message.voice.file_id }}",
+        "additionalFields": {}
+      },
+      "id": "8105c39f-9e87-44c4-9215-b3777f0b4164",
+      "name": "Get Voice File",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        1296,
+        496
+      ],
+      "webhookId": "24273e7e-6133-415e-8627-a9d6dc0f107c",
+      "typeVersion": 1.1,
+      "credentials": {
+        "telegramApi": {
+          "id": "zaYQt76SUJMqubeF",
+          "name": "TelegramBitAngy"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {
+          "systemMessage": "=Sei un assistente preciso e orientato all’estrazione di dati. Ti chiami Angy.\n\nLa data e ora attuali sono: {{ $now }} (fuso orario Europe/Rome).\n\nCOMPORTAMENTO GENERALE\n- Rispondi in modo conciso e senza testo superfluo.\n- Quando ti viene richiesto un valore specifico tramite fromAI, restituisci SOLO il valore richiesto.\n- Non aggiungere spiegazioni, frasi complete o formattazioni extra.\n- Usa sempre il formato richiesto nella descrizione del campo.\n- Se non sai qualcosa non inventare e dici esplicitamente che non lo sai.\n\nGESTIONE DATE E ORARI\n- Usa SEMPRE il formato ISO 8601 completo con timezone (YYYY-MM-DDTHH:MM:SS+01:00 o +02:00).\n- Se l’utente indica solo una data senza orario, imposta l’orario a 09:00.\n- Se manca l’orario di fine o la durata, imposta una durata di 60 minuti.\n- Se l’utente usa termini relativi (oggi, domani, dopodomani), calcola la data usando {{ $now }} e il fuso Europe/Rome.\n- Le date ambigue vanno interpretate come GG/MM (formato italiano).\n\nGESTIONE EVENTI GOOGLE CALENDAR\nQuando l’utente chiede di creare un evento in calendario, devi essere in grado di fornire questi campi se richiesti e utilizzare lo strumenti **\"Crea Evento\"**:\n\n- summary → Titolo breve dell’evento\n- start → Data e ora di inizio in ISO 8601 con timezone\n- end → Data e ora di fine in ISO 8601 con timezone\n- description → Descrizione dell’evento (stringa vuota se assente)\n- location → Luogo dell’evento (stringa vuota se assente)\n- reminderMinutes → Numero intero di minuti prima dell’evento (default 30 se non specificato)\n\nDEFAULT\n- Se il promemoria non è specificato, usa 30 minuti.\n- Se un campo non è noto, restituisci una stringa vuota (\"\"), MAI null.\n- Non inventare informazioni non presenti nella richiesta dell’utente.\n\nGESTIONE INVIO EMAIL\nQuando l’utente chiede di inviare un’email o quando l’azione lo richiede esplicitamente, devi utilizzare lo strumento **\"Send in Gmail\"** e fornire esclusivamente i seguenti campi:\n\n- to → Indirizzo email del destinatario\n- subject → Oggetto dell’email\n- body → Corpo dell’email in html, non essere lungo nel messaggio e descrivi cio che l'utente chiede\n- Aggiungi questa firma alla mail: \n\n  Saluti\n\n  --\n  \n  Marco Macelloni\n  \n  Soluzioni IT\n  marco.macelloni@gmail.com\n  cell. 3494788243\n\n\nREGOLE EMAIL\n- Non inviare email se l’utente non lo richiede esplicitamente.\n- Se uno dei campi richiesti non è noto, dichiara esplicitamente che non lo sai.\n- Non inventare indirizzi email, oggetti o contenuti.\n- Il corpo dell’email deve essere chiaro, diretto e privo di testo superfluo.\n\nGESTIONE SPESE CARBURANTE (GOOGLE SHEETS)\nQuando l’utente chiede di registrare, aggiungere o salvare una spesa carburante, devi utilizzare lo strumento **\"Aggiorna Spesa Carburante\"**.\n\nDevi fornire ESCLUSIVAMENTE i seguenti campi:\n- date → Data del rifornimento (YYYY-MM-DD), se non è espressamente segnalata usa {{ $now }}\n- fuel → Tipo di carburante (DIESEL, BENZINA o GPL)\n- cost → Importo numerico senza simboli di valuta\n\nREGOLE SPESE CARBURANTE\n- Usa lo strumento solo se l’utente chiede esplicitamente di registrare una spesa.\n- Non inventare il tipo di carburante.\n- Non inventare il costo.\n- Se uno dei campi richiesti non è noto, dichiara esplicitamente che non lo sai.\n- Non scrivere testo libero insieme all’uso dello strumento.\n\nPRIORITÀ TOOL\n- Se è richiesto l’aggiornamento di una spesa carburante, NON usare altri strumenti.\n\nNOTE FINALI:\nPrendi un bel respiro prima di rispondere. Questa è una questione di vita o di morte.\n\n\n\n"
+        }
+      },
+      "id": "759b975f-d17c-4386-a5b3-12413f0361f4",
+      "name": "Angie, AI Assistant 👩🏻‍🏫",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1616,
+        592
+      ],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "content": "## Process Telegram Request\n",
+        "height": 263,
+        "width": 624,
+        "color": 5
+      },
+      "id": "5537c777-f003-4673-b48a-4993a0c10520",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        960,
+        464
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "marco.macelloni@gmail.com",
+          "mode": "list",
+          "cachedResultName": "marco.macelloni@gmail.com"
+        },
+        "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
+        "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
+        "additionalFields": {
+          "description": "=nome: {{$json.summary}}\nquando: {{$json.start}}",
+          "summary": "=Nuovo appuntamento {{$json.start}} "
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        1984,
+        784
+      ],
+      "id": "b1f3be7e-f901-485b-abc1-ee29a5bd40eb",
+      "name": "Crea Evento",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "mRc7oSa7EWp5ktDQ",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "marco.macelloni@gmail.com",
+          "mode": "list",
+          "cachedResultName": "marco.macelloni@gmail.com"
+        },
+        "options": {
+          "timeMin": "={{$fromAI(\"date\",\"the date after which to fetch the messages in format YYYY-MM-DDTHH:MM:SS\")}}",
+          "fields": "=items(summary, start(dateTime))"
+        }
+      },
+      "id": "c70236ea-91ab-4e47-b6f6-63a70ede5d3c",
+      "name": "Leggi Calendario",
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "position": [
+        2096,
+        784
+      ],
+      "typeVersion": 1.1,
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "mRc7oSa7EWp5ktDQ",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        1968,
+        912
+      ],
+      "id": "c6f9a468-b1a3-41de-81b6-8f1a5cc5b0f2",
+      "name": "Recupero Mail Gmail",
+      "webhookId": "61e73ffc-b672-4153-8c79-e33024122a46",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "StMxXt2cGYMNeEus",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Listen for incoming events').first().json.message.from.id }}"
+      },
+      "id": "d2287bea-de47-4180-8ee6-55d4ab1a89da",
+      "name": "Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        1632,
+        800
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        1840,
+        912
+      ],
+      "id": "8b051091-7ca2-4018-bdda-13aba1c317f1",
+      "name": "Send in Gmail",
+      "webhookId": "d00742cc-ce37-4e6b-95f5-bb089c29dc6a",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "StMxXt2cGYMNeEus",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "messageId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message_ID', ``, 'string') }}"
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        1696,
+        912
+      ],
+      "id": "9b3fea0f-313d-4748-b43e-1eb1ffde139a",
+      "name": "Delete a message in Gmail",
+      "webhookId": "1a1c7204-e260-415c-8d24-8be1adeee051",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "StMxXt2cGYMNeEus",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Get Voice File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Angie, AI Assistant 👩🏻‍🏫",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Voice or Text": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Voice File": {
+      "main": [
+        [
+          {
+            "node": "Speech to Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Speech to Text": {
+      "main": [
+        [
+          {
+            "node": "Angie, AI Assistant 👩🏻‍🏫",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Angie, AI Assistant 👩🏻‍🏫",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listen for incoming events": {
+      "main": [
+        [
+          {
+            "node": "Voice or Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angie, AI Assistant 👩🏻‍🏫": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crea Evento": {
+      "ai_tool": [
+        [
+          {
+            "node": "Angie, AI Assistant 👩🏻‍🏫",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leggi Calendario": {
+      "ai_tool": [
+        [
+          {
+            "node": "Angie, AI Assistant 👩🏻‍🏫",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recupero Mail Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "Angie, AI Assistant 👩🏻‍🏫",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Angie, AI Assistant 👩🏻‍🏫",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "Angie, AI Assistant 👩🏻‍🏫",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "Angie, AI Assistant 👩🏻‍🏫",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true,
+    "errorWorkflow": "6Ngw1qXnYAcYUXpg"
+  },
+  "versionId": "affeb142-b56c-46c0-a551-f93a416043df",
+  "meta": {
+    "templateId": "2462",
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e6b593b68451200526396e76b5b89bd80464a1a10ebfdd7944bdf91faddeb039"
+  },
+  "id": "IuJ5ZNnDlWU84xsO",
+  "tags": []
+}

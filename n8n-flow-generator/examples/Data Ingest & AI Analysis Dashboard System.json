@@ -1,0 +1,788 @@
+{
+  "name": "Data Ingest & AI Analysis Dashboard System",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
+      },
+      "id": "trigger-schedule",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -80,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://{{$json.prestashop_domain}}/api/orders",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBasicAuth",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "prestashop-orders",
+      "name": "PrestaShop - Get Orders",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        432,
+        -336
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://{{$json.prestashop_domain}}/api/products",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBasicAuth",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "prestashop-products",
+      "name": "PrestaShop - Get Products",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        432,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "projectId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list"
+        },
+        "sqlQuery": "SELECT\n  date,\n  source,\n  medium,\n  campaign,\n  sessions,\n  transactions,\n  revenue,\n  conversion_rate\nFROM `your_project.your_dataset.analytics_data`\nWHERE date >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)\nORDER BY date DESC",
+        "options": {}
+      },
+      "id": "bigquery-analytics",
+      "name": "BigQuery - Analytics Data",
+      "type": "n8n-nodes-base.googleBigQuery",
+      "typeVersion": 2.1,
+      "position": [
+        512,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "projectId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list"
+        },
+        "sqlQuery": "SELECT\n  product_id,\n  product_name,\n  category,\n  total_sales,\n  total_revenue,\n  avg_order_value,\n  stock_level\nFROM `your_project.your_dataset.product_performance`\nWHERE date >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)\nGROUP BY product_id, product_name, category, stock_level\nORDER BY total_revenue DESC",
+        "options": {}
+      },
+      "id": "bigquery-products",
+      "name": "BigQuery - Product Performance",
+      "type": "n8n-nodes-base.googleBigQuery",
+      "typeVersion": 2.1,
+      "position": [
+        512,
+        288
+      ]
+    },
+    {
+      "parameters": {
+        "propertyId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list"
+        },
+        "dateRange": "last30Days",
+        "metricsGA4": {
+          "metricValues": [
+            {}
+          ]
+        },
+        "dimensionsGA4": {
+          "dimensionValues": [
+            {}
+          ]
+        },
+        "additionalFields": {}
+      },
+      "id": "google-analytics",
+      "name": "Google Analytics - Traffic Data",
+      "type": "n8n-nodes-base.googleAnalytics",
+      "typeVersion": 2,
+      "position": [
+        512,
+        576
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "options": {}
+      },
+      "id": "merge-prestashop",
+      "name": "Merge PrestaShop Data",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        784,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "options": {}
+      },
+      "id": "merge-bigquery",
+      "name": "Merge BigQuery Data",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        752,
+        208
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "options": {}
+      },
+      "id": "merge-all-sources",
+      "name": "Merge All Data Sources",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1024,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Aggregazione e strutturazione dei dati da tutte le fonti\nconst items = $input.all();\n\n// Struttura per l'analisi\nconst aggregatedData = {\n  timestamp: new Date().toISOString(),\n  period: 'last_30_days',\n  \n  // Dati PrestaShop\n  prestashop: {\n    orders: [],\n    products: [],\n    summary: {\n      totalOrders: 0,\n      totalRevenue: 0,\n      avgOrderValue: 0\n    }\n  },\n  \n  // Dati BigQuery\n  bigquery: {\n    analyticsData: [],\n    productPerformance: []\n  },\n  \n  // Dati Google Analytics\n  googleAnalytics: {\n    trafficData: [],\n    summary: {\n      totalUsers: 0,\n      totalSessions: 0,\n      totalConversions: 0,\n      totalRevenue: 0\n    }\n  }\n};\n\n// Processa ogni item\nitems.forEach(item => {\n  const data = item.json;\n  \n  // Identifica e categorizza i dati\n  if (data.orders) {\n    aggregatedData.prestashop.orders = data.orders;\n    aggregatedData.prestashop.summary.totalOrders = data.orders.length;\n    const revenue = data.orders.reduce((sum, o) => sum + parseFloat(o.total_paid || 0), 0);\n    aggregatedData.prestashop.summary.totalRevenue = revenue;\n    aggregatedData.prestashop.summary.avgOrderValue = revenue / (data.orders.length || 1);\n  }\n  \n  if (data.products) {\n    aggregatedData.prestashop.products = data.products;\n  }\n  \n  if (data.date && data.sessions !== undefined) {\n    aggregatedData.bigquery.analyticsData.push(data);\n  }\n  \n  if (data.product_id && data.total_sales !== undefined) {\n    aggregatedData.bigquery.productPerformance.push(data);\n  }\n  \n  if (data.activeUsers !== undefined) {\n    aggregatedData.googleAnalytics.trafficData.push(data);\n    aggregatedData.googleAnalytics.summary.totalUsers += parseInt(data.activeUsers || 0);\n    aggregatedData.googleAnalytics.summary.totalSessions += parseInt(data.sessions || 0);\n    aggregatedData.googleAnalytics.summary.totalConversions += parseInt(data.conversions || 0);\n    aggregatedData.googleAnalytics.summary.totalRevenue += parseFloat(data.totalRevenue || 0);\n  }\n});\n\nreturn [{ json: aggregatedData }];"
+      },
+      "id": "aggregate-data",
+      "name": "Aggregate All Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ai-agent",
+      "name": "AI Data Analyst Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1488,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "Sei un esperto analista di dati e-commerce e marketing digitale. Analizza i seguenti dati aggregati da multiple fonti (PrestaShop, BigQuery, Google Analytics) e fornisci:\n\n## DATI DA ANALIZZARE:\n{{ $json }}\n\n## COMPITI:\n\n1. **EXECUTIVE SUMMARY**: Un riassunto esecutivo delle performance complessive del business negli ultimi 30 giorni.\n\n2. **ANALISI VENDITE (PrestaShop)**:\n   - Trend degli ordini e revenue\n   - Prodotti best-seller e underperformer\n   - Average Order Value e sue variazioni\n   - Raccomandazioni per incrementare le vendite\n\n3. **ANALISI TRAFFICO (Google Analytics)**:\n   - Principali fonti di traffico\n   - Performance per dispositivo\n   - Tasso di conversione per canale\n   - Opportunità di ottimizzazione\n\n4. **ANALISI CROSS-CHANNEL (BigQuery)**:\n   - Correlazioni tra canali marketing e vendite\n   - ROI per campagna/canale\n   - Attribution analysis\n\n5. **KPI DASHBOARD RECOMMENDATIONS**:\n   Suggerisci i KPI chiave da includere nella dashboard Looker Studio, organizzati per sezione:\n   - Overview metrics\n   - Sales performance\n   - Traffic & Acquisition\n   - Product performance\n   - Conversion funnel\n\n6. **INSIGHTS ACTIONABLE**:\n   - Top 5 azioni prioritarie da intraprendere\n   - Anomalie o alert da monitorare\n   - Previsioni e trend\n\n7. **STRUTTURA DATI PER LOOKER STUDIO**:\n   Genera una struttura JSON con i dati aggregati pronti per essere inseriti in BigQuery come fonte dati per Looker Studio, con le seguenti tabelle:\n   - daily_metrics\n   - product_performance\n   - channel_attribution\n   - conversion_funnel\n\nFormatta la risposta in modo chiaro e strutturato, utilizzando markdown per la leggibilità."
+      },
+      "id": "ai-prompt",
+      "name": "Analysis Prompt",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        1488,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {
+          "maxTokens": 8000,
+          "temperature": 0.3
+        }
+      },
+      "id": "openai-model",
+      "name": "OpenAI GPT-4o",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Estrai la struttura dati per Looker Studio dalla risposta dell'AI\nconst aiResponse = $input.first().json;\nconst analysisText = aiResponse.output || aiResponse.text || JSON.stringify(aiResponse);\n\n// Prepara i dati per BigQuery/Looker Studio\nconst now = new Date();\nconst timestamp = now.toISOString();\n\n// Struttura base per le tabelle Looker Studio\nconst lookerData = {\n  analysis_report: {\n    report_id: `report_${now.getTime()}`,\n    generated_at: timestamp,\n    analysis_content: analysisText,\n    period_start: new Date(now.setDate(now.getDate() - 30)).toISOString().split('T')[0],\n    period_end: new Date().toISOString().split('T')[0]\n  },\n  \n  // Metriche giornaliere aggregate\n  daily_metrics: {\n    date: new Date().toISOString().split('T')[0],\n    total_orders: 0,\n    total_revenue: 0,\n    total_sessions: 0,\n    total_users: 0,\n    conversion_rate: 0,\n    avg_order_value: 0\n  },\n  \n  // Dati per la dashboard\n  dashboard_config: {\n    recommended_charts: [\n      'revenue_trend_line',\n      'orders_by_channel_pie',\n      'product_performance_bar',\n      'traffic_sources_sankey',\n      'conversion_funnel',\n      'device_breakdown_donut',\n      'geographic_heatmap',\n      'kpi_scorecards'\n    ],\n    refresh_schedule: '6_hours',\n    alert_thresholds: {\n      revenue_drop_percent: 20,\n      conversion_drop_percent: 15,\n      traffic_drop_percent: 25\n    }\n  }\n};\n\nreturn [\n  { json: { type: 'analysis_report', data: lookerData.analysis_report } },\n  { json: { type: 'daily_metrics', data: lookerData.daily_metrics } },\n  { json: { type: 'dashboard_config', data: lookerData.dashboard_config } },\n  { json: { type: 'full_analysis', content: analysisText } }\n];"
+      },
+      "id": "prepare-looker-data",
+      "name": "Prepare Looker Studio Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1920,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-report",
+              "leftValue": "={{ $json.type }}",
+              "rightValue": "analysis_report",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "condition-metrics",
+              "leftValue": "={{ $json.type }}",
+              "rightValue": "daily_metrics",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "router-data",
+      "name": "Route Data Types",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2112,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "projectId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list"
+        },
+        "datasetId": {
+          "__rl": true,
+          "value": "dashboard_data",
+          "mode": "list"
+        },
+        "tableId": {
+          "__rl": true,
+          "value": "analytics_reports",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "id": "bigquery-insert-report",
+      "name": "BigQuery - Save Report",
+      "type": "n8n-nodes-base.googleBigQuery",
+      "typeVersion": 2.1,
+      "position": [
+        2640,
+        48
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "projectId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list"
+        },
+        "datasetId": {
+          "__rl": true,
+          "value": "dashboard_data",
+          "mode": "list"
+        },
+        "tableId": {
+          "__rl": true,
+          "value": "daily_metrics",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "id": "bigquery-insert-metrics",
+      "name": "BigQuery - Save Metrics",
+      "type": "n8n-nodes-base.googleBigQuery",
+      "typeVersion": 2.1,
+      "position": [
+        2640,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://datastudio.googleapis.com/v1/assets:search",
+        "authentication": "oAuth2",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "assetTypes",
+              "value": "REPORT"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "looker-api",
+      "name": "Looker Studio API - Refresh",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2896,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "summary",
+              "name": "summary",
+              "value": "={{ $('AI Data Analyst Agent').item.json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "timestamp",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "status",
+              "name": "status",
+              "value": "completed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "final-output",
+      "name": "Prepare Final Output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3200,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 🚀 Data Ingest & AI Analysis Dashboard System\n\nQuesto workflow automatizza:\n1. **Raccolta dati** da multiple fonti\n2. **Analisi AI** con GPT-4\n3. **Export** verso BigQuery per Looker Studio\n\n⏰ Esecuzione: ogni 6 ore",
+        "height": 280,
+        "width": 440,
+        "color": 7
+      },
+      "id": "sticky-intro",
+      "name": "Intro",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        96
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 🛒 PrestaShop API\n\n**Configurazione necessaria:**\n- Credenziali HTTP Basic Auth\n- URL del tuo negozio PrestaShop\n- API Key PrestaShop\n\n**Dati raccolti:**\n- Ordini ultimi 7 giorni\n- Catalogo prodotti",
+        "height": 396,
+        "width": 584,
+        "color": 4
+      },
+      "id": "sticky-prestashop",
+      "name": "PrestaShop Config",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        96,
+        -368
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 📊 BigQuery\n\n**Configurazione necessaria:**\n- Credenziali Google Cloud\n- Project ID\n- Dataset ID\n\n**Query personalizzabili:**\n- Dati analytics storici\n- Performance prodotti\n\n⚠️ Modifica le query SQL in base al tuo schema",
+        "height": 380,
+        "width": 584,
+        "color": 3
+      },
+      "id": "sticky-bigquery",
+      "name": "BigQuery Config",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        96,
+        96
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 📈 Google Analytics 4\n\n**Configurazione necessaria:**\n- Credenziali Google Analytics\n- Property ID GA4\n\n**Metriche raccolte:**\n- Active Users\n- Sessions\n- Page Views\n- Conversions\n- Revenue",
+        "height": 260,
+        "width": 584,
+        "color": 2
+      },
+      "id": "sticky-ga",
+      "name": "GA Config",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        96,
+        528
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 🔄 Data Aggregation\n\nI dati da tutte le fonti vengono:\n1. Mergiati in un unico stream\n2. Aggregati e strutturati\n3. Preparati per l'analisi AI",
+        "height": 392,
+        "width": 280,
+        "color": 6
+      },
+      "id": "sticky-merge",
+      "name": "Merge Info",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        960,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 🤖 AI Agent Analysis\n\n**Modello:** GPT-4o\n**Temperatura:** 0.3 (più deterministico)\n\n**Output dell'analisi:**\n- Executive Summary\n- Sales Analysis\n- Traffic Analysis\n- Cross-channel insights\n- KPI recommendations\n- Actionable insights\n- Structured data for Looker\n\n⚠️ Configura le credenziali OpenAI",
+        "height": 948,
+        "width": 428
+      },
+      "id": "sticky-ai",
+      "name": "AI Config",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1424,
+        -448
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 💾 BigQuery Export\n\n**Tabelle create:**\n- `analytics_reports` - Report AI\n- `daily_metrics` - Metriche giornaliere\n\nQueste tabelle sono la **fonte dati** per Looker Studio.\n\n**Setup Looker Studio:**\n1. Crea nuovo report\n2. Aggiungi connessione BigQuery\n3. Seleziona dataset `dashboard_data`\n4. Crea visualizzazioni",
+        "height": 524,
+        "width": 540,
+        "color": 5
+      },
+      "id": "sticky-export",
+      "name": "Export Config",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2256,
+        -144
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 🎯 Looker Studio API\n\n**Opzionale:** Refresh automatico del report\n\n⚠️ Richiede:\n- OAuth2 per Google APIs\n- Permessi Looker Studio API\n- Report ID esistente\n\nSe non necessario, puoi disabilitare questo nodo.",
+        "height": 524,
+        "width": 280,
+        "color": 7
+      },
+      "id": "sticky-looker",
+      "name": "Looker API Info",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2832,
+        -144
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## ✅ Output Finale\n\nIl workflow produce:\n1. **Analisi completa** salvata in BigQuery\n2. **Metriche aggregate** per dashboard\n3. **Report AI** con insights\n\n📊 La dashboard Looker Studio si aggiorna automaticamente leggendo da BigQuery",
+        "height": 524,
+        "width": 280,
+        "color": 4
+      },
+      "id": "sticky-output",
+      "name": "Output Info",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3136,
+        -144
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "PrestaShop - Get Orders",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PrestaShop - Get Products",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "BigQuery - Analytics Data",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "BigQuery - Product Performance",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Analytics - Traffic Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrestaShop - Get Orders": {
+      "main": [
+        [
+          {
+            "node": "Merge PrestaShop Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PrestaShop - Get Products": {
+      "main": [
+        [
+          {
+            "node": "Merge PrestaShop Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "BigQuery - Analytics Data": {
+      "main": [
+        [
+          {
+            "node": "Merge BigQuery Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "BigQuery - Product Performance": {
+      "main": [
+        [
+          {
+            "node": "Merge BigQuery Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge PrestaShop Data": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge BigQuery Data": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data Sources",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Google Analytics - Traffic Data": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge All Data Sources": {
+      "main": [
+        [
+          {
+            "node": "Aggregate All Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate All Data": {
+      "main": [
+        [
+          {
+            "node": "AI Data Analyst Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Data Analyst Agent": {
+      "main": [
+        [
+          {
+            "node": "Prepare Looker Studio Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analysis Prompt": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Data Analyst Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI GPT-4o": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Data Analyst Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Looker Studio Data": {
+      "main": [
+        [
+          {
+            "node": "Route Data Types",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route Data Types": {
+      "main": [
+        [
+          {
+            "node": "BigQuery - Save Report",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "BigQuery - Save Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "BigQuery - Save Report": {
+      "main": [
+        [
+          {
+            "node": "Looker Studio API - Refresh",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "BigQuery - Save Metrics": {
+      "main": [
+        [
+          {
+            "node": "Looker Studio API - Refresh",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Looker Studio API - Refresh": {
+      "main": [
+        [
+          {
+            "node": "Prepare Final Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveDataErrorExecution": "all",
+    "errorWorkflow": "",
+    "timezone": "Europe/Rome",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "f9c5728c-f258-4c02-86f6-db0a9d1f1f58",
+  "meta": {
+    "instanceId": "e6b593b68451200526396e76b5b89bd80464a1a10ebfdd7944bdf91faddeb039"
+  },
+  "id": "Y5IIB1sA1D8z5yYU",
+  "tags": []
+}

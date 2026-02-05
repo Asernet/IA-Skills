@@ -1,0 +1,2663 @@
+{
+  "name": "Crea post prestashop GPT4",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "id": "7b91425c-3b8e-4525-aa71-5fbc80409258",
+      "typeVersion": 1,
+      "position": [
+        -1808,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "mode": "list",
+          "value": "1jF-FdFJTjPpA916fZ9_rQNXXY55KJRy-g7oqZgx8nFs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jF-FdFJTjPpA916fZ9_rQNXXY55KJRy-g7oqZgx8nFs/edit?usp=drivesdk",
+          "__rl": true,
+          "cachedResultName": "BlogShopincasa"
+        },
+        "sheetName": {
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15NkEw1K0y2O6kwx0HFv8JNSGCc9lJjDjOGYoec23Xns/edit#gid=0",
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Foglio1"
+        },
+        "columns": {
+          "schema": [
+            {
+              "removed": true,
+              "display": true,
+              "required": false,
+              "id": "ID ROW",
+              "canBeUsedToMatch": true,
+              "displayName": "ID ROW",
+              "defaultMatch": false,
+              "type": "string"
+            },
+            {
+              "required": false,
+              "removed": true,
+              "display": true,
+              "defaultMatch": false,
+              "id": "CATEGORIA/PRODOTTI",
+              "displayName": "CATEGORIA/PRODOTTI",
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "TITOLO",
+              "display": true,
+              "displayName": "TITOLO",
+              "required": false,
+              "defaultMatch": false,
+              "type": "string",
+              "removed": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "displayName": "DESCRIZIONE",
+              "type": "string",
+              "display": true,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "id": "DESCRIZIONE",
+              "required": false,
+              "removed": true
+            },
+            {
+              "display": true,
+              "canBeUsedToMatch": true,
+              "required": false,
+              "displayName": "OBIETTIVO",
+              "removed": true,
+              "defaultMatch": false,
+              "type": "string",
+              "id": "OBIETTIVO"
+            },
+            {
+              "defaultMatch": false,
+              "displayName": "Keyword",
+              "id": "Keyword",
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "defaultMatch": false,
+              "required": false,
+              "removed": true,
+              "id": "URL",
+              "canBeUsedToMatch": true,
+              "displayName": "URL",
+              "type": "string",
+              "display": true
+            },
+            {
+              "id": "Da Fare",
+              "required": false,
+              "type": "string",
+              "displayName": "Da Fare",
+              "removed": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "required": false,
+              "displayName": "Data per post",
+              "canBeUsedToMatch": true,
+              "display": true,
+              "defaultMatch": false,
+              "type": "string",
+              "id": "Data per post",
+              "removed": true
+            },
+            {
+              "displayName": "Data post pubblicato",
+              "id": "Data post pubblicato",
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "required": false,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "id": "ID Post",
+              "required": false,
+              "type": "string",
+              "displayName": "ID Post",
+              "removed": false,
+              "display": true
+            },
+            {
+              "required": false,
+              "displayName": "Meta title",
+              "type": "string",
+              "defaultMatch": false,
+              "id": "Meta title",
+              "canBeUsedToMatch": true,
+              "removed": false,
+              "display": true
+            },
+            {
+              "removed": false,
+              "required": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "displayName": "Meta description",
+              "id": "Meta description",
+              "type": "string"
+            },
+            {
+              "id": "success",
+              "display": true,
+              "required": false,
+              "type": "string",
+              "removed": true,
+              "defaultMatch": false,
+              "displayName": "success",
+              "canBeUsedToMatch": true
+            },
+            {
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "removed": true,
+              "id": "id_simpleblog_post",
+              "required": false,
+              "display": true,
+              "displayName": "id_simpleblog_post"
+            },
+            {
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "id": "id_shop",
+              "displayName": "id_shop",
+              "required": false,
+              "removed": true,
+              "display": true
+            },
+            {
+              "id": "id_lang",
+              "defaultMatch": false,
+              "required": false,
+              "type": "string",
+              "removed": true,
+              "displayName": "id_lang",
+              "canBeUsedToMatch": true,
+              "display": true
+            },
+            {
+              "required": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "id": "sections_count",
+              "displayName": "sections_count",
+              "defaultMatch": false,
+              "removed": true,
+              "type": "string"
+            }
+          ],
+          "convertFieldsToString": false,
+          "matchingColumns": [
+            "TITOLO"
+          ],
+          "mappingMode": "defineBelow",
+          "value": {
+            "\"Da Fare\"": "FALSE",
+            "\"Data post pubblicato\"": "={{ $now.toFormat(\"yyyy-LL-dd HH:mm:ss\") }}",
+            "TITOLO": "={{ $('Get context').item.json.TITOLO }}",
+            "\"Meta description\"": "={{ $('Estrai titolo').item.json.meta_description }}",
+            "\"Meta title\"": "={{ $('Estrai titolo').item.json.meta_title }}",
+            "\"ID Post\"": "={{ $json.id_simpleblog_post }}"
+          }
+        },
+        "options": {}
+      },
+      "position": [
+        1360,
+        64
+      ],
+      "name": "Update Sheet1",
+      "type": "n8n-nodes-base.googleSheets",
+      "id": "8cb4698e-9b66-431a-9474-29041b878c25",
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Sei un copywriter esperto specializzato in aperture ad alto impatto per articoli blog B2C.\n\n**CONTESTO AZIENDALE**\n{{ $json.contesto.finalPrompt }}\n\n**INDICE COMPLETO ARTICOLO**\n{{ $json.contesto.indiceCompleto }}\n\n**TARGET E STRATEGIA**\n- Lettore: {{ $json.contesto.targetPersona }}, livello conoscenza {{ $json.contesto.livelloExpertise }}\n- Pain point da agganciare: {{ $json.contesto.painPoint }}\n- Tone of Voice: {{ $json.contesto.toneOfVoice }}\n- Keyword principale: {{ $json.contesto.keywordPrimaria }}\n\n**TASK**\nScrivi SOLO l'introduzione dell'articolo.\n\n**STRUTTURA INTRODUZIONE**\n1. **Hook iniziale (2-3 frasi)**: Aggancia il lettore con una situazione riconoscibile, domanda provocatoria o dato sorprendente legato al pain point\n2. **Sviluppo problema (3-4 frasi)**: Amplifica il problema, crea empatia, dimostra che comprendi la frustrazione del lettore\n3. **Promessa e transizione (2-3 frasi)**: Anticipa cosa scoprirà nell'articolo (senza spoilerare), crea curiosità per continuare\n\n**VINCOLI TECNICI**\n- Lunghezza: 180-230 parole ESATTE\n- Keyword \"{{ $json.contesto.keywordPrimaria }}\": inseriscila UNA volta in modo naturale (se risulta forzata, omettila completamente)\n- NO nome brand o prodotti specifici\n- NO frasi generiche tipo \"Nel mondo di oggi\", \"Negli ultimi anni\", \"Ti sei mai chiesto\"\n- NO titoli tipo \"Introduzione:\" o \"Premessa:\"\n- Linguaggio: se livello è \"base\" → zero gergo tecnico; se \"intermedio\" → spiega i termini; se \"avanzato\" → puoi usare terminologia settoriale\n\n**FORMATO OUTPUT**\n- Solo HTML pulito: <p>, <b>, <i>\n- NO wrapper ```html\n- NO markdown\n- Prima riga = inizio diretto del testo (non tag vuoti)\n- Separazione paragrafi con </p><p>\n\n**ESEMPI HOOK EFFICACI vs DEBOLI**\n\n✅ EFFICACE: \"Hai mai speso ore a cercare un documento che giuravi di aver salvato, solo per scoprire che era nella cartella sbagliata?\"\n\n❌ DEBOLE: \"Nell'era digitale di oggi, la gestione dei documenti è fondamentale per ogni azienda moderna.\"\n\n✅ EFFICACE: \"Il 68% delle piccole imprese perde in media 4 ore settimanali per problemi di organizzazione digitale. Quattro ore che potresti dedicare ai tuoi clienti.\"\n\n❌ DEBOLE: \"La tecnologia sta cambiando il modo in cui lavoriamo e dobbiamo adattarci.\"\n\n**ERRORI DA EVITARE**\n- ❌ Partire con definizioni (\"La gestione documentale è il processo di...\")\n- ❌ Statistiche vaghe senza fonte (\"Molte aziende affrontano...\")\n- ❌ Tono paternalistico (\"Oggi ti spiegherò come...\")\n- ❌ Promesse esagerate (\"Rivoluzionerà il tuo business\")\n\n**VALIDATION CHECK INTERNO**\nPrima di rispondere, verifica:\n- [ ] L'hook è specifico e riconoscibile per {{ $json.contesto.targetPersona }}?\n- [ ] Il tono è coerente con {{ $json.contesto.toneOfVoice }}?\n- [ ] La keyword è integrata naturalmente (o omessa se forzata)?\n- [ ] C'è un filo logico hook → problema → promessa?\n\nScrivi SOLO l'introduzione in HTML pulito, nient'altro."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1024
+        }
+      },
+      "position": [
+        -32,
+        -256
+      ],
+      "name": "Introduzione",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "id": "f6a22aff-997f-4439-a3d4-17ab42ddbe49",
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Sei un content strategist esperto che sviluppa contenuti approfonditi e concreti per articoli blog B2C.\n\n**CONTESTO AZIENDALE**\n{{ $json.contesto.finalPrompt }}\n\n**INDICE COMPLETO ARTICOLO**\n{{ $json.contesto.indiceCompleto }}\n\n**ARTICOLO IN COSTRUZIONE**\n<introduzione_scritta>\n{{ $json.introduzione_output }}\n</introduzione_scritta>\n\n**SEZIONE DA SCRIVERE**\nStai scrivendo la PRIMA sezione dell'articolo (dopo l'introduzione).\n\nDall'indice, questa sezione è:\n[Estrai automaticamente il titolo e sottotitoli della Sezione 1 dall'indice]\n\n**TARGET E STRATEGIA**\n- Lettore: {{ $json.contesto.targetPersona }}, livello {{ $json.contesto.livelloExpertise }}\n- Tone of Voice: {{ $json.contesto.toneOfVoice }}\n- Keyword semantiche disponibili: {{ $json.contesto.keywordSemantica }}\n\n**TASK**\nScrivi questa sezione seguendo la struttura H3 → contenuto dell'indice.\n\n**COME STRUTTURARE LA SEZIONE**\n1. **Paragrafo di apertura (2-3 frasi)**: Collega l'introduzione a questa sezione con una frase di transizione tipo \"Vediamo nel dettaglio...\" o \"Partiamo da...\"\n2. **Per ogni sottotitolo H3**:\n   - Apertura (1-2 frasi): Presenta il concetto chiave\n   - Sviluppo (3-4 frasi): Spiega con esempio concreto, caso pratico o scenario reale\n   - Applicazione (1-2 frasi): Come il lettore può usare questa informazione\n3. **Nessuna conclusione di sezione**: Questa sezione non è finale, deve lasciare aperta la continuazione\n\n**VINCOLI TECNICI**\n- Lunghezza: 600-750 parole TOTALI per tutta la sezione\n- Distribuzione equilibrata: ogni H3 dovrebbe essere 180-250 parole\n- Keyword semantiche: Usa 1-2 tra {{ $json.contesto.keywordSemantica }} dove risultano naturali\n- NO elenchi generici tipo \"1. Fai questo, 2. Fai quello\"\n- NO paragrafi sotto le 3 righe (troppo frammentati)\n- NO frasi vuote tipo \"È importante considerare\", \"Bisogna tenere a mente\"\n\n**FORMATO OUTPUT**\n```html\n<p>[Paragrafo transizione dall'intro]</p><h3>[Sottotitolo 1 ESATTO dall'indice]</h3>\n<p>[Contenuto...]</p>\n<p>[Contenuto...]</p><h3>[Sottotitolo 2 ESATTO dall'indice]</h3>\n<p>[Contenuto...]</p>\n<p>[Contenuto...]</p><h3>[Sottotitolo 3 ESATTO dall'indice]</h3>\n<p>[Contenuto...]</p>\n<p>[Contenuto...]</p>\n```\nREGOLE HTML\n\nTag permessi: <h3>, <p>, <b>, <i>, <ul>, <li>\nNO wrapper ```html\nNO markdown\nNO numerazione tipo \"1.\", \"2.\" prima dei sottotitoli\nSe usi liste <ul>: max 5 item, ogni item minimo 10 parole\n\nPROFONDITÀ CONTENUTO\nLa sezione deve essere sostanziosa, non superficiale:\n\n✅ \"Se gestisci un e-commerce con 200+ prodotti, categorizzare manualmente richiede 3-4 ore. Un sistema automatizzato riduce questo tempo a 15 minuti usando tag predefiniti e regole di categorizzazione.\"\n❌ \"Categorizzare i prodotti è importante per l'organizzazione e aiuta i clienti a trovare ciò che cercano.\"\n\nADATTAMENTO LIVELLO EXPERTISE\n\nSe livello \"base\": Spiega ogni termine tecnico, usa analogie quotidiane\nSe livello \"intermedio\": Puoi usare termini settoriali ma fornisci contesto\nSe livello \"avanzato\": Approfondisci aspetti tecnici, no spiegazioni elementari\n\nCONTINUITÀ NARRATIVA\nLa frase di apertura DEVE richiamare esplicitamente l'introduzione. Esempi:\n\n✅ \"Ora che abbiamo visto quanto tempo perdiamo nella ricerca, capiamo dove si nasconde realmente il problema.\"\n✅ \"Le 4 ore settimanali che abbiamo menzionato si perdono principalmente in tre aree critiche.\"\n❌ \"Ci sono diversi aspetti da considerare quando parliamo di gestione documentale.\"\n\nERRORI DA EVITARE\n\n❌ Cambiare i titoli H3 rispetto all'indice originale\n❌ Teorie astratte senza esempi concreti\n❌ Liste di controllo senza spiegazione (\"Verifica X, Controlla Y\")\n❌ Ripetere concetti dell'introduzione\n❌ Chiudere la sezione con frasi conclusive tipo \"Come abbiamo visto...\"\n\nVALIDATION CHECK INTERNO\n\n C'è una frase di transizione dall'introduzione?\n Ogni H3 ha almeno un esempio concreto o scenario pratico?\n La lunghezza totale è tra 600-750 parole?\n Il linguaggio è adatto a livello {{ $json.contesto.livelloExpertise }}?\n I titoli H3 sono IDENTICI a quelli dell'indice?\n\nScrivi SOLO questa sezione in HTML pulito, nient'altro."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1024
+        }
+      },
+      "id": "23f8ae85-d8cb-4eb5-94e1-5b746fe08ed2",
+      "name": "Sezione 1",
+      "position": [
+        -32,
+        -144
+      ],
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Sei un content strategist esperto che sviluppa contenuti approfonditi e concreti per articoli blog B2C.\n\n**CONTESTO AZIENDALE**\n{{ $json.contesto.finalPrompt }}\n\n**INDICE COMPLETO ARTICOLO**\n{{ $json.contesto.indiceCompleto }}\n\n**ARTICOLO IN COSTRUZIONE**\n<introduzione_scritta>\n{{ $json.introduzione_output }}\n</introduzione_scritta>\n\n<sezione_1_scritta>\n{{ $json.sezione_1_output }}\n</sezione_1_scritta>\n\n**SEZIONE DA SCRIVERE**\nStai scrivendo la SECONDA sezione dell'articolo.\n\nDall'indice, questa sezione è:\n[Estrai automaticamente il titolo e sottotitoli della Sezione 2 dall'indice]\n\n**TARGET E STRATEGIA**\n- Lettore: {{ $json.contesto.targetPersona }}, livello {{ $json.contesto.livelloExpertise }}\n- Tone of Voice: {{ $json.contesto.toneOfVoice }}\n- Keyword primaria: {{ $json.contesto.keywordPrimaria }}\n- Keyword semantiche disponibili: {{ $json.contesto.keywordSemantica }}\n\n**TASK**\nScrivi questa sezione costruendo sulla precedente e approfondendo verso la soluzione.\n\n**COME STRUTTURARE LA SEZIONE**\n1. **Paragrafo di apertura (2-3 frasi)**: Collega Sezione 1 a questa con continuità narrativa tipo \"Dopo aver capito [concept Sezione 1], vediamo come...\" \n2. **Per ogni sottotitolo H3**:\n   - Apertura (1-2 frasi): Presenta l'elemento/componente\n   - Sviluppo approfondito (4-5 frasi): Spiega il \"perché funziona\" con dati, logica o case study\n   - Dettaglio pratico (2-3 frasi): Elemento applicativo o considerazione operativa\n3. **Nessuna conclusione**: Prepara il terreno per la Sezione 3\n\n**VINCOLI TECNICI**\n- Lunghezza: 600-750 parole TOTALI per tutta la sezione\n- Keyword primaria \"{{ $json.contesto.keywordPrimaria }}\": DEVE comparire 1 volta in questa sezione (in un H3 o nel corpo testo, dove risulta naturale)\n- Keyword semantiche: Usa almeno 1 tra {{ $json.contesto.keywordSemantica }}\n- NO ripetizioni di concetti dalla Sezione 1\n- Questa sezione deve andare PIÙ IN PROFONDITÀ della precedente\n\n**FORMATO OUTPUT**\n```html\n<p>[Paragrafo transizione dalla Sezione 1]</p><h3>[Sottotitolo 1 ESATTO dall'indice]</h3>\n<p>[Contenuto approfondito...]</p>\n<p>[Contenuto approfondito...]</p><h3>[Sottotitolo 2 ESATTO dall'indice]</h3>\n<p>[Contenuto approfondito...]</p>\n<p>[Contenuto approfondito...]</p><h3>[Sottotitolo 3 ESATTO dall'indice]</h3>\n<p>[Contenuto approfondito...]</p>\n<p>[Contenuto approfondito...]</p>\n```\nREGOLE HTML\n\nTag permessi: <h3>, <p>, <b>, <i>, <ul>, <li>\nNO wrapper ```html\nNO markdown\nNO numerazione prima dei sottotitoli\nSe usi <b>: solo per enfatizzare concetti chiave (max 3-4 volte in tutta la sezione)\n\nPROGRESSIONE NARRATIVA\nSezione 1 → comprendere il problema\nSezione 2 → esplorare soluzioni/approcci/elementi chiave\nSezione 3 → applicazione pratica\nLa Sezione 2 è il \"ponte\": non più problema, non ancora soluzione completa.\nPLACEMENT KEYWORD PRIMARIA\nLa keyword \"{{ $json.contesto.keywordPrimaria }}\" deve comparire così:\n\n✅ In un H3 se l'indice lo prevede naturalmente\n✅ Nel primo o secondo paragrafo dopo l'apertura\n✅ In una frase che aggiunge valore (non solo per SEO)\n❌ Ripetuta più volte (keyword stuffing)\n❌ In una frase forzata che interrompe il flusso\n\nESEMPI TRANSIZIONE EFFICACI\n✅ \"Abbiamo visto come [concetto Sezione 1]. Ora concentriamoci su cosa rende efficace una soluzione.\"\n✅ \"I tre problemi che abbiamo identificato hanno tutti una radice comune: [nuovo insight della Sezione 2].\"\n❌ \"Passiamo ora alla seconda parte dell'articolo.\"\n❌ \"In questa sezione parleremo di...\"\nPROFONDITÀ CONTENUTO\nOgni H3 deve rispondere a una domanda specifica:\n\n\"Perché questo aspetto è importante?\"\n\"Come funziona nella pratica?\"\n\"Quali sono i vantaggi concreti?\"\n\nNon accontentarti di affermazioni generiche.\nERRORI DA EVITARE\n\n❌ Nessuna transizione dalla Sezione 1\n❌ Contenuto teorico senza applicazioni\n❌ Ripetere informazioni già date\n❌ Dimenticare di inserire la keyword primaria\n❌ Paragrafi troppo brevi (sotto 4 righe) o troppo lunghi (oltre 8 righe)\n\nVALIDATION CHECK INTERNO\n\n La frase di apertura richiama esplicitamente la Sezione 1?\n La keyword primaria \"{{ $json.contesto.keywordPrimaria }}\" compare 1 volta naturalmente?\n Ogni H3 approfondisce (non ripete) rispetto alla Sezione 1?\n La lunghezza totale è 600-750 parole?\n I titoli H3 sono IDENTICI a quelli dell'indice?\n\nScrivi SOLO questa sezione in HTML pulito, nient'altro."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1024
+        }
+      },
+      "id": "483d1105-c570-469f-bace-c35d7ff9adfa",
+      "name": "Sezione 2",
+      "position": [
+        -32,
+        -32
+      ],
+      "typeVersion": 1.8,
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Sei un content strategist esperto che sviluppa contenuti approfonditi e azionabili per articoli blog B2C.\n\n**CONTESTO AZIENDALE**\n{{ $json.contesto.finalPrompt }}\n\n**INDICE COMPLETO ARTICOLO**\n{{ $json.contesto.indiceCompleto }}\n\n**ARTICOLO IN COSTRUZIONE**\n<introduzione_scritta>\n{{ $json.introduzione_output }}\n</introduzione_scritta>\n\n<sezione_1_scritta>\n{{ $json.sezione_1_output }}\n</sezione_1_scritta>\n\n<sezione_2_scritta>\n{{ $json.sezione_2_output }}\n</sezione_2_scritta>\n\n**SEZIONE DA SCRIVERE**\nStai scrivendo la TERZA sezione dell'articolo (ultima prima della conclusione).\n\nDall'indice, questa sezione è:\n[Estrai automaticamente il titolo e sottotitoli della Sezione 3 dall'indice]\n\n**TARGET E STRATEGIA**\n- Lettore: {{ $json.contesto.targetPersona }}, livello {{ $json.contesto.livelloExpertise }}\n- Tone of Voice: {{ $json.contesto.toneOfVoice }}\n- Keyword semantiche disponibili: {{ $json.contesto.keywordSemantica }}\n\n**TASK**\nScrivi questa sezione con focus su **applicazione pratica** e **azioni concrete**.\n\nQuesta è l'ultima sezione prima della conclusione: deve dare al lettore strumenti applicabili subito.\n\n**COME STRUTTURARE LA SEZIONE**\n1. **Paragrafo di apertura (2-3 frasi)**: Collega le Sezioni 1-2 a questa con un ponte tipo \"Ora che abbiamo capito [S1] e esplorato [S2], vediamo come metterlo in pratica...\"\n2. **Per ogni sottotitolo H3**:\n   - Titolo chiaro dell'azione/step/elemento\n   - Come fare (3-4 frasi): Istruzioni concrete, non vaghe\n   - Perché funziona (2-3 frasi): Razionale o beneficio specifico\n   - Esempio o scenario (2-3 frasi): Applicazione nel mondo reale\n3. **Paragrafo di chiusura (2-3 frasi)**: Prepara alla conclusione con una sintesi del valore acquisito\n\n**VINCOLI TECNICI**\n- Lunghezza: 600-750 parole TOTALI per tutta la sezione\n- Focus: PRATICITÀ - ogni H3 deve essere azionabile\n- Keyword semantiche: Usa almeno 1 tra {{ $json.contesto.keywordSemantica }}\n- NO teorie o spiegazioni concettuali (quelle erano Sezioni 1-2)\n- NO \"consulta un esperto\" o \"dipende dal caso\" (troppo vago)\n\n**FORMATO OUTPUT**\n```html\n<p>[Paragrafo transizione dalle Sezioni 1-2]</p><h3>[Sottotitolo 1 ESATTO dall'indice]</h3>\n<p>[Come fare - istruzioni concrete...]</p>\n<p>[Perché funziona - razionale...]</p>\n<p>[Esempio applicativo...]</p><h3>[Sottotitolo 2 ESATTO dall'indice]</h3>\n<p>[Come fare...]</p>\n<p>[Perché funziona...]</p>\n<p>[Esempio...]</p><h3>[Sottotitolo 3 ESATTO dall'indice]</h3>\n<p>[Come fare...]</p>\n<p>[Perché funziona...]</p>\n<p>[Esempio...]</p><p>[Paragrafo di chiusura che prepara alla conclusione]</p>\n```\nREGOLE HTML\n\nTag permessi: <h3>, <p>, <b>, <i>, <ul>, <li>\nNO wrapper ```html\nNO markdown\nSe usi liste <ul>: devono essere checklist o step operativi, non elenchi vaghi\n\nDIFFERENZA CRUCIALE CON SEZIONI PRECEDENTI\n\nSezione 1: \"Cos'è\" e \"Perché è un problema\"\nSezione 2: \"Come funziona\" e \"Quali elementi considerare\"\nSezione 3: \"Cosa fare\" e \"Come applicarlo\" ← SEI QUI\n\nOgni H3 di questa sezione deve rispondere a \"Come faccio a...?\" non \"Cos'è...?\"\nESEMPI CONTENUTO PRATICO vs TEORICO\n✅ PRATICO: \"Inizia creando una cartella principale chiamata 'Clienti', poi crea sottocartelle per ogni cliente usando il formato AAAA-NomeCliente (es: 2024-RossiSRL). All'interno, usa tre sottocartelle fisse: Contratti, Comunicazioni, Fatture.\"\n❌ TEORICO: \"È importante organizzare i file in modo logico e strutturato per facilitare il recupero delle informazioni quando necessario.\"\n✅ PRATICO: \"Dedica 10 minuti ogni venerdì a rinominare i file scaricati durante la settimana usando questo schema: AAAAMMGG_NomeFile_Versione (es: 20240115_PropCommerciale_v2).\"\n❌ TEORICO: \"Una buona nomenclatura dei file aiuta a mantenere l'ordine e la chiarezza nel sistema di archiviazione.\"\nTRANSIZIONE DALLE SEZIONI PRECEDENTI\nLa frase di apertura DEVE richiamare i concetti chiave delle sezioni 1-2:\n✅ \"Abbiamo visto [problema S1] e analizzato [soluzione S2]. Ora mettiamo in pratica questi principi con azioni concrete.\"\n✅ \"I tre elementi che abbiamo esplorato [S2] si traducono in questi passaggi operativi.\"\n❌ \"In quest'ultima sezione vedremo come applicare quanto detto.\"\nPARAGRAFO DI CHIUSURA SEZIONE\nServe per preparare la conclusione. Deve:\n\nSintetizzare il valore delle azioni presentate\nCreare un ponte emotivo verso la conclusione\nNON essere una vera conclusione (quella viene dopo)\n\nEsempio:\n✅ \"Questi tre passaggi richiedono un investimento iniziale di tempo, ma trasformano il caos quotidiano in un sistema che lavora per te. E quando il sistema funziona, recuperi quelle 4 ore settimanali che menzionavamo all'inizio.\"\n❌ \"Come abbiamo visto in questa sezione, ci sono diverse azioni da implementare per migliorare la gestione.\"\nERRORI DA EVITARE\n\n❌ Contenuto vago tipo \"Valuta le tue esigenze\", \"Scegli l'opzione migliore\"\n❌ Step senza spiegazione del \"come\"\n❌ Nessun esempio pratico di applicazione\n❌ Liste di 10+ item (troppo overwhelmante)\n❌ Dimenticare il paragrafo di chiusura\n\nVALIDATION CHECK INTERNO\n\n La frase di apertura richiama le Sezioni 1 e 2?\n Ogni H3 ha istruzioni CONCRETE (non \"considera\" o \"valuta\")?\n C'è almeno un esempio/scenario per H3?\n Il paragrafo di chiusura prepara alla conclusione?\n La lunghezza totale è 600-750 parole?\n I titoli H3 sono IDENTICI a quelli dell'indice?\n\nScrivi SOLO questa sezione in HTML pulito, nient'altro."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1024
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        -32,
+        80
+      ],
+      "id": "8a99542f-8fee-41cc-8100-a93186056b6c",
+      "typeVersion": 1.8,
+      "name": "Sezione 3",
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=**RUOLO**\nSei un conversion copywriter specializzato in conclusioni ad alto impatto che trasformano lettori in lead.\n\n**CONTESTO SESSIONE**\nStai scrivendo la CONCLUSIONE di un articolo. Devi chiudere il cerchio e guidare all'azione.\n\n**ARTICOLO COMPLETO FINORA**\n<introduzione>\n{{ $json.introduzione_output }}\n</introduzione>\n\n<sezione_1>\n{{ $json.sezione_1_output }}\n</sezione_1>\n\n<sezione_2>\n{{ $json.sezione_2_output }}\n</sezione_2>\n\n**CONCLUSIONE DA SCRIVERE**\n{{ $json.contesto.indice.conclusione }}\n\n**BRIEF STRATEGICO**\n- Pain point iniziale: {{ $json.contesto.painPoint }}\n- Messaggio chiave da rafforzare: [rileggi l'articolo e identifica IL concetto principale]\n- CTA richiesta: {{ $json.analisi_strategica.validazione.cta_consigliata }}\n- Posizionamento brand: {{ $json.contesto.posizionamento }}\n- Tone of Voice: {{ $json.contesto.toneOfVoice }}\n\n**TASK**\nScrivi la conclusione in 3 blocchi:\n\n**BLOCCO 1 - Recap (2-3 frasi)**\n- Riprendi il pain point dell'intro\n- Sintetizza la soluzione presentata (senza elencare tutto)\n- Crea il \"momento aha\": \"Quindi, ricorda...\"\n\n**BLOCCO 2 - Bridge emotivo (1-2 frasi)**\n- Passa da \"cosa hai imparato\" a \"cosa puoi fare ora\"\n- Usa linguaggio motivazionale senza esagerare\n\n**BLOCCO 3 - CTA (2-3 frasi)**\n- Call to action chiara e specifica: {{ $json.analisi_strategica.validazione.cta_consigliata }}\n- Richiamo al posizionamento brand (senza nominare il brand)\n- Chiusura che lascia sensazione di valore ricevuto\n\n**VINCOLI CRITICI**\n- Lunghezza: 150-180 parole ESATTE\n- NO riassunto punto per punto (è un blog, non un paper accademico)\n- NO \"In conclusione...\", \"Per riassumere...\", \"Come abbiamo visto...\"\n- La CTA NON deve essere \"Contattaci\" o \"Scopri di più\" (troppo vago)\n- Deve essere: \"Scarica la checklist\", \"Prenota una demo\", \"Richiedi l'analisi gratuita\", ecc.\n- Keyword: Keyword primaria \"{{ $json.contesto.keywordPrimaria }}\" può comparire 1 volta se naturale\n\n**FORMATO OUTPUT**\n```html\n<h2>[Titolo H2 esatto dall'indice]</h2>\n\n<p>[Blocco 1: Recap...]</p>\n\n<p>[Blocco 2: Bridge emotivo...]</p>\n\n<p>[Blocco 3: CTA specifica...]</p>\n```\n\n**ESEMPI CTA EFFICACI vs DEBOLI**\n\n✅ BUONO: \"Scarica la nostra checklist in 5 punti per valutare il tuo sistema attuale e identifica dove stai perdendo tempo.\"\n\n❌ DEBOLE: \"Contattaci per saperne di più sui nostri servizi.\"\n\n✅ BUONO: \"Prenota una call di 15 minuti con il nostro team: analizzeremo insieme il tuo caso e ti diremo se questa soluzione fa per te.\"\n\n❌ DEBOLE: \"Visita il nostro sito per scoprire le nostre soluzioni.\"\n\n**VALIDATION INTERNA**\n- [ ] Il recap richiama esplicitamente il pain point dell'intro?\n- [ ] La CTA è SPECIFICA e fattibile (non vaga)?\n- [ ] Il richiamo al posizionamento è naturale, non forzato?\n- [ ] La chiusura lascia sensazione positiva, non pressione di vendita?\n\nScrivi SOLO la conclusione, nient'altro."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1024
+        }
+      },
+      "id": "d3b47c98-c432-4a1a-9972-cb49a910be8d",
+      "name": "Conclusione",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -32,
+        192
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $('Base Articolo').first().json.message.content || '';\\nconst metatext = $input.first().json.message.content || '';\\n\\n// Regex robuste per i tre campi\\nconst titoloMatch = text.match(/^\\s*Titolo\\s*:\\s*(.+?)\\s*$/im);\\nconst metaTitleMatch = metatext.match(/^\\s*Meta\\s*Title\\s*:\\s*(.+?)\\s*$/im);\\nconst metaDescMatch = metatext.match(/^\\s*Meta\\s*Description\\s*:\\s*(.+?)\\s*$/im);\\n\\nreturn [\\n  {\\n    json: {\\n      titolo: titoloMatch ? titoloMatch[1].trim() : '',\\n      meta_title: metaTitleMatch ? metaTitleMatch[1].trim() : '',\\n      meta_description: metaDescMatch ? metaDescMatch[1].trim() : ''\\n    }\\n  }\\n];\\n"
+      },
+      "typeVersion": 2,
+      "position": [
+        928,
+        64
+      ],
+      "name": "Estrai titolo",
+      "id": "f062d811-b450-41d7-867a-bf42dbc05219",
+      "type": "n8n-nodes-base.code"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://stage.shopincasa.it/index.php?fc=module&module=n8nblogbridge&controller=publish",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "title",
+              "value": "={{ $json.titolo }}"
+            },
+            {
+              "name": "meta_title",
+              "value": "={{ $json.meta_title }}"
+            },
+            {
+              "name": "meta_description",
+              "value": "={{ $json.meta_description }}"
+            },
+            {
+              "name": "id_simpleblog_category",
+              "value": "1"
+            },
+            {
+              "name": "id_simpleblog_post_type",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7e4a8de3-ec0c-45f5-a012-1d0573ad8857",
+      "position": [
+        1072,
+        64
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "name": "Creo Articolo",
+      "typeVersion": 4.3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://stage.shopincasa.it/index.php?fc=module&module=n8nblogbridge&controller=parkbody",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ JSON.stringify({\\n  id_simpleblog_post: $('Chiama contesto').item.json.id_simpleblog_post,\\n  lang_iso: 'it',\\n  sections: [\\n    {\\n      key: 'intro',\\n      sort_order: 1,\\n      type: 'html',\\n      content: $('Introduzione').item.json.message.content\\n    },\\n    {\\n      key: 'sec1',\\n      sort_order: 2,\\n      type: 'html',\\n      content: $('Sezione 1').item.json.message.content\\n    },\\n    {\\n      key: 'sec2',\\n      sort_order: 3,\\n      type: 'html',\\n      content: $('Sezione 2').item.json.message.content\\n    },\\n    {\\n      key: 'sec3',\\n      sort_order: 4,\\n      type: 'html',\\n      content: $('Sezione 3').item.json.message.content\\n    },\\n    {\\n      key: 'conclusioni',\\n      sort_order: 5,\\n      type: 'html',\\n      content: $('Conclusione').item.json.message.content\\n    }\\n\\n  ]\\n})\\n}}\\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "name": "Inserisco Body",
+      "position": [
+        1216,
+        64
+      ],
+      "id": "319da311-b169-4a32-a2ae-67560cd2f863",
+      "typeVersion": 4.3
+    },
+    {
+      "parameters": {
+        "operation": "list",
+        "useQueryString": true,
+        "queryString": "'112pCpWr2EAEIPd1Ilcc-aqJrCIJwBbg0' in parents and mimeType = 'application/pdf'",
+        "options": {}
+      },
+      "id": "0511ca03-05ec-4ec5-89f8-fa0736d32a38",
+      "name": "List & Download PDFs from GDrive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 2,
+      "position": [
+        -1584,
+        -128
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "19dc5836-c1aa-4d52-b82f-9f7517482496",
+      "name": "Read PDF",
+      "type": "n8n-nodes-base.readPDF",
+      "typeVersion": 1,
+      "position": [
+        -1312,
+        -128
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1456,
+        -128
+      ],
+      "id": "b49c6845-6096-4d7a-9885-5570e7c6ded9",
+      "name": "Download file"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -704,
+        -32
+      ],
+      "id": "47f6c1a6-c7f2-429c-bcc1-0017ac32803c",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Prendi il testo dalla risposta AI\nconst aiText = $input.first().json.output[0].content[0].text;\n\n// Rimuovi i backticks del markdown (```json e ```)\nconst cleanText = aiText.replace(/```json\\n?/g, '').replace(/```\\n?/g, '').trim();\n\n// Parse del JSON\nconst extractedData = JSON.parse(cleanText);\n\n// Ritorna i dati strutturati\nreturn [{\n  json: {\n    ...extractedData,\n    processed_date: new Date().toISOString(),\n    original_source: 'ShopinCasa.it Market Analysis'\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -880,
+        -128
+      ],
+      "id": "1d925081-8575-4930-b211-9b72d079127f",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "titolo"
+            },
+            {
+              "fieldToAggregate": "CATEGORIA/PRODOTTI"
+            },
+            {
+              "fieldToAggregate": "DESCRIZIONE"
+            },
+            {
+              "fieldToAggregate": "OBIETTIVO"
+            },
+            {
+              "fieldToAggregate": "Keyword"
+            },
+            {
+              "fieldToAggregate": "Da Fare"
+            },
+            {
+              "fieldToAggregate": "row_number_sheet"
+            },
+            {
+              "fieldToAggregate": "profilo_aziendale"
+            },
+            {
+              "fieldToAggregate": "target_audience"
+            },
+            {
+              "fieldToAggregate": "strategia_comunicazione"
+            },
+            {
+              "fieldToAggregate": "insights_mercato"
+            },
+            {
+              "fieldToAggregate": "suggerimenti_blog"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        -32
+      ],
+      "id": "24ec7e9d-d9b9-4d95-825b-035fddefcb51",
+      "name": "Aggregate1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ffb1a84-3742-46f3-9af2-d36b1baf892c",
+              "name": "titolo",
+              "value": "={{ $json.choices[0].message.content.match(/^# (.+)/m)?.[1] }}",
+              "type": "string"
+            },
+            {
+              "id": "7b072936-fee5-4d91-9211-3b919347fecb",
+              "name": "indice",
+              "value": "={{ $json.choices[0].message.content.split('## INDICE\\n')[1]?.split('\\n\\n## RATIONALE')[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "121ec1a0-4976-4304-8d1e-2bb336c3b96b",
+              "name": "Introduzione",
+              "value": "={{ $json.choices[0].message.content.match(/1\\.\\s+(.+?)(?=\\n2\\.|\\n\\s+-)/s)?.[1]?.replace(/^introduzione\\s*-\\s*/i, '') }}",
+              "type": "string"
+            },
+            {
+              "id": "8a8f97e4-932a-4887-a0e4-3266922e67ca",
+              "name": "Sezione 1",
+              "value": "={{ $json.choices[0].message.content.match(/2\\.\\s+(.+?)(?=\\n2\\.|\\n\\s+-)/s)?.[1]?.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "aec3ac67-1c92-44ca-bc7c-ef4bcbb01a4a",
+              "name": "Sezione - 1.1 ",
+              "value": "={{ $json.choices[0].message.content.match(/2\\.[\\s\\S]*?-\\s+(.+?)(?=\\n\\s+-|\\n3\\.)/)?.[1]?.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "8a19f910-75ec-457e-a7bf-9af8d58f6a85",
+              "name": "Sezione - 1.2",
+              "value": "={{ $json.choices[0].message.content.match(/2\\.[\\s\\S]*?-\\s+.+?\\n\\s+-\\s+(.+?)(?=\\n3\\.)/)?.[1]?.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "f47b8935-a706-40a8-a49e-b8853d1a104f",
+              "name": "Sezione 2",
+              "value": "={{ $json.choices[0].message.content.match(/3\\.\\s+(.+?)(?=\\n\\s+-)/)?.[1]?.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "29ab18b0-90df-4d6a-aeda-e6b5d2384f30",
+              "name": "Sezione - 2.1",
+              "value": "={{ $json.choices[0].message.content.match(/3\\.[\\s\\S]*?-\\s+(.+?)(?=\\n\\s+-|\\n4\\.)/)?.[1]?.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "331f614d-6480-440f-a581-37e3e315a4eb",
+              "name": "Sezione - 2.2",
+              "value": "={{ $json.choices[0].message.content.match(/3\\.[\\s\\S]*?-\\s+.+?\\n\\s+-\\s+(.+?)(?=\\n4\\.)/)?.[1]?.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "28c983ac-f235-4cde-978b-01d2393a34c6",
+              "name": "Sezione 3",
+              "value": "={{ $json.choices[0].message.content.match(/4\\.\\s+(.+?)(?=\\n\\s+-)/)?.[1]?.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "3f854519-7382-4d3b-bbdb-487eeff88e06",
+              "name": "Sezione - 3.1",
+              "value": "={{ $json.choices[0].message.content.match(/4\\.[\\s\\S]*?-\\s+(.+?)(?=\\n\\s+-|\\n5\\.)/)?.[1]?.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "aab4356f-2c04-48db-afa3-aa0edeaa1be6",
+              "name": "Sezione - 3.2",
+              "value": "={{ $json.choices[0].message.content.match(/4\\.[\\s\\S]*?-\\s+.+?\\n\\s+-\\s+(.+?)(?=\\n5\\.)/)?.[1]?.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "63056fb6-02a7-4ece-b4a0-a5143346ae0c",
+              "name": "Sezione 4",
+              "value": "={{ $json.choices[0].message.content.match(/^\\s*5\\.\\s*(.+)$/m)?.[1]?.trim() }}\n",
+              "type": "string"
+            },
+            {
+              "id": "a347067d-9afa-42aa-b102-290725083e16",
+              "name": "Conclusioni",
+              "value": "={{ $json.choices[0].message.content.match(/^\\s*6\\.\\s*(.+)$/m)?.[1]?.trim().replace(/^conclusioni\\s*-\\s*/i, '')  }}\n",
+              "type": "string"
+            },
+            {
+              "id": "a5999578-ac01-4e28-9b2f-e93203df2632",
+              "name": "rationale",
+              "value": "={{ $json.choices[0].message.content.split('## RATIONALE STRATEGICO\\n')[1]?.split('\\n\\n## OUTPUT')[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "e4fd7bfb-0974-4add-83a8-a77ed2f436a0",
+              "name": "json_output",
+              "value": "={{ $json.choices[0].message.content.split('## OUTPUT:\\n\\n')[1] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -272,
+        -32
+      ],
+      "id": "06b5f105-66df-407e-bce3-a9e6ad8fbca1",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "content": "## NODI PROVVISORI\nQuesto nodi sono provvisori per la generazione dei dati relativi all'azienda che verranno forniti da DataPyx",
+        "height": 304,
+        "width": 720,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1632,
+        -256
+      ],
+      "typeVersion": 1,
+      "id": "e6e84cce-ec53-4292-8e35-801e25ebb547",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3e8d2523-66aa-46fe-adcc-39dc78b9161e",
+              "name": "titolo",
+              "type": "string",
+              "value": "={{ $json.TITOLO }}"
+            },
+            {
+              "id": "9ea6f3ee-0e79-4656-8d0e-3c4240181599",
+              "name": "CATEGORIA/PRODOTTI",
+              "value": "={{ $json['CATEGORIA/PRODOTTI'] }}",
+              "type": "string"
+            },
+            {
+              "id": "23fdabd0-0739-42df-b66c-37b4458579a5",
+              "name": "DESCRIZIONE",
+              "value": "={{ $json.DESCRIZIONE }}",
+              "type": "string"
+            },
+            {
+              "id": "d4c72c55-2ff2-4f06-aeee-dddc73f4083e",
+              "name": "OBIETTIVO",
+              "value": "={{ $json.OBIETTIVO }}",
+              "type": "string"
+            },
+            {
+              "id": "6befe5a3-45c1-4edc-93d2-2db025faabb1",
+              "name": "Keyword",
+              "value": "={{ $json.Keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "c11cf7f4-3cbb-4305-9b55-6c1da9bee9e1",
+              "name": "URL",
+              "value": "={{ $json.URL }}",
+              "type": "string"
+            },
+            {
+              "id": "d10e338d-54b6-4e82-b74d-595222994e3f",
+              "name": "Da Fare",
+              "value": "={{ $json['Da Fare'] }}",
+              "type": "boolean"
+            },
+            {
+              "id": "9bc93d26-d17b-4ff9-be26-65c99769740d",
+              "name": "row_number_sheet",
+              "value": "={{ $json.row_number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "12d0eb66-bbe5-42da-9f89-ac1f0bd7ca90",
+      "name": "Set context1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1104,
+        64
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "=gpt-4o",
+          "mode": "id"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Genera SOLO l'indice di un articolo blog professionale e strategico.\n\n**INPUT CONTENUTO ARTICOLO:**\n- Titolo: {{ $json.titolo[0] }}\n- Descrizione: {{ $json.DESCRIZIONE[0] }}\n- Obiettivo: {{ $json.OBIETTIVO[0] }}\n- Keyword SEO: {{ $json.Keyword[0] }}\n- Categoria prodotti: {{ $json['CATEGORIA/PRODOTTI'][0] }}\n\n**INPUT CONTESTO AZIENDALE:**\nAnalizza il seguente profilo aziendale completo:\n- {{ JSON.stringify($json.profilo_aziendale[0]) }}\n- {{ JSON.stringify($json.target_audience[0]) }}\n- {{ JSON.stringify($json.strategia_comunicazione[0]) }}\n- {{ JSON.stringify($json.insights_mercato[0]) }}\n- {{ JSON.stringify($json.suggerimenti_blog[0]) }}\n\n**PERSONA TARGET PRINCIPALE:**\n- **Demografia**: {{ $json.target_audience[0].demografica.eta }} anni, {{ $json.target_audience[0].demografica.professione }}, {{ $json.target_audience[0].demografica.geografia }}\n- **Valori e interessi**: {{ $json.target_audience[0].psicografica.valori }} | {{ $json.target_audience[0].psicografica.interessi }}\n- **Aspirazioni**: {{ $json.target_audience[0].psicografica.aspirazioni }}\n- **Pain points primari**: {{ $json.target_audience[0].pain_points }}\n- **Livello expertise**: {{ $json.target_audience[0].livello_expertise }}\n- **Stadio customer journey**: {{ $json.target_audience[0].stadio_funnel }}\n\n**LINEE GUIDA STRATEGICHE:**\n\n1. **Tone of Voice** (obbligatorio): {{ $json.strategia_comunicazione[0].tone_of_voice }}\n\n2. **Posizionamento da riflettere**: {{ $json.profilo_aziendale[0].posizionamento }}\n\n3. **Obiettivi di marketing**: {{ $json.strategia_comunicazione[0].obiettivi_marketing }}\n\n4. **Lunghezza target**: {{ $json.suggerimenti_blog[0].lunghezza_consigliata }}\n\n**STRUTTURA INDICE RICHIESTA:**\n\n**1. INTRODUZIONE**\n- Aggancia immediatamente un pain point specifico della persona target\n- Crea risonanza emotiva con aspirazioni/valori identificati\n- Anticipa il valore che l'articolo porterà\n\n**2. SEZIONI CENTRALI (3-5 sezioni)**\nSviluppa con progressione strategica: problema → comprensione → soluzione → applicazione pratica\n- Ogni sezione = 1 concept chiave allineato a pain points/desideri\n- Integra keyword SEO naturalmente nei titoli H2/H3\n- Mantieni coerenza con il tone of voice aziendale\n- Usa linguaggio e complessità adatti al livello expertise del target\n\n**3. CONCLUSIONE**\n- Rinforza il messaggio chiave\n- CTA allineata agli obiettivi marketing: {{ $json.strategia_comunicazione[0].cta_tipiche }}\n- Richiama il posizionamento aziendale\n\n**VINCOLI CRITICI:**\n✓ Adatta linguaggio e tecnicismi al livello: {{ $json.target_audience[0].livello_expertise }}\n✓ Ogni titolo di sezione deve risuonare con motivazioni psicografiche del target\n✓ Keyword da integrare organicamente: {{ $json.Keyword[0] }}\n✓ Tone of voice consistente: {{ $json.strategia_comunicazione[0].tone_of_voice }}\n✓ Focus su {{ $json.target_audience[0].stadio_funnel }}\n✓ NO contenuto articolo scritto, SOLO indice strutturato con titoli e sottotitoli\n\n**OUTPUT FORMATO:**\n\n# [TITOLO ARTICOLO OTTIMIZZATO SEO]\n\n## INDICE\n1. [Titolo Introduzione - Hook emotivo]\n2. [Titolo Sezione 1 - Concept chiave]\n   - Sottotitolo A\n   - Sottotitolo B\n3. [Titolo Sezione 2 - Concept chiave]\n   - Sottotitolo A\n   - Sottotitolo B\n4. [continua...]\n5. [Titolo Conclusione + CTA]\n\n\n## RATIONALE STRATEGICO\n**Logica strutturale**: [Spiega perché questa progressione di contenuti]\n**Connessione persona target**: [Come ogni sezione risponde a pain points/aspirazioni specifiche della persona target: {{ $json.target_audience[0].demografica.professione }}, {{ $json.target_audience[0].demografica.eta }} anni]\n**Allineamento brand**: [Come l'indice riflette posizionamento e tone of voice]\n\n\n"
+            }
+          ]
+        },
+        "simplify": false,
+        "options": {
+          "maxTokens": 800
+        }
+      },
+      "id": "db1859bf-7fe1-4523-95c9-fdb5418f2d8d",
+      "name": "Base Articolo1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        -416,
+        -32
+      ],
+      "typeVersion": 1.8,
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d01ed0ef-3e60-400a-82f4-9f0938ddba7e",
+              "leftValue": "={{ $json['Da Fare'] }}",
+              "rightValue": "[null]",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "18ef130b-4acb-4195-98b6-32de81682af4",
+              "leftValue": "={{ $json['Da Fare'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -880,
+        64
+      ],
+      "id": "c118e373-a909-44ab-b8cc-88efbd9365fb",
+      "name": "Ci sono titoli?1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1jF-FdFJTjPpA916fZ9_rQNXXY55KJRy-g7oqZgx8nFs",
+          "mode": "list",
+          "cachedResultName": "BlogShopincasa",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jF-FdFJTjPpA916fZ9_rQNXXY55KJRy-g7oqZgx8nFs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Foglio1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jF-FdFJTjPpA916fZ9_rQNXXY55KJRy-g7oqZgx8nFs/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1584,
+        64
+      ],
+      "id": "8667b878-c911-4339-a90a-034ebe53892d",
+      "name": "Get row(s) in sheet1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8f71b803-bbc0-4a66-ab09-bf6ebb925b17",
+              "leftValue": "={{\n  (\n    () => {\n      const s = ($json[\"Data per post\"] ?? '').toString().trim();\n      const dt = DateTime.fromFormat(s, 'd/M/yyyy', { zone: 'Europe/Rome' });\n      return dt.isValid ? dt.toISODate() : null;\n    }\n  )()\n}}\n",
+              "rightValue": "={{ $now.setZone('Europe/Rome').toISODate() }}\n\n",
+              "operator": {
+                "type": "dateTime",
+                "operation": "afterOrEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        -1312,
+        64
+      ],
+      "id": "5ca66f49-ed61-4ff8-ac71-26497ff0ee3e",
+      "name": "Filter2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8f71b803-bbc0-4a66-ab09-bf6ebb925b17",
+              "leftValue": "={{ $json[\"Data per post\"] }}",
+              "rightValue": "={{ $now.setZone('Europe/Rome').toISODate() }}\n\n",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "1a3bbc8c-3e48-4232-b748-b77e60cdc870",
+              "leftValue": "={{ $json[\"Da Fare\"] }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        -1456,
+        64
+      ],
+      "id": "8c218b3d-fc2e-4271-be88-4c3148b484a2",
+      "name": "Filter3"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        288,
+        -32
+      ],
+      "id": "0a99ae2d-dab7-4106-a5bc-e2a7fd8e23c5",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=**RUOLO**\nSei un SEO specialist che ottimizza articoli già scritti per il ranking organico.\n\n**ARTICOLO COMPLETO**\n<html>\n{{ $json.introduzione_output }}\n{{ $json.sezione_1_output }}\n{{ $json.sezione_2_output }}\n{{ $json.conclusione_output }}\n</html>\n\n**DATI SEO**\n- Keyword primaria: {{ $json.contesto.keywordPrimaria }}\n- Keyword semantiche: {{ $json.contesto.keywordSemantica }}\n- Search intent: {{ $json.contesto.searchIntent }}\n- Domanda utente target: {{ $json.analisi_strategica.seo_strategy.domanda_utente }}\n\n**TASK**\nAnalizza l'articolo e suggerisci ottimizzazioni SEO on-page.\n\n**OUTPUT RICHIESTO (JSON)**\n```json\n{\n  \"keyword_density\": {\n    \"keyword_primaria_occorrenze\": 0,\n    \"densita_percentuale\": 0.0,\n    \"valutazione\": \"troppo_bassa/ottimale/keyword_stuffing\",\n    \"azione\": \"[cosa modificare se necessario]\"\n  },\n  \"keyword_placement\": {\n    \"in_h2\": true/false,\n    \"in_primo_paragrafo\": true/false,\n    \"in_ultimo_paragrafo\": true/false,\n    \"valutazione\": \"[commento]\"\n  },\n  \"keyword_semantiche\": {\n    \"usate\": [\"lista keyword semantiche trovate\"],\n    \"mancanti\": [\"lista keyword semantiche non usate\"],\n    \"suggerimento\": \"[dove/come integrarle]\"\n  },\n  \"struttura_html\": {\n    \"h2_count\": 0,\n    \"h3_count\": 0,\n    \"paragrafi_count\": 0,\n    \"problemi\": [\"lista problemi se presenti\"],\n    \"valutazione\": \"buona/migliorabile\"\n  },\n  \"readability\": {\n    \"paragrafi_troppo_lunghi\": 0,\n    \"frasi_troppo_complesse\": 0,\n    \"valutazione\": \"[commento sulla leggibilità]\"\n  },\n  \"search_intent_match\": {\n    \"articolo_risponde_a\": \"[riassumi cosa risponde l'articolo]\",\n    \"domanda_target_era\": \"{{ $json.analisi_strategica.seo_strategy.domanda_utente }}\",\n    \"match_score\": \"alto/medio/basso\",\n    \"gap\": \"[cosa manca se score non è alto]\"\n  },\n  \"modifiche_consigliate\": [\n    {\n      \"sezione\": \"introduzione/sezione_1/sezione_2/conclusione\",\n      \"tipo\": \"aggiungi_keyword/rimuovi_keyword/migliora_leggibilita/altro\",\n      \"testo_originale\": \"[estratto da modificare]\",\n      \"testo_modificato\": \"[versione ottimizzata]\",\n      \"motivo\": \"[perché questa modifica]\"\n    }\n  ]\n}\n```\n\n**LINEE GUIDA VALUTAZIONE**\n- Keyword density ottimale: 0.5-1.5% per keyword primaria\n- Keyword semantiche: almeno 2 su 3 devono comparire\n- H2: massimo 4 in tutto l'articolo\n- Paragrafi: max 4-5 righe ciascuno per leggibilità mobile\n- Search intent match: l'articolo deve rispondere ESATTAMENTE alla domanda target\n\n**NOTA CRITICA**\nSe l'articolo è già ottimizzato bene, \"modifiche_consigliate\" può essere array vuoto.\nNon inventare problemi per giustificare modifiche.\n\nRispondi SOLO con il JSON, nient'altro."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1024
+        }
+      },
+      "id": "e7ae30b7-16eb-4156-b860-3c7a07fc9ce6",
+      "name": "CheckSeo",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        432,
+        -96
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "0108af9d-8906-42ad-8dd6-eda38c979351",
+                    "leftValue": "sistema",
+                    "rightValue": "prestashop",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "sistema",
+                    "rightValue": "wordpress",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "81cc176d-f45d-45a2-8256-3ca3056f7ae6"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        752,
+        -16
+      ],
+      "id": "6bd77dcf-2926-46fd-842a-6755a08c7aa9",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "=gpt-4",
+          "mode": "id"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Sei un SEO Copywriter e devi trovare un titolo di massimo 60 caratteri per il seguente articolo:\n{{ $json.message.content }}\nIstruzioni:\n- Usa le parole chiave contenute nell’articolo\n- Non usare caratteri HTML\n- Scrivi solo la stringa contenente il titolo\n- Non usare virgolette. Gli unici caratteri consentiti sono: e ,"
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 2048
+        }
+      },
+      "id": "e8a43473-dcc7-4bcf-81bf-284dff25415c",
+      "name": "Generate title",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        928,
+        -96
+      ],
+      "typeVersion": 1.8,
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "title": "={{ $json.message.content }}",
+        "additionalFields": {
+          "content": "={{ $('Base Articolo').item.json.message.content }}",
+          "status": "draft"
+        }
+      },
+      "id": "fbbe7aa1-2d63-425b-842e-8410b07da023",
+      "name": "Add draft to WP",
+      "type": "n8n-nodes-base.wordpress",
+      "position": [
+        1072,
+        -96
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "=Genera un’immagine fotografica reale da usare come copertina di un articolo del blog:\nPrompt immagine:\n{{ $('Generate title').item.json.message.content }}, fotografia, realistica, sigma 85mm f/1.4",
+        "options": {
+          "size": "1024x1024",
+          "style": "natural"
+        }
+      },
+      "id": "ee8ad8ad-9523-4e77-958e-248df69ee182",
+      "name": "Generate image",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        1216,
+        -96
+      ],
+      "typeVersion": 1.8,
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.qsecurity.it/wp-json/wp/v2/media",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Disposition",
+              "value": "=attachment; filename=\"copertina-{{ $('Add draft to WP').item.json.id }}.jpg\""
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "id": "0236d3e1-9a0a-41a6-b5b2-85226f2c9cca",
+      "name": "Upload image",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1376,
+        -96
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://www.qsecurity.it/wp-json/wp/v2/posts/{{ $('Add draft to WP').item.json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "featured_media",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ae8eea02-f0f3-4a48-a930-19f869132ee6",
+      "name": "Set image",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1520,
+        -96
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "15NkEw1K0y2O6kwx0HFv8JNSGCc9lJjDjOGYoec23Xns",
+          "mode": "list",
+          "cachedResultName": "BlogArgomenti",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15NkEw1K0y2O6kwx0HFv8JNSGCc9lJjDjOGYoec23Xns/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Foglio1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15NkEw1K0y2O6kwx0HFv8JNSGCc9lJjDjOGYoec23Xns/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "DATA": "={{ $json.date }}",
+            "TITLE": "={{ $json.title.raw }}",
+            "ID POST": "={{ $json.id }}",
+            "URL": "={{ $json.guid.rendered }}",
+            "METATITLE": "={{ $('Generate title').item.json.message.content }}",
+            "METADESCRIPTION": "={{ $json.excerpt.raw }}",
+            "PROMPT": "={{ $('Set context').item.json.prompt }}"
+          },
+          "matchingColumns": [
+            "PROMPT"
+          ],
+          "schema": [
+            {
+              "id": "DATA",
+              "displayName": "DATA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PROMPT",
+              "displayName": "PROMPT",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TITLE",
+              "displayName": "TITLE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ID POST",
+              "displayName": "ID POST",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "METATITLE",
+              "displayName": "METATITLE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "METADESCRIPTION",
+              "displayName": "METADESCRIPTION",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "bde1d204-0530-4913-a44a-85076f1af52b",
+      "name": "Update Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1664,
+        -96
+      ],
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "1WlmjnObleBuHRno_axjc-GjV7Wg9gCoIsOK1PD4TxGU",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WlmjnObleBuHRno_axjc-GjV7Wg9gCoIsOK1PD4TxGU/edit?usp=drivesdk",
+          "cachedResultName": "Complete Plan Blog post"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gid=0",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WlmjnObleBuHRno_axjc-GjV7Wg9gCoIsOK1PD4TxGU/edit#gid=0",
+          "cachedResultName": "Foglio1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "METATITLE": "={{ $json.METATITLE }}",
+            "METADESCRIPTION": "={{ $json.METADESCRIPTION }}",
+            "ID POST": "={{ $json['ID POST'] }}"
+          },
+          "matchingColumns": [
+            "ID POST"
+          ],
+          "schema": [
+            {
+              "id": "DATA",
+              "type": "string",
+              "display": true,
+              "required": false,
+              "displayName": "DATA",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PROMPT",
+              "type": "string",
+              "display": true,
+              "required": false,
+              "displayName": "PROMPT",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "TITLE",
+              "type": "string",
+              "display": true,
+              "required": false,
+              "displayName": "TITLE",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ID POST",
+              "type": "string",
+              "display": true,
+              "required": false,
+              "displayName": "ID POST",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "URL",
+              "type": "string",
+              "display": true,
+              "required": false,
+              "displayName": "URL",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "METATITLE",
+              "type": "string",
+              "display": true,
+              "required": false,
+              "displayName": "METATITLE",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "METADESCRIPTION",
+              "type": "string",
+              "display": true,
+              "required": false,
+              "displayName": "METADESCRIPTION",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "type": "string",
+              "display": true,
+              "removed": true,
+              "readOnly": true,
+              "required": false,
+              "displayName": "row_number",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "f3f8d67a-d69f-4bcc-91a5-e41cc33ff5b6",
+      "name": "Finish work",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1808,
+        -96
+      ],
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Analizza attentamente il seguente documento aziendale ed estrai informazioni complete per creare un profilo strategico dell'azienda.\n\n# DOCUMENTO DA ANALIZZARE\n{{ $json.text }}\n\n# ISTRUZIONI DI ANALISI\n\nEstrai e organizza le informazioni secondo le seguenti categorie. Se alcune informazioni non sono presenti nel documento, indica \"Non specificato\" o inferisci ragionevolmente dal contesto disponibile.\n\n## 1. PROFILO AZIENDALE\n- **Settore e nicchia**: Identifica il settore principale e il sotto-segmento specifico di mercato\n- **Prodotti/servizi**: Elenca i prodotti/servizi principali con caratteristiche distintive\n- **Posizionamento**: Analizza il vantaggio competitivo e gli elementi differenzianti rispetto ai competitor\n- **Mission e valori**: Estrai la visione aziendale e i valori fondamentali (se presenti)\n\n## 2. TARGET AUDIENCE E PERSONAS\n- **Profilo demografico**: Età, professione, settore lavorativo, livello educativo, geografia\n- **Profilo psicografico**: Valori, interessi, aspirazioni, comportamenti d'acquisto\n- **Livello di expertise**: Valuta se il pubblico è esperto del settore o necessita di contenuti educativi\n- **Pain points e bisogni**: Identifica i problemi specifici che l'azienda risolve per il target\n- **Customer journey**: A che stadio del funnel si trova tipicamente il pubblico (awareness, consideration, decision)?\n\n## 3. STRATEGIA DI COMUNICAZIONE\n- **Tone of voice**: Analizza lo stile comunicativo (formale/informale, tecnico/accessibile, autoritativo/conversazionale)\n- **Canali preferiti**: Identifica i canali di comunicazione utilizzati o più adatti\n- **Obiettivi di marketing**: Lead generation, brand awareness, educazione, fidelizzazione, SEO\n- **Call-to-action tipiche**: Azioni che l'azienda vuole stimolare nei lettori\n- **Parole chiave SEO**: Identifica termini ricorrenti e rilevanti per il posizionamento organico\n\n## 4. CONTENUTO E MERCATO\n- **Trend di settore**: Identifica tendenze di mercato rilevanti menzionate o implicite\n- **Dati e statistiche**: Estrai dati quantitativi con relative fonti (se disponibili)\n- **Case study e prove sociali**: Esempi di successo, testimonianze o risultati concreti\n- **Competitor landscape**: Informazioni sul contesto competitivo (se presenti)\n\n## 5. SUGGERIMENTI PER ARTICOLO BLOG\n- **Titoli proposti** (3-5 opzioni): Crea titoli accattivanti e ottimizzati SEO basati sul profilo aziendale\n- **Angolazioni narrative**: Suggerisci 2-3 approcci diversi per affrontare un articolo blog\n- **Messaggi chiave**: Identifica 3-5 concetti fondamentali da comunicare\n- **Lunghezza consigliata**: Suggerisci un range di parole appropriato al target e agli obiettivi\n- **Struttura suggerita**: Proponi una struttura di massima per l'articolo\n\n# OUTPUT RICHIESTO\n\nRestituisci SOLO un oggetto JSON valido e ben formattato, senza testo aggiuntivo prima o dopo, seguendo questa struttura:\n\n{\n  \"profilo_aziendale\": {\n    \"settore_nicchia\": \"string\",\n    \"prodotti_servizi\": [\"string\"],\n    \"posizionamento\": \"string\",\n    \"mission_valori\": \"string\"\n  },\n  \"target_audience\": {\n    \"demografica\": {\n      \"eta\": \"string\",\n      \"professione\": \"string\",\n      \"settore\": \"string\",\n      \"educazione\": \"string\",\n      \"geografia\": \"string\"\n    },\n    \"psicografica\": {\n      \"valori\": [\"string\"],\n      \"interessi\": [\"string\"],\n      \"aspirazioni\": [\"string\"]\n    },\n    \"livello_expertise\": \"string\",\n    \"pain_points\": [\"string\"],\n    \"stadio_funnel\": \"string\"\n  },\n  \"strategia_comunicazione\": {\n    \"tone_of_voice\": \"string\",\n    \"canali\": [\"string\"],\n    \"obiettivi_marketing\": [\"string\"],\n    \"cta_tipiche\": [\"string\"],\n    \"keywords_seo\": [\"string\"]\n  },\n  \"insights_mercato\": {\n    \"trend_settore\": [\"string\"],\n    \"dati_statistici\": [\n      {\n        \"dato\": \"string\",\n        \"valore\": \"string\",\n        \"fonte\": \"string\"\n      }\n    ],\n    \"case_study\": [\"string\"],\n    \"competitor_context\": \"string\"\n  },\n  \"suggerimenti_blog\": {\n    \"titoli_proposti\": [\"string\"],\n    \"angolazioni_narrative\": [\"string\"],\n    \"messaggi_chiave\": [\"string\"],\n    \"lunghezza_consigliata\": \"string\",\n    \"struttura_suggerita\": [\"string\"]\n  }\n}\n\n# NOTE IMPORTANTI\n- Analizza sia le informazioni esplicite che quelle implicite nel documento\n- Mantieni un tono professionale e basato sui dati\n- Se devi fare inferenze, basale su elementi concreti del documento\n- Assicurati che il JSON sia valido e parsabile"
+            }
+          ]
+        },
+        "simplify": false,
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        -1168,
+        -128
+      ],
+      "id": "07d34292-f771-4ac4-84db-9db0fb8e1cd2",
+      "name": "Analisi Azienda",
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=**RUOLO**\nSei un editor senior che valuta la qualità complessiva di articoli blog prima della pubblicazione.\n\n**ARTICOLO FINALE**\n<html>\n{{ $json.articolo_completo_ottimizzato }}\n</html>\n\n**CONTESTO ORIGINALE**\n- Pain point da risolvere: {{ $json.contesto.painPoint }}\n- Angolo narrativo: {{ $json.contesto.angoloNarrativo }}\n- Target: {{ $json.contesto.targetPersona }}, livello {{ $json.contesto.livelloExpertise }}\n- Tone of Voice: {{ $json.contesto.toneOfVoice }}\n- Posizionamento: {{ $json.contesto.posizionamento }}\n\n**TASK**\nValuta l'articolo su 6 dimensioni critiche.\n\n**OUTPUT RICHIESTO (JSON)**\n```json\n{\n  \"coerenza_narrativa\": {\n    \"score\": 0-10,\n    \"valutazione\": \"[L'articolo ha un filo logico dall'intro alla conclusione?]\",\n    \"problemi\": [\"lista se presenti\"]\n  },\n  \"target_alignment\": {\n    \"score\": 0-10,\n    \"valutazione\": \"[Il linguaggio è adatto a: {{ $json.contesto.targetPersona }}, livello {{ $json.contesto.livelloExpertise }}?]\",\n    \"problemi\": [\"es: troppo tecnico, troppo semplice, gergo non spiegato\"]\n  },\n  \"pain_point_resolution\": {\n    \"score\": 0-10,\n    \"valutazione\": \"[L'articolo risolve davvero '{{ $json.contesto.painPoint }}'?]\",\n    \"gap\": \"[cosa manca per risolvere completamente il pain point]\"\n  },\n  \"tone_of_voice\": {\n    \"score\": 0-10,\n    \"valutazione\": \"[Il ToV è consistente con {{ $json.contesto.toneOfVoice }}?]\",\n    \"deviazioni\": [\"es: troppo formale in sezione X, troppo colloquiale in Y\"]\n  },\n  \"posizionamento_brand\": {\n    \"score\": 0-10,\n    \"valutazione\": \"[L'articolo riflette '{{ $json.contesto.posizionamento }}' senza nominare il brand?]\",\n    \"suggerimenti\": [\"come rafforzare il posizionamento\"]\n  },\n  \"valore_pratico\": {\n    \"score\": 0-10,\n    \"valutazione\": \"[Il lettore può APPLICARE qualcosa subito dopo aver letto?]\",\n    \"takeaway_concreti\": [\"lista dei 2-3 takeaway pratici che il lettore porta a casa\"]\n  },\n  \"score_complessivo\": 0-10,\n  \"verdict\": \"APPROVA/REVISIONE_MINORE/REVISIONE_MAGGIORE\",\n  \"next_steps\": [\"azioni specifiche se verdict non è APPROVA\"]\n}\n```\n\n**SOGLIE DECISIONE**\n- APPROVA: Score complessivo ≥ 8, nessuna dimensione < 7\n- REVISIONE_MINORE: Score complessivo 6-7, max 2 dimensioni < 7\n- REVISIONE_MAGGIORE: Score complessivo < 6 o 3+ dimensioni < 7\n\n**ESEMPI VALUTAZIONE**\n\n❌ PROBLEMA: \"L'intro parla di 'risparmio tempo' ma l'articolo non dà nessun framework per risparmiare tempo\"\n→ pain_point_resolution score: 3\n\n✅ OK: \"L'articolo promette un metodo in 3 step e lo consegna con esempi nella Sezione 2\"\n→ pain_point_resolution score: 9\n\n❌ PROBLEMA: \"Target è 'imprenditori 35-45 anni livello base' ma usi termini come 'funnel attribution', 'CAC', 'LTV' senza spiegarli\"\n→ target_alignment score: 4\n\n✅ OK: \"ToV doveva essere 'professionale, accessibile, incoraggiante' e l'articolo mantiene questo equilibrio senza diventare paternalistico\"\n→ tone_of_voice score: 9\n\nRispondi SOLO con il JSON, nient'altro."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1024
+        }
+      },
+      "id": "8ec587c5-969f-4ed4-a782-f500cdcd5504",
+      "name": "CheckQuality",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        432,
+        16
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Sezione 1": [
+      {
+        "json": {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "<h3>L'Albero di Natale: La base per un coordinato natalizio perfetto</h3>\n<p>\nIl Natale è alle porte e per molti di noi, arriva il momento di tirare fuori le scatole piene di decorazioni natalizie: luci scintillanti, palline colorate, fiocchi luccicanti e naturalmente, l'albero di Natale. \nMa come scegliere l'albero giusto e come decorarlo per creare il coordinato natalizio perfetto? In questo articolo, esploreremo tutti i segreti per realizzare un coordinato natalizio che lasci tutti a bocca aperta.\n</p>\n<p>\n<b>Il primo passo</b> è la scelta dell'albero. L'albero di Natale è senza dubbio l'elemento più rappresentativo del Natale in casa ed è quella parte che dà il tono all'intera decorazione. Quindi, è essenziale scegliere con cura.\n</p>\n<p>\nLa <b>dimensione dell'albero</b> è uno degli aspetti da considerare: un albero troppo grande può essere opprimente in un piccolo appartamento, mentre un albero troppo piccolo può sembrare fuori posto in una grande sala. Dovresti anche considerare lo spazio disponibile: assicurati di avere abbastanza spazio non solo per l'albero ma anche per i regali che andranno posizionati alla sua base!\n</p>\n<p>\n<div>\nUn altro elemento da considerare è il <b>colore dell'albero</b>. Gli alberi di Natale artificiali oggi sono disponibili in una varietà di colori, dai tradizionali verdi ai bianchi innevati, dai dorati agli argentei e persino multicolor! La scelta del colore dovrebbe essere basata sul resto della tua decorazione. Se la tua casa è decorata in toni neutri, un albero bianco o dorato potrebbe creare un bel contrasto. Al contrario, se la tua casa è piena di colori vivaci, un albero verde potrebbe essere la scelta migliore per non appesantire l'ambiente.\n</p>\n<p>\nIl <b>tipo di albero</b> è anche una questione di gusto personale. Da un lato, abbiamo gli alberi naturali, che con il loro profumo inconfondibile riempiono la casa di atmosfera natalizia. D'altro canto, gli alberi artificiali hanno il vantaggio di essere riutilizzabili per molti anni, spesso sono più puliti e disponibili in una vasta gamma di colori e stili.\n</p>\n<p>\nUna volta che hai scelto l'albero perfetto, è il momento di decorarlo. La decorazione dell'albero dovrebbe seguire un tema coordinato in modo che tutti gli elementi si combinino in modo armonico. Puoi scegliere di seguire un <b>schema di colori</b>, come ad esempio oro e rosso, argento e blu, o bianco e argento. Oppure, potresti optare per un tema particolare come fiocchi di neve, angeli, stelle, o anche un design più moderno e minimalista.\n</p>\n<p>\nNon esitare a dare un tocco personale al tuo albero. Puoi appendere decorazioni fatte a mano o decorazioni che hanno un significato speciale per te e la tua famiglia. Ricorda, l'obiettivo è creare un albero che rappresenti te e le tue festività natalizie ideali.\n</p>\n<p>\nIn conclusione, la creazione di un coordinato natalizio perfetto inizia dall'albero di Natale. Sceglierlo con cura e decorarlo in modo armonioso è il primo passo per creare un'atmosfera natalizia magica in casa. Nel prossimo articolo, continueremo il nostro viaggio nel mondo delle decorazioni natalizie parlando di un altro elemento che non può mancare in nessuna casa a Natale: le luci.\n</p>",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      }
+    ],
+    "Introduzione": [
+      {
+        "json": {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "<p>Il Natale è alle porte e non c'è momento migliore per iniziare a pensare a come decorare la nostra casa per le feste. Il fascino di un ambiente natalizio coordinato e armonioso risiede nei dettagli: dalla scelta dell'albero di Natale, le luci scintillanti che donano calore e magia a ogni angolo, fino alla selezione curata di addobbi che esaltano e completano l'estetica complessiva. L'obiettivo di questo articolo è guidarti nella creazione del coordinato natalizio perfetto, partendo dall'elemento più iconico e centrale, l'Albero di Natale, passando per il calore e la magia offerti dalle Luci natalizie, per concludere con gli Addobbi natalizi, la vera ciliegina sulla torta di ogni decorazione. Scopriremo come armonizzare forme, colori e stili per ottenere un look natalizio affascinante e invitante, che rifletterà il tuo gusto personale e avvolgerà la tua casa in un'atmosfera distinta e accogliente. Pronto ad addentrarti nel meraviglioso mondo delle decorazioni natalizie e a trasformare la tua casa in un vero e proprio paradiso festivo? Iniziamo il viaggio!</p>",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      }
+    ],
+    "Sezione 2": [
+      {
+        "json": {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "<h3>Le Luci di Natale: Calore e Magia per ogni Ambiente</h3>\n<p>Una volta scelto l'albero di Natale perfetto, il prossimo passo per creare un coordinato natalizio affascinante è l'aggiunta delle luci. Le luci di Natale non solo aggiungono calore e magia alla tua casa, ma fungono anche da elemento di unione tra gli altri elementi decorativi. Vediamo come scegliere e combinare correttamente le luci natalizie per un effetto magico ed armonioso.</p>\n\n<p>Il primo aspetto da considerare è il colore delle luci. Le luci bianche calde o fredde sono classiche e versatili, perfette per un look elegante e raffinato. Se invece desideri dare un tocco di allegria e vivacità alle tue decorazioni, scegli luci colorate. Il rosso, il verde, il blu e l'oro sono colori tradizionali del Natale e si abbinano perfettamente con qualsiasi tema decorativo.</p>\n\n<p>Un altro aspetto importante è la quantità di luci. La regola generale suggerisce per ogni piede di albero, si dovrebbero usare almeno 100 luci. Quindi, per un albero di sei piedi, dovrebbero essere usate almeno 600 luci. Tuttavia, se preferisci un look più luminoso, non esitare a aggiungere più luci.</p>\n\n<p>Passiamo ora all'installazione delle luci. Inizia sempre dalla base dell'albero e lavora verso l'alto. Assicurati che le luci siano ben distribuite e non si concentrino solo sulle punte dei rami. Infatti, inserire delle luci più in profondità all'interno dell'albero può aggiungere profondità e calore.</p>\n\n<p>Oltre all'albero, ci sono molte altre aree della casa che possono beneficiare dell'aggiunta di luci natalizie. Ad esempio, avvolgere una serie di luci attorno a ringhiere, cornici di porte e finestre, o anche attorno a specchi e quadri può fare davvero la differenza. Puoi anche creare centrotavola luminosi o riempire vasi di vetro trasparente con luci a LED per un tocco accogliente e luminoso.</p>\n\n<p>Infine, considera anche il tipo di luci adatte alle tue esigenze. Le luci a LED sono più efficienti dal punto di vista energetico e durano più a lungo rispetto alle luci a incandescenza tradizionali. Esistono anche diverse opzioni come le luci fisse, le luci lampeggianti, o luci con giochi di luce diversi. La scelta dipenderà dallo stile che preferisci e dall'atmosfera che desideri creare.</p>\n\n<p>In conclusione, le luci di Natale svolgono un ruolo essenziale nell'armonizzare tutte le decorazioni del tuo coordinato natalizio. L'importante è scegliere luci che riflettano il tuo stile personale e che contribuiscano a creare l'atmosfera magica e festosa che ti rappresenta.</p>\n\n<p>Ricordati, l'obiettivo è creare un ambiente accogliente e magico che ti faccia brillare gli occhi ogni volta che lo guardi. Quindi, prenditi il tuo tempo, sperimenta con le luci e divertiti a decorare!</p>",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      }
+    ],
+    "Sezione 3": [
+      {
+        "json": {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "<h3>Gli addobbi di Natale: la ciliegina sulla torta</h3>\n<p>Cerchi passione, personalità e un pizzico di magia nelle tue decorazioni natalizie? Gli <b>addobbi di Natale</b> possono essere il tocco finale perfetto che unisce ogni elemento della tua casa in un coordinato natalizio armonioso.</p>\n\n<p>Gli addobbi vanno oltre l'albero di Natale; si spalmano sulla tua casa, portando lo spirito festivo a ogni angolo. Che tu preferisca le tradizionali palle di Natale, le stelline luccicanti o le sofisticate ghirlande, c'è un'infinità di opzioni per portare il tuo stile di Natale in vita.</p>\n\n<p>Ma come scegliere i migliori addobbi per il tuo coordinato natalizio? Ecco alcuni consigli per aiutarti a fare la scelta perfetta.</p>\n\n<h3>Scegli un tema coerente</h3>\n<p>Prima di tutto, è importante avere un <b>tema coerente</b> per le tue decorazioni natalizie. Questo non deve necessariamente essere un colore o un motivo specifico; potrebbe anche essere uno stile o un'atmosfera che vuoi evocare. Per esempio, se hai scelto un albero bianco con luci blu, potrebbe essere una buona idea optare per addobbi in argento o blu per mantenere uno schema cromatico uniforme.</p>\n\n<h3>Varia le dimensioni</h3>\n<p>Un altro suggerimento utile è variare le <b>dimensioni degli addobbi</b>. Una combinazione di oggetti grandi, medi e piccoli crea un interessante equilibrio visivo e dà profondità alle tue decorazioni. Per esempio, potresti abbinare grosse palle di Natale con lanterne più piccole o ornamenti a stella di dimensioni diverse.</p>\n\n<h3>Considera l'intera casa</h3>\n<p>Gli addobbi non sono solo per l'albero di Natale. <b>Considera l'intera casa</b> quando scegli i tuoi decori. Una ghirlanda abbinata sulla porta d'ingresso, cuscini natalizi sul divano, candele aromatizzate sul tavolino e tovaglie tematiche possono fare la differenza. Gioca anche con le decorazioni del tavolo per la cena di Natale e non dimenticare di aggiungere piccoli toccanti nelle stanze dei bambini!</p>\n\n<h3>Non dimenticare la tradizione</h3>\n<p>Infine, non dimenticare di aggiungere un tocco di <b>tradizione</b> ai tuoi addobbi. L'incorporazione di elementi classici come il presepe, le calze della Befana o i candelieri può dare un senso di nostalgia e calore al tuo coordinato natalizio. Ricorda che il Natale è anche un momento per celebrare le nostre radici e i nostri ricordi.</p>\n\n<h3>Un tocco personale</h3>\n<p>Aggiungere un tocco personale ai tuoi addobbi può fare davvero la differenza. Dalle decorazioni fatte a mano ai ricordi raccolti durante i viaggi, rendere personali gli addobbi natalizi può portare genuina gioia e significato alla tua decorazione. Ricorda, la bellezza del Natale sta nei dettagli!</p>\n\n<p>Che tu stia mirando a un coordinato natalizio semplice ed elegante, o a uno colorato e vivace, gli addobbi di Natale possono portare la magia della stagione direttamente nella tua casa. Mentre l'albero di Natale e le luci mettono in scena lo spettacolo, sono gli addobbi a dare veramente vita al tuo Natale. Quindi sperimenta, sii creativo e soprattutto, divertiti nel processo!</p>",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      }
+    ],
+    "Conclusione": [
+      {
+        "json": {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "<p>In poche parole, creare un coordinato natalizio perfetto per la tua casa è un processo emozionante che può riunire la famiglia in un progetto comune di gioia e creatività. L'inizio perfetto sarà con la scelta di un albero di Natale che rifletta la personalità e lo stile della tua casa. Successivamente, le luci di Natale, accuratamente scelte, aggiungeranno un senso di calore e magia a ogni stanza. Infine, gli addobbi natalizi daranno l'ultimo tocco, arricchendo l'atmosfera con colori e rifiniture che risuonano con l'energia festiva.</p>\n\n<p>Non dimenticare che l'armonizzazione è la chiave quando si tratta di creare un coordinato natalizio. Tutti gli elementi devono lavorare insieme per creare un effetto visivamente piacevole. Ciò significa abbinare i colori, i temi, e i disegni in un modo unificato.</p>\n\n<p>Con la giusta attenzione ai dettagli e un pizzico di creatività, è possibile trasformare la tua casa in un meraviglioso paesaggio natalizio che porta gioia e felicità a te e ai tuoi cari. Quindi, per quali elementi decorativi stai aspettando? Sfoglia la nostra vasta selezione di articoli per la casa natalizi e inizia a progettare la tua casa perfetta per le vacanze!</p>\n\n<p><b>Inizia a realizzare la tua visione natalizia oggi stesso e trasforma la tua casa in una splendida scena festiva.</b></p>",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      }
+    ],
+    "Set context1": [
+      {
+        "json": {
+          "titolo": "Oggettistica natalizia: idee semplici per trasformare la tua casa in un ambiente accogliente",
+          "CATEGORIA/PRODOTTI": "Natale",
+          "DESCRIZIONE": "Un articolo dedicato ai piccoli oggetti che fanno la differenza: statuine, villaggi luminosi, centrotavola, gnomi decorativi, renne, calendari dell’avvento, soprammobili natalizi. Con focus su come creare un’atmosfera calda e familiare senza esagerare.",
+          "OBIETTIVO": "Stimolare l’acquisto d’impulso e la scoperta dell’ampia varietà presente su Shop in Casa, mostrando come semplici oggetti possano rendere magica la casa nel periodo natalizio.",
+          "Keyword": "Presepe, natività, decorazioni natalizie, addobbi di natale",
+          "URL": "https://www.shopincasa.it/1074-oggettistica-natale",
+          "Da Fare": true,
+          "row_number_sheet": "2"
+        }
+      }
+    ],
+    "Base Articolo1": [
+      {
+        "json": {
+          "id": "chatcmpl-Cs6dsAPns45K3GAXTVnDQwYPFZ3cU",
+          "object": "chat.completion",
+          "created": 1767011280,
+          "model": "gpt-4-0613",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "# Oggettistica natalizia: idee semplici per trasformare la tua casa in un ambiente accogliente\n\n## INDICE\n1. Introduzione - Il Natale che sognavi, nel comfort della tua casa\n2. La magia delle decorazioni natalizie \n   - Creare un presepe che racconta la natività\n   - Addobbi di Natale che scaldano l'ambiente\n3. Originalità e semplicità: il duo invincibile\n   - Statuine e gadget natalizi: l'arte di stupire\n   - Calendari dell'avvento: un countdown emozionante\n4. L'accoglienza natalizia che conquista i cuori\n   - Trovare l'equilibrio tra eleganza e atmosfera familiare\n   - Come le piccole cose fanno una grande differenza\n5. Trasformare la tua casa in un rifugio magico: il potere dell'oggettistica natalizia\n6. Conclusioni - Il tuo Natale perfetto è ad un click di distanza\n\n## RATIONALE STRATEGICO\n**Logica strutturale**: L'indice avanza dal generale al particolare, fornendo prima una visione d'insieme delle decorazioni natalizie, poi approfondendo con consigli su come selezionare ed utilizzare oggetti specifici, e infine collegando il tutto con l'ambiente caldo e familiare. \n\n**Connessione persona target**: Ogni sezione trattata risponde al desiderio della persona target di creare un'atmosfera accogliente e familiare, ma anche alla sua preoccupazione di non riuscire a trovare prodotti di qualità o specifici. Inoltre, l'introduzione enfatizza il fatto che tutto ciò è possibile da realizzare nel comfort della propria casa, mantenendo l'equilibrio tra lavoro e vita personale.\n\n**Allineamento brand**: L'indice rispecchia il posizionamento del brand, che offre una selezione ampia e di alta qualità a prezzi competitivi, mirata alle famiglie. Il tone of voice utilizzato è accogliente e familiare, mentre le CTA finali (\"Il tuo Natale perfetto è ad un click di distanza\") stimolano l'acquisto e la fedeltà del cliente.\n\n## OUTPUT:\n\n{\n\"titolo\": \"Oggettistica natalizia: idee semplici per trasformare la tua casa in un ambiente accogliente\",\n\"introduzione\": \"Il Natale che sognavi, nel comfort della tua casa\",\n\"sezione 1\": {\n  \"titolo\": \"La magia delle decorazioni natalizie\",\n  \"sottotitoli\": [\"Creare un presepe che racconta la natività\", \"Addobbi di Natale che scaldano l'ambiente\"]\n},\n\"sezione 2\": {\n  \"titolo\": \"Originalità e semplicità: il duo invincibile\",\n  \"sottotitoli\": [\"Statuine e gadget natalizi: l'arte di stupire\", \"Calendari dell'avvento: un countdown emozionante\"]\n},\n\"sezione 3\": {\n  \"titolo\": \"L'accoglienza natalizia che conquista i cuori\",\n  \"sottotitoli\": [\"Trovare l'equilibrio tra eleganza e atmosfera familiare\", \"Come le piccole cose fanno una",
+                "refusal": null,
+                "annotations": []
+              },
+              "logprobs": null,
+              "finish_reason": "length"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 2224,
+            "completion_tokens": 800,
+            "total_tokens": 3024,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": null
+        }
+      }
+    ],
+    "Get row(s) in sheet1": [
+      {
+        "json": {
+          "row_number": 2,
+          "CATEGORIA/PRODOTTI": "Natale",
+          "TITOLO": "Oggettistica natalizia: idee semplici per trasformare la tua casa in un ambiente accogliente",
+          "DESCRIZIONE": "Un articolo dedicato ai piccoli oggetti che fanno la differenza: statuine, villaggi luminosi, centrotavola, gnomi decorativi, renne, calendari dell’avvento, soprammobili natalizi. Con focus su come creare un’atmosfera calda e familiare senza esagerare.",
+          "OBIETTIVO": "Stimolare l’acquisto d’impulso e la scoperta dell’ampia varietà presente su Shop in Casa, mostrando come semplici oggetti possano rendere magica la casa nel periodo natalizio.",
+          "Keyword": "Presepe, natività, decorazioni natalizie, addobbi di natale",
+          "Meta title": "",
+          "Meta description": "",
+          "URL": "https://www.shopincasa.it/1074-oggettistica-natale",
+          "Da Fare": true,
+          "Data per post": "01/01/2026",
+          "Data post pubblicato": "",
+          "ID Post": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 3,
+          "CATEGORIA/PRODOTTI": "Natale",
+          "TITOLO": "Come creare un coordinato natalizio perfetto: armonizzare albero, luci e oggettistica",
+          "DESCRIZIONE": "Un contenuto aspirazionale che mostra come combinare colori, materiali e stili per ottenere una decorazione di Natale coerente e armoniosa in tutta la casa. Ideale per chi non sa da dove partire.",
+          "OBIETTIVO": "Aumentare il valore medio del carrello suggerendo acquisti combinati e creando un percorso d’ispirazione tra più categorie natalizie.",
+          "Keyword": "Albero di natale, luci di natale, addobbi di natale",
+          "Meta title": "",
+          "Meta description": "",
+          "URL": "https://www.shopincasa.it/content/21-natale",
+          "Da Fare": false,
+          "Data per post": "12/12/2025",
+          "Data post pubblicato": "",
+          "ID Post": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 4,
+          "CATEGORIA/PRODOTTI": "Natale",
+          "TITOLO": "Tendenze Natale 2025: colori, stili e idee per un albero sempre alla moda",
+          "DESCRIZIONE": "Un articolo che presenta i trend più diffusi del Natale 2025: colori caldi, minimal, nordico, tradizionale, gold, green, naturale. Perfetto per attrarre traffico organico stagionale.",
+          "OBIETTIVO": "Intercettare ricerche ispirazionali e di tendenza, rafforzando la percezione di Shop in Casa come punto di riferimento per il Natale.",
+          "Keyword": "Albero di natale",
+          "Meta title": "",
+          "Meta description": "",
+          "URL": "https://www.shopincasa.it/1077-alberi-di-natale",
+          "Da Fare": false,
+          "Data per post": "01/01/2026",
+          "Data post pubblicato": "",
+          "ID Post": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 5,
+          "CATEGORIA/PRODOTTI": "Natale",
+          "TITOLO": "Luci di Natale: guida completa per illuminare al meglio casa e albero",
+          "DESCRIZIONE": "Un contenuto informativo che spiega le differenze tra luci a LED, catene luminose, tende, ghiaccioli luminosi e luci per interni ed esterni. Include consigli per creare un’atmosfera magica e sicura, soprattutto per chi ha bambini.",
+          "OBIETTIVO": "Educare il lettore alla scelta consapevole delle luci, promuovendo l’acquisto di più tipologie e spiegando quali utilizzare nei diversi ambienti.",
+          "Keyword": "Luci di natale",
+          "Meta title": "",
+          "Meta description": "",
+          "URL": "https://www.shopincasa.it/1078-luci-di-natale",
+          "Da Fare": false,
+          "Data per post": "",
+          "Data post pubblicato": "",
+          "ID Post": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 6,
+          "CATEGORIA/PRODOTTI": "Giocattoli",
+          "TITOLO": "Giochi da fare in famiglia: idee divertenti per trascorrere più tempo insieme",
+          "DESCRIZIONE": "Un articolo dedicato ai giochi che coinvolgono tutta la famiglia: giochi da tavolo, puzzle, laboratori creativi, attività manuali. Con focus sul valore del tempo condiviso, specialmente per famiglie con bambini piccoli ed energia da spendere.",
+          "OBIETTIVO": "Promuovere l’acquisto di giochi che permettono momenti di connessione familiare, aumentando il valore percepito dei prodotti.",
+          "Keyword": "Giocattoli, giochi per famiglia",
+          "Meta title": "",
+          "Meta description": "",
+          "URL": "https://www.shopincasa.it/content/46-giocattoli",
+          "Da Fare": false,
+          "Data per post": "",
+          "Data post pubblicato": "",
+          "ID Post": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 7,
+          "CATEGORIA/PRODOTTI": "Giocattoli",
+          "TITOLO": "Costruzioni e mattoncini: perché sono tra i giocattoli più amati dai bambini",
+          "DESCRIZIONE": "Un articolo dedicato al mondo delle costruzioni, tra i giocattoli preferiti di ogni età. Si parla dei benefici cognitivi, della creatività, della capacità di problem solving e del perché questi giochi non passano mai di moda.",
+          "OBIETTIVO": "Intercettare uno dei segmenti più acquistati e promuovere un ventaglio ampio di prodotti complementari.",
+          "Keyword": "Giocattoli da costruzione, giocattoli mattoncini",
+          "Meta title": "",
+          "Meta description": "",
+          "URL": "https://www.shopincasa.it/content/46-giocattoli",
+          "Da Fare": false,
+          "Data per post": "",
+          "Data post pubblicato": "",
+          "ID Post": ""
+        }
+      }
+    ],
+    "Merge1": [
+      {
+        "json": {
+          "profilo_aziendale": {
+            "settore_nicchia": "Vendita al dettaglio online di articoli per la casa, regalistica, arredo giardino e giocattoli",
+            "prodotti_servizi": [
+              "Articoli per la casa",
+              "Regalistica",
+              "Arredo giardino",
+              "Giocattoli"
+            ],
+            "posizionamento": "Ampia selezione di prodotti di alta qualità a prezzi competitivi, con un focus su famiglie e un ampio ventaglio di segmenti di mercato.",
+            "mission_valori": "Non specificato"
+          },
+          "target_audience": {
+            "demografica": {
+              "eta": "35 anni",
+              "professione": "Impiegata",
+              "settore": "Non specificato",
+              "educazione": "Non specificato",
+              "geografia": "Italia, con un focus su Roma"
+            },
+            "psicografica": {
+              "valori": [
+                "Orientata alla famiglia",
+                "Risparmiatrice",
+                "Apprezza la qualità e la praticità"
+              ],
+              "interessi": [
+                "Giardinaggio",
+                "Cucina",
+                "Fai-da-te",
+                "Decorazione domestica",
+                "Moda",
+                "Libri per bambini"
+              ],
+              "aspirazioni": [
+                "Creare un ambiente domestico caldo e accogliente",
+                "Equilibrio tra lavoro e vita personale"
+              ]
+            },
+            "livello_expertise": "Principianti a intermedi nel settore casa e giardino, richiedono contenuti accessibili e informativi.",
+            "pain_points": [
+              "Difficoltà nel trovare prodotti specifici",
+              "Preoccupazione sulla qualità dei prodotti, specialmente per i bambini",
+              "Costi di spedizione e tempi di consegna",
+              "Navigazione sito e usabilità",
+              "Assistenza clienti non sempre efficace",
+              "Processo di reso complicato",
+              "Mancanza di disponibilità di prodotti",
+              "Sicurezza nelle transazioni online"
+            ],
+            "stadio_funnel": "Consideration, con elementi di decision e post-purchase evaluation"
+          },
+          "strategia_comunicazione": {
+            "tone_of_voice": "Accogliente e familiare, informativo e affidabile, vivace e divertente, pratico e diretto",
+            "canali": [
+              "Online",
+              "Social media",
+              "Cataloghi postali"
+            ],
+            "obiettivi_marketing": [
+              "Lead generation",
+              "Brand awareness",
+              "Educazione del cliente",
+              "Fidelizzazione del cliente"
+            ],
+            "cta_tipiche": [
+              "Acquista ora",
+              "Scopri di più",
+              "Contattaci"
+            ],
+            "keywords_seo": [
+              "Articoli per la casa",
+              "Regali unici",
+              "Arredo giardino",
+              "Giocattoli educativi"
+            ]
+          },
+          "insights_mercato": {
+            "trend_settore": [
+              "Crescente domanda per articoli eco-friendly",
+              "Incremento dello shopping online post-pandemia"
+            ],
+            "dati_statistici": [],
+            "case_study": [],
+            "competitor_context": "Non specificato"
+          },
+          "suggerimenti_blog": {
+            "titoli_proposti": [
+              "Come arredare il tuo giardino per ogni stagione: Idee e suggerimenti",
+              "10 regali unici per rendere speciale ogni occasione",
+              "Guida definitiva alla scelta dei giocattoli sicuri ed educativi",
+              "L'importanza dell'arredo casa nella qualità della vita familiare",
+              "Tendenze eco-friendly nell'arredo casa e giardino nel 2025"
+            ],
+            "angolazioni_narrative": [
+              "Consigli pratici per l'arredamento e la manutenzione dell'ambiente domestico",
+              "Storie di successo e testimonianze di clienti soddisfatti",
+              "Influenza del design di interni sulla qualità della vita"
+            ],
+            "messaggi_chiave": [
+              "Vasta gamma di prodotti di alta qualità",
+              "Facilità di acquisto e convenienza",
+              "Sicurezza e affidabilità nei pagamenti online"
+            ],
+            "lunghezza_consigliata": "800-1200 parole",
+            "struttura_suggerita": [
+              "Introduzione al tema",
+              "Dettagli sul prodotto/servizio",
+              "Consigli di utilizzo o manutenzione",
+              "Testimonianze o studi di caso (se disponibili)",
+              "Chiusura con CTA"
+            ]
+          },
+          "processed_date": "2025-12-29T11:50:16.954Z",
+          "original_source": "ShopinCasa.it Market Analysis"
+        }
+      },
+      {
+        "json": {
+          "titolo": "Oggettistica natalizia: idee semplici per trasformare la tua casa in un ambiente accogliente",
+          "CATEGORIA/PRODOTTI": "Natale",
+          "DESCRIZIONE": "Un articolo dedicato ai piccoli oggetti che fanno la differenza: statuine, villaggi luminosi, centrotavola, gnomi decorativi, renne, calendari dell’avvento, soprammobili natalizi. Con focus su come creare un’atmosfera calda e familiare senza esagerare.",
+          "OBIETTIVO": "Stimolare l’acquisto d’impulso e la scoperta dell’ampia varietà presente su Shop in Casa, mostrando come semplici oggetti possano rendere magica la casa nel periodo natalizio.",
+          "Keyword": "Presepe, natività, decorazioni natalizie, addobbi di natale",
+          "URL": "https://www.shopincasa.it/1074-oggettistica-natale",
+          "Da Fare": true,
+          "row_number_sheet": "2"
+        }
+      }
+    ],
+    "Code in JavaScript1": [
+      {
+        "json": {
+          "profilo_aziendale": {
+            "settore_nicchia": "Vendita al dettaglio online di articoli per la casa, regalistica, arredo giardino e giocattoli",
+            "prodotti_servizi": [
+              "Articoli per la casa",
+              "Regalistica",
+              "Arredo giardino",
+              "Giocattoli"
+            ],
+            "posizionamento": "Ampia selezione di prodotti di alta qualità a prezzi competitivi, con un focus su famiglie e un ampio ventaglio di segmenti di mercato.",
+            "mission_valori": "Non specificato"
+          },
+          "target_audience": {
+            "demografica": {
+              "eta": "35 anni",
+              "professione": "Impiegata",
+              "settore": "Non specificato",
+              "educazione": "Non specificato",
+              "geografia": "Italia, con un focus su Roma"
+            },
+            "psicografica": {
+              "valori": [
+                "Orientata alla famiglia",
+                "Risparmiatrice",
+                "Apprezza la qualità e la praticità"
+              ],
+              "interessi": [
+                "Giardinaggio",
+                "Cucina",
+                "Fai-da-te",
+                "Decorazione domestica",
+                "Moda",
+                "Libri per bambini"
+              ],
+              "aspirazioni": [
+                "Creare un ambiente domestico caldo e accogliente",
+                "Equilibrio tra lavoro e vita personale"
+              ]
+            },
+            "livello_expertise": "Principianti a intermedi nel settore casa e giardino, richiedono contenuti accessibili e informativi.",
+            "pain_points": [
+              "Difficoltà nel trovare prodotti specifici",
+              "Preoccupazione sulla qualità dei prodotti, specialmente per i bambini",
+              "Costi di spedizione e tempi di consegna",
+              "Navigazione sito e usabilità",
+              "Assistenza clienti non sempre efficace",
+              "Processo di reso complicato",
+              "Mancanza di disponibilità di prodotti",
+              "Sicurezza nelle transazioni online"
+            ],
+            "stadio_funnel": "Consideration, con elementi di decision e post-purchase evaluation"
+          },
+          "strategia_comunicazione": {
+            "tone_of_voice": "Accogliente e familiare, informativo e affidabile, vivace e divertente, pratico e diretto",
+            "canali": [
+              "Online",
+              "Social media",
+              "Cataloghi postali"
+            ],
+            "obiettivi_marketing": [
+              "Lead generation",
+              "Brand awareness",
+              "Educazione del cliente",
+              "Fidelizzazione del cliente"
+            ],
+            "cta_tipiche": [
+              "Acquista ora",
+              "Scopri di più",
+              "Contattaci"
+            ],
+            "keywords_seo": [
+              "Articoli per la casa",
+              "Regali unici",
+              "Arredo giardino",
+              "Giocattoli educativi"
+            ]
+          },
+          "insights_mercato": {
+            "trend_settore": [
+              "Crescente domanda per articoli eco-friendly",
+              "Incremento dello shopping online post-pandemia"
+            ],
+            "dati_statistici": [],
+            "case_study": [],
+            "competitor_context": "Non specificato"
+          },
+          "suggerimenti_blog": {
+            "titoli_proposti": [
+              "Come arredare il tuo giardino per ogni stagione: Idee e suggerimenti",
+              "10 regali unici per rendere speciale ogni occasione",
+              "Guida definitiva alla scelta dei giocattoli sicuri ed educativi",
+              "L'importanza dell'arredo casa nella qualità della vita familiare",
+              "Tendenze eco-friendly nell'arredo casa e giardino nel 2025"
+            ],
+            "angolazioni_narrative": [
+              "Consigli pratici per l'arredamento e la manutenzione dell'ambiente domestico",
+              "Storie di successo e testimonianze di clienti soddisfatti",
+              "Influenza del design di interni sulla qualità della vita"
+            ],
+            "messaggi_chiave": [
+              "Vasta gamma di prodotti di alta qualità",
+              "Facilità di acquisto e convenienza",
+              "Sicurezza e affidabilità nei pagamenti online"
+            ],
+            "lunghezza_consigliata": "800-1200 parole",
+            "struttura_suggerita": [
+              "Introduzione al tema",
+              "Dettagli sul prodotto/servizio",
+              "Consigli di utilizzo o manutenzione",
+              "Testimonianze o studi di caso (se disponibili)",
+              "Chiusura con CTA"
+            ]
+          },
+          "processed_date": "2025-12-29T11:50:16.954Z",
+          "original_source": "ShopinCasa.it Market Analysis"
+        }
+      }
+    ],
+    "Aggregate1": [
+      {
+        "json": {
+          "titolo": [
+            "Oggettistica natalizia: idee semplici per trasformare la tua casa in un ambiente accogliente"
+          ],
+          "CATEGORIA/PRODOTTI": [
+            "Natale"
+          ],
+          "DESCRIZIONE": [
+            "Un articolo dedicato ai piccoli oggetti che fanno la differenza: statuine, villaggi luminosi, centrotavola, gnomi decorativi, renne, calendari dell’avvento, soprammobili natalizi. Con focus su come creare un’atmosfera calda e familiare senza esagerare."
+          ],
+          "OBIETTIVO": [
+            "Stimolare l’acquisto d’impulso e la scoperta dell’ampia varietà presente su Shop in Casa, mostrando come semplici oggetti possano rendere magica la casa nel periodo natalizio."
+          ],
+          "Keyword": [
+            "Presepe, natività, decorazioni natalizie, addobbi di natale"
+          ],
+          "Da Fare": [
+            true
+          ],
+          "row_number_sheet": [
+            "2"
+          ],
+          "profilo_aziendale": [
+            {
+              "settore_nicchia": "Vendita al dettaglio online di articoli per la casa, regalistica, arredo giardino e giocattoli",
+              "prodotti_servizi": [
+                "Articoli per la casa",
+                "Regalistica",
+                "Arredo giardino",
+                "Giocattoli"
+              ],
+              "posizionamento": "Ampia selezione di prodotti di alta qualità a prezzi competitivi, con un focus su famiglie e un ampio ventaglio di segmenti di mercato.",
+              "mission_valori": "Non specificato"
+            }
+          ],
+          "target_audience": [
+            {
+              "demografica": {
+                "eta": "35 anni",
+                "professione": "Impiegata",
+                "settore": "Non specificato",
+                "educazione": "Non specificato",
+                "geografia": "Italia, con un focus su Roma"
+              },
+              "psicografica": {
+                "valori": [
+                  "Orientata alla famiglia",
+                  "Risparmiatrice",
+                  "Apprezza la qualità e la praticità"
+                ],
+                "interessi": [
+                  "Giardinaggio",
+                  "Cucina",
+                  "Fai-da-te",
+                  "Decorazione domestica",
+                  "Moda",
+                  "Libri per bambini"
+                ],
+                "aspirazioni": [
+                  "Creare un ambiente domestico caldo e accogliente",
+                  "Equilibrio tra lavoro e vita personale"
+                ]
+              },
+              "livello_expertise": "Principianti a intermedi nel settore casa e giardino, richiedono contenuti accessibili e informativi.",
+              "pain_points": [
+                "Difficoltà nel trovare prodotti specifici",
+                "Preoccupazione sulla qualità dei prodotti, specialmente per i bambini",
+                "Costi di spedizione e tempi di consegna",
+                "Navigazione sito e usabilità",
+                "Assistenza clienti non sempre efficace",
+                "Processo di reso complicato",
+                "Mancanza di disponibilità di prodotti",
+                "Sicurezza nelle transazioni online"
+              ],
+              "stadio_funnel": "Consideration, con elementi di decision e post-purchase evaluation"
+            }
+          ],
+          "strategia_comunicazione": [
+            {
+              "tone_of_voice": "Accogliente e familiare, informativo e affidabile, vivace e divertente, pratico e diretto",
+              "canali": [
+                "Online",
+                "Social media",
+                "Cataloghi postali"
+              ],
+              "obiettivi_marketing": [
+                "Lead generation",
+                "Brand awareness",
+                "Educazione del cliente",
+                "Fidelizzazione del cliente"
+              ],
+              "cta_tipiche": [
+                "Acquista ora",
+                "Scopri di più",
+                "Contattaci"
+              ],
+              "keywords_seo": [
+                "Articoli per la casa",
+                "Regali unici",
+                "Arredo giardino",
+                "Giocattoli educativi"
+              ]
+            }
+          ],
+          "insights_mercato": [
+            {
+              "trend_settore": [
+                "Crescente domanda per articoli eco-friendly",
+                "Incremento dello shopping online post-pandemia"
+              ],
+              "dati_statistici": [],
+              "case_study": [],
+              "competitor_context": "Non specificato"
+            }
+          ],
+          "suggerimenti_blog": [
+            {
+              "titoli_proposti": [
+                "Come arredare il tuo giardino per ogni stagione: Idee e suggerimenti",
+                "10 regali unici per rendere speciale ogni occasione",
+                "Guida definitiva alla scelta dei giocattoli sicuri ed educativi",
+                "L'importanza dell'arredo casa nella qualità della vita familiare",
+                "Tendenze eco-friendly nell'arredo casa e giardino nel 2025"
+              ],
+              "angolazioni_narrative": [
+                "Consigli pratici per l'arredamento e la manutenzione dell'ambiente domestico",
+                "Storie di successo e testimonianze di clienti soddisfatti",
+                "Influenza del design di interni sulla qualità della vita"
+              ],
+              "messaggi_chiave": [
+                "Vasta gamma di prodotti di alta qualità",
+                "Facilità di acquisto e convenienza",
+                "Sicurezza e affidabilità nei pagamenti online"
+              ],
+              "lunghezza_consigliata": "800-1200 parole",
+              "struttura_suggerita": [
+                "Introduzione al tema",
+                "Dettagli sul prodotto/servizio",
+                "Consigli di utilizzo o manutenzione",
+                "Testimonianze o studi di caso (se disponibili)",
+                "Chiusura con CTA"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "CheckSeo": [
+      {
+        "json": {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "<p>In poche parole, creare un coordinato natalizio perfetto per la tua casa è un processo emozionante che può riunire la famiglia in un progetto comune di gioia e creatività. L'inizio perfetto sarà con la scelta di un albero di Natale che rifletta la personalità e lo stile della tua casa. Successivamente, le luci di Natale, accuratamente scelte, aggiungeranno un senso di calore e magia a ogni stanza. Infine, gli addobbi natalizi daranno l'ultimo tocco, arricchendo l'atmosfera con colori e rifiniture che risuonano con l'energia festiva.</p>\n\n<p>Non dimenticare che l'armonizzazione è la chiave quando si tratta di creare un coordinato natalizio. Tutti gli elementi devono lavorare insieme per creare un effetto visivamente piacevole. Ciò significa abbinare i colori, i temi, e i disegni in un modo unificato.</p>\n\n<p>Con la giusta attenzione ai dettagli e un pizzico di creatività, è possibile trasformare la tua casa in un meraviglioso paesaggio natalizio che porta gioia e felicità a te e ai tuoi cari. Quindi, per quali elementi decorativi stai aspettando? Sfoglia la nostra vasta selezione di articoli per la casa natalizi e inizia a progettare la tua casa perfetta per le vacanze!</p>\n\n<p><b>Inizia a realizzare la tua visione natalizia oggi stesso e trasforma la tua casa in una splendida scena festiva.</b></p>",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      }
+    ],
+    "Analisi Azienda": [
+      {
+        "json": {
+          "id": "resp_01c01f50db1c58380069526a95083c8194a25c5c49ba12c342",
+          "object": "response",
+          "created_at": 1767008917,
+          "status": "completed",
+          "background": false,
+          "billing": {
+            "payer": "developer"
+          },
+          "completed_at": 1767008999,
+          "error": null,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "max_tool_calls": null,
+          "model": "gpt-4-turbo-2024-04-09",
+          "output": [
+            {
+              "id": "msg_01c01f50db1c58380069526a97ee408194a7f1f751f894eff6",
+              "type": "message",
+              "status": "completed",
+              "content": [
+                {
+                  "type": "output_text",
+                  "annotations": [],
+                  "logprobs": [],
+                  "text": "{\n  \"profilo_aziendale\": {\n    \"settore_nicchia\": \"Vendita al dettaglio online di articoli per la casa, regalistica, arredo giardino e giocattoli\",\n    \"prodotti_servizi\": [\n      \"Articoli per la casa\",\n      \"Regalistica\",\n      \"Arredo giardino\",\n      \"Giocattoli\"\n    ],\n    \"posizionamento\": \"Ampia selezione di prodotti di alta qualit\\u00e0 a prezzi competitivi, con un focus su famiglie e un ampio ventaglio di segmenti di mercato.\",\n    \"mission_valori\": \"Non specificato\"\n  },\n  \"target_audience\": {\n    \"demografica\": {\n      \"eta\": \"35 anni\",\n      \"professione\": \"Impiegata\",\n      \"settore\": \"Non specificato\",\n      \"educazione\": \"Non specificato\",\n      \"geografia\": \"Italia, con un focus su Roma\"\n    },\n    \"psicografica\": {\n      \"valori\": [\n        \"Orientata alla famiglia\",\n        \"Risparmiatrice\",\n        \"Apprezza la qualit\\u00e0 e la praticit\\u00e0\"\n      ],\n      \"interessi\": [\n        \"Giardinaggio\",\n        \"Cucina\",\n        \"Fai-da-te\",\n        \"Decorazione domestica\",\n        \"Moda\",\n        \"Libri per bambini\"\n      ],\n      \"aspirazioni\": [\n        \"Creare un ambiente domestico caldo e accogliente\",\n        \"Equilibrio tra lavoro e vita personale\"\n      ]\n    },\n    \"livello_expertise\": \"Principianti a intermedi nel settore casa e giardino, richiedono contenuti accessibili e informativi.\",\n    \"pain_points\": [\n      \"Difficolt\\u00e0 nel trovare prodotti specifici\",\n      \"Preoccupazione sulla qualit\\u00e0 dei prodotti, specialmente per i bambini\",\n      \"Costi di spedizione e tempi di consegna\",\n      \"Navigazione sito e usabilit\\u00e0\",\n      \"Assistenza clienti non sempre efficace\",\n      \"Processo di reso complicato\",\n      \"Mancanza di disponibilit\\u00e0 di prodotti\",\n      \"Sicurezza nelle transazioni online\"\n    ],\n    \"stadio_funnel\": \"Consideration, con elementi di decision e post-purchase evaluation\"\n  },\n  \"strategia_comunicazione\": {\n    \"tone_of_voice\": \"Accogliente e familiare, informativo e affidabile, vivace e divertente, pratico e diretto\",\n    \"canali\": [\n      \"Online\",\n      \"Social media\",\n      \"Cataloghi postali\"\n    ],\n    \"obiettivi_marketing\": [\n      \"Lead generation\",\n      \"Brand awareness\",\n      \"Educazione del cliente\",\n      \"Fidelizzazione del cliente\"\n    ],\n    \"cta_tipiche\": [\n      \"Acquista ora\",\n      \"Scopri di pi\\u00f9\",\n      \"Contattaci\"\n    ],\n    \"keywords_seo\": [\n      \"Articoli per la casa\",\n      \"Regali unici\",\n      \"Arredo giardino\",\n      \"Giocattoli educativi\"\n    ]\n  },\n  \"insights_mercato\": {\n    \"trend_settore\": [\n      \"Crescente domanda per articoli eco-friendly\",\n      \"Incremento dello shopping online post-pandemia\"\n    ],\n    \"dati_statistici\": [],\n    \"case_study\": [],\n    \"competitor_context\": \"Non specificato\"\n  },\n  \"suggerimenti_blog\": {\n    \"titoli_proposti\": [\n      \"Come arredare il tuo giardino per ogni stagione: Idee e suggerimenti\",\n      \"10 regali unici per rendere speciale ogni occasione\",\n      \"Guida definitiva alla scelta dei giocattoli sicuri ed educativi\",\n      \"L'importanza dell'arredo casa nella qualit\\u00e0 della vita familiare\",\n      \"Tendenze eco-friendly nell'arredo casa e giardino nel 2025\"\n    ],\n    \"angolazioni_narrative\": [\n      \"Consigli pratici per l'arredamento e la manutenzione dell'ambiente domestico\",\n      \"Storie di successo e testimonianze di clienti soddisfatti\",\n      \"Influenza del design di interni sulla qualit\\u00e0 della vita\"\n    ],\n    \"messaggi_chiave\": [\n      \"Vasta gamma di prodotti di alta qualit\\u00e0\",\n      \"Facilit\\u00e0 di acquisto e convenienza\",\n      \"Sicurezza e affidabilit\\u00e0 nei pagamenti online\"\n    ],\n    \"lunghezza_consigliata\": \"800-1200 parole\",\n    \"struttura_suggerita\": [\n      \"Introduzione al tema\",\n      \"Dettagli sul prodotto/servizio\",\n      \"Consigli di utilizzo o manutenzione\",\n      \"Testimonianze o studi di caso (se disponibili)\",\n      \"Chiusura con CTA\"\n    ]\n  }\n}"
+                }
+              ],
+              "role": "assistant"
+            }
+          ],
+          "parallel_tool_calls": true,
+          "previous_response_id": null,
+          "prompt_cache_key": null,
+          "prompt_cache_retention": null,
+          "reasoning": {
+            "effort": null,
+            "summary": null
+          },
+          "safety_identifier": null,
+          "service_tier": "default",
+          "store": true,
+          "temperature": 1,
+          "text": {
+            "format": {
+              "type": "text"
+            },
+            "verbosity": "medium"
+          },
+          "tool_choice": "auto",
+          "tools": [],
+          "top_logprobs": 0,
+          "top_p": 1,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 8562,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 1155,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 9717
+          },
+          "user": null,
+          "metadata": {}
+        }
+      }
+    ],
+    "CheckQuality": [
+      {
+        "json": {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "<p>In poche parole, creare un coordinato natalizio perfetto per la tua casa è un processo emozionante che può riunire la famiglia in un progetto comune di gioia e creatività. L'inizio perfetto sarà con la scelta di un albero di Natale che rifletta la personalità e lo stile della tua casa. Successivamente, le luci di Natale, accuratamente scelte, aggiungeranno un senso di calore e magia a ogni stanza. Infine, gli addobbi natalizi daranno l'ultimo tocco, arricchendo l'atmosfera con colori e rifiniture che risuonano con l'energia festiva.</p>\n\n<p>Non dimenticare che l'armonizzazione è la chiave quando si tratta di creare un coordinato natalizio. Tutti gli elementi devono lavorare insieme per creare un effetto visivamente piacevole. Ciò significa abbinare i colori, i temi, e i disegni in un modo unificato.</p>\n\n<p>Con la giusta attenzione ai dettagli e un pizzico di creatività, è possibile trasformare la tua casa in un meraviglioso paesaggio natalizio che porta gioia e felicità a te e ai tuoi cari. Quindi, per quali elementi decorativi stai aspettando? Sfoglia la nostra vasta selezione di articoli per la casa natalizi e inizia a progettare la tua casa perfetta per le vacanze!</p>\n\n<p><b>Inizia a realizzare la tua visione natalizia oggi stesso e trasforma la tua casa in una splendida scena festiva.</b></p>",
+            "refusal": null,
+            "annotations": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Sezione 2": {
+      "main": [
+        [
+          {
+            "node": "Sezione 3",
+            "index": 0,
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Estrai titolo": {
+      "main": [
+        [
+          {
+            "type": "main",
+            "index": 0,
+            "node": "Creo Articolo"
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "List & Download PDFs from GDrive",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get row(s) in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Introduzione": {
+      "main": [
+        [
+          {
+            "type": "main",
+            "node": "Sezione 1",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Creo Articolo": {
+      "main": [
+        [
+          {
+            "node": "Inserisco Body",
+            "index": 0,
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Sezione 1": {
+      "main": [
+        [
+          {
+            "type": "main",
+            "node": "Sezione 2",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Inserisco Body": {
+      "main": [
+        [
+          {
+            "node": "Update Sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sezione 3": {
+      "main": [
+        [
+          {
+            "type": "main",
+            "index": 0,
+            "node": "Conclusione"
+          }
+        ]
+      ]
+    },
+    "Conclusione": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List & Download PDFs from GDrive": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read PDF": {
+      "main": [
+        [
+          {
+            "node": "Analisi Azienda",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Read PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Base Articolo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set context1": {
+      "main": [
+        [
+          {
+            "node": "Ci sono titoli?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Base Articolo1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ci sono titoli?1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Filter3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter2": {
+      "main": [
+        [
+          {
+            "node": "Set context1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter3": {
+      "main": [
+        [
+          {
+            "node": "Filter2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Introduzione",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckSeo": {
+      "main": [
+        [
+          {
+            "node": "CheckQuality",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "CheckSeo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Estrai titolo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate title": {
+      "main": [
+        [
+          {
+            "node": "Add draft to WP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add draft to WP": {
+      "main": [
+        [
+          {
+            "node": "Generate image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate image": {
+      "main": [
+        [
+          {
+            "node": "Upload image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload image": {
+      "main": [
+        [
+          {
+            "node": "Set image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set image": {
+      "main": [
+        [
+          {
+            "node": "Update Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Sheet": {
+      "main": [
+        [
+          {
+            "node": "Finish work",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finish work": {
+      "main": [
+        []
+      ]
+    },
+    "Analisi Azienda": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckQuality": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "cf76f242-8ba3-44e7-bf49-1d174b4deea1",
+  "meta": {
+    "instanceId": "e6b593b68451200526396e76b5b89bd80464a1a10ebfdd7944bdf91faddeb039"
+  },
+  "id": "gWk1Fqy0CGVPixLv",
+  "tags": []
+}
