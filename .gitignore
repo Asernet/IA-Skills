@@ -5,3 +5,4 @@ __da_normalizzare_branding-suite/
 notebooklm-connector/
 __pycache__/
 *.pyc
+docs/*
