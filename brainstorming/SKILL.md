@@ -21,6 +21,11 @@ Inizia comprendendo il contesto attuale del progetto, poi fai domande una alla v
 **Comprendere l'idea:**
 
 - Controlla prima lo stato attuale del progetto (file, doc, commit recenti)
+- **Procedura Analitica Obbligatoria**: Prima di proporre soluzioni, DEVI:
+  1. Scomporre la richiesta in 3-5 sotto-problemi.
+  2. Per ogni sotto-problema, identificare l'approccio migliore.
+  3. Mostrare questa analisi all'utente.
+  4. SOLO DOPO fornire la proposta o il design.
 - Fai domande una alla volta per raffinare l'idea
 - Preferisci domande a scelta multipla quando possibile, ma a risposta aperta va bene lo stesso
 - Solo una domanda per messaggio - se un argomento richiede più esplorazione, spezzalo in più domande
@@ -36,18 +41,23 @@ Inizia comprendendo il contesto attuale del progetto, poi fai domande una alla v
 
 - Una volta che credi di capire cosa stai costruendo, presenta il design
 - Spezzalo in sezioni di 200-300 parole
+- **Protocollo Devil's Advocate**: Per ogni sezione presentata, DEVI seguire lo schema:
+  1. **Costruzione**: Esposizione chiara del design/idea.
+  2. **Distruzione (Stress-Test)**: Attacca l'idea come un esperto scettico, trovando ogni falla, debolezza o rischio di ROI.
+  3. **Ricostruzione**: Riscrivi la sezione sistemando ogni falla, rendendola "a prova di errore" e antifragile.
 - Chiedi dopo ogni sezione se sembra corretto finora
 - Copri: architettura, componenti, flusso dati, gestione errori, testing
 - Sii pronto a tornare indietro e chiarire se qualcosa non ha senso
 
 ## Validazione Epistemologica (Obbligatoria)
 
-**CRITICO:** Prima di considerare il design "finito" e passare alla documentazione o implementazione, DEVI sottoporlo a validazione.
+**CRITICO:** Prima di considerare il design "finito" e passare alla documentazione o implementazione, DEVI sottoporlo a validazione incrociata.
 
-1.  **Invoca Cognitos:** Usa la skill `cognitos` per analizzare il design proposto.
-    *   Prompt interno: "Agisci come Cognitos e analizza questo design per trovare bias, assunzioni non verificate o fallacie logiche."
-2.  **Presenta il Verdetto:** Mostra all'utente l'analisi critica.
-3.  **Ottieni Consenso:** Solo se l'utente accetta il rischio o corregge il design, procedi allo step successivo.
+1. **Analisi Pre-Cognitos**: Esegui la scomposizione analitica (3-5 sotto-problemi) sul design complessivo.
+2. **Invoca Cognitos**: Usa la skill `cognitos` per analizzare il design proposto.
+   - Prompt interno: "Agisci come Cognitos e analizza questo design per trovare bias, assunzioni non verificate o fallacie logiche."
+3. **Analisi Post-Cognitos (Stress-Test Finale)**: Applica nuovamente il protocollo **Devil's Advocate** (Costruzione -> Distruzione -> Ricostruzione) integrando i feedback di Cognitos.
+4. **Verdetto Finale**: Presenta all'utente l'analisi critica e ottieni il consenso prima di procedere.
 
 ## Dopo il Design
 
