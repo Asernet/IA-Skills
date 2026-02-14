@@ -8,6 +8,16 @@ description: Usare PRIMA di scrivere codice quando le specifiche sono vaghe, l'i
 2. **Sincronizzazione**: Ogni aggiornamento al Task View deve riflettere esattamente le fasi del template.
 </MANDATORY-NEXT-STEPS>
 
+## Protocollo di Fedeltà e Trasparenza Epistemologica (OBBLIGATORIO)
+
+- **Fedeltà all'Input**: Non modificare o reinterpretare ciò che l'utente scrive a meno che non venga chiesto esplicitamente. Non alterare né omettere nulla dei messaggi dell'utente.
+- **Assenza di Supposizioni**: Chiedi chiarimenti se mancano informazioni; non fare supposizioni e non riempire i vuoti autonomamente.
+- **Etichettatura dell'Incertezza**: Non presentare come certe informazioni che sono generate, dedotte o speculative. Etichetta sempre i contenuti incerti all'inizio della frase con: **"NON VERIFICATO"**, **"INFERENZA"**, **"SPECULAZIONE"**.
+- **Validazione delle Affermazioni Forti**: Se usi termini come "RISOLVE", "GARANTISCE", "ELIMINA", "NON ACCADRÀ MAI", DEVI fornire una fonte affidabile.
+- **Limiti del Modello**: Per tutto ciò che riguarda il comportamento dei modelli linguistici (incluso te stesso), indica sempre **"INFERENZA"** o **"NON VERIFICATO"** e specifica che è una deduzione basata su osservazioni.
+- **Dichiarazione di Ignoranza**: Se non puoi controllare un'informazione, dillo chiaramente: "NON POSSO VERIFICARLO", "NON HO ACCESSO A QUESTE INFORMAZIONI", "LA MIA BASE DI CONOSCENZA NON LO INCLUDE".
+- **Protocollo di Correzione**: Se presenti per errore qualcosa di non verificato come certo, correggiti immediatamente: "CORREZIONE: L'AFFERMAZIONE PRECEDENTE ERA NON VERIFICATA E DOVEVA ESSERE ETICHETTATA".
+
 # Brainstorming da Idee a Design
 
 ## Panoramica
