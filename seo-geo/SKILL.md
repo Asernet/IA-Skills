@@ -1,7 +1,7 @@
 ---
 name: seo-geo
 description: |
-  SEO e GEO (Generative Engine Optimization) per siti web.
+  SEO e GEO (Generative Engine Optimization) e AEO (Answer Engine Optimization) per siti web.
   Analizza parole chiave, genera markup schema, ottimizza per i motori di ricerca AI
   (ChatGPT, Perplexity, Gemini, Copilot, Claude) e la ricerca tradizionale (Google, Bing).
   Usa questa skill quando l'utente desidera migliorare la visibilità sui motori di ricerca.
@@ -16,6 +16,10 @@ triggers:
   - "ranking ricerca"
   - "visibilità AI"
   - "ranking ChatGPT"
+  - "AEO"
+  - "Answer Engine Optimization"
+  - "Q-A-V protocol"
+  - "Content Engineering"
   - "Perplexity"
   - "Google AI Overview"
   - "indicizzazione"
@@ -149,7 +153,20 @@ Applica i **9 Metodi GEO di Princeton** (vedi [references/geo-research.md](./ref
 - Tabelle per i dati di confronto
 - Paragrafi brevi (max 2-3 frasi)
 
-### Step 4: Ottimizzazione SEO Tradizionale
+### Step 4: Ottimizzazione Answer Engine (AEO)
+
+Applica il protocollo **Q-A-V** (vedi [references/aeo-optimization.md](./references/aeo-optimization.md)):
+
+1. **Question (Q)**: Identificare la domanda specifica dell'utente.
+2. **Answer (A)**: Fornire la risposta tecnica e diretta nei primi 150-200 caratteri (Inverted Pyramid).
+3. **Value (V)**: Approfondire con dati, esperienza reale (E-E-A-T) e differenziazione del brand.
+
+**Ingegnazione del Contenuto:**
+
+- Struttura il contenuto per un doppio livello di lettura: bot (risposta rapida) e umani (valore profondo).
+- Usa il "Gateway Content" per spingere l'utente all'interazione dopo aver fornito la risposta.
+
+### Step 5: Ottimizzazione SEO Tradizionale
 
 **Template Meta Tag:**
 
@@ -292,6 +309,7 @@ Questa skill funziona meglio con:
 - [references/platform-algorithms.md](./references/platform-algorithms.md) - Fattori di ranking dettagliati per ogni piattaforma
 - [references/geo-research.md](./references/geo-research.md) - Ricerca GEO di Princeton (9 metodi)
 - [references/schema-templates.md](./references/schema-templates.md) - Template JSON-LD
+- [references/aeo-optimization.md](./references/aeo-optimization.md) - Guida Answer Engine Optimization (Protocollo Q-A-V)
 - [references/seo-checklist.md](./references/seo-checklist.md) - Checklist completa per l'audit SEO
 - [references/tools-and-apis.md](./references/tools-and-apis.md) - Riferimento a tool e API
 - [examples/opc-skills-case-study.md](./examples/opc-skills-case-study.md) - Esempio di caso di studio di ottimizzazione reale
