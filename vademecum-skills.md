@@ -2,7 +2,7 @@
 
 Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 
-## Indice Skills (80)
+## Indice Skills (81)
 
 | Skill | Descrizione |
 | :--- | :--- |
@@ -66,6 +66,7 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[rice-prompt-writer]]** | Riformula le richieste utente in prompt strutturati secondo il framework RICE (Role, Instructions, Context, Examples) per massimizzare la qualità dell'output degli LLM. |
 | **[[seo-audit]]** | Skill per audit, revisione o diagnosi problemi SEO su un sito. Utilizza quando l'utente menziona audit SEO, SEO tecnico, perché non mi posiziono, problemi SEO, on-page SEO, review meta tag o health check SEO. |
 | **[[seo-fundamentals]]** | Fondamentali SEO, E-E-A-T, Core Web Vitals e principi algoritmo Google. Skill di riferimento per best practice SEO di base. |
+| **[[seo-geo]]** | \| |
 | **[[skill-creator]]** | Guida completa alla progettazione di skill ed agente generatore per creare nuove skill nell'ambiente Gemini CLI. |
 | **[[skills-library-manager]]** | Gestisce la libreria delle skill eseguendo validazione, indicizzazione e aggiornamento del Vademecum in Obsidian. |
 | **[[slack-gif-creator]]** | Crea GIF animate ottimizzate per Slack partendo da richieste dell'utente. |
@@ -88,4 +89,4 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-02-05 20:15_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-02-14 12:52_
