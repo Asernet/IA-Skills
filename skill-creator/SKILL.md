@@ -71,15 +71,15 @@ Segui rigorosamente questa sequenza:
     - Crea cartella: `C:\Users\mazin\.gemini\skills\[nome-skill]\`
     - Scrivi file: `C:\Users\mazin\.gemini\skills\[nome-skill]\SKILL.md`
 6.  **Ingegnerizzazione (Opzionale)**:
-    - Dopo la creazione, CHIEDI esplicitamente: *"Vuoi procedere a ingegnerizzare il prompt e le azioni di questa skill usando la metodologia `writing-skills`?"*
+    - Dopo la creazione, CHIEDI esplicitamente: _"Vuoi procedere a ingegnerizzare il prompt e le azioni di questa skill usando la metodologia `writing-skills`?"_
     - Spiega che questo passaggio serve a consolidare le istruzioni tramite un approccio TDD (Test-Driven) per rendere la skill robusta.
     - Se l'utente accetta, leggi la skill `skills/writing-skills` e guida l'utente nel raffinamento.
 
 7.  **Delivery Anthropic (Opzionale)**:
     - Se l'utente ha specificato che la skill è per **Claude/Anthropic**, al termine DEVI AUTOMATICAMENTE:
-        - Creare uno ZIP della cartella skill.
-        - Salvarlo in `C:\Users\M.Macelloni\Downloads`.
-        - Confermare posizione file all'utente.
+      - Creare uno ZIP della cartella skill.
+      - Salvarlo in `C:\Users\M.Macelloni\Downloads`.
+      - Confermare posizione file all'utente.
 
 ## Template Obbligatorio SKILL.md
 
@@ -88,6 +88,13 @@ Segui rigorosamente questa sequenza:
 name: [nome-skill-kebab-case]
 description:
   [Descrizione in terza persona in ITALIANO. Es: "Genera unit test per..."]
+triggers:
+  [
+    inserire se esistono dei trigger per le funzioni da svolgere. Es: "crea skill",
+    "genera skill",
+    "crea agente",
+    "genera agente",
+  ]
 ---
 
 # [Nome Skill]
@@ -114,5 +121,7 @@ Assistant: ...
 ## Regole per la Generazione
 
 - **Lingua**: Tutto il contenuto generato deve essere in **ITALIANO** (eccetto termini tecnici standard).
+- **Procedura di Traduzione**: Durante la traduzione di una skill esistente, procedere riga per riga. È vietato riassumere o eliminare sezioni originali.
+- **Integrità Tecnica**: Mantenere l'integrità totale di ogni dettaglio tecnico (comandi bash, snippet di codice, tabelle statistiche, link di riferimento). Il template standard di Gemini CLI deve arricchire la struttura, MAI sostituire o ridurre il contenuto operativo preesistente.
 - **Path**: Non deviare mai da `C:\Users\mazin\.gemini\skills\`.
 - **Focus**: Una skill = Una responsabilità.
