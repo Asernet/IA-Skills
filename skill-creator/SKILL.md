@@ -80,6 +80,17 @@ Segui rigorosamente questa sequenza:
       - Creare uno ZIP della cartella skill.
       - Salvarlo in `C:\Users\M.Macelloni\Downloads`.
       - Confermare posizione file all'utente.
+8.  **Refactory Skill (Opzionale)**:
+    - Se l'utente ti chiede di normalizzare una skill esistente, chiedi esplicitamente: \_"Vuoi procedere a ingegnerizzare il prompt e le azioni di questa skill usando la metodologia `writing-skills`?"
+      - Prima traduci la skills riga per riga se non scritta in italiano, senza modificare il contenuto operativo.
+      - Poi ingegnerizza la skill seguendo la metodologia `writing-skills`, mantenendo il contenuto operativo invariato.
+      - Testa tutta la skills per assicurarti che funzioni correttamente, se contiene riferimenti a file esterni, assicurati che esistano.
+      - Se non funziona, chiedi all'utente di specificare quali file esterni sono necessari e di fornirti i percorsi corretti.
+      - Se ci sono file di esempio, e non sono in italiano, traduci riga per riga.
+      - Non modificare il contenuto operativo e il funzionamento della skill.
+      - Se non riesci a farla funzionare, chiedi all'utente di specificare quali file esterni sono necessari e di fornirti i percorsi corretti.
+      - Cerca se ci possono essere miglioramenti funzionali e strutturali per la skill, ma chiedi all'utente di confermare prima di procedere.
+      - Non aggiungere contenuto dedotto se non verificato con l'utente ed aver ricevuto la sua conferma.
 
 ## Template Obbligatorio SKILL.md
 
@@ -95,6 +106,8 @@ triggers:
     "crea agente",
     "genera agente",
   ]
+metadata:
+  tags: [se esistono, inserire dei tags: per ES: "skill", "creazione skill", "agente", "creazione agente"]  
 ---
 
 # [Nome Skill]
