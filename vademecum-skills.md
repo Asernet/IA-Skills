@@ -2,7 +2,7 @@
 
 Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 
-## Indice Skills (80)
+## Indice Skills (82)
 
 | Skill | Descrizione |
 | :--- | :--- |
@@ -62,10 +62,12 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[rag-engineer]]** | Esperto nella costruzione di sistemi Retrieval-Augmented Generation. Padroneggia modelli embedding, database vettoriali, strategie chunking e ottimizzazione retrieval per applicazioni LLM. Utilizza per RAG, ricerca vettoriale, embedding, ricerca semantica. |
 | **[[rag-implementation]]** | Pattern Retrieval-Augmented Generation inclusi chunking, embedding, vector store e ottimizzazione retrieval. Utilizza per RAG, retrieval augmented, ricerca vettoriale, embedding, ricerca semantica. |
 | **[[receiving-code-review]]** | Usa quando ricevi feedback di code review, per verificare rigorosamente i suggerimenti prima di implementarli. |
+| **[[remotion-best-practices]]** | Best practice per Remotion - Creazione di video in React |
 | **[[requesting-code-review]]** | Usa prima di completare task o merge, per verificare che il lavoro soddisfi i requisiti. |
 | **[[rice-prompt-writer]]** | Riformula le richieste utente in prompt strutturati secondo il framework RICE (Role, Instructions, Context, Examples) per massimizzare la qualità dell'output degli LLM. |
 | **[[seo-audit]]** | Skill per audit, revisione o diagnosi problemi SEO su un sito. Utilizza quando l'utente menziona audit SEO, SEO tecnico, perché non mi posiziono, problemi SEO, on-page SEO, review meta tag o health check SEO. |
 | **[[seo-fundamentals]]** | Fondamentali SEO, E-E-A-T, Core Web Vitals e principi algoritmo Google. Skill di riferimento per best practice SEO di base. |
+| **[[seo-geo]]** | \| |
 | **[[skill-creator]]** | Guida completa alla progettazione di skill ed agente generatore per creare nuove skill nell'ambiente Gemini CLI. |
 | **[[skills-library-manager]]** | Gestisce la libreria delle skill eseguendo validazione, indicizzazione e aggiornamento del Vademecum in Obsidian. |
 | **[[slack-gif-creator]]** | Crea GIF animate ottimizzate per Slack partendo da richieste dell'utente. |
@@ -88,4 +90,4 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-02-05 20:15_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-02-14 19:06_
