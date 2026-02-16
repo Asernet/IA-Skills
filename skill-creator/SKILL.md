@@ -71,15 +71,26 @@ Segui rigorosamente questa sequenza:
     - Crea cartella: `C:\Users\mazin\.gemini\skills\[nome-skill]\`
     - Scrivi file: `C:\Users\mazin\.gemini\skills\[nome-skill]\SKILL.md`
 6.  **Ingegnerizzazione (Opzionale)**:
-    - Dopo la creazione, CHIEDI esplicitamente: *"Vuoi procedere a ingegnerizzare il prompt e le azioni di questa skill usando la metodologia `writing-skills`?"*
+    - Dopo la creazione, CHIEDI esplicitamente: _"Vuoi procedere a ingegnerizzare il prompt e le azioni di questa skill usando la metodologia `writing-skills`?"_
     - Spiega che questo passaggio serve a consolidare le istruzioni tramite un approccio TDD (Test-Driven) per rendere la skill robusta.
     - Se l'utente accetta, leggi la skill `skills/writing-skills` e guida l'utente nel raffinamento.
 
 7.  **Delivery Anthropic (Opzionale)**:
     - Se l'utente ha specificato che la skill è per **Claude/Anthropic**, al termine DEVI AUTOMATICAMENTE:
-        - Creare uno ZIP della cartella skill.
-        - Salvarlo in `C:\Users\M.Macelloni\Downloads`.
-        - Confermare posizione file all'utente.
+      - Creare uno ZIP della cartella skill.
+      - Salvarlo in `C:\Users\M.Macelloni\Downloads`.
+      - Confermare posizione file all'utente.
+8.  **Refactory Skill (Opzionale)**:
+    - Se l'utente ti chiede di normalizzare una skill esistente, chiedi esplicitamente: \_"Vuoi procedere a ingegnerizzare il prompt e le azioni di questa skill usando la metodologia `writing-skills`?"
+      - Prima traduci la skills riga per riga se non scritta in italiano, senza modificare il contenuto operativo.
+      - Poi ingegnerizza la skill seguendo la metodologia `writing-skills`, mantenendo il contenuto operativo invariato.
+      - Testa tutta la skills per assicurarti che funzioni correttamente, se contiene riferimenti a file esterni, assicurati che esistano.
+      - Se non funziona, chiedi all'utente di specificare quali file esterni sono necessari e di fornirti i percorsi corretti.
+      - Se ci sono file di esempio, e non sono in italiano, traduci riga per riga.
+      - Non modificare il contenuto operativo e il funzionamento della skill.
+      - Se non riesci a farla funzionare, chiedi all'utente di specificare quali file esterni sono necessari e di fornirti i percorsi corretti.
+      - Cerca se ci possono essere miglioramenti funzionali e strutturali per la skill, ma chiedi all'utente di confermare prima di procedere.
+      - Non aggiungere contenuto dedotto se non verificato con l'utente ed aver ricevuto la sua conferma.
 
 ## Template Obbligatorio SKILL.md
 
@@ -88,6 +99,15 @@ Segui rigorosamente questa sequenza:
 name: [nome-skill-kebab-case]
 description:
   [Descrizione in terza persona in ITALIANO. Es: "Genera unit test per..."]
+triggers:
+  [
+    inserire se esistono dei trigger per le funzioni da svolgere. Es: "crea skill",
+    "genera skill",
+    "crea agente",
+    "genera agente",
+  ]
+metadata:
+  tags: [se esistono, inserire dei tags: per ES: "skill", "creazione skill", "agente", "creazione agente"]  
 ---
 
 # [Nome Skill]
@@ -114,5 +134,7 @@ Assistant: ...
 ## Regole per la Generazione
 
 - **Lingua**: Tutto il contenuto generato deve essere in **ITALIANO** (eccetto termini tecnici standard).
+- **Procedura di Traduzione**: Durante la traduzione di una skill esistente, procedere riga per riga. È vietato riassumere o eliminare sezioni originali.
+- **Integrità Tecnica**: Mantenere l'integrità totale di ogni dettaglio tecnico (comandi bash, snippet di codice, tabelle statistiche, link di riferimento). Il template standard di Gemini CLI deve arricchire la struttura, MAI sostituire o ridurre il contenuto operativo preesistente.
 - **Path**: Non deviare mai da `C:\Users\mazin\.gemini\skills\`.
 - **Focus**: Una skill = Una responsabilità.
