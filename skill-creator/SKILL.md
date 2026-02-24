@@ -69,7 +69,7 @@ Ogni skill deve seguire il pattern della **Progressive Disclosure** (Rivelazione
 
 ### Fase 2: Creazione Struttura Deep [60%]
 
-- Crea la cartella in `C:\Users\M.Macelloni\.gemini\skills\[nome]`.
+- Crea la cartella in `%USERPROFILE%\.gemini\skills\[nome]`.
 - Genera il file `SKILL.md` (vedi Template).
 - **Proattività**: Se la skill è complessa, crea automaticamente i file in `references/` e `examples/`.
 
