@@ -95,7 +95,10 @@ def init_skill(skill_name, path):
         print(f"❌ Errore durante l'inizializzazione: {e}")
         return None
 
-    print(f"\\n🚀 Skill '{skill_name}' pronta in {skill_dir}")
+    print(f"\n🚀 Skill '{skill_name}' pronta in {skill_dir}")
+    print("\nProssimi passi:")
+    print("1. Completa i TODO in SKILL.md e aggiorna la descrizione")
+    print("2. Personalizza o elimina i file di esempio in scripts/ e references/")
     return skill_dir
 
 def main():
