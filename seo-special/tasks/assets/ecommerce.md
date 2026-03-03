@@ -1,68 +1,70 @@
-<!-- Updated: 2026-02-07 -->
-# E-commerce SEO Strategy Template
+<!-- Aggiornato: 2026-02-07 -->
 
-## Industry Characteristics
+# Template Strategia SEO per E-commerce
 
-- High transaction intent
-- Product comparison behavior
-- Price sensitivity
-- Visual-first decision making
-- Seasonal demand patterns
-- Competitive marketplace listings
+## Caratteristiche del Settore
 
-## Recommended Site Architecture
+- Alta intenzione di transazione
+- Comportamento di confronto dei prodotti
+- Sensibilità al prezzo
+- Processo decisionale basato sull'aspetto visivo
+- Modelli di domanda stagionale
+- Annunci competitivi nei marketplace
+
+## Architettura del Sito Raccomandata
 
 ```
 /
 ├── Home
-├── /collections (or /categories)
-│   ├── /category-1
-│   │   ├── /subcategory-1
+├── /collezioni (o /categorie)
+│   ├── /categoria-1
+│   │   ├── /sottocategoria-1
 │   │   └── ...
-│   ├── /category-2
+│   ├── /categoria-2
 │   └── ...
-├── /products
-│   ├── /product-1
-│   ├── /product-2
+├── /prodotti
+│   ├── /prodotto-1
+│   ├── /prodotto-2
 │   └── ...
-├── /brands
+├── /brand
 │   ├── /brand-1
 │   └── ...
-├── /sale (or /deals)
-├── /new-arrivals
-├── /best-sellers
-├── /gift-guide
+├── /saldi (o /offerte)
+├── /nuovi-arrivi
+├── /i-piu-venduti
+├── /guida-regali
 ├── /blog
-│   ├── /buying-guides
-│   ├── /how-to
-│   └── /trends
-├── /about
-├── /contact
-├── /shipping
-├── /returns
+│   ├── /guide-acquisto
+│   ├── /come-fare
+│   └── /trend
+├── /chi-siamo
+├── /contatti
+├── /spedizioni
+├── /resi
 └── /faq
 ```
 
-## Schema Recommendations
+## Raccomandazioni Schema
 
-| Page Type | Schema Types |
-|-----------|-------------|
-| Product Page | Product, Offer, AggregateRating, Review, BreadcrumbList |
-| Category Page | CollectionPage, ItemList, BreadcrumbList |
-| Brand Page | Brand, Organization |
-| Blog | Article, BlogPosting |
+| Tipo di Pagina   | Tipi di Schema                                          |
+| ---------------- | ------------------------------------------------------- |
+| Pagina Prodotto  | Product, Offer, AggregateRating, Review, BreadcrumbList |
+| Pagina Categoria | CollectionPage, ItemList, BreadcrumbList                |
+| Pagina Brand     | Brand, Organization                                     |
+| Blog             | Article, BlogPosting                                    |
 
-### Additional E-commerce Schema (2025)
+### Ulteriori Schemi E-commerce (2025)
 
-- **ProductGroup**: Use for products with variants (size, color). Wraps individual Product entries with `variesBy` and `hasVariant` properties. See `schema/templates.json`.
-- **Certification**: For product certifications (Energy Star, safety, organic). Replaced EnergyConsumptionDetails (April 2025). Use `hasCertification` on Product.
-- **OfferShippingDetails**: Include shipping rate, handling time, and transit time. Critical for Merchant Center eligibility.
+- **ProductGroup**: Da usare per prodotti con varianti (taglia, colore). Avvolge le singole voci Product con le proprietà `variesBy` e `hasVariant`. Vedere `schema/templates.json`.
+- **Certification**: Per le certificazioni dei prodotti (Energy Star, sicurezza, biologico). Ha sostituito EnergyConsumptionDetails (Aprile 2025). Usare `hasCertification` su Product.
+- **OfferShippingDetails**: Include tariffe di spedizione, tempi di gestione e tempi di transito. Fondamentale per l'idoneità a Merchant Center.
 
-> **Google Merchant Center Free Listings:** Products can appear in Google Shopping for free. Ensure Product structured data is in the initial server-rendered HTML (not JavaScript-injected) with required properties: `name`, `image`, `price`, `priceCurrency`, `availability`.
+> **Schede gratuite di Google Merchant Center:** I prodotti possono apparire gratuitamente in Google Shopping. Assicurarsi che i dati strutturati Product siano nell'HTML iniziale renderizzato dal server (non iniettati via JavaScript) con le proprietà obbligatorie: `name`, `image`, `price`, `priceCurrency`, `availability`.
 
-> **JS Rendering Note:** Product structured data should be in initial server-rendered HTML — not dynamically injected via JavaScript (per December 2025 Google JS SEO guidance).
+> **Nota sul Rendering JS:** I dati strutturati Product dovrebbero trovarsi nell'HTML iniziale renderizzato dal server — non iniettati dinamicamente via JavaScript (secondo la guida Google JS SEO di dicembre 2025).
 
-### Product Schema Example
+### Esempio Schema Product
+
 ```json
 {
   "@context": "https://schema.org",
@@ -90,78 +92,86 @@
 }
 ```
 
-## Content Requirements
+## Requisiti dei Contenuti
 
-### Product Pages (min 400 words)
-- Unique product descriptions (not manufacturer copy)
-- Feature highlights
-- Use cases / who it's for
-- Specifications table
-- Size/fit guide (for apparel)
-- Care instructions
-- Customer reviews
+### Pagine Prodotto (min 400 parole)
 
-### Category Pages (min 400 words)
-- Category introduction
-- Buying guide excerpt
-- Featured products
-- Subcategory links
-- Filter/sort options
+- Descrizioni prodotto uniche (non copiate dal produttore)
+- Caratteristiche in evidenza
+- Casi d'uso / a chi è rivolto
+- Tabella delle specifiche
+- Guida alle taglie/vestibilità (per l'abbigliamento)
+- Istruzioni per la cura
+- Recensioni dei clienti
 
-## Technical Considerations
+### Pagine di Categoria (min 400 parole)
 
-### Pagination
-- Use rel="next"/rel="prev" or load-more
-- Ensure all products are crawlable
-- Canonical to main category page
+- Introduzione alla categoria
+- Estratto della guida all'acquisto
+- Prodotti in evidenza
+- Link alle sottocategorie
+- Opzioni di filtro/ordinamento
 
-### Faceted Navigation
-- Noindex filter combinations that create duplicate content
-- Use canonical tags appropriately
-- Ensure popular filters are indexable
+## Considerazioni Tecniche
 
-### Product Variations
-- Single URL for parent product with variants
-- Or separate URLs with canonical to parent
-- Structured data for all variants
+### Paginazione
 
-## Content Priorities
+- Usare rel="next"/rel="prev" o caricamento infinito (load-more)
+- Assicurarsi che tutti i prodotti siano scansionabili
+- Canonical verso la pagina di categoria principale
 
-### High Priority
-1. Category pages (top level)
-2. Best-selling product pages
+### Navigazione a Sfaccettature (Faceted Navigation)
+
+- Noindex per le combinazioni di filtri che creano contenuti duplicati
+- Usare i tag canonical in modo appropriato
+- Assicurarsi che i filtri popolari siano indicizzabili
+
+### Varianti di Prodotto
+
+- URL singolo per il prodotto genitore con varianti
+- Oppure URL separati con canonical verso il genitore
+- Dati strutturati per tutte le varianti
+
+## Priorità dei Contenuti
+
+### Priorità Alta
+
+1. Pagine di categoria (livello superiore)
+2. Pagine dei prodotti più venduti
 3. Homepage
-4. Buying guides for main categories
+4. Guide all'acquisto per le categorie principali
 
-### Medium Priority
-1. Subcategory pages
-2. Brand pages
-3. Comparison content
-4. Seasonal landing pages
+### Priorità Media
 
-### Blog Topics
-- Buying guides ("How to Choose...")
-- Product comparisons
-- Trend reports
-- Use cases and inspiration
-- Care and maintenance guides
+1. Pagine di sottocategoria
+2. Pagine dei brand
+3. Contenuti di confronto
+4. Landing page stagionali
 
-## Key Metrics to Track
+### Argomenti del Blog
 
-- Revenue from organic search
-- Product page rankings
-- Category page rankings
-- Click-through rate (rich results)
-- Average order value from organic
+- Guide all'acquisto ("Come scegliere...")
+- Confronti tra prodotti
+- Report sui trend
+- Casi d'uso e ispirazione
+- Guide alla cura e manutenzione
 
-## Generative Engine Optimization (GEO) for E-commerce
+## Metriche Chiave da Monitorare
 
-AI search platforms increasingly answer product queries directly. Optimize for AI citation:
+- Entrate da ricerca organica
+- Ranking delle pagine prodotto
+- Ranking delle pagine di categoria
+- Percentuale di clic (CTR) per i risultati multimediali
+- Valore medio dell'ordine (AOV) da ricerca organica
 
-- [ ] Include clear product specifications, dimensions, materials in structured format
-- [ ] Use ProductGroup schema for variant products
-- [ ] Provide original product photography with descriptive alt text
-- [ ] Include genuine customer review content (AggregateRating schema)
-- [ ] Maintain consistent product entity data across all platforms (site, Amazon, Merchant Center)
-- [ ] Structure comparison content with clear feature tables AI can parse
-- [ ] Add detailed FAQ content for common product questions
+## Ottimizzazione per i Motori Generativi (GEO) per l'E-commerce
+
+Le piattaforme di ricerca AI rispondono sempre più direttamente alle query sui prodotti. Ottimizzare per la citazione AI:
+
+- [ ] Includere specifiche chiare del prodotto, dimensioni, materiali in formato strutturato
+- [ ] Usare lo schema ProductGroup per i prodotti con varianti
+- [ ] Fornire fotografie originali del prodotto con testo alt descrittivo
+- [ ] Includere contenuti reali di recensioni dei clienti (schema AggregateRating)
+- [ ] Mantenere dati coerenti sull'entità prodotto su tutte le piattaforme (sito, Amazon, Merchant Center)
+- [ ] Strutturare i contenuti di confronto con tabelle di caratteristiche chiare che l'AI possa analizzare
+- [ ] Aggiungere contenuti FAQ dettagliati per le domande comuni sui prodotti

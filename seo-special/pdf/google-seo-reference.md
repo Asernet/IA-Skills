@@ -1,151 +1,161 @@
-<!-- Updated: 2026-02-07 -->
-# Google SEO Quick Reference (February 2026)
+<!-- Aggiornato: 2026-02-07 -->
 
-Concise reference guide for subagents. Summarizes key Google Search concepts,
-requirements, and best practices. Not a reproduction of Google's documentation —
-see Official Documentation Links at the bottom for full details.
+# Riferimento Rapido SEO di Google (Febbraio 2026)
 
----
-
-## How Google Search Works
-
-Google Search operates in three stages: **Crawling** (Googlebot discovers pages by following links and reading sitemaps), **Indexing** (Google processes and stores page content, metadata, and signals in its search index), and **Serving** (when a user searches, Google's algorithms rank indexed pages by relevance, quality, and usability to return the most useful results). Pages must be crawlable and indexable to appear in search results.
+Guida di riferimento concisa per i sotto-agenti. Riassume i concetti chiave della Ricerca Google, i requisiti e le migliori pratiche. Non è una riproduzione dell'intera documentazione di Google — vedere i Link alla Documentazione Ufficiale in fondo per i dettagli completi.
 
 ---
 
-## Google Search Essentials
+## Come Funziona la Ricerca Google
 
-Formerly known as "Webmaster Guidelines." Key requirements:
-
-### Technical Requirements
-- Pages must be accessible to Googlebot (not blocked by robots.txt or noindex)
-- Pages must return HTTP 200 status for indexable content
-- Content must be in a format Google can process (HTML preferred, JS-rendered content supported but slower)
-- Pages must be served over HTTPS
-
-### Spam Policies
-- No cloaking (showing different content to Googlebot vs users)
-- No doorway pages (pages created solely to rank for specific queries)
-- No hidden text or links
-- No keyword stuffing
-- No link spam (buying links, excessive link exchanges)
-- No scraped or auto-generated content without added value
-- No sneaky redirects
-- No thin affiliate pages
-
-### Key Best Practices
-- Create content for users, not search engines
-- Make your site easy to navigate with a clear hierarchy
-- Use descriptive, unique titles and meta descriptions per page
-- Use heading tags (H1-H6) to structure content logically
-- Optimize images with alt text and appropriate file sizes
-- Ensure mobile-friendly responsive design
-- Improve page load speed (Core Web Vitals)
-- Submit an XML sitemap to Google Search Console
-- Use structured data (JSON-LD) to help Google understand content
+La Ricerca Google opera in tre fasi: **Scansione (Crawling)** (Googlebot scopre le pagine seguendo i link e leggendo le sitemap), **Indicizzazione (Indexing)** (Google elabora e memorizza il contenuto della pagina, i metadati e i segnali nel suo indice di ricerca), e **Pubblicazione (Serving)** (quando un utente effettua una ricerca, gli algoritmi di Google classificano le pagine indicizzate per pertinenza, qualità e usabilità per restituire i risultati più utili). Le pagine devono essere scansionabili e indicizzabili per apparire nei risultati di ricerca.
 
 ---
 
-## Content Quality Signals
+## Fondamenti della Ricerca Google (Google Search Essentials)
 
-Google evaluates content quality through the E-E-A-T framework:
+Precedentemente noti come "Webmaster Guidelines". Requisiti chiave:
 
-- **Experience**: Does the content creator have first-hand experience with the topic? (Original photos, personal stories, demonstrated use)
-- **Expertise**: Does the creator have relevant knowledge or credentials? (Professional background, technical depth, accurate sourcing)
-- **Authoritativeness**: Is the creator or site recognized as a go-to source? (Industry citations, brand mentions, expert recognition)
-- **Trustworthiness**: Is the content and site reliable and transparent? (Contact info, secure site, editorial standards, accurate claims)
+### Requisiti Tecnici
 
-> **YMYL Note**: "Your Money or Your Life" topics (health, finance, safety, legal) are held to the highest E-E-A-T standards. Inaccurate YMYL content can cause real-world harm, so Google applies stricter quality thresholds.
+- Le pagine devono essere accessibili a Googlebot (non bloccate da robots.txt o noindex)
+- Le pagine devono restituire uno stato HTTP 200 per i contenuti indicizzabili
+- Il contenuto deve essere in un formato che Google può elaborare (HTML preferito, contenuto renderizzato via JS supportato ma più lento)
+- Le pagine devono essere servite tramite HTTPS
 
-> **December 2025 Update**: E-E-A-T evaluation now extends to ALL competitive queries, not just YMYL topics. Every page competing for ranking is assessed on these signals.
+### Norme sullo Spam
+
+- Nessun cloaking (mostrare contenuti diversi a Googlebot rispetto agli utenti)
+- Nessuna doorway page (pagine create esclusivamente per posizionarsi per query specifiche)
+- Nessun testo o link nascosto
+- Nessun keyword stuffing
+- Nessun link spam (acquisto di link, eccessivi scambi di link)
+- Nessun contenuto copiato o generato automaticamente senza valore aggiunto
+- Nessun redirect ingannevole
+- Nessuna pagina di affiliazione con contenuti scarsi (thin affiliate pages)
+
+### Migliori Pratiche Chiave
+
+- Crea contenuti per gli utenti, non per i motori di ricerca
+- Rendi il tuo sito facile da navigare con una gerarchia chiara
+- Usa titoli e meta description descrittivi e univoci per ogni pagina
+- Usa i tag di intestazione (H1-H6) per strutturare il contenuto in modo logico
+- Ottimizza le immagini con testo alt e dimensioni di file appropriate
+- Assicurati che il design sia responsive e mobile-friendly
+- Migliora la velocità di caricamento della pagina (Core Web Vitals)
+- Invia una sitemap XML a Google Search Console
+- Usa i dati strutturati (JSON-LD) per aiutare Google a comprendere i contenuti
+
+---
+
+## Segnali di Qualità dei Contenuti
+
+Google valuta la qualità dei contenuti attraverso il framework E-E-A-T:
+
+- **Experience (Esperienza)**: Il creatore del contenuto ha un'esperienza di prima mano con l'argomento? (Foto originali, storie personali, uso dimostrato)
+- **Expertise (Competenza)**: Il creatore ha conoscenze o credenziali pertinenti? (Background professionale, profondità tecnica, fonti accurate)
+- **Authoritativeness (Autorevolezza)**: Il creatore o il sito sono riconosciuti come fonte di riferimento? (Citazioni di settore, menzioni del brand, riconoscimento di esperti)
+- **Trustworthiness (Affidabilità)**: Il contenuto e il sito sono affidabili e trasparenti? (Info di contatto, sito sicuro, standard editoriali, affermazioni accurate)
+
+> **Nota YMYL**: Gli argomenti "Your Money or Your Life" (salute, finanza, sicurezza, legale) sono soggetti ai più alti standard E-E-A-T. Contenuti YMYL imprecisi possono causare danni nel mondo reale, quindi Google applica soglie di qualità più rigorose.
+
+> **Aggiornamento Dicembre 2025**: La valutazione E-E-A-T ora si estende a TUTTE le query competitive, non solo ai temi YMYL. Ogni pagina che compete per il ranking viene valutata su questi segnali.
 
 ---
 
 ## Core Web Vitals
 
-Measured at the 75th percentile of real user data (field data).
+Misurati al 75° percentile dei dati degli utenti reali (dati di campo).
 
-| Metric | Good | Needs Improvement | Poor |
-|--------|------|-------------------|------|
-| **LCP** (Largest Contentful Paint) | ≤ 2.5s | 2.5s – 4.0s | > 4.0s |
-| **INP** (Interaction to Next Paint) | ≤ 200ms | 200ms – 500ms | > 500ms |
-| **CLS** (Cumulative Layout Shift) | ≤ 0.1 | 0.1 – 0.25 | > 0.25 |
+| Metrica                             | Buono   | Necessita Miglioramento | Scarso  |
+| ----------------------------------- | ------- | ----------------------- | ------- |
+| **LCP** (Largest Contentful Paint)  | ≤ 2.5s  | 2.5s – 4.0s             | > 4.0s  |
+| **INP** (Interaction to Next Paint) | ≤ 200ms | 200ms – 500ms           | > 500ms |
+| **CLS** (Cumulative Layout Shift)   | ≤ 0.1   | 0.1 – 0.25              | > 0.25  |
 
-**Key facts:**
-- INP replaced FID (First Input Delay) on March 12, 2024. FID was fully removed from all Chrome tools (CrUX API, PageSpeed Insights, Lighthouse) on September 9, 2024. Do NOT reference FID.
-- Core Web Vitals are a confirmed ranking signal (since June 2021)
-- Field data (CrUX) is preferred over lab data (Lighthouse) for assessment
-- Passing all three metrics at "Good" is the target
+**Fatti chiave:**
 
-**Measurement tools:**
-- Google PageSpeed Insights (field + lab data)
-- Chrome User Experience Report (CrUX) — field data
-- Lighthouse (lab data only)
-- Google Search Console Core Web Vitals report
+- L'INP ha sostituito il FID (First Input Delay) il 12 marzo 2024. Il FID è stato rimosso completamente da tutti gli strumenti Chrome (CrUX API, PageSpeed Insights, Lighthouse) il 9 settembre 2024. NON fare riferimento al FID.
+- I Core Web Vitals sono un segnale di ranking confermato (da giugno 2021)
+- I dati di campo (CrUX) sono preferiti ai dati di laboratorio (Lighthouse) per la valutazione
+- L'obiettivo è superare tutte e tre le metriche con giudizio "Buono"
 
----
+**Strumenti di misurazione:**
 
-## Structured Data Best Practices
-
-- **JSON-LD is Google's preferred format** (over Microdata and RDFa)
-- Place JSON-LD in `<script type="application/ld+json">` tags in the `<head>` or `<body>`
-- Always include `@context` and `@type` properties
-- **Required properties** must be present for rich result eligibility
-- **Recommended properties** improve rich result quality but aren't mandatory
-- Only mark up content that is visible on the page
-- Use Google's Rich Results Test to validate before deployment
-- Do not mark up content that is misleading or hidden from users
-- Keep schema current — update when page content changes
-
-### Deprecated/Restricted Types (as of Feb 2026)
-- **HowTo**: Rich results removed (September 2023)
-- **FAQ**: Restricted to government and healthcare authority sites (August 2023)
-- **SpecialAnnouncement**: Deprecated (July 31, 2025)
-- **CourseInfo, EstimatedSalary, LearningVideo**: Retired (June 2025)
-- **ClaimReview**: Retired (June 2025)
-- **VehicleListing**: Retired (June 2025)
+- Google PageSpeed Insights (dati di campo + laboratorio)
+- Chrome User Experience Report (CrUX) — dati di campo
+- Lighthouse (solo dati di laboratorio)
+- Rapporto Core Web Vitals di Google Search Console
 
 ---
 
-## Common Penalties & How to Avoid Them
+## Migliori Pratiche per i Dati Strutturati
 
-### Manual Actions
-Google Search Console notifications for violations. Common causes:
-- **Unnatural links** (buying/selling links): Disavow bad links, request reconsideration
-- **Thin content**: Add substantial unique value to affected pages
-- **Cloaking/sneaky redirects**: Remove deceptive serving, request reconsideration
-- **User-generated spam**: Moderate comments/forums, add nofollow to user links
-- **Structured data issues**: Fix misleading or spam markup
+- **JSON-LD è il formato preferito da Google** (rispetto a Microdata e RDFa)
+- Posiziona JSON-LD nei tag `<script type="application/ld+json">` nell' `<head>` o nel `<body>`
+- Includi sempre le proprietà `@context` e `@type`
+- **Le proprietà obbligatorie** devono essere presenti per l'idoneità ai risultati avanzati (rich results)
+- **Le proprietà raccomandate** migliorano la qualità dei rich results ma non sono obbligatorie
+- Contrassegna solo il contenuto visibile sulla pagina
+- Usa il Test dei Risultati Avanzati di Google per convalidare prima della pubblicazione
+- Non contrassegnare contenuti fuorvianti o nascosti agli utenti
+- Mantieni lo schema aggiornato — aggiornalo quando cambiano i contenuti della pagina
 
-### Algorithmic Demotions
-No manual notification — detected through ranking drops. Common causes:
-- **Helpful Content System**: Merged into Google's core ranking in March 2024 — no longer a standalone system. Helpfulness signals are now evaluated within every core update. Low-value, AI-generated, or unhelpful content at scale still triggers demotions via core updates.
-- **Core Updates**: Broad quality reassessment across all signals
-- **Spam Updates**: Automated detection of spam patterns
-- **Link Spam Updates**: Devaluation of manipulative link patterns
+### Tipi Deprecati/Limitati (a Febbraio 2026)
 
-### Recovery Steps
-1. Identify the issue (Search Console, ranking timeline analysis)
-2. Fix the root cause (remove spam, improve content, clean links)
-3. For manual actions: submit reconsideration request via Search Console
-4. For algorithmic: improve quality, wait for next core update reassessment
-5. Monitor recovery in Search Console performance reports
+- **HowTo**: Risultati avanzati rimossi (Settembre 2023)
+- **FAQ**: Limitato ai siti di autorità governative e sanitarie (Agosto 2023)
+- **SpecialAnnouncement**: Deprecato (31 luglio 2025)
+- **CourseInfo, EstimatedSalary, LearningVideo**: Ritirati (Giugno 2025)
+- **ClaimReview**: Ritirato (Giugno 2025)
+- **VehicleListing**: Ritirato (Giugno 2025)
 
 ---
 
-## Official Documentation Links
+## Penalità Comuni e Come Evitarle
 
-- [Google Search Essentials](https://developers.google.com/search/docs/essentials)
-- [How Google Search Works](https://developers.google.com/search/docs/fundamentals/how-search-works)
-- [Structured Data Overview](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)
-- [Rich Results Test](https://search.google.com/test/rich-results)
-- [Core Web Vitals Report](https://support.google.com/webmasters/answer/9205520)
+### Azioni Manuali
+
+Notifiche in Google Search Console per violazioni. Cause comuni:
+
+- **Link non naturali** (acquisto/vendita di link): Rifiuta i link dannosi (disavow), richiedi riconsiderazione
+- **Contenuti scarsi (Thin content)**: Aggiungi un valore unico sostanziale alle pagine interessate
+- **Cloaking/redirect ingannevoli**: Rimuovi la pubblicazione ingannevole, richiedi riconsiderazione
+- **Spam generato dagli utenti**: Modera commenti/forum, aggiungi nofollow ai link degli utenti
+- **Problemi con i dati strutturati**: Correggi il markup fuorviante o spam
+
+### Declassamenti Algoritmici
+
+Nessuna notifica manuale — rilevati tramite cali nel ranking. Cause comuni:
+
+- **Helpful Content System**: Integrato nel core ranking di Google a marzo 2024 — non è più un sistema autonomo. I segnali di utilità sono ora valutati all'interno di ogni core update. Contenuti di basso valore, generati dall'AI o inutili su scala innescano ancora declassamenti tramite i core update.
+- **Core Updates**: Rivalutazione generale della qualità su tutti i segnali
+- **Spam Updates**: Rilevamento automatico di pattern di spam
+- **Link Spam Updates**: Svalutazione di pattern di link manipolativi
+
+### Passaggi per il Recupero
+
+1. Identifica il problema (Search Console, analisi della timeline del ranking)
+2. Risolvi la causa alla base (rimuovi lo spam, migliora i contenuti, pulisci i link)
+3. Per le azioni manuali: invia una richiesta di riconsiderazione tramite Search Console
+4. Per gli algoritmici: migliora la qualità, attendi la rivalutazione del prossimo core update
+5. Monitora il recupero nei rapporti sulle prestazioni di Search Console
+
+---
+
+## Link alla Documentazione Ufficiale
+
+- [Fondamenti della Ricerca Google](https://developers.google.com/search/docs/essentials)
+- [Come Funziona la Ricerca Google](https://developers.google.com/search/docs/fundamentals/how-search-works)
+- [Panoramica sui Dati Strutturati](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)
+- [Test dei Risultati Avanzati](https://search.google.com/test/rich-results)
+- [Rapporto Core Web Vitals](https://support.google.com/webmasters/answer/9205520)
 - [PageSpeed Insights](https://pagespeed.web.dev/)
-- [Search Console Help](https://support.google.com/webmasters)
-- [Manual Actions Report](https://support.google.com/webmasters/answer/9044175)
-- [Google Search Status Dashboard](https://status.search.google.com/)
-- [Google Search Central Blog](https://developers.google.com/search/blog)
-- [Spam Policies](https://developers.google.com/search/docs/essentials/spam-policies)
-- [E-E-A-T and Quality Rater Guidelines](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
+- [Guida di Search Console](https://support.google.com/webmasters)
+- [Rapporto sulle Azioni Manuali](https://support.google.com/webmasters/answer/9044175)
+- [Dashboard dello Stato della Ricerca Google](https://status.search.google.com/)
+- [Blog di Google Search Central](https://developers.google.com/search/blog)
+- [Norme sullo Spam](https://developers.google.com/search/docs/essentials/spam-policies)
+- [E-E-A-T e Linee Guida per i Valutatori di Qualità](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
 
-> **Mobile-first indexing** is 100% complete as of July 5, 2024. Google now crawls and indexes ALL websites exclusively with the mobile Googlebot user-agent.
+> **L'indicizzazione mobile-first** è completa al 100% dal 5 luglio 2024. Google ora scansiona e indicizza TUTTI i siti web esclusivamente con lo user-agent mobile Googlebot.

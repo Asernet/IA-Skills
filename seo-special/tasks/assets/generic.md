@@ -1,144 +1,155 @@
-<!-- Updated: 2026-02-07 -->
-# Generic Business SEO Strategy Template
+<!-- Aggiornato: 2026-02-07 -->
 
-## Overview
+# Template Strategia SEO per Business Generici
 
-This template applies to businesses that don't fit neatly into SaaS, local service, e-commerce, publisher, or agency categories. Customize based on your specific business model.
+## Panoramica
 
-## Recommended Site Architecture
+Questo template si applica alle aziende che non rientrano perfettamente nelle categorie SaaS, servizi locali, e-commerce, editoria o agenzie. Personalizza in base al tuo specifico modello di business.
+
+## Architettura del Sito Raccomandata
 
 ```
 /
 ├── Home
-├── /products (or /services)
-│   ├── /product-1
-│   ├── /product-2
+├── /prodotti (o /servizi)
+│   ├── /prodotto-1
+│   ├── /prodotto-2
 │   └── ...
-├── /solutions (if applicable)
-│   ├── /solution-1
+├── /soluzioni (se applicabile)
+│   ├── /soluzione-1
 │   └── ...
-├── /about
+├── /chi-siamo
 │   ├── /team
-│   ├── /history
-│   └── /values
-├── /resources
+│   ├── /storia
+│   └── /valori
+├── /risorse
 │   ├── /blog
-│   ├── /guides
+│   ├── /guide
 │   ├── /faq
-│   └── /glossary
-├── /contact
-├── /support
-└── /legal
+│   └── /glossario
+├── /contatti
+├── /supporto
+└── /legale
     ├── /privacy
-    └── /terms
+    └── /termini
 ```
 
-## Universal SEO Principles
+## Principi SEO Universali
 
-### Every Page Should Have
-- Unique title tag (30-60 chars)
-- Unique meta description (120-160 chars)
-- Single H1 matching page intent
-- Logical heading hierarchy (H1→H2→H3)
-- Internal links to related content
-- Clear call-to-action
+### Ogni Pagina Dovrebbe Avere
 
-### Schema for All Sites
-| Page Type | Schema Types |
-|-----------|-------------|
-| Homepage | Organization, WebSite |
-| About | Organization, AboutPage |
-| Contact | ContactPage |
-| Blog | Article, BlogPosting |
-| FAQ | (FAQPage only for gov/health) |
-| Product/Service | Product or Service |
+- Tag title unico (30-60 caratteri)
+- Meta description unica (120-160 caratteri)
+- Un singolo H1 che corrisponda all'intento della pagina
+- Gerarchia dei titoli logica (H1→H2→H3)
+- Link interni a contenuti correlati
+- Chiamata all'azione (CTA) chiara
 
-## Content Quality Standards
+### Schema per Tutti i Siti
 
-### Minimum Word Counts
-| Page Type | Min Words |
-|-----------|-----------|
-| Homepage | 500 |
-| Product/Service | 800 |
-| Blog Post | 1,500 |
-| About Page | 400 |
-| Landing Page | 600 |
+| Tipo di Pagina    | Tipi di Schema                     |
+| ----------------- | ---------------------------------- |
+| Homepage          | Organization, WebSite              |
+| Chi Siamo         | Organization, AboutPage            |
+| Contatti          | ContactPage                        |
+| Blog              | Article, BlogPosting               |
+| FAQ               | (FAQPage solo per siti gov/sanità) |
+| Prodotto/Servizio | Product o Service                  |
 
-### E-E-A-T Essentials
-1. **Experience**: Share real examples and case studies
-2. **Expertise**: Display credentials and qualifications
-3. **Authoritativeness**: Earn mentions and citations
-4. **Trustworthiness**: Full contact info, policies visible
+## Standard di Qualità dei Contenuti
 
-## Technical Foundations
+### Conteggio Minimo di Parole
 
-### Must-Haves
-- [ ] HTTPS enabled
-- [ ] Mobile-responsive design
-- [ ] robots.txt configured
-- [ ] XML sitemap submitted
-- [ ] Google Search Console verified
-- [ ] Core Web Vitals passing (LCP <2.5s, INP <200ms, CLS <0.1)
+| Tipo di Pagina    | Parole Min |
+| ----------------- | ---------- |
+| Homepage          | 500        |
+| Prodotto/Servizio | 800        |
+| Post del Blog     | 1.500      |
+| Pagina Chi Siamo  | 400        |
+| Landing Page      | 600        |
 
-### Should-Haves
-- [ ] Structured data on key pages
-- [ ] Internal linking strategy
-- [ ] 404 error page optimized
-- [ ] Redirect chains eliminated
-- [ ] Image optimization (WebP, lazy loading)
+### Elementi Essenziali E-E-A-T
 
-## Content Priorities
+1. **Esperienza (Experience)**: Condividere esempi reali e casi studio
+2. **Competenza (Expertise)**: Mostrare credenziali e qualifiche
+3. **Autorevolezza (Authoritativeness)**: Guadagnare menzioni e citazioni
+4. **Affidabilità (Trustworthiness)**: Informazioni di contatto complete, policy visibili
 
-### Phase 1: Foundation (weeks 1-4)
-1. Homepage optimization
-2. Core product/service pages
-3. About and contact pages
-4. Basic schema implementation
+## Fondamenta Tecniche
 
-### Phase 2: Expansion (weeks 5-12)
-1. Blog launch (2-4 posts/month)
-2. FAQ page
-3. Additional product/service pages
-4. Internal linking audit
+### Indispensabili
 
-### Phase 3: Growth (weeks 13-24)
-1. Consistent content publishing
-2. Link building outreach
-3. GEO optimization
-4. Performance optimization
+- [ ] HTTPS abilitato
+- [ ] Design mobile-responsive
+- [ ] robots.txt configurato
+- [ ] Sitemap XML inviata
+- [ ] Google Search Console verificata
+- [ ] Core Web Vitals superati (LCP < 2,5s, INP < 200ms, CLS < 0,1)
 
-### Phase 4: Authority (months 7-12)
-1. Thought leadership content
-2. Original research
-3. PR and media mentions
-4. Advanced schema
+### Raccomandati
 
-## Key Metrics to Track
+- [ ] Dati strutturati sulle pagine chiave
+- [ ] Strategia di linking interno
+- [ ] Pagina di errore 404 ottimizzata
+- [ ] Catene di reindirizzamento eliminate
+- [ ] Ottimizzazione delle immagini (WebP, lazy loading)
 
-- Organic traffic (overall and by section)
-- Keyword rankings (branded and non-branded)
-- Conversion rate from organic
-- Pages indexed
-- Core Web Vitals scores
-- Backlinks acquired
+## Priorità dei Contenuti
 
-## Customization Points
+### Fase 1: Fondamenta (settimane 1-4)
 
-Adjust this template based on:
+1. Ottimizzazione della homepage
+2. Pagine core di prodotti/servizi
+3. Pagine chi siamo e contatti
+4. Implementazione dello schema di base
 
-1. **Business Model**: B2B vs B2C vs D2C
-2. **Geographic Scope**: Local, national, or international
-3. **Content Type**: Product-focused vs content-heavy
-4. **Competition Level**: Niche vs competitive market
-5. **Resources**: Budget and team capacity
+### Fase 2: Espansione (settimane 5-12)
 
-## Generative Engine Optimization (GEO) Checklist
+1. Lancio del blog (2-4 post al mese)
+2. Pagina FAQ
+3. Pagine di prodotti/servizi aggiuntive
+4. Audit del linking interno
 
-- [ ] Include clear, quotable facts and statistics that AI systems can extract and cite
-- [ ] Use structured data (Schema.org) to help AI systems understand content
-- [ ] Build topical authority through comprehensive content clusters
-- [ ] Provide original data, research, or unique perspectives AI cannot find elsewhere
-- [ ] Maintain consistent entity information (brand, people, products) across the web
-- [ ] Structure content with clear headings, definitions, and step-by-step formats
-- [ ] Consider adding an `llms.txt` file at site root (emerging convention for AI crawlers — Google treats it as a regular text file)
-- [ ] Monitor AI citation across Google AI Overviews, ChatGPT, Perplexity, and Bing Copilot
+### Fase 3: Crescita (settimane 13-24)
+
+1. Pubblicazione costante di contenuti
+2. Outreach per la link building
+3. Ottimizzazione GEO
+4. Ottimizzazione delle performance
+
+### Fase 4: Autorità (mesi 7-12)
+
+1. Contenuti di leadership di pensiero (thought leadership)
+2. Ricerche originali
+3. PR e menzioni media
+4. Schema avanzato
+
+## Metriche Chiave da Monitorare
+
+- Traffico organico (complessivo e per sezione)
+- Posizionamento delle parole chiave (branded e non branded)
+- Tasso di conversione da traffico organico
+- Pagine indicizzate
+- Punteggi Core Web Vitals
+- Backlink acquisiti
+
+## Punti di Personalizzazione
+
+Adattare questo template in base a:
+
+1. **Modello di Business**: B2B vs B2C vs D2C
+2. **Ambito Geografico**: Locale, nazionale o internazionale
+3. **Tipo di Contenuto**: Incentrato sul prodotto vs ricco di contenuti
+4. **Livello di Concorrenza**: Mercato di nicchia vs competitivo
+5. **Risorse**: Budget e capacità del team
+
+## Checklist per l'Ottimizzazione dei Motori Generativi (GEO)
+
+- [ ] Includere fatti e statistiche chiari e citabili che i sistemi di AI possano estrarre e citare
+- [ ] Usare dati strutturati (Schema.org) per aiutare i sistemi di AI a comprendere il contenuto
+- [ ] Costruire l'autorità tematica attraverso cluster di contenuti completi
+- [ ] Fornire dati originali, ricerche o prospettive uniche che l'AI non può trovare altrove
+- [ ] Mantenere informazioni coerenti sull'entità (brand, persone, prodotti) in tutto il web
+- [ ] Strutturare il contenuto con titoli chiari, definizioni e formati passo-passo
+- [ ] Considerare l'aggiunta di un file `llms.txt` alla radice del sito (convenzione emergente per i crawler AI — Google lo tratta come un normale file di testo)
+- [ ] Monitorare le citazioni AI in Google AI Overviews, ChatGPT, Perplexity e Bing Copilot

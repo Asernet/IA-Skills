@@ -1,114 +1,114 @@
-<!-- Updated: 2026-02-07 -->
-# Schema.org Types — Status & Recommendations (February 2026)
+# Tipi Schema.org — Stato e Raccomandazioni (Febbraio 2026)
 
-**Schema.org Version:** 29.4 (December 8, 2025)
+**Versione Schema.org:** 29.4 (8 dicembre 2025)
 
-## Format Preference
-Always use **JSON-LD** (`<script type="application/ld+json">`).
-Google's documentation explicitly recommends JSON-LD over Microdata and RDFa.
+## Formato Preferito
 
-**AI Search Note:** Content with proper schema has ~2.5× higher chance of appearing in AI-generated answers (confirmed by Google and Microsoft, March 2025).
+Usare sempre **JSON-LD** (`<script type="application/ld+json">`).
+La documentazione di Google raccomanda esplicitamente JSON-LD rispetto a Microdata e RDFa.
 
----
-
-## Active — Recommend freely
-
-| Type | Use Case | Key Properties |
-|------|----------|----------------|
-| Organization | Company info | name, url, logo, contactPoint, sameAs |
-| LocalBusiness | Physical businesses | name, address, telephone, openingHours, geo, priceRange |
-| SoftwareApplication | Desktop/mobile apps | name, operatingSystem, applicationCategory, offers, aggregateRating |
-| WebApplication | Browser-based SaaS | name, applicationCategory, offers, browserRequirements, featureList |
-| Product | Physical/digital products | name, image, description, sku, brand, offers, review |
-| Offer | Pricing | price, priceCurrency, availability, url, validFrom |
-| Service | Service businesses | name, provider, areaServed, description, offers |
-| Article | Blog posts, news | headline, author, datePublished, dateModified, image, publisher |
-| BlogPosting | Blog content | Same as Article + blog-specific context |
-| NewsArticle | News content | Same as Article + news-specific context |
-| Review | Individual reviews | reviewRating, author, itemReviewed, reviewBody |
-| AggregateRating | Rating summaries | ratingValue, reviewCount, bestRating, worstRating |
-| BreadcrumbList | Navigation | itemListElement with position, name, item |
-| WebSite | Site-level | name, url, potentialAction (SearchAction for sitelinks search) |
-| WebPage | Page-level | name, description, datePublished, dateModified |
-| Person | Author/team | name, jobTitle, url, sameAs, image, worksFor |
-| ContactPage | Contact pages | name, url |
-| VideoObject | Video content | name, description, thumbnailUrl, uploadDate, duration, contentUrl |
-| ImageObject | Image content | contentUrl, caption, creator, copyrightHolder |
-| Event | Events | name, startDate, endDate, location, organizer, offers |
-| JobPosting | Job listings | title, description, datePosted, hiringOrganization, jobLocation |
-| Course | Educational content | name, description, provider, hasCourseInstance |
-| DiscussionForumPosting | Forum threads | headline, author, datePublished, text, url |
-| ProductGroup | Variant products | name, productGroupID, variesBy, hasVariant |
-| ProfilePage | Author/creator profiles | mainEntity (Person), name, url, description, sameAs |
+**Nota sulla AI Search:** I contenuti con uno schema corretto hanno una probabilità ~2,5 volte superiore di apparire nelle risposte generate dall'AI (confermato da Google e Microsoft, marzo 2025).
 
 ---
 
-## Restricted — Only for specific site types
+## Attivi — Raccomandati liberamente
 
-| Type | Restriction | Since |
-|------|------------|-------|
-| FAQPage | Government and healthcare authority sites ONLY | August 2023 |
-
-> Google severely limited FAQ rich results. Only authoritative sources (government, health organizations) now receive FAQ rich results. Do NOT recommend FAQPage schema for commercial sites.
-
----
-
-## Deprecated — Never recommend
-
-| Type | Status | Since | Notes |
-|------|--------|-------|-------|
-| HowTo | Rich results fully removed | September 2023 | Google stopped showing how-to rich results |
-| SpecialAnnouncement | Deprecated | July 31, 2025 | COVID-era schema, no longer processed |
-| CourseInfo | Retired from rich results | June 2025 | Merged into Course |
-| EstimatedSalary | Retired from rich results | June 2025 | No longer displayed |
-| LearningVideo | Retired from rich results | June 2025 | Use VideoObject instead |
-| ClaimReview | Retired from rich results | June 2025 | Fact-check markup no longer generates rich results |
-| VehicleListing | Retired from rich results | June 2025 | Vehicle listing structured data discontinued |
-| Book Actions | Deprecated then REVERSED | June 2025 | **Still functional as of Feb 2026** — historical note only |
-| Practice Problem | Retired from rich results | Late 2025 | Educational practice problems no longer displayed |
-| Dataset | Retired from rich results | Late 2025 | Dataset Search feature discontinued |
-
----
-
-## Recent Additions (2024-2026)
-
-| Type/Feature | Added | Notes |
-|-------------|-------|-------|
-| Product Certification markup | April 2025 | Energy ratings, safety certifications. Replaced EnergyConsumptionDetails. |
-| ProductGroup | 2025 | E-commerce product variants with variesBy, hasVariant properties |
-| ProfilePage | 2025 | Author/creator profile pages with mainEntity Person for E-E-A-T |
-| DiscussionForumPosting | 2024 | For forum/community content |
-| Speakable | Updated 2024 | For voice search optimization |
-| LoyaltyProgram | June 2025 | Member pricing, loyalty card structured data |
-| Organization-level shipping/return policies | November 2025 | Configure via Search Console without Merchant Center |
-| ConferenceEvent | December 2025 | Schema.org v29.4 addition |
-| PerformingArtsEvent | December 2025 | Schema.org v29.4 addition |
-
-## E-commerce Requirements (Updated)
-
-| Requirement | Status | Since |
-|-------------|--------|-------|
-| `returnPolicyCountry` in MerchantReturnPolicy | **Required** | March 2025 |
-| Product variant structured data | Expanded | 2025 — includes apparel, cosmetics, electronics |
-
-> **Note:** Content API for Shopping sunsets August 18, 2026. Migrate to Merchant API.
+| Tipo                   | Caso d'Uso                   | Proprietà Chiave                                                    |
+| ---------------------- | ---------------------------- | ------------------------------------------------------------------- |
+| Organization           | Informazioni aziendali       | name, url, logo, contactPoint, sameAs                               |
+| LocalBusiness          | Attività fisiche             | name, address, telephone, openingHours, geo, priceRange             |
+| SoftwareApplication    | App desktop/mobile           | name, operatingSystem, applicationCategory, offers, aggregateRating |
+| WebApplication         | SaaS basati su browser       | name, applicationCategory, offers, browserRequirements, featureList |
+| Product                | Prodotti fisici/digitali     | name, image, description, sku, brand, offers, review                |
+| Offer                  | Prezzi                       | price, priceCurrency, availability, url, validFrom                  |
+| Service                | Attività di servizi          | name, provider, areaServed, description, offers                     |
+| Article                | Post del blog, news          | headline, author, datePublished, dateModified, image, publisher     |
+| BlogPosting            | Contenuti del blog           | Uguale ad Article + contesto specifico del blog                     |
+| NewsArticle            | Contenuti di news            | Uguale ad Article + contesto specifico delle news                   |
+| Review                 | Recensioni singole           | reviewRating, author, itemReviewed, reviewBody                      |
+| AggregateRating        | Riepiloghi delle valutazioni | ratingValue, reviewCount, bestRating, worstRating                   |
+| BreadcrumbList         | Navigazione                  | itemListElement con position, name, item                            |
+| WebSite                | Livello sito                 | name, url, potentialAction (SearchAction per la ricerca sitelinks)  |
+| WebPage                | Livello pagina               | name, description, datePublished, dateModified                      |
+| Person                 | Autore/team                  | name, jobTitle, url, sameAs, image, worksFor                        |
+| ContactPage            | Pagine di contatto           | name, url                                                           |
+| VideoObject            | Contenuti video              | name, description, thumbnailUrl, uploadDate, duration, contentUrl   |
+| ImageObject            | Contenuti immagine           | contentUrl, caption, creator, copyrightHolder                       |
+| Event                  | Eventi                       | name, startDate, endDate, location, organizer, offers               |
+| JobPosting             | Annunci di lavoro            | title, description, datePosted, hiringOrganization, jobLocation     |
+| Course                 | Contenuti educativi          | name, description, provider, hasCourseInstance                      |
+| DiscussionForumPosting | Thread del forum             | headline, author, datePublished, text, url                          |
+| ProductGroup           | Prodotti con varianti        | name, productGroupID, variesBy, hasVariant                          |
+| ProfilePage            | Profili autore/creatore      | mainEntity (Person), name, url, description, sameAs                 |
 
 ---
 
-## Validation Checklist
+## Limitati — Solo per tipi di sito specifici
 
-For any schema block, verify:
+| Tipo    | Restrizione                                   | Dal         |
+| ------- | --------------------------------------------- | ----------- |
+| FAQPage | SOLO siti di autorità governative e sanitarie | Agosto 2023 |
 
-1. ✅ `@context` is `"https://schema.org"` (not http)
-2. ✅ `@type` is a valid, non-deprecated type
-3. ✅ All required properties are present
-4. ✅ Property values match expected data types
-5. ✅ No placeholder text (e.g., "[Business Name]")
-6. ✅ URLs are absolute, not relative
-7. ✅ Dates are in ISO 8601 format
-8. ✅ Images have valid URLs
+> Google ha limitato drasticamente i risultati avanzati (rich results) per le FAQ. Solo le fonti autorevoli (governo, organizzazioni sanitarie) ricevono ora i rich results per le FAQ. NON raccomandare lo schema FAQPage per i siti commerciali.
 
-## Testing Tools
+---
 
-- [Google Rich Results Test](https://search.google.com/test/rich-results)
-- [Schema.org Validator](https://validator.schema.org/)
+## Deprecati — Mai raccomandare
+
+| Tipo                                | Stato                                    | Dal            | Note                                                      |
+| ----------------------------------- | ---------------------------------------- | -------------- | --------------------------------------------------------- |
+| HowTo                               | Risultati avanzati completamente rimossi | Settembre 2023 | Google ha smesso di mostrare i rich results per "how-to"  |
+| SpecialAnnouncement                 | Deprecato                                | 31 luglio 2025 | Schema dell'era COVID, non più elaborato                  |
+| CourseInfo                          | Ritirato dai rich results                | Giugno 2025    | Unito in Course                                           |
+| EstimatedSalary                     | Ritirato dai rich results                | Giugno 2025    | Non più visualizzato                                      |
+| LearningVideo                       | Ritirato dai rich results                | Giugno 2025    | Usare VideoObject al suo posto                            |
+| ClaimReview                         | Ritirato dai rich results                | Giugno 2025    | Il markup fact-check non genera più rich results          |
+| VehicleListing                      | Ritirato dai rich results                | Giugno 2025    | Dati strutturati per l'elenco veicoli interrotti          |
+| Azioni del Libro (Book Actions)     | Deprecato poi ANNULLATO                  | Giugno 2025    | **Ancora funzionale a febbraio 2026** — solo nota storica |
+| Problema Pratico (Practice Problem) | Ritirato dai rich results                | Fine 2025      | I problemi pratici educativi non sono più visualizzati    |
+| Dataset                             | Ritirato dai rich results                | Fine 2025      | Funzionalità Dataset Search interrotta                    |
+
+---
+
+## Aggiunte Recenti (2024-2026)
+
+| Tipo/Funzionalità                                     | Aggiunto        | Note                                                                                     |
+| ----------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------- |
+| Markup della Certificazione Prodotto                  | Aprile 2025     | Classi energetiche, certificazioni di sicurezza. Ha sostituito EnergyConsumptionDetails. |
+| ProductGroup                                          | 2025            | Varianti di prodotto e-commerce con proprietà variesBy, hasVariant                       |
+| ProfilePage                                           | 2025            | Pagine profilo autore/creatore con mainEntity Person per E-E-A-T                         |
+| DiscussionForumPosting                                | 2024            | Per contenuti di forum/community                                                         |
+| Speakable                                             | Aggiornato 2024 | Per l'ottimizzazione della ricerca vocale                                                |
+| LoyaltyProgram                                        | Giugno 2025     | Prezzi per i membri, dati strutturati per carte fedeltà                                  |
+| Policy di spedizione/reso a livello di organizzazione | Novembre 2025   | Configurazione tramite Search Console senza Merchant Center                              |
+| ConferenceEvent                                       | Dicembre 2025   | Aggiunta di Schema.org v29.4                                                             |
+| PerformingArtsEvent                                   | Dicembre 2025   | Aggiunta di Schema.org v29.4                                                             |
+
+## Requisiti E-commerce (Aggiornati)
+
+| Requisito                                     | Stato            | Dal                                                  |
+| --------------------------------------------- | ---------------- | ---------------------------------------------------- |
+| `returnPolicyCountry` in MerchantReturnPolicy | **Obbligatorio** | Marzo 2025                                           |
+| Dati strutturati per varianti di prodotto     | Ampliato         | 2025 — include abbigliamento, cosmetici, elettronica |
+
+> **Nota:** La Content API for Shopping chiuderà il 18 agosto 2026. Migrare alla Merchant API.
+
+---
+
+## Checklist di Validazione
+
+Per ogni blocco di schema, verificare:
+
+1. ✅ `@context` è `"https://schema.org"` (non http)
+2. ✅ `@type` è un tipo valido e non deprecato
+3. ✅ Tutte le proprietà obbligatorie sono presenti
+4. ✅ I valori delle proprietà corrispondono ai tipi di dati previsti
+5. ✅ Nessun testo segnaposto (es. "[Nome Azienda]")
+6. ✅ Gli URL sono assoluti, non relativi
+7. ✅ Le date sono nel formato ISO 8601
+8. ✅ Le immagini hanno URL validi
+
+## Strumenti di Test
+
+- [Test dei Risultati Avanzati di Google](https://search.google.com/test/rich-results)
+- [Validatore di Schema.org](https://validator.schema.org/)

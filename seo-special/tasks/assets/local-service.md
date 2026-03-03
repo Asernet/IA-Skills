@@ -1,71 +1,76 @@
-<!-- Updated: 2026-02-07 -->
-# Local Service Business SEO Strategy Template
+<!-- Aggiornato: 2026-02-07 -->
 
-## Industry Characteristics
+# Template Strategia SEO per Attività di Servizi Locali
 
-- Geographic-focused searches
-- High intent, quick decision making
-- Reviews heavily influence decisions
-- Phone calls are primary conversion
-- Mobile-first user behavior
-- Emergency/urgent service needs
+## Caratteristiche del Settore
 
-## Recommended Site Architecture
+- Ricerche focalizzate sull'area geografica
+- Alta intenzione, processo decisionale rapido
+- Le recensioni influenzano pesantemente le decisioni
+- Le telefonate sono la conversione primaria
+- Comportamento dell'utente mobile-first
+- Esigenze di servizi di emergenza/urgenti
+
+## Architettura del Sito Raccomandata
 
 ```
 /
 ├── Home
-├── /services
-│   ├── /service-1
-│   ├── /service-2
+├── /servizi
+│   ├── /servizio-1
+│   ├── /servizio-2
 │   └── ...
-├── /locations
-│   ├── /city-1
-│   │   ├── /service-1-city-1
+├── /localita
+│   ├── /citta-1
+│   │   ├── /servizio-1-citta-1
 │   │   └── ...
-│   ├── /city-2
+│   ├── /citta-2
 │   └── ...
-├── /about
-├── /reviews
-├── /gallery (or /portfolio)
+├── /chi-siamo
+├── /recensioni
+├── /galleria (o /portfolio)
 ├── /blog
-├── /contact
-├── /emergency (if applicable)
+├── /contatti
+├── /emergenza (se applicabile)
 └── /faq
 ```
 
 ## Quality Gates
 
-### Location Page Limits
-- ⚠️ **WARNING** at 30+ location pages
-- 🛑 **HARD STOP** at 50+ location pages
+### Limiti delle Pagine Località
 
-### Unique Content Requirements
-| Page Type | Min Words | Unique % |
-|-----------|-----------|----------|
-| Primary Location | 600 | 60%+ |
-| Service Area | 500 | 40%+ |
-| Service Page | 800 | 100% |
+- ⚠️ **AVVISO** a 30+ pagine località
+- 🛑 **STOP** a 50+ pagine località
 
-### What Makes Location Pages Unique
-- Local landmarks and neighborhoods
-- Specific services offered at that location
-- Local team members
-- Location-specific testimonials
-- Community involvement
-- Local regulations or considerations
+### Requisiti di Contenuto Unico
 
-## Schema Recommendations
+| Tipo di Pagina      | Parole Min | % Unico |
+| ------------------- | ---------- | ------- |
+| Località Principale | 600        | 60%+    |
+| Area di Servizio    | 500        | 40%+    |
+| Pagina Servizio     | 800        | 100%    |
 
-| Page Type | Schema Types |
-|-----------|-------------|
-| Homepage | LocalBusiness, Organization |
-| Service Pages | Service, LocalBusiness |
-| Location Pages | LocalBusiness (with geo) |
-| Contact | ContactPage, LocalBusiness |
-| Reviews | LocalBusiness (with AggregateRating) |
+### Cosa Rende Uniche le Pagine Località
 
-### LocalBusiness Schema Example
+- Punti di riferimento locali e quartieri
+- Servizi specifici offerti in quella località
+- Membri del team locale
+- Testimonianze specifiche della località
+- Coinvolgimento della comunità locale
+- Normative o considerazioni locali
+
+## Raccomandazioni Schema
+
+| Tipo di Pagina  | Tipi di Schema                      |
+| --------------- | ----------------------------------- |
+| Homepage        | LocalBusiness, Organization         |
+| Pagine Servizio | Service, LocalBusiness              |
+| Pagine Località | LocalBusiness (con geo)             |
+| Contatti        | ContactPage, LocalBusiness          |
+| Recensioni      | LocalBusiness (con AggregateRating) |
+
+### Esempio Schema LocalBusiness
+
 ```json
 {
   "@context": "https://schema.org",
@@ -90,71 +95,75 @@
 }
 ```
 
-## Google Business Profile Integration
+## Integrazione Google Business Profile
 
-- Ensure NAP consistency (Name, Address, Phone)
-- Sync service categories
-- Regular post updates
-- Photo uploads
-- Review response strategy
+- Garantire la coerenza NAP (Nome, Indirizzo, Telefono)
+- Sincronizzare le categorie dei servizi
+- Aggiornamenti regolari dei post
+- Caricamento di foto
+- Strategia di risposta alle recensioni
 
-### Google Business Profile Updates (2025-2026)
+### Aggiornamenti Google Business Profile (2025-2026)
 
-- **Video verification** is now standard — postcard verification has been largely phased out. Prepare for a short video verification process showing the business location or service area.
-- **WhatsApp integration** replaced Google Business Chat (deprecated). Businesses can connect WhatsApp as their primary messaging channel.
-- **Q&A removed from Maps** — replaced by AI-generated answers. Ensure your GBP description, services, and website FAQ are comprehensive, as Google AI uses them to answer queries.
-- **Business hours are a top-5 ranking factor** — "Business is open at time of search" ranked as a top individual factor for the first time (Whitespark 2026 Local Search Ranking Factors Report). Keep hours accurate; consider extended hours if feasible.
-- **Review "Stories" format** — Google Maps now shows review snippets in a swipeable Stories format on mobile. Encourage detailed, descriptive reviews with photos.
+- **La verifica video** è diventata lo standard — la verifica tramite cartolina è stata in gran parte eliminata. Prepararsi per un breve processo di verifica video che mostri la posizione dell'attività o l'area di servizio.
+- **L'integrazione di WhatsApp** ha sostituito la Chat di Google Business (deprecata). Le attività possono collegare WhatsApp come canale di messaggistica principale.
+- **Q&A rimosse da Maps** — sostituite da risposte generate dall'AI. Assicurarsi che la descrizione del GBP, i servizi e le FAQ del sito web siano completi, poiché l'AI di Google li utilizza per rispondere alle domande.
+- **Gli orari di apertura sono tra i primi 5 fattori di ranking** — "L'attività è aperta al momento della ricerca" è stato classificato come uno dei principali fattori individuali per la prima volta (Report Whitespark 2026 sui fattori di ranking della ricerca locale). Mantenere gli orari accurati; considerare orari estesi se fattibile.
+- **Formato "Storie" per le recensioni** — Google Maps ora mostra snippet di recensioni in un formato Storie scorrevole su mobile. Incoraggiare recensioni dettagliate e descrittive con foto.
 
-### Service Area Business (SAB) Update (June 2025)
+### Aggiornamento Attività con Area di Servizio (SAB) (Giugno 2025)
 
-Google updated SAB guidelines to **disallow entire states or countries** as service areas. SABs must specify: cities, postal/ZIP codes, or neighborhoods. If you serve an entire metro area, list the major cities within it rather than the state.
+Google ha aggiornato le linee guida SAB per **vietare interi stati o paesi** come aree di servizio. Le attività SAB devono specificare: città, codici postali/CAP o quartieri. Se si serve un'intera area metropolitana, elencare le città principali al suo interno anziché lo stato.
 
-### AI Visibility for Local Businesses
+### Visibilità AI per le Attività Locali
 
-AI Overviews appear for only ~0.14% of local keywords (March 2025 data) — local SEO faces significantly less AI disruption than other verticals. However, ChatGPT and Perplexity are increasingly used for local recommendations.
+Le AI Overviews compaiono solo per circa lo 0,14% delle parole chiave locali (dati marzo 2025) — la SEO locale subisce significativamente meno interruzioni dall'AI rispetto ad altri settori verticali. Tuttavia, ChatGPT e Perplexity sono sempre più utilizzati per le raccomandazioni locali.
 
-To optimize for AI local visibility:
-- Ensure presence on expert-curated "best of" lists (ranked #1 AI visibility factor in Whitespark 2026 report)
-- Maintain consistent NAP (Name, Address, Phone) across all platforms
-- Build genuine review volume and quality
-- Use LocalBusiness schema with complete properties (geo, openingHours, priceRange, areaServed)
+Per ottimizzare la visibilità locale nell'AI:
 
-## Content Priorities
+- Garantire la presenza su liste "best of" curate da esperti (indicato come fattore n. 1 per la visibilità AI nel report Whitespark 2026)
+- Mantenere un NAP (Nome, Indirizzo, Telefono) coerente su tutte le piattaforme
+- Costruire un volume e una qualità reale di recensioni
+- Usare lo schema LocalBusiness con proprietà complete (geo, openingHours, priceRange, areaServed)
 
-### High Priority
-1. Homepage with clear service area
-2. Core service pages
-3. Primary city page
-4. Contact page with all locations
+## Priorità dei Contenuti
 
-### Medium Priority
-1. Service + location combination pages
-2. FAQ page
-3. About/team page
-4. Reviews/testimonials page
+### Priorità Alta
 
-### Blog Topics
-- Seasonal maintenance tips
-- How to choose a [service provider]
-- Warning signs of [problem]
-- DIY vs professional comparisons
-- Local regulations and permits
+1. Homepage con area di servizio chiara
+2. Pagine dei servizi principali
+3. Pagina della città primaria
+4. Pagina dei contatti con tutte le sedi
 
-## Key Metrics to Track
+### Priorità Media
 
-- Local pack rankings
-- Phone call volume from organic
-- Direction requests
-- Google Business Profile insights
-- Reviews count and rating
+1. Pagine di combinazione servizio + località
+2. Pagina FAQ
+3. Pagina chi siamo/team
+4. Pagina recensioni/testimonianze
 
-## Generative Engine Optimization (GEO) for Local
+### Argomenti del Blog
 
-- [ ] Include clear, quotable service descriptions and pricing ranges
-- [ ] Use LocalBusiness schema with complete geo, openingHours, and areaServed
-- [ ] Build presence on curated "best of" and local directory lists
-- [ ] Maintain consistent NAP across all platforms (Google, Yelp, Apple Maps)
-- [ ] Include original photos of work, team, and location
-- [ ] Structure FAQ content for common local service questions
-- [ ] Monitor AI citation in ChatGPT and Perplexity local recommendations
+- Consigli per la manutenzione stagionale
+- Come scegliere un [fornitore di servizi]
+- Segnali di avvertimento di un [problema]
+- Confronti tra fai-da-te e professionisti
+- Normative e permessi locali
+
+## Metriche Chiave da Monitorare
+
+- Ranking nel local pack
+- Volume di telefonate da ricerca organica
+- Richieste di indicazioni stradali
+- Insight del Google Business Profile
+- Conteggio e valutazione delle recensioni
+
+## Ottimizzazione per i Motori Generativi (GEO) per il Locale
+
+- [ ] Includere descrizioni dei servizi e fasce di prezzo chiare e citabili
+- [ ] Usare lo schema LocalBusiness con geo, openingHours e areaServed completi
+- [ ] Costruire una presenza su liste "best of" curate e directory locali
+- [ ] Mantenere un NAP coerente su tutte le piattaforme (Google, Yelp, Apple Maps)
+- [ ] Includere foto originali del lavoro, del team e della sede
+- [ ] Strutturare i contenuti FAQ per le domande comuni sui servizi locali
+- [ ] Monitorare le citazioni AI in ChatGPT e nelle raccomandazioni locali di Perplexity

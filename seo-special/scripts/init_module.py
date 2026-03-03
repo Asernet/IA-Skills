@@ -9,7 +9,8 @@ def check_env():
     print(f"Python: {sys.version.split()[0]} [OK]")
     
     # 2. Verifica Dipendenze
-    req_file = 'C:/Users/M.Macelloni/.gemini/skills/seo-special/requirements.txt'
+    import os
+    req_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'requirements.txt')
     try:
         with open(req_file, 'r') as f:
             requirements = pkg_resources.parse_requirements(f)

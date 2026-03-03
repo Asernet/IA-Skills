@@ -3,8 +3,9 @@ name: seo-special
 description: >
   L'Orchestratore Universale SEO-Special Power Module. Esegue audit profondi 
   basati su evidenze reali. Utilizza la SEO Station sul Desktop.
-  Analisi SEO completa per qualsiasi sito web o tipologia di business. Esegue audit integrali del sito, analisi approfondite della singola pagina, controlli SEO tecnici (scansionabilità, indicizzabilità, Core Web Vitals con INP), rilevamento/validazione/generazione di markup Schema, valutazione della qualità dei contenuti (framework E-E-A-T secondo l'aggiornamento di dicembre 2025 esteso a tutte le query competitive), ottimizzazione delle immagini, analisi della sitemap e Generative Engine Optimization (GEO) per AI Overviews, citazioni su ChatGPT e Perplexity. Analizza l'accessibilità per i crawler AI (GPTBot, ClaudeBot, PerplexityBot), la conformità al file llms.txt, i segnali di menzione del brand e la citabilità a livello di singolo passaggio (passage-level). Rilevamento del settore per SaaS, e-commerce, attività locali, editori, agenzie. Si attiva con: "SEO", "audit", "schema", "Core Web Vitals", "sitemap", "E-E-A-T", "AI Overviews", "GEO", "SEO tecnico", "qualità dei contenuti", "velocità della pagina", "dati strutturati".
-triggers: ["seo audit", "seo technical", "seo content", "seo geo", "audit profondo"]
+  Analisi SEO completa per qualsiasi sito web o tipologia di business. Esegue audit integrali del sito potenziati da automazione Python (Playwright, BeautifulSoup4), analisi approfondite della singola pagina, controlli SEO tecnici (scansionabilità, indicizzabilità, Core Web Vitals con INP), rilevamento/validazione/generazione di markup Schema, valutazione della qualità dei contenuti (framework E-E-A-T aggiornato a dicembre 2025), ottimizzazione delle immagini, analisi della sitemap e Generative Engine Optimization (GEO) per AI Overviews, citazioni su ChatGPT e Perplexity. Analizza l'accessibilità per i crawler AI (GPTBot, ClaudeBot, PerplexityBot), la conformità al file llms.txt e la citabilità passage-level. Rilevamento automatico del settore (SaaS, e-commerce, local, ecc.). Si attiva con: "SEO", "audit", "schema", "GEO", "SEO tecnico", "qualità dei contenuti".
+triggers:
+  ["seo audit", "seo technical", "seo content", "seo geo", "audit profondo"]
 allowed-tools: [Read, Grep, Glob, Bash, WebFetch]
 ---
 
@@ -14,79 +15,75 @@ Analisi SEO completa per tutti i settori (SaaS, servizi locali, e-commerce, edit
 
 ## Quick Reference
 
-| Richiesta                               | What it does                                         |
-|-----------------------------------------|------------------------------------------------------|
-| `audit <url>`                           | Full website audit with parallel subagent delegation |
-| `page <url>`                            | Deep single-page analysis                            |
-| `sitemap <url or generate>`             | Analyze or generate XML sitemaps                     |
-| `schema <url>`                          | Detect, validate, and generate Schema.org markup     |
-| `images <url>`                          | Image optimization analysis                          |
-| `technical <url>`                       | Technical SEO audit (8 categories)                   |
-| `content <url>`                         | E-E-A-T and content quality analysis                 |
-| `geo <url>`                             | AI Overviews / Generative Engine Optimization        |
-| `plan <business-type>`                  | Strategic SEO planning                               |
-| `programmatic [url\|plan]`              | Programmatic SEO analysis and planning               |
-| `competitor-pages [url\|generate]`      | Competitor comparison page generation                |
-| `hreflang [url]`                        | Hreflang/i18n SEO audit and generation               |
+| Richiesta                          | What it does                                         |
+| ---------------------------------- | ---------------------------------------------------- |
+| `audit <url>`                      | Full website audit with parallel subagent delegation |
+| `page <url>`                       | Deep single-page analysis                            |
+| `sitemap <url or generate>`        | Analyze or generate XML sitemaps                     |
+| `schema <url>`                     | Detect, validate, and generate Schema.org markup     |
+| `images <url>`                     | Image optimization analysis                          |
+| `technical <url>`                  | Technical SEO audit (8 categories)                   |
+| `content <url>`                    | E-E-A-T and content quality analysis                 |
+| `geo <url>`                        | AI Overviews / Generative Engine Optimization        |
+| `plan <business-type>`             | Strategic SEO planning                               |
+| `programmatic [url\|plan]`         | Programmatic SEO analysis and planning               |
+| `competitor-pages [url\|generate]` | Competitor comparison page generation                |
+| `hreflang [url]`                   | Hreflang/i18n SEO audit and generation               |
 
-# Logica di Orchestrazione
+# Logica di Orchestrazione Automata
 
-Quando l'utente invoca il comando audit, delega ai (subagents) in parallelo e avvia il task task-audit.md:
-- Rileva la tipologia di business (SaaS, locale, e-commerce, editore, agenzia, altro).
-- Avvia i sotto-agenti: seo-technical, seo-content, seo-schema, seo-sitemap, seo-performance, seo-visual.
-- Raccogli i risultati e genera un report unificato con un Punteggio di Salute SEO (SEO Health Score) da 0 a 100.
-- Crea un piano d'azione prioritario (Critico → Alto → Medio → Basso).
+Quando l'utente invoca il comando `audit`, l'agente DEVE seguire questo workflow Milestone-Based:
 
-Per i singoli comandi, carica direttamente la relativa competenza specifica (task-*.md).
+1.  **Fase Data (Python Entry):** Eseguire `init_module.py` e `fetch_page.py` per raccogliere dati grezzi reali (HTML, headers). Se necessario, usare `capture_screenshot.py` per l'analisi visuale.
+2.  **Rilevamento Settore:** Consultare `references/industry-signals.md` per identificare la tipologia di business.
+3.  **Delega Parallela:** Avviare i sotto-agenti (`subagents/`) basandosi sui file estratti nella cartella `data/`.
+4.  **Sintesi Multimodale:** Leggere i risultati dei task e generare un report unificato con un Punteggio di Salute SEO (SEO Health Score) ricalibrato.
+5.  **Piano d'Azione:** Creare una roadmap prioritaria (Critico → Alto → Medio → Basso).
 
+Per i singoli comandi, carica direttamente la relativa competenza (`tasks/task-*.md`).
 
-# Rilevamento del Settore (Industry Detection)
+# Conoscenza e Standard (Reference)
 
-Identifica la tipologia di business attraverso i segnali presenti nella homepage:
-- **SaaS**: pagina dei prezzi (pricing), /features, /integrations, /docs, "prova gratuita", "registrati".
-- **Servizi Locali**: numero di telefono, indirizzo, area di servizio, "al servizio di [città]", mappa Google incorporata (embed).
-- **E-commerce**: /products, /collections, /cart, "aggiungi al carrello", schema prodotto (product schema).
-- **Editore (Publisher)**: /blog, /articles, /topics, schema articolo, pagine autore, date di pubblicazione.
-- **Agenzia (Agency)**: /case-studies, /portfolio, /industries, "i nostri lavori", loghi dei clienti.
+L'agente non deve inventare soglie o segnali, ma consultare i file in `references/`:
 
-# Criteri di Qualità (Quality Gates)
-Consulta `references/quality-gates.md` per le soglie di "thin content" (contenuti scarsi) in base al tipo di pagina.
-Regole tassative:
-- ⚠️ AVVISO (WARNING) se presenti oltre 30 pagine di località (richiede oltre il 60% di contenuto unico).
-- 🛑 BLOCCO (HARD STOP) se presenti oltre 50 pagine di località (richiede giustificazione dell'utente).
-- Mai raccomandare lo schema HowTo (deprecato da settembre 2023).
-- Schema FAQ ammesso solo per siti governativi e sanitari.
-- Tutti i riferimenti ai Core Web Vitals devono usare l'INP, mai il FID.
+- 🔍 **Settori**: `references/industry-signals.md` (euristiche di rilevamento).
+- 🛡️ **Qualità**: `references/quality-gates.md` (limiti per "thin content" e doorway pages).
+- ⚡ **Prestazioni**: `references/cwv-thresholds.md` (soglie Core Web Vitals 2026).
+- 📜 **Schema**: `references/schema-types.md` (stato tipi Schema.org).
+- 🏆 **E-E-A-T**: `references/eeat-framework.md` (framework di valutazione qualità).
 
-# File di Riferimento (Reference Files)
-Carica questi file solo su richiesta (on-demand) secondo necessità — NON caricarli tutti all'avvio:
-- `references/cwv-thresholds.md` — Soglie attuali dei Core Web Vitals e dettagli di misurazione.
-- `references/schema-types.md` — Tutti i tipi di schema supportati con relativo stato di deprecazione.
-- `references/eeat-framework.md` — Criteri di valutazione E-E-A-T (aggiornamento QRG di settembre 2025).
-- `references/quality-gates.md` — Lunghezza minima dei contenuti e soglie di unicità.
+### Regole Tassative:
+
+- Mai raccomandare lo schema `HowTo` (deprecato).
+- Schema `FAQ` ammesso solo per siti governativi e sanitari.
+- Tutti i riferimenti ai Core Web Vitals devono usare l'**INP**, mai il FID.
+- Verificare sempre l'ambiente Python tramite `requirements.txt` prima di eseguire script.
 
 # Metodologia di Punteggio (Scoring Methodology)
 
 ## Punteggio di Salute SEO (0-100)
+
 Aggregato ponderato di tutte le categorie:
 
-| Categoria                     | Peso |
-|-------------------------------|------|
-| SEO Tecnico                   | 25%  |
-| Qualità dei Contenuti         | 25%  |
-| SEO On-Page                   | 20%  |
-| Schema / Dati Strutturati     | 10%  |
-| Prestazioni (CWV)             | 10%  |
-| Immagini                      | 5%   |
-| Predisposizione alla AI Search| 5%   |
+| Categoria                       | Peso |
+| ------------------------------- | ---- |
+| SEO Tecnico                     | 25%  |
+| Qualità dei Contenuti           | 20%  |
+| Predisposizione AI Search (GEO) | 15%  |
+| SEO On-Page                     | 15%  |
+| Schema / Dati Strutturati       | 10%  |
+| Prestazioni (CWV)               | 10%  |
+| Ottimizzazione Immagini         | 5%   |
 
 ## Livelli di Priorità
+
 - **Critico (Critical):** Blocca l'indicizzazione o causa penalizzazioni (richiede correzione immediata).
 - **Alto (High):** Impatta significativamente il posizionamento/ranking (correggere entro 1 settimana).
 - **Medio (Medium):** Opportunità di ottimizzazione (correggere entro 1 mese).
 - **Basso (Low):** Miglioramento consigliato (da inserire nel backlog).
 
 # Competenze Specifiche (Tasks)
+
 Questo modulo orchestra 12 competenze specializzate:
 
 - task-audit — Audit completo del sito web con delega parallela ai sotto-agenti.
@@ -103,6 +100,7 @@ Questo modulo orchestra 12 competenze specializzate:
 - task-hreflang — Audit e generazione di tag hreflang per SEO internazionale (i18n).
 
 # Sotto-agenti (Subagents)
+
 Per l'analisi in parallelo durante gli audit:
 
 - seo-technical — Scansionabilità (crawlability), indicizzabilità, sicurezza e Core Web Vitals (CWV).

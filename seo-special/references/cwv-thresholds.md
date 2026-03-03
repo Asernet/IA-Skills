@@ -1,94 +1,101 @@
-<!-- Updated: 2026-02-07 -->
-# Core Web Vitals Thresholds (February 2026)
+<!-- Aggiornato: 2026-02-07 -->
 
-## Current Metrics
+# Soglie Core Web Vitals (Febbraio 2026)
 
-| Metric | Good | Needs Improvement | Poor |
-|--------|------|-------------------|------|
-| LCP (Largest Contentful Paint) | ≤2.5s | 2.5s–4.0s | >4.0s |
-| INP (Interaction to Next Paint) | ≤200ms | 200ms–500ms | >500ms |
-| CLS (Cumulative Layout Shift) | ≤0.1 | 0.1–0.25 | >0.25 |
+## Metriche Attuali
 
-## Key Facts
-- INP replaced FID (First Input Delay) on **March 12, 2024**. FID was fully removed from all Chrome tools (CrUX API, PageSpeed Insights, Lighthouse) on **September 9, 2024**. INP is the sole interactivity metric.
-- Evaluation uses the **75th percentile** of real user data (field data from CrUX).
-- Google assesses at the **page level** and the **origin level**.
-- Core Web Vitals are a **tiebreaker** ranking signal — they matter most when content quality is similar between competitors.
-- **Thresholds unchanged since original definitions** — ignore claims of "tightened thresholds" from SEO blogs.
-- December 2025 core update appeared to weight **mobile CWV more heavily**.
-- As of October 2025: **57.1%** desktop sites and **49.7%** mobile sites pass all three CWV.
+| Metrica                         | Buono  | Necessita Miglioramento | Scarso |
+| ------------------------------- | ------ | ----------------------- | ------ |
+| LCP (Largest Contentful Paint)  | ≤2.5s  | 2.5s–4.0s               | >4.0s  |
+| INP (Interaction to Next Paint) | ≤200ms | 200ms–500ms             | >500ms |
+| CLS (Cumulative Layout Shift)   | ≤0.1   | 0.1–0.25                | >0.25  |
 
-## LCP Subparts (February 2025 CrUX Addition)
+## Fatti Chiave
 
-LCP can now be broken into diagnostic subparts:
+- L'INP ha sostituito il FID (First Input Delay) il **12 marzo 2024**. Il FID è stato completamente rimosso da tutti gli strumenti Chrome (CrUX API, PageSpeed Insights, Lighthouse) il **9 settembre 2024**. L'INP è l'unica metrica di interattività.
+- La valutazione utilizza il **75° percentile** dei dati degli utenti reali (dati di campo da CrUX).
+- Google valuta a **livello di pagina** e a **livello di origine**.
+- I Core Web Vitals sono un segnale di ranking **"tiebreaker"** (di spareggio) — contano soprattutto quando la qualità dei contenuti è simile tra i concorrenti.
+- **Soglie invariate rispetto alle definizioni originali** — ignorare le affermazioni di "soglie ristrette" dai blog SEO.
+- L'aggiornamento core di dicembre 2025 sembra aver dato un peso maggiore ai **CWV mobile**.
+- A ottobre 2025: il **57,1%** dei siti desktop e il **49,7%** dei siti mobile superano tutti e tre i CWV.
 
-| Subpart | What It Measures | Target |
-|---------|------------------|--------|
-| **TTFB** | Time to First Byte (server response) | <800ms |
-| **Resource Load Delay** | Time from TTFB to resource request start | Minimize |
-| **Resource Load Time** | Time to download the LCP resource | Depends on size |
-| **Element Render Delay** | Time from resource loaded to rendered | Minimize |
+## Sottoparti LCP (Aggiunta CrUX Febbraio 2025)
 
-**Total LCP = TTFB + Resource Load Delay + Resource Load Time + Element Render Delay**
+L'LCP può ora essere suddiviso in sottoparti diagnostiche:
 
-Use this breakdown to identify which phase is causing LCP issues.
+| Sottoparte               | Cosa Misura                                       | Target                   |
+| ------------------------ | ------------------------------------------------- | ------------------------ |
+| **TTFB**                 | Time to First Byte (risposta del server)          | <800ms                   |
+| **Resource Load Delay**  | Tempo dal TTFB all'inizio della richiesta risorsa | Minimizzare              |
+| **Resource Load Time**   | Tempo per scaricare la risorsa LCP                | Dipende dalla dimensione |
+| **Element Render Delay** | Tempo dal caricamento della risorsa al rendering  | Minimizzare              |
 
-## Soft Navigations API (Experimental)
+**LCP Totale = TTFB + Resource Load Delay + Resource Load Time + Element Render Delay**
 
-**Chrome 139+ Origin Trial (July 2025)** — First step toward measuring CWV in SPAs.
+Usa questa suddivisione per identificare quale fase sta causando problemi di LCP.
 
-- Addresses the long-standing SPA measurement blind spot
-- Currently experimental, **no ranking impact yet**
-- Detects "soft navigations" (URL changes without full page load)
-- May affect future SPA CWV measurement
+## Soft Navigations API (Sperimentale)
 
-**Detection:** Check for SPA frameworks (React, Vue, Angular, Svelte) and warn about current CWV measurement limitations.
+**Chrome 139+ Origin Trial (Luglio 2025)** — Primo passo verso la misurazione dei CWV nelle SPA (Single Page Applications).
 
-## Measurement Sources
+- Risolve la storica lacuna nella misurazione delle SPA
+- Attualmente sperimentale, **nessun impatto sul ranking ancora**
+- Rileva le "navigazioni soft" (cambiamenti di URL senza caricamento completo della pagina)
+- Potrebbe influenzare la futura misurazione dei CWV per le SPA
 
-### Field Data (Real Users)
+**Rilevamento:** Verificare la presenza di framework SPA (React, Vue, Angular, Svelte) e avvisare sulle attuali limitazioni della misurazione dei CWV.
+
+## Fonti di Misurazione
+
+### Dati di Campo (Utenti Reali)
+
 - Chrome User Experience Report (CrUX)
-- PageSpeed Insights (uses CrUX data)
-- Search Console Core Web Vitals report
+- PageSpeed Insights (utilizza i dati CrUX)
+- Rapporto Core Web Vitals di Search Console
 
-### Lab Data (Simulated)
+### Dati di Laboratorio (Simulati)
+
 - Lighthouse
 - WebPageTest
 - Chrome DevTools
 
-> Field data is what Google uses for ranking. Lab data is useful for debugging.
+> I dati di campo sono ciò che Google usa per il ranking. I dati di laboratorio sono utili per il debug.
 
-## Common Bottlenecks
+## Colli di Bottiglia Comuni
 
 ### LCP (Largest Contentful Paint)
-- Unoptimized hero images (compress, use WebP/AVIF, add preload)
-- Render-blocking CSS/JS (defer, async, critical CSS inlining)
-- Slow server response (TTFB >200ms — use edge CDN, caching)
-- Third-party script blocking (defer analytics, chat widgets)
-- Web font loading delay (use font-display: swap + preload)
+
+- Immagini hero non ottimizzate (comprimere, usare WebP/AVIF, aggiungere preload)
+- CSS/JS che bloccano il rendering (defer, async, inlining del CSS critico)
+- Risposta del server lenta (TTFB >200ms — usare edge CDN, caching)
+- Blocco da script di terze parti (ritardare analytics, widget di chat)
+- Ritardo nel caricamento dei web font (usare font-display: swap + preload)
 
 ### INP (Interaction to Next Paint)
-- Long JavaScript tasks on main thread (break into smaller tasks <50ms)
-- Heavy event handlers (debounce, use requestAnimationFrame)
-- Excessive DOM size (>1,500 elements is concerning)
-- Third-party scripts hijacking main thread
-- Synchronous XHR or localStorage operations
-- Layout thrashing (multiple forced reflows)
+
+- Task JavaScript lunghi sul thread principale (suddividere in task più piccoli <50ms)
+- Gestori di eventi pesanti (usare debounce, requestAnimationFrame)
+- Dimensione DOM eccessiva (>1.500 elementi è preoccupante)
+- Script di terze parti che occupano il thread principale
+- Operazioni sincrone XHR o localStorage
+- Layout thrashing (molteplici reflow forzati)
 
 ### CLS (Cumulative Layout Shift)
-- Images/iframes without width/height dimensions
-- Dynamically injected content above existing content
-- Web fonts causing layout shift (use font-display: swap + preload)
-- Ads/embeds without reserved space
-- Late-loading content pushing down the page
 
-## Optimization Priority
+- Immagini/iframe senza dimensioni width/height
+- Contenuto iniettato dinamicamente sopra il contenuto esistente
+- Web font che causano layout shift (usare font-display: swap + preload)
+- Annunci/embed senza spazio riservato
+- Caricamento tardivo di contenuti che spostano la pagina verso il basso
 
-1. **LCP** — Most impactful for perceived performance
-2. **CLS** — Most common issue affecting user experience
-3. **INP** — Matters most for interactive applications
+## Priorità di Ottimizzazione
 
-## Tools
+1. **LCP** — Massimo impatto per le prestazioni percepite
+2. **CLS** — Problema più comune che influisce sull'esperienza utente
+3. **INP** — Fondamentale per le applicazioni interattive
+
+## Strumenti
 
 ```bash
 # PageSpeed Insights API
@@ -98,11 +105,11 @@ curl "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=URL&key=API
 npx lighthouse URL --output json --output-path report.json
 ```
 
-## Performance Tooling Updates (2025)
+## Aggiornamenti Strumenti Performance (2025)
 
-- **Lighthouse 13.0** (October 2025): Major audit restructuring with reorganized performance categories and updated scoring weights. Lighthouse is a lab tool (simulated conditions) — always cross-reference with CrUX field data for real-world performance.
-- **CrUX Vis** replaced the CrUX Dashboard (November 2025). The old Looker Studio dashboard was deprecated. Use [CrUX Vis](https://cruxvis.withgoogle.com) or the CrUX API directly.
-- **LCP subparts** added to CrUX (February 2025): Time to First Byte (TTFB), resource load delay, resource load time, and element render delay are now available as sub-components of LCP in CrUX data.
-- **Google Search Console 2025 features** (December 2025): AI-powered configuration for automated analysis. Branded vs. non-branded queries filter. Hourly data available in API. Custom chart annotations. Social channels tracking.
+- **Lighthouse 13.0** (Ottobre 2025): Ristrutturazione completa dell'audit con categorie di performance riorganizzate e pesi dello scoring aggiornati. Lighthouse è uno strumento di laboratorio (condizioni simulate) — confrontare sempre con i dati di campo CrUX per le prestazioni reali.
+- **CrUX Vis** ha sostituito la dashboard CrUX (Novembre 2025). La vecchia dashboard di Looker Studio è stata deprecata. Usare [CrUX Vis](https://cruxvis.withgoogle.com) o direttamente l'API CrUX.
+- **Sottoparti LCP** aggiunte a CrUX (Febbraio 2025): Time to First Byte (TTFB), ritardo di caricamento risorsa (resource load delay), tempo di caricamento risorsa (resource load time) e ritardo di rendering dell'elemento (element render delay) sono ora disponibili come sottocomponenti di LCP nei dati CrUX.
+- **Funzionalità Google Search Console 2025** (Dicembre 2025): Configurazione potenziata dall'AI per l'analisi automatizzata. Filtro per query branded vs non-branded. Dati orari disponibili nell'API. Annotazioni personalizzate sui grafici. Monitoraggio dei canali social.
 
-> **Mobile-first indexing** is 100% complete as of July 5, 2024. Google now crawls and indexes ALL websites exclusively with the mobile Googlebot user-agent. Ensure your mobile version contains all critical content, structured data, and meta tags.
+> **L'indicizzazione mobile-first** è completa al 100% dal 5 luglio 2024. Google ora scansiona e indicizza TUTTI i siti web esclusivamente con lo user-agent mobile Googlebot. Assicurati che la tua versione mobile contenga tutti i contenuti critici, i dati strutturati e i meta tag.
