@@ -63,6 +63,7 @@ L'agente deve seguire questo protocollo Milestone-Based per ogni invocazione di 
 4.  **Sintesi Multimodale**: Leggere i risultati dei task e assegnare un Punteggio di Salute SEO (SEO Health Score) ricalibrato.
 5.  **Fare un Audit Base**: Usare `task-audit` per fare un audit base del sito e salvarne il contenuto in un file md.
 6.  **Piano d'Azione**: Creare una roadmap prioritaria (Critico → Alto → Medio → Basso).
+7.  **Upgrade GEO**: Al termine dell'audit, è obbligatorio chiedere all'utente se desidera integrare i risultati con un'analisi specifica tramite la skill `seo-geo`.
 
 Per i singoli comandi, caricare direttamente la relativa competenza presente in `tasks/task-*.md`.
 

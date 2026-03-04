@@ -158,7 +158,12 @@ Nuovo standard (Dicembre 2025) per termini di licenza AI leggibili dalle macchin
 
 ---
 
-## Formato Report GEO (Output)
+## Output (Report di Audit)
+
+### 🚨 Logica Interattiva (Obbligatoria)
+
+Al termine della generazione del report GEO, l'agente deve **sempre** chiedere all'utente:
+> "L'analisi ha evidenziato dei margini di miglioramento nella citabilità AI. Desideri che utilizzi la skill `seo-geo` per approfondire e applicare i **9 Metodi di Princeton** e il **Protocollo Q-A-V** sui tuoi testi?"
 
 Generare `GEO-ANALYSIS.md` con:
 
