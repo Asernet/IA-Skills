@@ -1,161 +1,144 @@
-# Installation Guide
+# Guida all'Installazione
 
-## Prerequisites
+## Prerequisiti
 
-- **Python 3.8+** with pip
-- **Git** for cloning the repository
-- **Claude Code CLI** installed and configured
+- **Python 3.8+** con pip
+- **Git** per clonare il repository
+- **Ambiente Gemini AI** (es. l'agente locale di Gemini) configurato e funzionante
 
-Optional:
-- **Playwright** for screenshot capabilities
+Opzionale:
+- **Playwright** per le funzionalità di cattura screenshot visiva
 
-## Quick Install
+## Installazione Rapida
+
+*(Attualmente in fase di sviluppo. Si consiglia l'installazione manuale)*
 
 ### Unix/macOS/Linux
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/install.sh | bash
+# curl -fsSL https://raw.githubusercontent.com/CinaWeb/Skills/main/seo-special/install.sh | bash
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-irm https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/install.ps1 | iex
+# irm https://raw.githubusercontent.com/CinaWeb/Skills/main/seo-special/install.ps1 | iex
 ```
 
-## Manual Installation
+## Installazione Manuale
 
-1. **Clone the repository**
+Questi passaggi servono a configurare la skill `seo-special` all'interno dell'ecosistema Gemini.
+
+1. **Clonazione della directory delle skill**
+   Consigliabile navigare nella directory destinata alle skill (es. `~/.gemini/skills/`).
 
 ```bash
-git clone https://github.com/AgriciDaniel/claude-seo.git
-cd claude-seo
+# Entra nella cartella delle skill di Gemini
+cd ~/.gemini/skills
+
+# Clona la repository (se non l'hai già fatto)
+git clone https://github.com/CinaWeb/Skills.git
+
+# O in alternativa, scarica e sposta solo la cartella seo-special all'interno di ~/.gemini/skills/
 ```
 
-2. **Run the installer**
+2. **Installazione delle dipendenze Python**
+
+A differenza di Claude Code, in Gemini l'ambiente Python è gestito a livello globale o di ambiente utente corrente. Installa i requisiti definiti nella cartella `seo-special`.
 
 ```bash
-./install.sh
+# Naviga all'interno della skill
+cd ~/.gemini/skills/seo-special
+
+# Opzione A: Usare un ambiente virtuale (raccomandato)
+python -m venv .venv
+
+# Su Windows
+.\.venv\Scripts\activate
+# Su Unix/macOS
+source .venv/bin/activate
+
+# Installa i moduli
+pip install -r requirements.txt
+
+# Opzione B: Installazione a livello utente (Globale)
+pip install --user -r requirements.txt
 ```
 
-3. **Install Python dependencies** (if not done automatically)
-
-The installer creates a venv at `~/.claude/skills/seo/.venv/`. If that fails, install manually:
-
-```bash
-# Option A: Use the venv
-~/.claude/skills/seo/.venv/bin/pip install -r ~/.claude/skills/seo/requirements.txt
-
-# Option B: User-level install
-pip install --user -r ~/.claude/skills/seo/requirements.txt
-```
-
-4. **Install Playwright browsers** (optional, for visual analysis)
+3. **Installazione dei browser per Playwright** (opzionale, per analisi visiva)
 
 ```bash
 pip install playwright
 playwright install chromium
 ```
 
-Playwright is optional — without it, visual analysis uses WebFetch as a fallback.
+Playwright è del tutto opzionale — senza la sua installazione, le analisi visive e procedurali ripiegheranno in automatico su `WebFetch` (BeautifulSoup/requests).
 
-## Installation Paths
+## Percorsi di Installazione
 
-The installer copies files to:
+Per funzionare, Gemini si aspetta di trovare i componenti della skill nei seguenti percorsi:
 
-| Component | Path |
+| Componente | Percorso |
 |-----------|------|
-| Main skill | `~/.claude/skills/seo/` |
-| Sub-skills | `~/.claude/skills/seo-*/` |
-| Subagents | `~/.claude/agents/seo-*.md` |
+| Skill Multi-Agente | `~/.gemini/skills/seo-special/` |
+| Punto d'ingresso | `~/.gemini/skills/seo-special/SKILL.md` |
+| Task/Competenze | `~/.gemini/skills/seo-special/tasks/task-*.md` |
+| Sottoagenti | `~/.gemini/skills/seo-special/subagents/seo-*.md` |
 
-## Verify Installation
+## Verifica dell'Installazione
 
-1. Start Claude Code:
+1. Avvia il tuo assistente Gemini.
+2. Controlla che le skill siano caricate (solitamente digitando `@seo-special` o pronunciando le frasi di attivazione del trigger, es. `seo audit`, `audit profondo`).
 
-```bash
-claude
-```
+Dovresti vederlo avviare il caricamento della documentazione o visualizzare il prompt in attesa della fornitura di un URL da scansionare.
 
-2. Check that the skill is loaded:
+## Disinstallazione
 
-```
-/seo
-```
-
-You should see a help message or prompt for a URL.
-
-## Uninstallation
+Per disinstallare o rimuovere la skill, basterà eliminare la directory associata.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/uninstall.sh | bash
+# Windows (PowerShell)
+Remove-Item -Recurse -Force ~/.gemini/skills/seo-special
+
+# Unix/macOS
+rm -rf ~/.gemini/skills/seo-special
 ```
 
-Or manually:
+## Risoluzione dei Problemi
+
+### Errore "Skill non trovata"
+
+Assicurati che la skill sia installata nella posizione di riconoscimento di Gemini.
 
 ```bash
-rm -rf ~/.claude/skills/seo
-rm -rf ~/.claude/skills/seo-audit
-rm -rf ~/.claude/skills/seo-competitor-pages
-rm -rf ~/.claude/skills/seo-content
-rm -rf ~/.claude/skills/seo-geo
-rm -rf ~/.claude/skills/seo-hreflang
-rm -rf ~/.claude/skills/seo-images
-rm -rf ~/.claude/skills/seo-page
-rm -rf ~/.claude/skills/seo-plan
-rm -rf ~/.claude/skills/seo-programmatic
-rm -rf ~/.claude/skills/seo-schema
-rm -rf ~/.claude/skills/seo-sitemap
-rm -rf ~/.claude/skills/seo-technical
-rm -f ~/.claude/agents/seo-*.md
+# Verifica la presenza del root della skill
+ls ~/.gemini/skills/seo-special/SKILL.md
 ```
 
-## Upgrading
+Se il file non esiste, dovrai riposizionare i file clonati o estrarli nel percorso corretto.
 
-To upgrade to the latest version:
+### Errori di dipendenza Python
 
-```bash
-# Uninstall current version
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/uninstall.sh | bash
-
-# Install new version
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/install.sh | bash
-```
-
-## Troubleshooting
-
-### "Skill not found" error
-
-Ensure the skill is installed in the correct location:
-
-```bash
-ls ~/.claude/skills/seo/SKILL.md
-```
-
-If the file doesn't exist, re-run the installer.
-
-### Python dependency errors
-
-Install dependencies manually:
+Se l'installazione dei `requirements.txt` fallisce, installa le dipendenze manualmente:
 
 ```bash
 pip install beautifulsoup4 requests lxml playwright Pillow urllib3 validators
 ```
 
-### Playwright screenshot errors
+### Errori relativi agli screenshot con Playwright
 
-Install Chromium browser:
+Se il fallback visuale via browser headless si interrompe, installa Chromium forzatamente:
 
 ```bash
 playwright install chromium
 ```
 
-### Permission errors on Unix
+### Problemi di Permessi (Unix/Linux)
 
-Make sure scripts are executable:
+Assicurati che gli script Python e Bash possiedano i permessi di esecuzione:
 
 ```bash
-chmod +x ~/.claude/skills/seo/scripts/*.py
-chmod +x ~/.claude/skills/seo/hooks/*.py
-chmod +x ~/.claude/skills/seo/hooks/*.sh
+chmod +x ~/.gemini/skills/seo-special/scripts/*.py
+chmod +x ~/.gemini/skills/seo-special/hooks/*.py
+chmod +x ~/.gemini/skills/seo-special/hooks/*.sh
 ```

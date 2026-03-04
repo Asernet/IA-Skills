@@ -1,13 +1,13 @@
-﻿# Guida Utente: SEO-Special Power Module per Gemini CLI
+﻿# Guida Utente: SEO-Special Power Module per Gemini
 
-Il modulo **SEO-Special** è un toolkit avanzato per l'analisi SEO di nuova generazione, ottimizzato per gli standard del **2026** e integrato nativamente in Gemini CLI.
+Il modulo **SEO-Special** è un toolkit avanzato per l'analisi SEO di nuova generazione, ottimizzato per gli standard del **2026** e integrato nativamente come skill.
 
 ## Come Invocare il Modulo
 
 Puoi attivare le analisi SEO utilizzando i seguenti trigger naturali:
 
 ### 1. Audit Completo
-Scansiona il sito, rileva il business e coordina i sub-agenti per un report a 360°.
+Scansiona il sito, rileva il tipo di business e coordina i sub-agenti per un report a 360°.
 - `seo audit [URL]`
 - `analizza il mio sito [URL]`
 
@@ -32,11 +32,11 @@ Tutti i report sono generati in **Italiano** e includono:
 - **Punteggio Salute (0-100)**: Un voto sintetico per ogni categoria.
 - **Priorità d'Azione**: Problemi suddivisi in Critici, Alti, Medi e Bassi.
 - **Snippet JSON-LD**: Codice pronto da copiare per i dati strutturati.
-- **Action Plan**: Una roadmap strategica per il miglioramento dei ranking.
+- **Action Plan**: Una roadmap strategica per il miglioramento dei posizionamenti in classifica.
 
 ## Manutenzione e Verifica
-Per verificare che l'ambiente sia configurato correttamente (Python, Playwright, Dipendenze), esegui lo script di hardening:
+Per verificare che l'ambiente sia configurato correttamente (Python, Playwright, Dipendenze), esegui lo script di validazione dell'ambiente:
 `python scripts/init_module.py`
 
 ---
-*Modulo configurato e validato il 3 Marzo 2026.*
+*Modulo configurato e validato nel 2026. Sincronizzato con l'infrastruttura di Gemini.*

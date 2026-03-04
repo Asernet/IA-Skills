@@ -1,278 +1,278 @@
-# Commands Reference
+# Riferimento dei Comandi
 
-## Overview
+## Panoramica
 
-All Claude SEO commands start with `/seo` followed by a subcommand.
+Tutti i comandi di Gemini SEO iniziano con `/seo` seguito da un sottocomando.
 
-## Command List
+## Elenco dei Comandi
 
 ### `/seo audit <url>`
 
-Full website SEO audit with parallel analysis.
+Audit SEO completo del sito web con analisi in parallelo.
 
-**Example:**
+**Esempio:**
 ```
 /seo audit https://example.com
 ```
 
-**What it does:**
-1. Crawls up to 500 pages
-2. Detects business type
-3. Delegates to 6 specialist subagents in parallel
-4. Generates SEO Health Score (0-100)
-5. Creates prioritized action plan
+**Cosa fa:**
+1. Esamina fino a 500 pagine
+2. Rileva il tipo di attività aziendale
+3. Delega il lavoro a 6 sottoagenti specialisti in parallelo
+4. Genera il Punteggio di Salute SEO (0-100)
+5. Crea un piano d'azione con priorità
 
 **Output:**
 - `FULL-AUDIT-REPORT.md`
 - `ACTION-PLAN.md`
-- `screenshots/` (if Playwright available)
+- `screenshots/` (se Playwright è disponibile)
 
 ---
 
 ### `/seo page <url>`
 
-Deep single-page analysis.
+Analisi profonda di una singola pagina.
 
-**Example:**
+**Esempio:**
 ```
 /seo page https://example.com/about
 ```
 
-**What it analyzes:**
-- On-page SEO (title, meta, headings, URLs)
-- Content quality (word count, readability, E-E-A-T)
-- Technical elements (canonical, robots, Open Graph)
-- Schema markup
-- Images (alt text, sizes, formats)
-- Core Web Vitals potential issues
+**Cosa analizza:**
+- SEO On-page (title, meta, heading, URL)
+- Qualità del contenuto (conteggio parole, leggibilità, E-E-A-T)
+- Elementi tecnici (canonical, robots, Open Graph)
+- Markup Schema
+- Immagini (testo alternativo, dimensioni, formati)
+- Potenziali problemi nei Core Web Vitals
 
 ---
 
 ### `/seo technical <url>`
 
-Technical SEO audit across 8 categories.
+Audit SEO tecnico su 8 categorie.
 
-**Example:**
+**Esempio:**
 ```
 /seo technical https://example.com
 ```
 
-**Categories:**
-1. Crawlability
-2. Indexability
-3. Security
-4. URL Structure
-5. Mobile Optimization
+**Categorie:**
+1. Scansionabilità
+2. Indicizzabilità
+3. Sicurezza
+4. Struttura degli URL
+5. Ottimizzazione mobile
 6. Core Web Vitals (LCP, INP, CLS)
-7. Structured Data
-8. JavaScript Rendering
+7. Dati strutturati
+8. Rendering JavaScript
 
 ---
 
 ### `/seo content <url>`
 
-E-E-A-T and content quality analysis.
+Analisi dell'E-E-A-T e della qualità dei contenuti.
 
-**Example:**
+**Esempio:**
 ```
 /seo content https://example.com/blog/post
 ```
 
-**What it evaluates:**
-- Experience signals (first-hand knowledge)
-- Expertise (author credentials)
-- Authoritativeness (external recognition)
-- Trustworthiness (transparency, security)
-- AI citation readiness
-- Content freshness
+**Cosa valuta:**
+- Segnali di esperienza (conoscenza di prima mano)
+- Competenza (credenziali dell'autore)
+- Autorevolezza (riconoscimento esterno)
+- Affidabilità (trasparenza, sicurezza)
+- Predisposizione alle citazioni IA
+- Freschezza dei contenuti
 
 ---
 
 ### `/seo schema <url>`
 
-Schema markup detection, validation, and generation.
+Rilevamento, validazione e generazione di markup Schema.
 
-**Example:**
+**Esempio:**
 ```
 /seo schema https://example.com
 ```
 
-**What it does:**
-- Detects existing schema (JSON-LD, Microdata, RDFa)
-- Validates against Google's requirements
-- Identifies missing opportunities
-- Generates ready-to-use JSON-LD
+**Cosa fa:**
+- Rileva gli schema esistenti (JSON-LD, Microdata, RDFa)
+- Convalida in base ai requisiti di Google
+- Identifica opportunità mancanti
+- Genera JSON-LD pronto all'uso
 
 ---
 
 ### `/seo geo <url>`
 
-AI Overviews / Generative Engine Optimization.
+Panoramiche IA / Generative Engine Optimization (GEO).
 
-**Example:**
+**Esempio:**
 ```
 /seo geo https://example.com/blog/guide
 ```
 
-**What it analyzes:**
-- Citability score (quotable facts, statistics)
-- Structural readability (headings, lists, tables)
-- Entity clarity (definitions, context)
-- Authority signals (credentials, sources)
-- Structured data support
+**Cosa analizza:**
+- Punteggio di citabilità (fatti citabili, statistiche)
+- Leggibilità strutturale (titoli, elenchi, tabelle)
+- Chiarezza dell'entità (definizioni, contesto)
+- Segnali di autorità (credenziali, fonti)
+- Supporto ai dati strutturati
 
 ---
 
 ### `/seo images <url>`
 
-Image optimization analysis.
+Analisi dell'ottimizzazione delle immagini.
 
-**Example:**
+**Esempio:**
 ```
 /seo images https://example.com
 ```
 
-**What it checks:**
-- Alt text presence and quality
-- File sizes (flag >200KB)
-- Formats (WebP/AVIF recommendations)
-- Responsive images (srcset, sizes)
+**Cosa controlla:**
+- Presenza e qualità del testo alternativo (alt text)
+- Dimensioni dei file (segnala >200KB)
+- Formati (raccomandazioni WebP/AVIF)
+- Immagini reattive (srcset, sizes)
 - Lazy loading
-- CLS prevention (dimensions)
+- Prevenzione del CLS (dimensioni dichiarate)
 
 ---
 
 ### `/seo sitemap <url>`
 
-Analyze existing XML sitemap.
+Analizza la sitemap XML esistente.
 
-**Example:**
+**Esempio:**
 ```
 /seo sitemap https://example.com/sitemap.xml
 ```
 
-**What it validates:**
-- XML format
-- URL count (<50k per file)
-- URL status codes
-- lastmod accuracy
-- Deprecated tags (priority, changefreq)
-- Coverage vs crawled pages
+**Cosa verifica:**
+- Formato XML
+- Numero di URL (<50k per file)
+- Codici di stato degli URL
+- Accuratezza del tag lastmod
+- Tag deprecati (priority, changefreq)
+- Copertura rispetto alle pagine indicizzate
 
 ---
 
 ### `/seo sitemap generate`
 
-Generate new sitemap with industry templates.
+Genera una nuova sitemap con modelli di settore.
 
-**Example:**
+**Esempio:**
 ```
 /seo sitemap generate
 ```
 
-**Process:**
-1. Select or auto-detect business type
-2. Interactive structure planning
-3. Apply quality gates (30/50 location page limits)
-4. Generate valid XML
-5. Create documentation
+**Processo:**
+1. Seleziona o rileva automaticamente il tipo di azienda
+2. Pianificazione interattiva della struttura
+3. Applica soglie di qualità (limiti di 30/50 pagine di località)
+4. Genera XML valido
+5. Crea documentazione
 
 ---
 
 ### `/seo plan <type>`
 
-Strategic SEO planning.
+Pianificazione strategica SEO.
 
-**Types:** `saas`, `local`, `ecommerce`, `publisher`, `agency`
+**Tipi:** `saas`, `local`, `ecommerce`, `publisher`, `agency`
 
-**Example:**
+**Esempio:**
 ```
 /seo plan saas
 ```
 
-**What it creates:**
-- Complete SEO strategy
-- Competitive analysis
-- Content calendar
-- Implementation roadmap (4 phases)
-- Site architecture design
+**Cosa crea:**
+- Strategia SEO completa
+- Analisi competitiva
+- Calendario editoriale
+- Roadmap di implementazione (4 fasi)
+- Progettazione dell'architettura del sito
 
 ---
 
 ### `/seo competitor-pages [url|generate]`
 
-Competitor comparison page generation.
+Generazione di pagine di confronto con la concorrenza.
 
-**Examples:**
+**Esempi:**
 ```
 /seo competitor-pages https://example.com/vs/competitor
 /seo competitor-pages generate
 ```
 
-**Capabilities:**
-- Generate "X vs Y" comparison page layouts
-- Create "Alternatives to X" page structures
-- Build feature comparison matrices with scoring
-- Generate Product + AggregateRating schema markup
-- Apply conversion-optimized CTA placement
-- Enforce fairness guidelines (accurate data, source citations)
+**Capacità:**
+- Generazione layout di pagine comparabili "X vs Y"
+- Creazione di strutture per pagine "Alternative a X"
+- Creazione di matrici di confronto delle funzionalità con punteggio
+- Generazione markup Schema "Product" + "AggregateRating"
+- Posizionamento ottimizzato della CTA (Call to Action) per conversioni
+- Applica linee guida di equità (dati accurati, citazioni da fonti)
 
 ---
 
 ### `/seo hreflang [url]`
 
-Hreflang and international SEO audit and generation.
+Audit Hreflang e generazione per la SEO internazionale.
 
-**Example:**
+**Esempio:**
 ```
 /seo hreflang https://example.com
 ```
 
-**Capabilities:**
-- Validate self-referencing hreflang tags
-- Check return tag reciprocity (A→B requires B→A)
-- Verify x-default tag presence
-- Validate ISO 639-1 language and ISO 3166-1 region codes
-- Check canonical URL alignment with hreflang
-- Detect protocol mismatches (HTTP vs HTTPS)
-- Generate correct hreflang link tags and sitemap XML
+**Capacità:**
+- Convalida tag hreflang autoreferenziali
+- Verifica la reciprocità del tag di ritorno (A→B richiede B→A)
+- Verifica la presenza del tag x-default
+- Convalida i codici di lingua ISO 639-1 e regionali ISO 3166-1
+- Controlla l'allineamento degli URL canonici con hreflang
+- Rileva problemi di conformità di protocollo (HTTP vs HTTPS)
+- Genera correttamente tag dei link hreflang e sitemap XML
 
 ---
 
 ### `/seo programmatic [url|plan]`
 
-Programmatic SEO analysis and planning for pages generated at scale.
+Analisi e pianificazione SEO programmatica per pagine scalate su larga scala.
 
-**Examples:**
+**Esempi:**
 ```
 /seo programmatic https://example.com/tools/
 /seo programmatic plan
 ```
 
-**Capabilities:**
-- Assess data source quality (CSV, JSON, API, database)
-- Plan template engines with unique content per page
-- Design URL pattern strategies (`/tools/[tool-name]`, `/[city]/[service]`)
-- Automate internal linking (hub/spoke, related items, breadcrumbs)
-- Enforce thin content safeguards (quality gates, word count thresholds)
-- Prevent index bloat (noindex low-value, pagination, faceted nav)
+**Capacità:**
+- Valuta la qualità delle origini dati (CSV, JSON, API, database)
+- Piani con motori di template per un contenuto per pagina unico 
+- Modella strategie tramite URL es. (`/tools/[tool-name]`, `/[city]/[service]`)
+- Automatizza i collegamenti interni (hub/spoke, oggetti correlati, breadcrumbs)
+- Applica filtri contro i "thin content" (soglie di qualità e del conteggio di parole)
+- Previene l'eccesso indicizzato (noindex per basso valore, paginazione estesa e nav-faccettata)
 
 ---
 
-## Quick Reference
+## Riferimento Rapido
 
-| Command | Use Case |
+| Comando | Caso d'uso |
 |---------|----------|
-| `/seo audit <url>` | Full website audit |
-| `/seo competitor-pages [url\|generate]` | Competitor comparison pages |
-| `/seo content <url>` | E-E-A-T analysis |
-| `/seo geo <url>` | AI search optimization |
-| `/seo hreflang [url]` | Hreflang/i18n SEO audit |
-| `/seo images <url>` | Image optimization |
-| `/seo page <url>` | Single page analysis |
-| `/seo plan <type>` | Strategic planning |
-| `/seo programmatic [url\|plan]` | Programmatic SEO analysis |
-| `/seo schema <url>` | Schema validation |
-| `/seo sitemap <url>` | Sitemap validation |
-| `/seo sitemap generate` | Create new sitemap |
-| `/seo technical <url>` | Technical SEO check |
+| `/seo audit <url>` | Audit completo del sito web |
+| `/seo competitor-pages [url\|generate]` | Pagine di confronto con i competitor |
+| `/seo content <url>` | Analisi della qualità / E-E-A-T |
+| `/seo geo <url>` | Ottimizzazione per l'IA |
+| `/seo hreflang [url]` | Audit hreflang / i18n |
+| `/seo images <url>` | Ottimizzazione immagini |
+| `/seo page <url>` | Analisi della singola pagina |
+| `/seo plan <type>` | Pianificazione della strategia |
+| `/seo programmatic [url\|plan]` | Analisi programmatica della SEO |
+| `/seo schema <url>` | Audit schema/Markup Validation |
+| `/seo sitemap <url>` | Analisi e validazioni Sitemap |
+| `/seo sitemap generate` | Creazione di una Sitemap |
+| `/seo technical <url>` | Check Tecnico SEO globale |

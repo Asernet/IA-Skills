@@ -1,193 +1,191 @@
-# Architecture
+# Architettura
 
-## Overview
+## Panoramica
 
-Claude SEO follows Anthropic's official Claude Code skill specification with a modular, multi-skill architecture.
+Claude SEO segue la specifica ufficiale della skill Claude Code di Anthropic con un'architettura modulare multi-skill.
 
-## Directory Structure
+## Struttura delle Directory
 
-```
-~/.claude/
+```text
+~/.gemini/
 ├── skills/
-│   ├── seo/              # Main orchestrator skill
-│   │   ├── SKILL.md          # Entry point with routing logic
-│   │   └── references/       # On-demand reference files
-│   │       ├── cwv-thresholds.md
-│   │       ├── schema-types.md
-│   │       ├── eeat-framework.md
-│   │       └── quality-gates.md
-│   │
-│   ├── seo-audit/            # Full site audit
-│   ├── seo-competitor-pages/ # Competitor comparison pages
-│   ├── seo-content/          # E-E-A-T analysis
-│   ├── seo-geo/              # AI search optimization
-│   ├── seo-hreflang/         # Hreflang/i18n SEO
-│   ├── seo-images/           # Image optimization
-│   ├── seo-page/             # Single page analysis
-│   ├── seo-plan/             # Strategic planning
-│   │   └── assets/           # Industry templates
-│   ├── seo-programmatic/     # Programmatic SEO
-│   ├── seo-schema/           # Schema markup
-│   ├── seo-sitemap/          # Sitemap analysis/generation
-│   └── seo-technical/        # Technical SEO
-│
-└── agents/
-    ├── seo-technical.md      # Technical SEO specialist
-    ├── seo-content.md        # Content quality reviewer
-    ├── seo-schema.md         # Schema markup expert
-    ├── seo-sitemap.md        # Sitemap architect
-    ├── seo-performance.md    # Performance analyzer
-    └── seo-visual.md         # Visual analyzer
+│   ├── seo-special/          # Skill multi-agente per la SEO
+│   │   ├── SKILL.md          # Punto di ingresso principale della skill
+│   │   ├── docs/             # Documentazione architetturale e descrittiva
+│   │   ├── hooks/            # Script di hook e validazione
+│   │   ├── pdf/              # Guide e reference convertiti
+│   │   ├── references/       # File di riferimento e framework on-demand
+│   │   │   ├── cwv-thresholds.md
+│   │   │   ├── eeat-framework.md
+│   │   │   ├── industry-signals.md
+│   │   │   ├── quality-gates.md
+│   │   │   └── schema-types.md
+│   │   ├── schema/           # Template JSON per dati strutturati
+│   │   ├── scripts/          # Script Python per fetch, parsing ed export
+│   │   ├── subagents/        # Sottoagenti specializzati (Agenti)
+│   │   │   ├── seo-content.md        # Revisore della qualità dei contenuti
+│   │   │   ├── seo-performance.md    # Analizzatore delle prestazioni
+│   │   │   ├── seo-schema.md         # Esperto di markup Schema
+│   │   │   ├── seo-sitemap.md        # Architetto di Sitemap
+│   │   │   ├── seo-technical.md      # Specialista SEO tecnico
+│   │   │   └── seo-visual.md         # Analizzatore visivo
+│   │   ├── tasks/            # Componenti modulari e sub-skills (Task)
+│   │   │   ├── assets/               # Template specifici per settore (saas, ecommerce, ecc.)
+│   │   │   ├── task-audit.md         # Esempio: Task di audit completo
+│   │   │   ├── task-page.md          # Esempio: Analisi di una singola pagina
+│   │   │   └── ...                   # Altri task SEO associati
+│   │   └── requirements.txt  # Dipendenze Python
 ```
 
-## Component Types
+## Tipi di Componenti
 
 ### Skills
 
-Skills are markdown files with YAML frontmatter that define capabilities and instructions.
+Le skill sono file markdown con frontmatter YAML che definiscono capacità e istruzioni.
 
-**SKILL.md Format:**
+**Formato SKILL.md:**
 ```yaml
 ---
-name: skill-name
+name: nome-skill
 description: >
-  When to use this skill. Include activation keywords
-  and concrete use cases.
+  Quando usare questa skill. Includere parole chiave di attivazione
+  e casi d'uso concreti.
 ---
 
-# Skill Title
+# Titolo della Skill
 
-Instructions and documentation...
+Istruzioni e documentazione...
 ```
 
-### Subagents
+### Subagents (Sottoagenti)
 
-Subagents are specialized workers that can be delegated tasks. They have their own context and tools.
+I subagent sono lavoratori specializzati a cui possono essere delegati compiti. Hanno il loro contesto e i loro strumenti.
 
-**Agent Format:**
+**Formato Agent:**
 ```yaml
 ---
-name: agent-name
-description: What this agent does.
+name: nome-agente
+description: Cosa fa questo agente.
 tools: Read, Bash, Write, Glob, Grep
 ---
 
-Instructions for the agent...
+Istruzioni per l'agente...
 ```
 
-### Reference Files
+### File di Riferimento
 
-Reference files contain static data loaded on-demand to avoid bloating the main skill.
+I file di riferimento contengono dati statici caricati su richiesta per evitare di sovraccaricare la skill principale.
 
-## Orchestration Flow
+## Flusso di Orchestrazione
 
-### Full Audit (`/seo audit`)
+### Audit Completo (`/seo audit`)
 
 ```
-User Request
+Richiesta Utente
     │
     ▼
 ┌─────────────────┐
-│   seo       │  ← Main orchestrator
-│   (SKILL.md)    │
+│ seo-special     │  ← Orchestratore principale
+│ (SKILL.md)      │
 └────────┬────────┘
          │
-         │  Detects business type
-         │  Spawns subagents in parallel
+         │  Rileva il tipo di attività
+         │  Genera subagent in parallelo
          │
     ┌────┴────┬────────┬────────┬────────┬────────┐
     ▼         ▼        ▼        ▼        ▼        ▼
 ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐
+│agente │ │agente │ │agente │ │agente │ │agente │ │agente │
 │tech   │ │content│ │schema │ │sitemap│ │perf   │ │visual │
-│agent  │ │agent  │ │agent  │ │agent  │ │agent  │ │agent  │
 └───┬───┘ └───┬───┘ └───┬───┘ └───┬───┘ └───┬───┘ └───┬───┘
     │         │        │        │        │        │
     └─────────┴────────┴────┬───┴────────┴────────┘
                             │
                             ▼
                     ┌───────────────┐
-                    │  Aggregate    │
-                    │  Results      │
+                    │  Aggrega i    │
+                    │  Risultati    │
                     └───────┬───────┘
                             │
                             ▼
                     ┌───────────────┐
-                    │  Generate     │
+                    │  Genera il    │
                     │  Report       │
                     └───────────────┘
 ```
 
-### Individual Command
+### Singolo Comando
 
 ```
-User Request (e.g., /seo page)
+Richiesta Utente (es., /seo page)
     │
     ▼
 ┌─────────────────┐
-│   seo       │  ← Routes to sub-skill
+│ seo-special     │  ← Instrada al task specifico
 └────────┬────────┘
          │
          ▼
 ┌─────────────────┐
-│   seo-page      │  ← Sub-skill handles directly
-│   (SKILL.md)    │
+│ task-page.md    │  ← Il task gestisce la richiesta
+│ (in tasks/)     │
 └─────────────────┘
 ```
 
-## Design Principles
+## Principi di Progettazione
 
-### 1. Progressive Disclosure
+### 1. Divulgazione Progressiva
 
-- Main SKILL.md is concise (<200 lines)
-- Reference files loaded on-demand
-- Detailed instructions in sub-skills
+- Il file SKILL.md principale è conciso (<200 righe)
+- I file di riferimento e di gestione sono caricati su richiesta
+- Istruzioni dettagliate sono fornite e gestite dai singoli `tasks/task-*.md`
 
-### 2. Parallel Processing
+### 2. Elaborazione Parallela
 
-- Subagents run concurrently during audits
-- Independent analyses don't block each other
-- Results aggregated after all complete
+- I subagent vengono eseguiti contemporaneamente durante gli audit
+- Analisi indipendenti non si bloccano a vicenda
+- I risultati vengono aggregati dopo che tutti sono stati completati
 
-### 3. Quality Gates
+### 3. Quality Gates (Soglie di Qualità)
 
-- Built-in thresholds prevent bad recommendations
-- Location page limits (30 warning, 50 hard stop)
-- Schema deprecation awareness
-- FID → INP replacement enforced
+- Soglie integrate impediscono raccomandazioni errate
+- Limiti delle pagine di località (30 avviso, 50 blocco fisso)
+- Consapevolezza della deprecazione degli schema
+- Sostituzione di FID → INP imposta
 
-### 4. Industry Awareness
+### 4. Consapevolezza del Settore
 
-- Templates for different business types
-- Automatic detection from homepage signals
-- Tailored recommendations per industry
+- Template per diversi tipi di aziende
+- Rilevamento automatico tramite segnali in homepage
+- Raccomandazioni su misura per settore
 
-## File Naming Conventions
+## Convenzioni per i Nomi dei File
 
-| Type | Pattern | Example |
+| Tipo | Modello | Esempio |
 |------|---------|---------|
-| Skill | `seo-{name}/SKILL.md` | `seo-audit/SKILL.md` |
-| Agent | `seo-{name}.md` | `seo-technical.md` |
-| Reference | `{topic}.md` | `cwv-thresholds.md` |
-| Script | `{action}_{target}.py` | `fetch_page.py` |
-| Template | `{industry}.md` | `saas.md` |
+| Skill | `seo-special/SKILL.md` | `seo-special/SKILL.md` |
+| Task | `tasks/task-{argomento}.md` | `task-audit.md` |
+| Agent | `subagents/seo-{nome}.md` | `seo-technical.md` |
+| Riferimento | `references/{argomento}.md` | `cwv-thresholds.md` |
+| Script | `scripts/{azione}_{bersaglio}.py` | `fetch_page.py` |
+| Documento | `docs/{argomento}.md` | `ARCHITECTURE.md` |
+| Template | `tasks/assets/{settore}.md` | `saas.md` |
 
-## Extension Points
+## Punti di Estensione
 
-### Adding a New Sub-Skill
+### Aggiunta di un Nuovo Task (ex Sub-Skill)
 
-1. Create `skills/seo-newskill/SKILL.md`
-2. Add YAML frontmatter with name and description
-3. Write skill instructions
-4. Update main `seo/SKILL.md` to route to new skill
+1. Crea `tasks/task-nuovotask.md`
+2. Definisci le istruzioni e il markup per il task
+3. Aggiorna `SKILL.md` principale o gli altri agenti per poterlo invocare e gestire
 
-### Adding a New Subagent
+### Aggiunta di un Nuovo Subagent
 
-1. Create `agents/seo-newagent.md`
-2. Add YAML frontmatter with name, description, tools
-3. Write agent instructions
-4. Reference from relevant skills
+1. Crea `subagents/seo-nuovoagente.md`
+2. Aggiungi il frontmatter YAML con nome, descrizione, strumenti
+3. Scrivi le istruzioni dell'agente
+4. Fai riferimento dalla directory `tasks/` o `SKILL.md` pertinenti
 
-### Adding a New Reference File
+### Aggiunta di un Nuovo File di Riferimento
 
-1. Create file in appropriate `references/` directory
-2. Reference in skill with load-on-demand instruction
+1. Crea il file nell'appropriata directory `references/`
+2. Fai riferimento nella skill con istruzione di caricamento su richiesta

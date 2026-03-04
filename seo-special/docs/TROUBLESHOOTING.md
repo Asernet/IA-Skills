@@ -1,97 +1,97 @@
-# Troubleshooting
+# Risoluzione dei Problemi
 
-## Common Issues
+## Problemi Comuni
 
-### Skill Not Loading
+### La Skill non viene caricata
 
-**Symptom:** `/seo` command not recognized
+**Sintomo:** Il trigger `/seo` o i comandi testuali non vengono riconosciuti dall'agente.
 
-**Solutions:**
+**Soluzioni:**
 
-1. Verify installation:
+1. Verifica l'installazione:
 ```bash
-ls ~/.claude/skills/seo/SKILL.md
+ls ~/.gemini/skills/seo-special/SKILL.md
 ```
 
-2. Check SKILL.md has proper frontmatter:
+2. Verifica che `SKILL.md` abbia un frontmatter corretto:
 ```bash
-head -5 ~/.claude/skills/seo/SKILL.md
+head -5 ~/.gemini/skills/seo-special/SKILL.md
 ```
-Should start with `---` followed by YAML.
+Dovrebbe iniziare con `---` seguito dalla configurazione YAML.
 
-3. Restart Claude Code:
+3. Riavvia la console o l'assistente Gemini:
 ```bash
-claude
+# Dipende dall'implementazione (es. chiudi e riapri il terminale/chat)
 ```
 
-4. Re-run installer:
+4. Riesegui l'installer o clona nuovamente:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/install.sh | bash
+# vedi INSTALLATION.md per i dettagli
 ```
 
 ---
 
-### Python Dependency Errors
+### Errori di Dipendenza Python
 
-**Symptom:** `ModuleNotFoundError: No module named 'requests'`
+**Sintomo:** `ModuleNotFoundError: No module named 'requests'`
 
-**Solution:**
+**Soluzione:**
 
-As of v1.2.0, dependencies are installed in a venv. Try:
+A partire dalle ultime versioni, le dipendenze risiedono nella cartella della skill. Prova:
 
 ```bash
-# Use the venv pip
-~/.claude/skills/seo/.venv/bin/pip install -r ~/.claude/skills/seo/requirements.txt
+# Utilizzando l'ambiente virtuale se creato (consigliato)
+~/.gemini/skills/seo-special/.venv/bin/pip install -r ~/.gemini/skills/seo-special/requirements.txt
 ```
 
-If the venv doesn't exist, install with `--user`:
+Se il `venv` non esiste, installalo nel contesto utente (`--user`):
 ```bash
-pip install --user -r ~/.claude/skills/seo/requirements.txt
+pip install --user -r ~/.gemini/skills/seo-special/requirements.txt
 ```
 
-Or install individually:
+O installale singolarmente:
 ```bash
 pip install --user beautifulsoup4 requests lxml playwright Pillow urllib3 validators
 ```
 
-### requirements.txt Not Found
+### File requirements.txt Non Trovato
 
-**Symptom:** `No such file: requirements.txt` after install
+**Sintomo:** `No such file: requirements.txt` dopo l'installazione
 
-**Solution:** As of v1.2.0, requirements.txt is copied to the skill directory:
+**Soluzione:** Verifica che il file esista nella directory della skill:
 
 ```bash
-ls ~/.claude/skills/seo/requirements.txt
+ls ~/.gemini/skills/seo-special/requirements.txt
 ```
 
-If missing, download it directly:
+Se mancante, riscaricalo:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/requirements.txt \
-  -o ~/.claude/skills/seo/requirements.txt
+curl -fsSL https://raw.githubusercontent.com/CinaWeb/Skills/main/seo-special/requirements.txt \
+  -o ~/.gemini/skills/seo-special/requirements.txt
 ```
 
-### Windows Python Detection Issues
+### Problemi di Rilevamento Python su Windows
 
-**Symptom:** `python is not recognized` or `pip points to wrong Python`
+**Sintomo:** `python non è riconosciuto come comando interno o esterno` o `pip punta a uno Python sbagliato`
 
-**Solution (v1.2.0+):** The Windows installer now tries both `python` and `py -3`. If both fail:
+**Soluzione:** 
 
-1. Install Python from [python.org](https://python.org) and check "Add to PATH"
-2. Or use the Windows launcher: `py -3 -m pip install -r requirements.txt`
-3. Use `python -m pip` instead of bare `pip`
+1. Installa Python da [python.org](https://python.org) e assicurati di spuntare la casella "Add Python to PATH"
+2. In alternativa, usa il launcher per Windows: `py -3 -m pip install -r requirements.txt`
+3. Usa il prefisso esplicito `python -m pip` invece di `pip` da solo
 
 ---
 
-### Playwright Screenshot Errors
+### Errori con gli Screenshot di Playwright
 
-**Symptom:** `playwright._impl._errors.Error: Executable doesn't exist`
+**Sintomo:** `playwright._impl._errors.Error: Executable doesn't exist`
 
-**Solution:**
+**Soluzione:**
 ```bash
 playwright install chromium
 ```
 
-If that fails:
+Se fallisce ancora:
 ```bash
 pip install playwright
 python -m playwright install chromium
@@ -99,138 +99,106 @@ python -m playwright install chromium
 
 ---
 
-### Permission Denied Errors
+### Errori di Permesso Negato (Unix/Linux)
 
-**Symptom:** `Permission denied` when running scripts
+**Sintomo:** `Permission denied` quando si cerca di eseguire gli script
 
-**Solution:**
+**Soluzione:**
 ```bash
-chmod +x ~/.claude/skills/seo/scripts/*.py
-chmod +x ~/.claude/skills/seo/hooks/*.py
-chmod +x ~/.claude/skills/seo/hooks/*.sh
+chmod +x ~/.gemini/skills/seo-special/scripts/*.py
+chmod +x ~/.gemini/skills/seo-special/hooks/*.py
+chmod +x ~/.gemini/skills/seo-special/hooks/*.sh
 ```
 
 ---
 
-### Hook Not Triggering
+### Gli Hook non si avviano
 
-**Symptom:** Schema validation hook not running
+**Sintomo:** Lo script di validazione per lo Schema non entra in azione in automatico
 
-**Check:**
+**Verifiche:**
 
-1. Verify hook is in settings:
+1. Verifica che gli hook siano registrati nelle impostazioni (se l'ambiente lo supporta)
+2. Effettua un test manuale dell'hook bypassando l'automazione:
 ```bash
-cat ~/.claude/settings.json
-```
-
-2. Ensure correct path:
-```json
-{
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 ~/.claude/skills/seo/hooks/validate-schema.py \"$FILE_PATH\"",
-            "exitCodes": { "2": "block" }
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-3. Test hook directly:
-```bash
-python3 ~/.claude/skills/seo/hooks/validate-schema.py test.html
+python3 ~/.gemini/skills/seo-special/hooks/validate-schema.py test.html
 ```
 
 ---
 
-### Subagent Not Found
+### Sottoagente non trovato
 
-**Symptom:** `Agent 'seo-technical' not found`
+**Sintomo:** `Agent 'seo-technical' not found` o l'AI risponde di non poter gestire i subagent
 
-**Solution:**
+**Soluzione:**
 
-1. Verify agent files exist:
+1. Verifica che i file Markdown degli agenti esistano:
 ```bash
-ls ~/.claude/agents/seo-*.md
+ls ~/.gemini/skills/seo-special/subagents/seo-*.md
 ```
 
-2. Check agent frontmatter:
+2. Controlla il frontmatter per rintracciare eventuali difetti di parsing:
 ```bash
-head -5 ~/.claude/agents/seo-technical.md
-```
-
-3. Re-install agents:
-```bash
-cp /path/to/claude-seo/agents/*.md ~/.claude/agents/
+head -5 ~/.gemini/skills/seo-special/subagents/seo-technical.md
 ```
 
 ---
 
-### Timeout Errors
+### Errori di Timeout
 
-**Symptom:** `Request timed out after 30 seconds`
+**Sintomo:** `Request timed out after 30 seconds` o "Tempo scaduto"
 
-**Solutions:**
+**Soluzioni:**
 
-1. The target site may be slow — try again
-2. Increase timeout in script calls
-3. Check your network connection
-4. Some sites block automated requests
-
----
-
-### Schema Validation False Positives
-
-**Symptom:** Hook blocks valid schema
-
-**Check:**
-
-1. Ensure placeholders are replaced
-2. Verify @context is `https://schema.org`
-3. Check for deprecated types (HowTo, SpecialAnnouncement)
-4. Validate at [Google's Rich Results Test](https://search.google.com/test/rich-results)
+1. Il sito web target potrebbe essere temporaneamente sovraccaricato o lento — riprova
+2. Aumenta il valore di timeout nelle chiamate dello script
+3. Verifica la tua connessione di rete
+4. Alcuni siti bloccano esplicitamente le richieste automatizzate (protezioni antibot/Cloudflare)
 
 ---
 
-### Slow Audit Performance
+### Falsi Positivi sulla Validazione dello Schema
 
-**Symptom:** Full audit takes too long
+**Sintomo:** L'hook o il JSON generati segnalano errori inesatti
 
-**Solutions:**
+**Verifiche:**
 
-1. Audit crawls up to 500 pages — large sites take time
-2. Subagents run in parallel to speed up analysis
-3. For faster checks, use `/seo page` on specific URLs
-4. Check if site has slow response times
+1. Accertati in primo luogo che i classici placeholder AI (es. `[NOME AZIENDA]`) siano stati sostituiti
+2. Verifica che `@context` sia valorizzato sempre a `https://schema.org`
+3. Cerca tipi schema deprecati (es. `HowTo`, `SpecialAnnouncement`)
+4. Valida esplicitamente con il  [Test dei Risultati Multimediali di Google](https://search.google.com/test/rich-results)
 
 ---
 
-## Getting Help
+### Avvio lento dell'Audit
 
-1. **Check the docs:** Review [COMMANDS.md](COMMANDS.md) and [ARCHITECTURE.md](ARCHITECTURE.md)
+**Sintomo:** La richiesta di full audit impiega troppo tempo per rispondere
 
-2. **GitHub Issues:** Report bugs at the repository
+**Soluzioni:**
 
-3. **Logs:** Check Claude Code's output for error details
+1. Considera che il "Full Audit" scansiona fino a 500 pagine — su portali corposi **è normale** richieda tempo
+2. I sub-agenti operano in background: monitora lo stato dell'ambiente e il traffico generato
+3. Per test iper-rapidi, esegui `/seo page` su URL singole di landing page
+4. Controlla i Time To First Byte (TTFB) del sito; tempi di reazione scarsi dilatano infinitamente l'audit
 
-## Debug Mode
+---
 
-To see detailed output, check Claude Code's internal logs or run scripts directly:
+## Ricevere Assistenza
+
+1. **Consulta la Documentazione:** Leggi attentamente [COMMANDS.md](COMMANDS.md) e [ARCHITECTURE.md](ARCHITECTURE.md)
+2. **Issue su GitHub:** Segnala i bug in forma ufficiale all'interno della [Repository del progetto](https://github.com/CinaWeb/Skills).
+
+## Modalità Debug
+
+Per osservare da vicino lo stack di output e rintracciare difetti occulti, esegui gli script ausiliari a mano:
 
 ```bash
-# Test fetch
-python3 ~/.claude/skills/seo/scripts/fetch_page.py https://example.com
+# Esempio Test fetch
+python3 ~/.gemini/skills/seo-special/scripts/fetch_page.py https://example.com
 
-# Test parse
-python3 ~/.claude/skills/seo/scripts/parse_html.py page.html --json
+# Esempio Test parser HTML
+python3 ~/.gemini/skills/seo-special/scripts/parse_html.py page.html --json
 
-# Test screenshot
-python3 ~/.claude/skills/seo/scripts/capture_screenshot.py https://example.com
+# Esempio Test generazione Screenshot
+python3 ~/.gemini/skills/seo-special/scripts/capture_screenshot.py https://example.com
 ```
