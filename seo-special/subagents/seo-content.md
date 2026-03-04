@@ -45,6 +45,16 @@ Il contenuto AI è accettabile SE dimostra genuino E-E-A-T. Segnala questi marca
 - Inesattezze fattuali.
 - Struttura ripetitiva tra le pagine.
 
+## Delega ad altre Competenze
+
+- Per valutare le pagine generate programmaticamente, fai riferimento ai task `task-programmatic`.
+- Per gli standard di contenuto delle pagine di confronto, vedi `task-competitor-pages`.
+
+
+## Analisi Approfondita Qualità (task-content)
+
+Dopo l'analisi base, devi tassativamente passare all'analisi approfondita qualità, eseguendo `task-content`.
+
 ## Formato Output
 
 Fornisci:
@@ -52,3 +62,4 @@ Fornisci:
 - Analisi E-E-A-T con punteggi per fattore
 - Punteggio predisposizione citazioni AI
 - Raccomandazioni specifiche di miglioramento
+- Amplia il contenuto con la risposta di `task-content`

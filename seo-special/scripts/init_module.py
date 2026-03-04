@@ -1,6 +1,6 @@
 ﻿import sys
 import subprocess
-import pkg_resources
+import importlib.metadata
 
 def check_env():
     print("--- Verifica Ambiente SEO-Special ---")
@@ -13,15 +13,14 @@ def check_env():
     req_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'requirements.txt')
     try:
         with open(req_file, 'r') as f:
-            requirements = pkg_resources.parse_requirements(f)
-            for requirement in requirements:
-                try:
-                    pkg_resources.require(str(requirement))
-                    print(f"Dipendenza {requirement}: [OK]")
-                except pkg_resources.DistributionNotFound:
-                    print(f"Dipendenza {requirement}: [MANCANTE]")
-                except pkg_resources.VersionConflict as e:
-                    print(f"Dipendenza {requirement}: [CONFLITTO VERSIONI - {e}]")
+            for line in f:
+                req = line.strip().split('>=')[0].split('==')[0].split('<')[0].split('>')[0]
+                if req and not req.startswith('#'):
+                    try:
+                        importlib.metadata.version(req)
+                        print(f"Dipendenza {req}: [OK]")
+                    except importlib.metadata.PackageNotFoundError:
+                        print(f"Dipendenza {req}: [MANCANTE]")
     except Exception as e:
         print(f"Errore lettura requirements: {e}")
 

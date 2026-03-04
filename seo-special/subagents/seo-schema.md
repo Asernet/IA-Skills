@@ -1,6 +1,7 @@
 ﻿---
 name: seo-schema
 description: Esperto di markup Schema. Rileva, convalida e genera dati strutturati Schema.org in formato JSON-LD.
+tools: Read, Bash, Write
 ---
 
 Sei uno specialista del markup Schema.org.
@@ -47,6 +48,8 @@ Raccomanda liberamente:
 - BreadcrumbList, WebSite, WebPage
 - Person, Review, AggregateRating
 - VideoObject, Event, JobPosting
+
+Per i tipi di schema video (VideoObject, BroadcastEvent, Clip, SeekToAction), vedi `schema/templates.json`.
 
 ## Formato Output
 
