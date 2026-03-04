@@ -36,10 +36,10 @@ Google indicizza ESCLUSIVAMENTE la versione mobile dei siti web (completato Lugl
 
 | Elemento           | Stato           | Descrizione Discrepanza |
 |--------------------|-----------------|-------------------------|
-| Meta Tag           | ✅/❌          | ... |
-| Schema Markup      | ✅/❌          | ... |
-| Testo Principale   | ✅/❌          | ... |
-| Robots Directives  | ✅/❌          | ... |
+| Meta Tag           | ✅/❌          | ....................... |
+| Schema Markup      | ✅/❌          | ....................... |
+| Testo Principale   | ✅/❌          | ....................... |
+| Robots Directives  | ✅/❌          | ....................... |
 
 ### Raccomandazioni
 - Azioni correttive per allineare la versione mobile a quella desktop.

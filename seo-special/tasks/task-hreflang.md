@@ -178,8 +178,8 @@ Regole chiave:
 
 #### Risultati della Validazione
 
-| Lingua | URL         | Autoref | Tag di Ritorno | x-default | Stato |
-| ------ | ----------- | ------- | -------------- | --------- | ----- |
+| Lingua | URL         | Autoref | Tag di Ritorno  | x-default | Stato  |
+| ------ | ----------- | ------- | --------------- | --------- | ------ |
 | en-US  | https://... | ✅      | ✅             | ✅        | ✅    |
 | fr     | https://... | ❌      | ⚠️             | ✅        | ❌    |
 | de     | https://... | ✅      | ❌             | ✅        | ❌    |

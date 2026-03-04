@@ -138,8 +138,8 @@ Google ha aggiornato la documentazione SEO JavaScript a Dicembre 2025 con chiari
 
 ### Suddivisione per Categoria
 
-| Categoria        | Stato    | Punteggio |
-| ---------------- | -------- | --------- |
+| Categoria        | Stato    | Punteggio   |
+| ---------------- | -------- | ----------- |
 | Scansione        | ✅/⚠️/❌ | XX/100    |
 | Indicizzabilità  | ✅/⚠️/❌ | XX/100    |
 | Sicurezza        | ✅/⚠️/❌ | XX/100    |
@@ -152,7 +152,7 @@ Google ha aggiornato la documentazione SEO JavaScript a Dicembre 2025 con chiari
 ### Problemi Critici (risolvere immediatamente)
 
 ### Priorità Alta (entro 1 settimana)
-
+ 
 ### Priorità Media (entro 1 mese)
 
 ### Priorità Bassa (backlog)

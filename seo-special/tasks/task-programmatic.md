@@ -144,8 +144,8 @@ Misurare rispetto a tutte le altre pagine del set programmatico. Header, footer 
 
 ### Riepilogo della Valutazione
 
-| Categoria            | Stato    | Punteggio |
-| -------------------- | -------- | --------- |
+| Categoria            | Stato    | Punteggio   |
+| -------------------- | -------- | ----------- |
 | Qualità dei Dati     | ✅/⚠️/❌ | XX/100    |
 | Univocità Template   | ✅/⚠️/❌ | XX/100    |
 | Struttura URL        | ✅/⚠️/❌ | XX/100    |

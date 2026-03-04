@@ -39,13 +39,13 @@ description: Audit SEO completo del sito web con delega ai sub-agenti. Scansiona
 
 | Categoria                    | Peso |
 |------------------------------|------|
-| SEO Tecnico                  | 25% |
-| Qualità Contenuti            | 25% |
-| SEO On-Page                  | 20% |
-| Schema / Dati Strutturati    | 10% |
-| Performance (CWV)            | 10% |
-| Immagini                     | 5% |
-| Predisposizione Ricerca AI   | 5% |
+| SEO Tecnico                  | 25%  |
+| Qualità Contenuti            | 25%  |
+| SEO On-Page                  | 20%  |
+| Schema / Dati Strutturati    | 10%  |
+| Performance (CWV)            | 10%  |
+| Immagini                     | 5%   |
+| Predisposizione Ricerca AI   | 5%   |
 
 ## Struttura del Report
 

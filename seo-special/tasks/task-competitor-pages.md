@@ -111,15 +111,15 @@ Per ogni analisi, identificare almeno **5 competitor chiave** e includere l'**UR
 
 ### Pattern di Intento di Confronto
 | Pattern                     | Esempio                                    | Segnale Volume Ricerca |
-|-----------------------------|--------------------------------------------|----------------------|
-| `[A] vs [B]`                | "[Prodotto A] vs [Prodotto B]"             | Alto                 |
-| `[A] alternative`           | "Alternative a Figma"                      | Alto                 |
-| `[A] alternatives [year]`   | "Alternative a Notion 2026"                | Alto                 |
-| `best [category] tools`     | "migliori strumenti project management"    | Alto                 |
-| `[A] vs [B] for [use case]` | "AWS vs Azure per startup"                 | Medio                |
-| `[A] review [year]`         | "Recensione Monday.com 2026"               | Medio                |
-| `[A] vs [B] pricing`        | "Prezzi HubSpot vs Salesforce"             | Medio                |
-| `is [A] better than [B]`    | "Notion è meglio di Confluence?"           | Medio                |
+|-----------------------------|--------------------------------------------|------------------------|
+| `[A] vs [B]`                | "[Prodotto A] vs [Prodotto B]"             | Alto                   |
+| `[A] alternative`           | "Alternative a Figma"                      | Alto                   |
+| `[A] alternatives [year]`   | "Alternative a Notion 2026"                | Alto                   |
+| `best [category] tools`     | "migliori strumenti project management"    | Alto                   |
+| `[A] vs [B] for [use case]` | "AWS vs Azure per startup"                 | Medio                  |
+| `[A] review [year]`         | "Recensione Monday.com 2026"               | Medio                  |
+| `[A] vs [B] pricing`        | "Prezzi HubSpot vs Salesforce"             | Medio                  |
+| `is [A] better than [B]`    | "Notion è meglio di Confluence?"           | Medio                  |
 
 ### Formule per Title Tag
 - X vs Y: `[A] vs [B]: [Differenziatore Chiave] ([Anno])`

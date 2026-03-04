@@ -60,8 +60,9 @@ L'agente deve seguire questo protocollo Milestone-Based per ogni invocazione di 
 1.  **Fase Dati (Python Entry)**: Eseguire gli script Python (`init_module.py`, `fetch_page.py`) per raccogliere dati grezzi reali (HTML, headers). Se necessario, utilizzare `capture_screenshot.py` per l'analisi visuale.
 2.  **Rilevamento Settore**: Identificare la tipologia di business consultando `references/industry-signals.md`.
 3.  **Delega Parallela**: Avviare i sotto-agenti (in `subagents/`) basandosi sui file estratti nella cartella `data/`.
-4.  **Sintesi Multimodale**: Leggere i risultati dei task e generare un report unificato con un Punteggio di Salute SEO (SEO Health Score) ricalibrato.
-5.  **Piano d'Azione**: Creare una roadmap prioritaria (Critico → Alto → Medio → Basso).
+4.  **Sintesi Multimodale**: Leggere i risultati dei task e assegnare un Punteggio di Salute SEO (SEO Health Score) ricalibrato.
+5.  **Fare un Audit Base**: Usare `task-audit` per fare un audit base del sito e salvarne il contenuto in un file md.
+6.  **Piano d'Azione**: Creare una roadmap prioritaria (Critico → Alto → Medio → Basso).
 
 Per i singoli comandi, caricare direttamente la relativa competenza presente in `tasks/task-*.md`.
 
@@ -70,14 +71,15 @@ Per i singoli comandi, caricare direttamente la relativa competenza presente in 
 ## Standard Tecnologici e Design Patterns
 
 ### 1. Protocollo SEO Station (Inviolabile)
-- **Directory di Lavoro**: Ogni operazione avviene rigorosamente in `Desktop/SEO_WORKSPACE/`.
-- **Fase Dati**: Tutti i file grezzi (HTML, robots, json) devono essere salvati in `SEO_WORKSPACE/data/[sito]/`.
+- **Directory di Lavoro**: Ogni operazione avviene rigorosamente in `Desktop/Progetti/[sito]/`.
+- **Fase Dati**: Tutti i file grezzi (HTML, robots, json) devono essere salvati in `Desktop/Progetti/[sito]/data/`.
 - **Fase Analisi**: L'agente deve leggere esplicitamente i file in `data/` prima di formulare ogni conclusione. I report senza dati tecnici estratti sono nulli.
-- **Fase Report**: I risultati finali (.md e .pdf) sono salvati in `SEO_WORKSPACE/report/[sito]/`.
+- **Fase Report**: I risultati finali (.md e .pdf) sono salvati in `Desktop/Progetti/[sito]/report/`.
+- **Fase Pulizia**: Eliminare i file temporanei e non utili all'utente dopo ogni operazione.
 
 ### 2. Regole Tassative di Analisi
 - Mai raccomandare lo schema `HowTo` (deprecato).
-- Schema `FAQ` ammesso solo per siti governativi e sanitari.
+- Schema `FAQ` ammesso solo per siti governativi, sanitari e di pubblica utilità, anche per e-commerce.
 - Tutti i riferimenti ai Core Web Vitals devono usare l'**INP**, mai il FID.
 - Verificare sempre l'ambiente Python tramite `requirements.txt` prima di eseguire script.
 - **Interattività**: Chiedere conferma prima di ogni Milestone di analisi profonda.

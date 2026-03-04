@@ -143,12 +143,12 @@ Quando si genera uno schema per una pagina:
 
 ### Risultati della Validazione
 
-| Schema | Tipo | Stato    | Problemi |
-| ------ | ---- | -------- | -------- |
+| Schema | Tipo | Stato      | Problemi |
+| ------ | ---- | ---------- | -------- |
 | ...    | ...  | ✅/⚠️/❌ | ...      |
 
 ### Raccomandazioni
-
+ 
 - Opportunità di schema mancanti.
 - Correzioni di validazione necessarie.
 - Codice generato per l'implementazione.

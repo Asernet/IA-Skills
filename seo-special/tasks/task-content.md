@@ -46,11 +46,11 @@ Consultare `references/eeat-framework.md` per i criteri completi.
 Confrontare con i minimi per tipologia di pagina:
 | Tipo di Pagina | Minimo |
 |----------------|--------|
-| Homepage | 500 |
-| Pagina Servizio| 800 |
-| Post del Blog | 1.500 |
-| Pagina Prodotto| 300+ (400+ per prodotti complessi) |
-| Pagina Locale | 500-600|
+| Homepage       | 500    |
+| Pagina Servizio| 800    |
+| Post del Blog  | 1.500  |
+| Pagina Prodotto| 300+   |
+| Pagina Locale  | 500-600|
 
 > **Importante:** Questi sono **livelli minimi di copertura tematica**, non obiettivi. Google ha confermato che il conteggio delle parole NON è un fattore di ranking diretto. L'obiettivo è una copertura tematica completa: una pagina di 500 parole che risponde esaustivamente alla query supererà una pagina di 2.000 parole che non lo fa. Usare questi valori come linee guida per una profondità di copertura adeguata, non come requisiti rigidi.
 
