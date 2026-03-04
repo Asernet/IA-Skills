@@ -63,6 +63,9 @@ def analyze_geo(filepath):
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         res = analyze_geo(sys.argv[1])
-        with open(r"C:\Users\M.Macelloni\Desktop\SEO_WORKSPACE\report\asernet.it\geo_data.json", "w", encoding="utf-8") as f:
+        output_path = sys.argv[1].replace(".html", "_geo.json")
+        with open(output_path, "w", encoding="utf-8") as f:
             json.dump(res, f, indent=2)
-        print("GEO Analysis Done.")
+        print(f"GEO Analysis Done. Results saved to {output_path}")
+        # Also print to stdout for easy reading by agent
+        print(json.dumps(res, indent=2))
