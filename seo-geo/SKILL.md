@@ -235,6 +235,7 @@ open "https://www.bing.com/search?q=site:{domain}"
 
 ```markdown
 ## Report di Ottimizzazione SEO/GEO
+Percorso Suggerito: `C:\Users\M.Macelloni\Desktop\Progetti\[Sito]\report\`
 
 ### Stato Attuale
 
