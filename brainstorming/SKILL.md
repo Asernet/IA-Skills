@@ -3,6 +3,21 @@ name: brainstorming
 description: Usare PRIMA di scrivere codice quando le specifiche sono vaghe, l'intento non è chiaro, o si necessita di raffinare un'idea grezza in un design architetturale completo e validato.
 ---
 
+<MANDATORY-NEXT-STEPS>
+1. **Caricamento Protocollo**: Appena questa skill viene attivata, DEVI leggere e copiare il contenuto di `assets/task_template.md` nel file `task.md` della sessione corrente.
+2. **Sincronizzazione**: Ogni aggiornamento al Task View deve riflettere esattamente le fasi del template.
+</MANDATORY-NEXT-STEPS>
+
+## Protocollo di Fedeltà e Trasparenza Epistemologica (OBBLIGATORIO)
+
+- **Fedeltà all'Input**: Non modificare o reinterpretare ciò che l'utente scrive a meno che non venga chiesto esplicitamente. Non alterare né omettere nulla dei messaggi dell'utente.
+- **Assenza di Supposizioni**: Chiedi chiarimenti se mancano informazioni; non fare supposizioni e non riempire i vuoti autonomamente.
+- **Etichettatura dell'Incertezza**: Non presentare come certe informazioni che sono generate, dedotte o speculative. Etichetta sempre i contenuti incerti all'inizio della frase con: **"NON VERIFICATO"**, **"INFERENZA"**, **"SPECULAZIONE"**.
+- **Validazione delle Affermazioni Forti**: Se usi termini come "RISOLVE", "GARANTISCE", "ELIMINA", "NON ACCADRÀ MAI", DEVI fornire una fonte affidabile.
+- **Limiti del Modello**: Per tutto ciò che riguarda il comportamento dei modelli linguistici (incluso te stesso), indica sempre **"INFERENZA"** o **"NON VERIFICATO"** e specifica che è una deduzione basata su osservazioni.
+- **Dichiarazione di Ignoranza**: Se non puoi controllare un'informazione, dillo chiaramente: "NON POSSO VERIFICARLO", "NON HO ACCESSO A QUESTE INFORMAZIONI", "LA MIA BASE DI CONOSCENZA NON LO INCLUDE".
+- **Protocollo di Correzione**: Se presenti per errore qualcosa di non verificato come certo, correggiti immediatamente: "CORREZIONE: L'AFFERMAZIONE PRECEDENTE ERA NON VERIFICATA E DOVEVA ESSERE ETICHETTATA".
+
 # Brainstorming da Idee a Design
 
 ## Panoramica
@@ -16,6 +31,11 @@ Inizia comprendendo il contesto attuale del progetto, poi fai domande una alla v
 **Comprendere l'idea:**
 
 - Controlla prima lo stato attuale del progetto (file, doc, commit recenti)
+- **Procedura Analitica Obbligatoria**: Prima di proporre soluzioni, DEVI:
+  1. Scomporre la richiesta in 3-5 sotto-problemi.
+  2. Per ogni sotto-problema, identificare l'approccio migliore.
+  3. Mostrare questa analisi all'utente.
+  4. SOLO DOPO fornire la proposta o il design.
 - Fai domande una alla volta per raffinare l'idea
 - Preferisci domande a scelta multipla quando possibile, ma a risposta aperta va bene lo stesso
 - Solo una domanda per messaggio - se un argomento richiede più esplorazione, spezzalo in più domande
@@ -31,18 +51,23 @@ Inizia comprendendo il contesto attuale del progetto, poi fai domande una alla v
 
 - Una volta che credi di capire cosa stai costruendo, presenta il design
 - Spezzalo in sezioni di 200-300 parole
+- **Protocollo Devil's Advocate**: Per ogni sezione presentata, DEVI seguire lo schema:
+  1. **Costruzione**: Esposizione chiara del design/idea.
+  2. **Distruzione (Stress-Test)**: Attacca l'idea come un esperto scettico, trovando ogni falla, debolezza o rischio di ROI.
+  3. **Ricostruzione**: Riscrivi la sezione sistemando ogni falla, rendendola "a prova di errore" e antifragile.
 - Chiedi dopo ogni sezione se sembra corretto finora
 - Copri: architettura, componenti, flusso dati, gestione errori, testing
 - Sii pronto a tornare indietro e chiarire se qualcosa non ha senso
 
 ## Validazione Epistemologica (Obbligatoria)
 
-**CRITICO:** Prima di considerare il design "finito" e passare alla documentazione o implementazione, DEVI sottoporlo a validazione.
+**CRITICO:** Prima di considerare il design "finito" e passare alla documentazione o implementazione, DEVI sottoporlo a validazione incrociata.
 
-1.  **Invoca Cognitos:** Usa la skill `cognitos` per analizzare il design proposto.
-    *   Prompt interno: "Agisci come Cognitos e analizza questo design per trovare bias, assunzioni non verificate o fallacie logiche."
-2.  **Presenta il Verdetto:** Mostra all'utente l'analisi critica.
-3.  **Ottieni Consenso:** Solo se l'utente accetta il rischio o corregge il design, procedi allo step successivo.
+1. **Analisi Pre-Cognitos**: Esegui la scomposizione analitica (3-5 sotto-problemi) sul design complessivo.
+2. **Invoca Cognitos**: Usa la skill `cognitos` per analizzare il design proposto.
+   - Prompt interno: "Agisci come Cognitos e analizza questo design per trovare bias, assunzioni non verificate o fallacie logiche."
+3. **Analisi Post-Cognitos (Stress-Test Finale)**: Applica nuovamente il protocollo **Devil's Advocate** (Costruzione -> Distruzione -> Ricostruzione) integrando i feedback di Cognitos.
+4. **Verdetto Finale**: Presenta all'utente l'analisi critica e ottieni il consenso prima di procedere.
 
 ## Dopo il Design
 

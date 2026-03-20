@@ -1,0 +1,27 @@
+# Task: Sviluppo Workflow n8n [Nome]
+
+- [/] Fase 1: Definizione Architetturale
+    - [ ] Identificazione Trigger e Action
+    - [ ] Selezione Pattern (`n8n-workflow-patterns`)
+    - [ ] Definizione schema dati ($json.body)
+- [ ] Fase 2: Configurazione Nodi (MCP)
+    - [ ] Scansione nodi necessari (`search_nodes`)
+    - [ ] Configurazione proprietà (`get_node`)
+    - [ ] Validazione nodi (`validate_node`)
+- [ ] Fase 3: Generazione e Raffinamento
+    - [ ] Generazione JSON del workflow (o aggiornamento parziale)
+    - [ ] Implementazione Error Handling
+- [ ] Fase 4: Verifica Conformità Skill (MANDATORIA)
+    - [ ] **Cross-Check Direttive**: Analisi di tutti i vincoli e le best practice definite nelle skill del cluster (generator, patterns, mcp-tools).
+    - [ ] **Validazione del Design**: Verifica che ogni nodo e ogni trasformazione pianificata rispetti i criteri delle skill.
+- [ ] Fase 5: Validazione Epistemologica (OBBLIGATORIA)
+    - [ ] **Invoca Cognitos** per analisi bias e fallacie logiche nel design verificato.
+- [ ] Fase 6: Pianificazione dell'Implementazione
+    - [ ] **Invoca Writing Plan**: Segui la guida `assets/writing-plans-guide.md`.
+    - [ ] **Verifica e Analisi Post-Plan**: Analisi critica del piano prima di passare alla scrittura del JSON.
+- [ ] Fase 7: Esecuzione e Validazione Tecnica
+    - [ ] **Invoca Executing Plan**: Generazione del JSON/Workflow.
+    - [ ] **Validazione JSON**: Esegui `n8n-validation-expert` sul codice generato per assicurare che sia pronto per l'invio a n8n.
+- [ ] Fase 8: Consegna e Test
+    - [ ] Se il server mcp è disponibile crea il workflow direttamente sull'istanza di n8n.
+    - [ ] Fornitura JSON finale e istruzioni di test manuale.

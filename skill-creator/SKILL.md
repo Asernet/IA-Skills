@@ -1,118 +1,120 @@
 ---
 name: skill-creator
-description: Guida completa alla progettazione di skill ed agente generatore per creare nuove skill nell'ambiente Gemini CLI.
+description: "Centrale di Ingegneria per Skill AI. Gestisce il ciclo di vita completo (Design, Creazione, Refactoring) con standard qualitativi Anthropic e pattern avanzati."
+version: 2.1.0
+category: meta
+tags:
+  [
+    automation,
+    scaffolding,
+    skill-creation,
+    prompt-engineering,
+    qualitative-standards,
+  ]
 ---
 
-# Skill Creator & Generator
+# Skill Creator Pro: Manuale di Ingegneria Qualitativa
 
-Questa skill unificata serve due scopi:
-
-1.  **Guida di Riferimento**: Fornisce principi, pattern e best practice per progettare skill efficaci.
-2.  **Agente Generatore**: Agisce come "Skill Generator" operativo per creare fisicamente i file delle skill.
-
----
-
-# PARTE 1: IL "MANUALE" (Guida alla Progettazione)
-
-Le skill sono pacchetti modulari e auto-contenuti che estendono le capacità di Claude fornendo conoscenze specializzate, workflow e tool.
-
-## Principi Core
-
-### La Concisione è Chiave
-
-La finestra di contesto è un bene pubblico. Aggiungi solo contesto che Claude o Gemini-CLI non hanno già. Preferisci esempi concisi a spiegazioni verpose.
-
-### Gradi di Libertà
-
-- **Alta libertà**: Istruzioni testuali (quando approcci multipli sono validi).
-- **Libertà media**: Pseudocodice (quando esiste un pattern preferito).
-- **Bassa libertà**: Script specifici (quando la consistenza è critica).
-
-### Anatomia di una Skill
-
-Ogni skill deve trovarsi in `C:\Users\mazin\.gemini\skills\<skill-name>\` e contenere almeno `SKILL.md`.
-
-#### Struttura Directory
-
-```
-skill-name/
-├── SKILL.md (richiesto)
-│   ├── YAML frontmatter (name, description)
-│   └── Istruzioni Markdown
-└── Risorse (opzionale)
-    ├── scripts/    - Codice eseguibile
-    ├── references/ - Documentazione pesante
-    └── assets/     - File usati nell'output
-```
-
-#### Pubblicazione e Validazione
-
-Usa sempre `scripts/init_skill.py` per creare e `scripts/package_skill.py` per validare e impacchettare.
+Questa skill non è solo un generatore di file, ma un custode degli standard di qualità per gli agenti AI. Segui questa guida per creare skill che siano robuste, concise e potenti.
 
 ---
 
-# PARTE 2: L' "OPERAIO" (Agente Generatore)
+# 🧠 ARCHITETTURA DELLA CONOSCENZA (3 Livelli)
 
-Quando ti viene chiesto di "Creare una nuova skill" o agire come "Skill Generator", attiva questa modalità.
+Ogni skill deve seguire il pattern della **Progressive Disclosure** (Rivelazione Progressiva):
 
-## Ruolo Attivo
+1.  **Livello 1: Metadata (Frontmatter YAML)**: Informazioni rapide per l'indicizzatore.
+2.  **Livello 2: SKILL.md (Il Cuore)**: Istruzioni operative principali (1.500 - 2.000 parole). Deve essere autonomo ma non sovraccarico.
+3.  **Livello 3: Bundled Resources (Le Appendici)**:
+    - `references/`: Documentazione pesante, guide di stile, specifiche tecniche (>5.000 parole).
+    - `examples/`: Campioni di codice funzionanti, coppie input/output per lo stile.
+    - `scripts/`: Utilità eseguibili per automatizzare task specifici.
 
-Tu sei l'agente **Skill Generator**. Il tuo compito è meta-programmare file di configurazione (`.md`) per l'ambiente Gemini CLI.
+---
 
-## Processo di Creazione
+# 📏 STANDARD QUALITATIVI (Must-Have)
 
-Segui rigorosamente questa sequenza:
+- **Persona**: Scrivi sempre in **terza persona** (es: "Questa skill deve...", NOT "Usa questa skill per...").
+- **Mood**: Usa il modo **imperativo/infinito** per le istruzioni operative.
+- **Concisione**: La finestra di contesto è preziosa. Non spiegare concetti che l'IA già conosce (es: nozioni base di Python).
+- **Integrità Tecnica**: Path, comandi e snippet di codice devono essere esatti e testati.
 
-1.  **Analisi**: Identifica compito e ruolo. Se vago, chiedi chiarimenti.
-2.  **Definizione**: Elabora Frontmatter (name: kebab-case, description: ITALIANO terza persona) e Contenuto.
-3.  **Conferma**: Mostra bozza strutturata.
-4.  **Lingua della Skill**: La skill deve essere scritta in **ITALIANO** (eccetto termini tecnici standard).
-5.  **Esecuzione**:
-    - Crea cartella: `C:\Users\mazin\.gemini\skills\[nome-skill]\`
-    - Scrivi file: `C:\Users\mazin\.gemini\skills\[nome-skill]\SKILL.md`
-6.  **Ingegnerizzazione (Opzionale)**:
-    - Dopo la creazione, CHIEDI esplicitamente: *"Vuoi procedere a ingegnerizzare il prompt e le azioni di questa skill usando la metodologia `writing-skills`?"*
-    - Spiega che questo passaggio serve a consolidare le istruzioni tramite un approccio TDD (Test-Driven) per rendere la skill robusta.
-    - Se l'utente accetta, leggi la skill `skills/writing-skills` e guida l'utente nel raffinamento.
+---
 
-7.  **Delivery Anthropic (Opzionale)**:
-    - Se l'utente ha specificato che la skill è per **Claude/Anthropic**, al termine DEVI AUTOMATICAMENTE:
-        - Creare uno ZIP della cartella skill.
-        - Salvarlo in `C:\Users\M.Macelloni\Downloads`.
-        - Confermare posizione file all'utente.
+# 🎨 PATTERN DI DESIGN DELLE SKILL
 
-## Template Obbligatorio SKILL.md
+### 1. Workflow Patterns
+
+- **Sequenziale**: Per task lineari. Mostra sempre un'anteprima (overview) dei passaggi all'inizio.
+- **Condizionale**: Per task con logica a bivi. Usa blocchi "Se... allora..." chiaramente demarcati.
+
+### 2. Output Patterns
+
+- **Template Rigido**: Se l'output deve essere processato da altri tool/API (Markdown strutturato, JSON).
+- **Esempi per lo Stile**: Fornisci coppie `Input -> Output` per insegnare all'IA il tono e il livello di dettaglio desiderato.
+
+---
+
+# 🛠️ WORKFLOW OPERATIVO POTENZIATO
+
+### Fase 0: Scansione Ambiente & Discovery
+
+- Verifica `COPILOT_INSTALLED` e `CLAUDE_INSTALLED`.
+- Identifica il ruolo dell'agente: È uno strumento di analisi, generazione codice o documentazione?
+
+### Fase 1: Ingegneria del Prompt (TDD) [30%]
+
+- **NON saltare questo passaggio**: Usa la metodologia `writing-skills`.
+- Definisci i criteri di successo (Cosa rende questa skill "buona"?).
+
+### Fase 2: Creazione Struttura Deep [60%]
+
+- Crea la cartella in `%USERPROFILE%\.gemini\skills\[nome]`.
+- Genera il file `SKILL.md` (vedi Template).
+- **Proattività**: Se la skill è complessa, crea automaticamente i file in `references/` e `examples/`.
+
+### Fase 3: Deployment & Symlink [100%]
+
+- Offri sempre l'installazione globale (`ln -sf`) per rendere la skill universale.
+
+---
+
+# 🔄 MODALITÀ REFACTORY & MIGLIORAMENTO
+
+Durante la manutenzione di skill esistenti (specialmente se provenienti dalla community in inglese):
+
+1.  **Traduzione Analitica**: Traduci riga per riga. Non riassumere mai.
+2.  **Iniezione di Sostanza**: Se il file originale è povero, arricchiscilo con i "Pattern di Design" descritti sopra.
+3.  **Verifica Coerenza**: Assicurati che i path assoluti puntino alle directory corrette dell'utente.
+
+---
+
+# 📝 TEMPLATE PROFESSIONALE SKILL.md
 
 ```markdown
 ---
-name: [nome-skill-kebab-case]
-description:
-  [Descrizione in terza persona in ITALIANO. Es: "Genera unit test per..."]
+name: [nome-kebab-case]
+description: [Terza persona, Italiano]
+triggers: ["...", "..."]
 ---
 
-# [Nome Skill]
+# [Titolo]
 
-## Ruolo
+## Overview
 
-[Chi è l'agente quando usa questa skill?]
+[Spiegazione breve del perché e quando usare questa skill]
 
-## Istruzioni Operative
+## Workflow
 
-1. [Azione 1]
-2. [Azione 2]
+1. [Passo 1]
+2. [Passo 2]
 
-## Vincoli
+## Design Patterns
 
-- [Cosa NON fare]
+[Elenco dei pattern usati, es: Template Pattern per report]
 
-## Esempi
+## Risorse Bundled
 
-User: ...
-Assistant: ...
+- [references/...]
+- [examples/...]
 ```
-
-## Regole per la Generazione
-
-- **Lingua**: Tutto il contenuto generato deve essere in **ITALIANO** (eccetto termini tecnici standard).
-- **Path**: Non deviare mai da `C:\Users\mazin\.gemini\skills\`.
-- **Focus**: Una skill = Una responsabilità.

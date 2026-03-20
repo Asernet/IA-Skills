@@ -2,19 +2,20 @@
 
 Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 
-## Indice Skills (70)
+## Indice Skills (82)
 
 | Skill | Descrizione |
 | :--- | :--- |
 | **[[advanced-evaluation]]** | Usa questa skill per implementare 'LLM-as-judge', confrontare output di modelli, creare rubriche di valutazione, mitigare bias di valutazione, o per scoring diretto e pipeline di quality assessment. |
 | **[[algorithmic-art]]** | Creazione di arte algoritmica con p5.js. Usa questa skill per generare arte tramite codice, flow fields o sistemi particellari. Crea design originali evitando violazioni di copyright. |
-| **[[analytics-tracking]]** | Imposta, migliora e verifica il tracciamento analytics e la misurazione dei dati. Utilizzare quando l'utente menziona "configurare tracking", "GA4", "Google Analytics", "tracciamento conversioni", "tracciamento eventi", "parametri UTM", "tag manager", "GTM", "implementazione analytics" o "piano di tracciamento". |
-| **[[analytics-tracking-analyzer]]** | Analizza siti web per tracciamenti esterni e suggerisce configurazioni GTM. Usa quando l'utente vuole audit SEO/Analytics o configurare GTM. |
+| **[[analytics-tracking]]** | Usare quando l'utente richiede la configurazione o l'implementazione di sistemi di analytics (GA4, GTM), piani di tracciamento dati, parametri UTM, o audit delle misurazioni di marketing. |
+| **[[analytics-tracking-analyzer]]** | Usare quando l'utente richiede un'analisi di compliance GDPR, un audit dei tracciamenti (Analytics/GTM), o la creazione di una configurazione GTM sicura. |
 | **[[bdi-mental-states]]** | Usa questa skill per modellare stati mentali di agenti, architetture BDI (Belief-Desire-Intention), o integrazione AI neuro-simbolica. |
-| **[[brainstorming]]** | OBBLIGATORIO prima di qualsiasi lavoro creativo o implementativo. Esplora l'intento dell'utente, i requisiti e il design prima di iniziare a scrivere codice. |
-| **[[brand-forge]]** | Suite completa per la creazione di Brand Identity, dall'analisi strategica di mercato (Blueprint) alla generazione di visual identity (Logo e Concept Defense). |
+| **[[brainstorming]]** | Usare PRIMA di scrivere codice quando le specifiche sono vaghe, l'intento non è chiaro, o si necessita di raffinare un'idea grezza in un design architetturale completo e validato. |
+| **[[brand-forge]]** | Usare quando l'utente richiede la creazione di una Brand Identity completa, lo sviluppo di loghi, l'analisi strategica di un marchio, o la definizione di naming, payoff e visual identity. |
 | **[[brand-guidelines]]** | Gestisce dinamicamente l'identità del brand. Verifica l'esistenza di dati di brand (Colori, Font) e, se mancanti, interroga l'utente per crearli. |
 | **[[canvas-design]]** | Crea arte visiva in .png e .pdf. Usa per poster, design statici o arte, creando opere originali. |
+| **[[cognitos]]** | Usa quando devi analizzare rigorosamente un'idea, verificare bias logici, condurre un'analisi epistemologica profonda o sottoporre un ragionamento a stress-test (Red Team). |
 | **[[context-compression]]** | Usa questa skill per comprimere il contesto, riassumere la cronologia, ridurre l'uso di token o gestire sessioni lunghe. |
 | **[[context-degradation]]** | Usa questa skill per diagnosticare problemi di contesto, 'lost-in-middle', o degradazione delle performance dell'agente. |
 | **[[context-fundamentals]]** | Usa questa skill per comprendere e spiegare finestre di contesto, architetture di agenti e meccanismi di attenzione. |
@@ -38,8 +39,15 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[mcp-builder]]** | Guida per creare server MCP (Model Context Protocol) di alta qualità per integrare servizi esterni con LLM. |
 | **[[memory-systems]]** | Usa questa skill per implementare memoria per agenti, persistenza tra sessioni o knowledge graph. |
 | **[[multi-agent-patterns]]** | Usa questa skill per progettare sistemi multi-agente, pattern supervisore, swarm o coordinamento tra agenti. |
-| **[[n8n-flow-generator]]** | Agente specialista n8n che analizza richieste utente per creare o ottimizzare flussi n8n, producendo prompt tecnici dettagliati per l'automazione. |
-| **[[notebooklm]]** | Interroga roadmap e notebook di Google NotebookLM per risposte basate su fonti e citazioni verificate. |
+| **[[n8n-code-javascript]]** | Scrittura di codice JavaScript nei nodi n8n Code. Consigliato per trasformazioni complesse, accessi $input/$json/$node, ed elaborazione dati avanzata. |
+| **[[n8n-code-python]]** | Scrittura di codice Python nei nodi n8n Code. Da usare per trasformazioni specifiche o libreria standard Python, con consapevolezza dei limiti in n8n. |
+| **[[n8n-expert]]** | Skill Master che coordina l'intera suite n8n (flow-generator, workflow-patterns, mcp-tools-expert). Carica questa skill per qualsiasi task complesso su n8n. |
+| **[[n8n-expression-syntax]]** | Ottimizzazione e fixing della sintassi delle espressioni n8n ({{ }}). Include pattern per l'accesso ai dati webhook e variabili di sistema. |
+| **[[n8n-flow-generator]]** | Generatore di workflow n8n a partire da requisiti di business. |
+| **[[n8n-mcp-tools-expert]]** | Esperto nell'utilizzo e configurazione degli strumenti MCP per n8n. |
+| **[[n8n-node-configuration]]** | Guida alla configurazione dei nodi n8n basata sull'operazione. Gestione dipendenze proprietà e campi obbligatori. |
+| **[[n8n-validation-expert]]** | Interpetazione e risoluzione degli errori di validazione n8n. Gestione dei profili di validazione (runtime/ai-friendly) e loop di fixing. |
+| **[[n8n-workflow-patterns]]** | Pattern e best practice per la progettazione di workflow n8n scalabili. |
 | **[[obsidian-bases]]** | Crea e modifica Obsidian Bases (.base) per viste database, filtri e formule nelle note. |
 | **[[obsidian-manager]]** | Gestisce il Vault Obsidian (creazione note formattate) e fornisce riferimento per sintassi Markdown avanzata. |
 | **[[pdf]]** | Toolkit completo per manipolazione PDF: estrazione testo/tabelle, creazione, unione/divisione e gestione moduli. |
@@ -54,10 +62,12 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[rag-engineer]]** | Esperto nella costruzione di sistemi Retrieval-Augmented Generation. Padroneggia modelli embedding, database vettoriali, strategie chunking e ottimizzazione retrieval per applicazioni LLM. Utilizza per RAG, ricerca vettoriale, embedding, ricerca semantica. |
 | **[[rag-implementation]]** | Pattern Retrieval-Augmented Generation inclusi chunking, embedding, vector store e ottimizzazione retrieval. Utilizza per RAG, retrieval augmented, ricerca vettoriale, embedding, ricerca semantica. |
 | **[[receiving-code-review]]** | Usa quando ricevi feedback di code review, per verificare rigorosamente i suggerimenti prima di implementarli. |
+| **[[remotion-best-practices]]** | Best practice per Remotion - Creazione di video in React |
 | **[[requesting-code-review]]** | Usa prima di completare task o merge, per verificare che il lavoro soddisfi i requisiti. |
 | **[[rice-prompt-writer]]** | Riformula le richieste utente in prompt strutturati secondo il framework RICE (Role, Instructions, Context, Examples) per massimizzare la qualità dell'output degli LLM. |
 | **[[seo-audit]]** | Skill per audit, revisione o diagnosi problemi SEO su un sito. Utilizza quando l'utente menziona audit SEO, SEO tecnico, perché non mi posiziono, problemi SEO, on-page SEO, review meta tag o health check SEO. |
 | **[[seo-fundamentals]]** | Fondamentali SEO, E-E-A-T, Core Web Vitals e principi algoritmo Google. Skill di riferimento per best practice SEO di base. |
+| **[[seo-geo]]** | \| |
 | **[[skill-creator]]** | Guida completa alla progettazione di skill ed agente generatore per creare nuove skill nell'ambiente Gemini CLI. |
 | **[[skills-library-manager]]** | Gestisce la libreria delle skill eseguendo validazione, indicizzazione e aggiornamento del Vademecum in Obsidian. |
 | **[[slack-gif-creator]]** | Crea GIF animate ottimizzate per Slack partendo da richieste dell'utente. |
@@ -68,9 +78,11 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[theme-factory]]** | Crea temi per stilizzare artefatti (slide, doc, html). Usa preset o genera nuovi temi on-the-fly. |
 | **[[tool-design]]** | Usa questa skill per progettare tool per agenti, definire interfacce o consolidare strumenti esistenti. |
 | **[[ui-ux-pro-max]]** | "Intelligenza di design UI/UX. 50 stili, 21 palette, 50 abbinamenti di font, 20 grafici, 9 stack (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui). Azioni: pianifica, costruisci, crea, progetta, implementa, rivedi, correggi, migliora, ottimizza, potenzia, rifattorizza, controlla il codice UI/UX. Progetti: sito web, landing page, dashboard, pannello di amministrazione, e-commerce, SaaS, portfolio, blog, app mobile, .html, .tsx, .vue, .svelte. Elementi: pulsante, modale, navbar, barra laterale, scheda, tabella, modulo, grafico. Stili: glassmorphism, claymorphism, minimalismo, brutalismo, neumorphism, bento grid, dark mode, responsive, skeuomorphism, flat design. Argomenti: palette colori, accessibilità, animazione, layout, tipografia, abbinamento font, spaziatura, hover, ombra, sfumatura. Integrazioni: shadcn/ui MCP per ricerca componenti ed esempi." |
+| **[[ultrathink]]** | Usa quando l'utente scrive ultrathink o quando hai bisogno di un'analisi di architettura di sistema di alto livello, qualità del codice senza compromessi o valutazione profonda dei trade-off tecnici tramite il protocollo ULTRATHINK. |
 | **[[using-git-worktrees]]** | Usa per iniziare lavori su feature che richiedono isolamento, creando worktree git separati. |
 | **[[using-superpowers]]** | Usa all'inizio di ogni conversazione per stabilire come trovare e invocare le skill. |
 | **[[verification-before-completion]]** | Usa prima di dichiarare un lavoro finito. Richiede esecuzione di comandi di verifica e conferma output. |
+| **[[video-content-creator]]** | Trasforma paper scientifici e articoli blog in video informativi ottimizzati per YouTube, gestendo script, storyboard e prompt per AI video/image generators. |
 | **[[web-artifacts-builder]]** | Crea artefatti HTML complessi multi-componente (React, Tailwind, shadcn/ui) per applicazioni web. |
 | **[[web-design-guidelines]]** | Rivedi codice UI per conformità alle Web Interface Guidelines. Utilizza quando l'utente chiede di revisionare la UI, controllare accessibilità, audit design, review UX o controllare il sito rispetto alle best practice. |
 | **[[webapp-testing]]** | Toolkit per testare applicazioni web locali con Playwright: verifica UI, screenshot e debug. |
@@ -78,4 +90,4 @@ Panoramica delle skill disponibili nell'ambiente Gemini CLI.
 | **[[xlsx]]** | Creazione, modifica e analisi avanzata di fogli di calcolo Excel (.xlsx) con formule e formattazione. |
 
 ---
-_Nota: Generato automaticamente da `update_vademecum.py` il 2026-01-28 22:19_
+_Nota: Generato automaticamente da `update_vademecum.py` il 2026-02-14 19:06_

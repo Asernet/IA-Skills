@@ -1,0 +1,990 @@
+{
+  "name": "Daily News Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * *"
+            }
+          ]
+        }
+      },
+      "id": "nt-1",
+      "name": "ScheduleTrigger",
+      "position": [
+        112,
+        400
+      ],
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "options": {}
+      },
+      "id": "nt-2",
+      "name": "RSS_AI",
+      "position": [
+        336,
+        208
+      ],
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://thehackernews.com/feeds/posts/default",
+        "options": {}
+      },
+      "id": "nt-3",
+      "name": "RSS_Cyber",
+      "position": [
+        336,
+        336
+      ],
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://wptavern.com/feed",
+        "options": {}
+      },
+      "id": "nt-4",
+      "name": "RSS_WP",
+      "position": [
+        336,
+        480
+      ],
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://build.prestashop-project.org/feed.xml",
+        "options": {}
+      },
+      "id": "nt-5",
+      "name": "RSS_PS",
+      "position": [
+        336,
+        608
+      ],
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT count(*) AS total, '{{ $json.link }}' AS link FROM processed_news WHERE url_hash = '{{ $json.link }}';",
+        "options": {}
+      },
+      "id": "nt-6",
+      "name": "Postgres_Check",
+      "position": [
+        624,
+        208
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "credentials": {
+        "postgres": {
+          "id": "JVsrCrIB34VkLRJq",
+          "name": "Postgres local account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "check-new-article-redesign",
+              "leftValue": "={{ Number($json.total) }}",
+              "operator": {
+                "operation": "equals",
+                "type": "number"
+              },
+              "rightValue": 0
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "nt-7",
+      "name": "Filter_New",
+      "position": [
+        1152,
+        400
+      ],
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "id": "nt-8",
+      "name": "OpenAI_Model",
+      "position": [
+        1296,
+        544
+      ],
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "fv6wza2Cq6ok6Y7C",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## RUOLO\nJSON Data Architect incaricato dell'arricchimento dati.\n## ISTRUZIONI\n1. Analizza l'articolo disponibile a questo URL (o il testo estratto): {{ $json.link }}\n   *(Nota: Se hai il contenuto estratto in una variabile precedente, usa quella per maggiore precisione, es: {{ $json.content }})*\n2. Genera il riassunto secondo le regole del System Prompt. Questo testo andrà nel campo `contentSnippet`.\n3. Costruisci e restituisci un singolo oggetto JSON popolando i seguenti campi, in stretta conformità con lo schema del database target:\n   - `total`: Imposta fisso a \"0\".\n   - `link`: L'URL originale dell'articolo.\n   - `title`: Il titolo ufficiale dell'articolo.\n   - `pubDate`: La data di pubblicazione (formato es. \"Thu, 05 Feb 2026 15:00:02 +0000\").\n   - `content`: Il corpo del testo dell'articolo (o i primi 500 caratteri se troppo lungo).\n   - `contentSnippet`: Il riassunto generato al punto 2.\n   - `categories`: Un array di stringhe con i tag/categorie rilevanti (es. [\"startups\", \"AI\", \"big data\"]).\n## ESEMPIO STRUTTURA OUTPUT (JSON Only)\n{\n  \"total\": \"0\",\n  \"link\": \"https://...\",\n  \"title\": \"Titolo Esempio\",\n  \"pubDate\": \"Thu, 05 Feb 2026 ...\",\n  \"content\": \"Testo completo...\",\n  \"contentSnippet\": \"Riassunto generato di 2 frasi in italiano...\",\n  \"categories\": [\"Tag1\", \"Tag2\"]\n}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=## RUOLO\nSei un Assistente Editoriale AI esperto in sintesi e un Data Engineer specializzato in strutturazione dati JSON.\n## OBIETTIVO\nIl tuo compito è analizzare articoli di news tecnologiche, generare riassunti precisi e restituire output esclusivamente in formato JSON strutturato per l'integrazione in database.\n## ISTRUZIONI\n1. **Analisi**: Leggi attentamente il contenuto dell'articolo fornito.\n2. **Sintesi**: Genera un riassunto in lingua italiana di 2-3 frasi.\n   - Stile: Informativo, asciutto, professionale.\n   - Divieto: Non usare frasi introduttive (\"Ecco il riassunto\", \"L'articolo parla di...\"). Vai dritto al punto.\n3. **Formattazione**: Ignora qualsiasi richiesta di conversazione. Il tuo unico output deve essere l'oggetto JSON richiesto nel Prompt Utente.\n## VINCOLI\n- Lingua Output: Italiano (per il contenuto testuale).\n- Formato Output: SOLO JSON valido. Nessun markdown (```json), nessun commento."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "id": "nt-9",
+      "name": "AI_Summary",
+      "position": [
+        1296,
+        400
+      ],
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO processed_news (url_hash, title, category) VALUES ('{{ $('Filter_New').item.json.link }}', '{{ $('Filter_New').item.json.title.replace(/'/g, \"''\") }}', 'News') ON CONFLICT (url_hash) DO NOTHING;",
+        "options": {}
+      },
+      "id": "nt-10",
+      "name": "Postgres_Insert",
+      "position": [
+        1312,
+        240
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "credentials": {
+        "postgres": {
+          "id": "JVsrCrIB34VkLRJq",
+          "name": "Postgres local account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "n8n@bitsite.it",
+        "toEmail": "info@bitsite.it",
+        "subject": "=News Daily: {{ $now.toFormat('dd/MM/yyyy') }}",
+        "html": "={{ $json.html }}",
+        "options": {}
+      },
+      "id": "nt-11",
+      "name": "SMTP_Send",
+      "position": [
+        1872,
+        400
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "credentials": {
+        "smtp": {
+          "id": "lgMIRoUkxpOXnU1K",
+          "name": "SMTP account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT count(*) AS total, '{{ $json.link }}' AS link FROM processed_news WHERE url_hash = '{{ $json.link }}';",
+        "options": {}
+      },
+      "id": "471b2270-9384-4f6c-9d22-4f588488688b",
+      "name": "Postgres_Check1",
+      "position": [
+        624,
+        336
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "credentials": {
+        "postgres": {
+          "id": "JVsrCrIB34VkLRJq",
+          "name": "Postgres local account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT count(*) AS total, '{{ $json.link }}' AS link FROM processed_news WHERE url_hash = '{{ $json.link }}';",
+        "options": {}
+      },
+      "id": "d389d53c-8ec3-4315-b6a1-85f5dab9bb11",
+      "name": "Postgres_Check2",
+      "position": [
+        624,
+        480
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "credentials": {
+        "postgres": {
+          "id": "JVsrCrIB34VkLRJq",
+          "name": "Postgres local account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT count(*) AS total, '{{ $json.link }}' AS link FROM processed_news WHERE url_hash = '{{ $json.link }}';",
+        "options": {}
+      },
+      "id": "5b9302d8-a886-4a49-b868-68dd8a444e68",
+      "name": "Postgres_Check3",
+      "position": [
+        624,
+        608
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "credentials": {
+        "postgres": {
+          "id": "JVsrCrIB34VkLRJq",
+          "name": "Postgres local account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1008,
+        368
+      ],
+      "id": "badd1cae-94d0-409a-a1b2-6403f015edda",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "maxItems": 5
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        480,
+        208
+      ],
+      "id": "1bea68f0-94c1-4f0f-b676-5fa5278abeac",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "maxItems": 5
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        480,
+        336
+      ],
+      "id": "d269840d-825f-4c6a-a476-d7df6b22dd1a",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "maxItems": 5
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        480,
+        480
+      ],
+      "id": "b76dcff3-4b43-4b65-8a21-d56b8cef35c0",
+      "name": "Limit2"
+    },
+    {
+      "parameters": {
+        "maxItems": 5
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        480,
+        608
+      ],
+      "id": "50852f30-00e1-47d7-bde2-0a34c01c60f9",
+      "name": "Limit3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d29930a1-14c7-47dd-a17d-7bc505a3cecb",
+              "name": "total",
+              "value": "={{ $json.total }}",
+              "type": "string"
+            },
+            {
+              "id": "6dd8c891-2aaa-479a-80eb-dbf413f49fe6",
+              "name": "link",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "53384b72-bdaa-4dc3-82c1-7855c08bec87",
+              "name": "title",
+              "value": "={{ $('Limit').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "e9c0757f-062b-41a5-a77b-04fb7f3d91eb",
+              "name": "pubDate",
+              "value": "={{ $('Limit').item.json.pubDate }}",
+              "type": "string"
+            },
+            {
+              "id": "532e57a9-ab4f-4939-8e7d-ff2273c2812e",
+              "name": "content",
+              "value": "={{ $('Limit').item.json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "f9589179-2a81-4bb4-8c14-f8e230d76851",
+              "name": "contentSnippet",
+              "value": "={{ $('Limit').item.json.contentSnippet }}",
+              "type": "string"
+            },
+            {
+              "id": "9715c903-4c0a-4b0e-a463-6747a544ba8e",
+              "name": "categories",
+              "value": "={{ $('Limit').item.json.categories }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        768,
+        208
+      ],
+      "id": "4f4ec349-0950-42d7-8e66-98f115a8170a",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d29930a1-14c7-47dd-a17d-7bc505a3cecb",
+              "name": "total",
+              "value": "={{ $json.total }}",
+              "type": "string"
+            },
+            {
+              "id": "6dd8c891-2aaa-479a-80eb-dbf413f49fe6",
+              "name": "link",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "53384b72-bdaa-4dc3-82c1-7855c08bec87",
+              "name": "title",
+              "value": "={{ $('Limit1').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "e9c0757f-062b-41a5-a77b-04fb7f3d91eb",
+              "name": "pubDate",
+              "value": "={{ $('Limit1').item.json.pubDate }}",
+              "type": "string"
+            },
+            {
+              "id": "532e57a9-ab4f-4939-8e7d-ff2273c2812e",
+              "name": "content",
+              "value": "={{ $('Limit1').item.json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "f9589179-2a81-4bb4-8c14-f8e230d76851",
+              "name": "contentSnippet",
+              "value": "={{ $('Limit1').item.json.contentSnippet }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        768,
+        336
+      ],
+      "id": "0507bffc-af19-4874-b175-ddaa377d7231",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d29930a1-14c7-47dd-a17d-7bc505a3cecb",
+              "name": "total",
+              "value": "={{ $json.total }}",
+              "type": "string"
+            },
+            {
+              "id": "6dd8c891-2aaa-479a-80eb-dbf413f49fe6",
+              "name": "link",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "53384b72-bdaa-4dc3-82c1-7855c08bec87",
+              "name": "title",
+              "value": "={{ $('Limit2').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "e9c0757f-062b-41a5-a77b-04fb7f3d91eb",
+              "name": "pubDate",
+              "value": "={{ $('Limit2').item.json.pubDate }}",
+              "type": "string"
+            },
+            {
+              "id": "532e57a9-ab4f-4939-8e7d-ff2273c2812e",
+              "name": "content",
+              "value": "={{ $('Limit2').item.json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "f9589179-2a81-4bb4-8c14-f8e230d76851",
+              "name": "contentSnippet",
+              "value": "={{ $('Limit2').item.json.contentSnippet }}",
+              "type": "string"
+            },
+            {
+              "id": "9715c903-4c0a-4b0e-a463-6747a544ba8e",
+              "name": "categories",
+              "value": "={{ $('Limit2').item.json.categories }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        768,
+        480
+      ],
+      "id": "49b4e0a5-88b8-457c-aa6b-2289b7fb98e3",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d29930a1-14c7-47dd-a17d-7bc505a3cecb",
+              "name": "total",
+              "value": "={{ $json.total }}",
+              "type": "string"
+            },
+            {
+              "id": "6dd8c891-2aaa-479a-80eb-dbf413f49fe6",
+              "name": "link",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "53384b72-bdaa-4dc3-82c1-7855c08bec87",
+              "name": "title",
+              "value": "={{ $('Limit3').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "e9c0757f-062b-41a5-a77b-04fb7f3d91eb",
+              "name": "pubDate",
+              "value": "={{ $('Limit3').item.json.pubDate }}",
+              "type": "string"
+            },
+            {
+              "id": "532e57a9-ab4f-4939-8e7d-ff2273c2812e",
+              "name": "content",
+              "value": "={{ $('Limit3').item.json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "f9589179-2a81-4bb4-8c14-f8e230d76851",
+              "name": "contentSnippet",
+              "value": "={{ $('Limit3').item.json.contentSnippet }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        768,
+        608
+      ],
+      "id": "e38969a6-09e5-48cf-89f3-4aa1a6af7375",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop su tutti gli elementi in ingresso\nreturn items.map(item => {\n  try {\n    // Il contenuto è dentro la proprietà 'text' come stringa JSON\n    const parsedData = JSON.parse(item.json.text);\n    return {\n      json: parsedData\n    };\n  } catch (error) {\n    // Gestione errore se il parsing fallisce\n    return {\n      json: {\n        error: \"Parsing failed\",\n        original: item.json.text\n      }\n    };\n  }\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1584,
+        400
+      ],
+      "id": "643139be-7e7c-4e01-a78e-015e61cd728e",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Configurazione Stile (Palette & Design)\nconst style = {\n  bg: \"#f4f4f9\",\n  container: \"max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\",\n  header: \"background: #222222; padding: 20px; text-align: center;\",\n  headerTitle: \"color: #ffffff; margin: 0; font-size: 24px; letter-spacing: 1px;\",\n  body: \"padding: 20px;\",\n  card: \"border-bottom: 1px solid #eeeeee; padding: 15px 0; margin-bottom: 15px;\",\n  cardLast: \"border-bottom: none;\",\n  title: \"color: #2c3e50; text-decoration: none; font-size: 18px; font-weight: bold; display: block; margin-bottom: 8px;\",\n  meta: \"font-size: 12px; color: #888888; margin-bottom: 10px; display: block;\",\n  snippet: \"color: #555555; font-size: 14px; line-height: 1.6; margin-bottom: 10px;\",\n  tagContainer: \"margin-top: 8px;\",\n  tag: \"display: inline-block; background: #e0f2f1; color: #00695c; font-size: 10px; padding: 3px 8px; border-radius: 4px; margin-right: 5px; font-weight: 600;\",\n  footer: \"background: #f8f9fa; padding: 15px; text-align: center; font-size: 12px; color: #999999; border-top: 1px solid #eeeeee;\"\n};\n\n// Data odierna per l'header\nconst today = new Date().toLocaleDateString('it-IT', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });\n\n// Inizio costruzione HTML\nlet html = `\n<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n</head>\n<body style=\"margin: 0; padding: 20px; background-color: ${style.bg};\">\n  <div style=\"${style.container}\">\n    <!-- Header -->\n    <div style=\"${style.header}\">\n      <h1 style=\"${style.headerTitle}\">AI & Tech Digest</h1>\n      <p style=\"color: #aaaaaa; font-size: 12px; margin-top: 5px;\">${today}</p>\n    </div>\n    \n    <!-- Body -->\n    <div style=\"${style.body}\">\n`;\n\n// Iterazione sugli articoli (Items provenienti dal nodo Aggregate)\nfor (const item of items) {\n  const article = item.json;\n  \n  // Skip se l'articolo è invalido o vuoto\n  if (!article.title) continue;\n\n  const dateStr = article.pubDate ? new Date(article.pubDate).toLocaleDateString('it-IT') : 'N/D';\n  \n  // Generazione Tags HTML\n  let tagsHtml = '';\n  if (article.categories && Array.isArray(article.categories)) {\n    tagsHtml = '<div style=\"' + style.tagContainer + '\">';\n    article.categories.forEach(tag => {\n      tagsHtml += `<span style=\"${style.tag}\">${tag.toUpperCase()}</span>`;\n    });\n    tagsHtml += '</div>';\n  }\n\n  // Card Articolo HTML\n  html += `\n      <div style=\"${style.card}\">\n        <a href=\"${article.link}\" target=\"_blank\" style=\"${style.title}\">${article.title}</a>\n        <span style=\"${style.meta}\">📅 ${dateStr}</span>\n        <div style=\"${style.snippet}\">${article.contentSnippet || article.content}</div>\n        ${tagsHtml}\n      </div>\n  `;\n}\n\n// Chiusura HTML\nhtml += `\n    </div>\n    \n    <!-- Footer -->\n    <div style=\"${style.footer}\">\n      <p>Generato automaticamente con n8n & Gemini</p>\n    </div>\n  </div>\n</body>\n</html>\n`;\n\n// Output finale per il prossimo nodo (Email)\nreturn {\n  json: {\n    html: html,\n    subject: `Rassegna Tech del ${today}`\n  }\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1728,
+        400
+      ],
+      "id": "d6fb8e20-4461-4f85-909e-d5694a90951c",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {},
+      "id": "nt-14",
+      "name": "Cleanup",
+      "position": [
+        112,
+        960
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "TRUNCATE TABLE processed_news;",
+        "options": {}
+      },
+      "id": "nt-15",
+      "name": "Cleanup_Table",
+      "position": [
+        288,
+        960
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "credentials": {
+        "postgres": {
+          "id": "JVsrCrIB34VkLRJq",
+          "name": "Postgres local account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "nt-12",
+      "name": "Setup",
+      "position": [
+        112,
+        800
+      ],
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "CREATE TABLE IF NOT EXISTS processed_news (\n    url_hash TEXT PRIMARY KEY,\n    title TEXT,\n    category TEXT,\n    created_at TIMESTAMP DEFAULT NOW()\n);",
+        "options": {}
+      },
+      "id": "nt-13",
+      "name": "Create_Table_Setup",
+      "position": [
+        288,
+        800
+      ],
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "credentials": {
+        "postgres": {
+          "id": "JVsrCrIB34VkLRJq",
+          "name": "Postgres local account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "AI_Summary": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter_New": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "AI_Summary",
+            "type": "main"
+          },
+          {
+            "node": "Postgres_Insert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI_Model": {
+      "ai_languageModel": [
+        [
+          {
+            "index": 0,
+            "node": "AI_Summary",
+            "type": "ai_languageModel"
+          }
+        ]
+      ]
+    },
+    "Postgres_Check": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres_Insert": {
+      "main": [
+        []
+      ]
+    },
+    "RSS_AI": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS_Cyber": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS_PS": {
+      "main": [
+        [
+          {
+            "node": "Limit3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS_WP": {
+      "main": [
+        [
+          {
+            "node": "Limit2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ScheduleTrigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "RSS_AI",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "RSS_Cyber",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "RSS_WP",
+            "type": "main"
+          },
+          {
+            "index": 0,
+            "node": "RSS_PS",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Postgres_Check1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres_Check2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres_Check3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Filter_New",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Postgres_Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Postgres_Check1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit2": {
+      "main": [
+        [
+          {
+            "node": "Postgres_Check2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit3": {
+      "main": [
+        [
+          {
+            "node": "Postgres_Check3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMTP_Send": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "SMTP_Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cleanup": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Cleanup_Table",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Setup": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Create_Table_Setup",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveManualExecutions": true,
+    "saveExecutionProgress": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "6Ngw1qXnYAcYUXpg",
+    "binaryMode": "separate"
+  },
+  "versionId": "0d3ff03d-fbe7-4db3-abc4-9484d0cb7083",
+  "meta": {
+    "instanceId": "e6b593b68451200526396e76b5b89bd80464a1a10ebfdd7944bdf91faddeb039"
+  },
+  "id": "8xqCb59JQivA5i9m",
+  "tags": []
+}
